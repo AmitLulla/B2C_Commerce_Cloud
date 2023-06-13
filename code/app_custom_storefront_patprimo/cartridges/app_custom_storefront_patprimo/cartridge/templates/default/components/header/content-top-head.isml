@@ -1,0 +1,50 @@
+<div class="header-banner">
+    <div class="container-top">
+    <script>
+        dataLayer.push({ ecommerce: null });
+        dataLayer.push({
+            event: "view_promotion",
+            ecommerce: {
+            items: [{
+            component_id:  "container-top",
+            message: <isprint value="${'"'+Resource.msg('label.header.banner.text_top.envio_gratis', 'header', null)+' '+Resource.msg('label.header.banner.text_top.compras_mayores', 'header', null)+' '+Resource.msg('label.header.banner.text_top.price', 'header', null)+' '+Resource.msg('label.header.banner.text_top.tarjetas', 'header', null)+'"'}" encoding="off" />
+            }]
+            }
+        });
+    </script>
+        <div class="content-left">
+            <div class="drop-country">
+                <ul class="dropdown">
+                    <li>${Resource.msg('label.header.banner.colombia', 'header', null)}</li>
+                    <li>${Resource.msg('label.header.banner.ecuador', 'header', null)}</li>
+                </ul>
+            </div>
+            <div class="fields-text">
+                <span class="span-text-top">
+                    <i class="icon-Sucursales gray image-top"></i>
+                    <a href="${URLUtils.url('Stores-Find')}" data-footer="Header - " >${Resource.msg('label.header.banner.sucursales', 'header', null)}</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="content-center">
+            <iscomment> <span class="fields-text-center">${Resource.msg('label.header.banner.text_top', 'header', null)}</span> </iscomment>
+            <span class="fields-text-center">${Resource.msg('label.header.banner.text_top.envio_gratis', 'header', null)} <span class="text-style">${Resource.msg('label.header.banner.text_top.compras_mayores', 'header', null)} </span>${Resource.msg('label.header.banner.text_top.price', 'header', null)} <span class="text-style">${Resource.msg('label.header.banner.text_top.tarjetas', 'header', null)}</span></span>
+        </div>
+        
+        <div class="content-right">
+            <div class="fields-text">
+                 <span class="span-text-topk">
+                    <i class="icon-Asistencia gray image-top"></i>
+                    <a href="${#}" data-footer="Header - "  class=" d-none d-sm-bloc">${Resource.msg('label.header.banner.asistencia', 'header', null)}</a>
+                </span>
+            </div>
+        </div>
+
+        <iscomment> <div class="close-button">
+            <button type="button" class="close" aria-label="${Resource.msg('label.header.banner.close', 'header', null)}">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div> </iscomment>
+    </div>
+</div>

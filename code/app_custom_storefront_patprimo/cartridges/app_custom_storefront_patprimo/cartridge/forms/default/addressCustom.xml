@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<form
+	xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<!-- <field formid="addressId" label="label.input.addressid" type="string" mandatory="true"
+    	   max-length="20" missing-error="error.message.required" range-error="error.message.20orless"/> -->
+	<field formid="aliasDireccion" label="label.input.addressid" type="string" mandatory="true"
+          max-length="50" missing-error="error.message.required" range-error="error.message.20orless"/>
+	<field formid="depaSelect" label="label.input.firstname.profile" type="string" mandatory="true" binding="depaSelect"
+           max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless"/>
+	<field formid="citySelect" label="label.input.firstname.profile" type="string" mandatory="true" binding="depaSelect"
+           max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless"/>
+	<field formid="piso" label="label.input.firstname.profile" type="string" mandatory="false" binding="depaSelect"
+           max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless"/>
+	<field formid="tipoVia" label="label.input.firstname.profile" type="string" mandatory="true" binding="depaSelect"
+          max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless"/>
+	<field formid="numberStreet" label="label.input.firstname.profile" type="string" mandatory="true" binding="depaSelect"
+          max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless" regexp="[^!#$%'()*+,>&lt;&amp;./=¡:;?@\\^_`{|}~&#45;]+$"/>
+	<field formid="numberStreetExtra" label="label.input.firstname.profile" type="string" mandatory="true" binding="depaSelect"
+          max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless" regexp="[^!#$%'()*+,>&lt;&amp;./=¡:;?@\\^_`{|}~&#45;]+$"/>
+	<field formid="recibeName" label="label.input.firstname.profile" type="string" mandatory="true" binding="depaSelect"
+          max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless" />
+	<field formid="street" label="label.input.firstname.profile" type="string" mandatory="true" binding="depaSelect"
+          max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless" regexp="[^!#$%'()*+,>&lt;&amp;./=¡:;?@\\^_`{|}~&#45;]+$"/>
+	<field formid="city" label="label.input.city" type="string" mandatory="true" binding="city" min-length="2"
+           max-length="50" missing-error="address.city.missing" range-error="error.message.between2and50"/>
+	
+	<!-- actions provided by the edit shipping address dialog -->
+	<action formid="apply" valid-form="true"/>
+	<action formid="remove" valid-form="false"/>
+</form>

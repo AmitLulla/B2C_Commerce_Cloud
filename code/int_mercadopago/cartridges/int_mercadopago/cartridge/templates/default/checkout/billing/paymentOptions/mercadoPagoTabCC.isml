@@ -1,0 +1,32 @@
+<li class="nav-item js-method-id" data-method-id="${paymentOption.ID}">
+    <a
+        class="nav-link mercadopago-tab mod-desktop ${pdict.mercadoPago && pdict.mercadoPago.enable ? 'enabled' : ''} js-payment-option-tab"
+        data-toggle="tab"
+        href="#mercadopago-content"
+        role="tab"
+        data-payment-option-tab
+    >
+        <div class="row">
+            <div class="col-3">
+                <img class="credit-card-option" src="${URLUtils.staticURL('/images/icons8-credit-card-100.png')}" width="28"
+                    alt="${paymentOption.name}" title="${paymentOption.name}">
+            </div>
+            <div class="col-9">
+                <h3 class="credit-card-option-txt">${Resource.msg('txt.tarjetas.credito', 'checkout', null)}</h3>
+            </div>
+        </div>            
+    </a>
+    <a 
+        class="nav-link mercadopago-tab mod-mobile ${pdict.mercadoPago && pdict.mercadoPago.enable ? 'enabled' : ''} js-payment-option-tab"
+        data-toggle="modal" data-target="#creditCardModal" data-payment-option-tab>
+        <div class="row">
+            <div class="col-3">
+                <img class="credit-card-option" src="${URLUtils.staticURL('/images/icons8-credit-card-100.png')}" width="28"
+                    alt="${paymentOption.name}" title="${paymentOption.name}">
+            </div>
+            <div class="col-9">
+                <h3 class="credit-card-option-txt">${Resource.msg('txt.tarjetas.credito', 'checkout', null)}</h3>
+            </div>
+        </div>            
+    </a>
+</li>

@@ -1,0 +1,6 @@
+<div class="site-wish">
+    <a href="${URLUtils.https('Wishlist-Show')}">
+        <i class="icon-WhishList gray"></i>
+        <span class="text-icon">${Resource.msg('label.header.icons.wish', 'header', null)}</span>
+    </a>
+</div>

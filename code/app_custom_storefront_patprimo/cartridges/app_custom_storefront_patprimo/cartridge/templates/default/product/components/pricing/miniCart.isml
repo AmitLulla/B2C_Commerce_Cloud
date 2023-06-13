@@ -1,0 +1,15 @@
+<div class="pricing textAzulPat fontSize14 item-total-${lineItem.UUID}">${lineItem.priceTotal.price}</div>
+<isif condition="${price.type === 'tiered'}">
+    <div class="price">
+        <isinclude template="/product/components/pricing/tiered" />
+    </div>
+<iselseif condition="${price.type === 'range'}">
+    <div class="price">
+        <isinclude template="/product/components/pricing/range" />
+    </div>
+<iselse>
+    <div class="price  miniCartPrice">
+        <isset name="isLowPrice" value="${}" scope="page" />
+        <isinclude template="/product/components/pricing/defaultMiniCart" />
+    </div>
+</isif>

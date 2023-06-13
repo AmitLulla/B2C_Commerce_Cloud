@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences xmlns="http://www.demandware.com/xml/impex/preferences/2007-03-31">
+    <standard-preferences>
+        <all-instances>
+            <preference preference-id="AccountNumberRetentionDays">0</preference>
+            <preference preference-id="AddProductToBasketBehavior">IncrementQuantities</preference>
+            <preference preference-id="CouponGeneratorIncludeDashes">true</preference>
+            <preference preference-id="CouponGeneratorIncludeVowels">true</preference>
+            <preference preference-id="EnableSiteOrderNumbers">true</preference>
+            <preference preference-id="IntegrationOrderCenterIncludeSite">true</preference>
+            <preference preference-id="SiteCurrencies">COP</preference>
+            <preference preference-id="SiteCustomerList">PatPrimo</preference>
+            <preference preference-id="SiteDefaultLocale">default</preference>
+            <preference preference-id="SiteLibrary">PatPrimo</preference>
+            <preference preference-id="SiteLocales">default</preference>
+            <preference preference-id="SiteTimezone">Etc/UTC</preference>
+            <preference preference-id="StorefrontOrderAccess">customer_or_session_match</preference>
+            <preference preference-id="StorefrontOrderFiltering">true</preference>
+            <preference preference-id="StorefrontURLsEnabled">true</preference>
+        </all-instances>
+    </standard-preferences>
+    <custom-preferences>
+        <all-instances>
+            <preference preference-id="tipoVia">
+                [
+                "Avenida",
+                "Calle",
+                "Carrera",
+                "Circular",
+                "Diagonal",
+                "Transversal",
+                "Autopista",
+                "Kilometro",
+                "Circunvalar",
+                "Manzana",
+                "Apartado A\u00e9reo"
+                ]
+            </preference>
+            <preference preference-id="api_google">AIzaSyCokf-h5iBpdb6JsrZUQT_Zs9QOKUC2lg4</preference>
+            <preference preference-id="locator_citys">
+                [
+                "Tunja",
+                "ENVIGADO",
+                "Barranquilla",
+                "Bogotá",
+                "Manizales",
+                "Neiva",
+                "Riohacha",
+                "Medellín",
+                "Sabaneta",
+                "Armenia",
+                "Girardot",
+                "Bucaramanga",
+                "Rionegro",
+                "Ipiales",
+                "Santamarta",
+                "Sogamoso",
+                "Tulua",
+                "APARTADO",
+                "PEREIRA",
+                "Pasto",
+                "Sincelejo",
+                "BARRANQUILLA",
+                "Cali",
+                "Duitama",
+                "Florencia",
+                "Monteria",
+                "Fusagasugá",
+                "MANTA",
+                "Curridat (Zapote)",
+                "Escazú (San Rafael)",
+                "QUITO",
+                "CUENCA",
+                "GUAYAQUIL"
+                ]
+            </preference>
+            
+            <preference preference-id="client_id">2ngkqhzb3ktmi5vyvcjx7ipl</preference>
+            <preference preference-id="client_secret">3Daj2ULgYHjACmJ1EePsuFTj</preference>
+            <preference preference-id="MID_or_account_id">534003350</preference>
+            <preference preference-id="external_key">DEE236EA-460D-43C4-A766-10866D616497</preference>
+            <preference preference-id="header_text_credicol">Si pagaste a través de Crédicol, te informamos que se realizará un ajuste a tu crédito y no se cobrará el valor del producto que no se enviará.</preference>
+            <preference preference-id="header_text_contra_entrega">No te preocupes, el valor a cobrar se ha modificado por el valor final de la orden, la que podrás ver al final de este correo.</preference>
+            <preference preference-id="header_text_gift_card">El valor de los productos que no se Enviarán, será reembolsado a LA GIFCARD que usaste para realizar la compra y podrás usar ese valor para realizar una nueva compra</preference>
+            <preference preference-id="header_text_otro_medio_pago">Te informamos que la devolución del dinero por el(los) producto(s) que no se enviará(n), será consignado a una cuenta que nos indiques, para lo que pedimos tu colaboración llenando el siguiente formulario para realizar la respectiva devolución. CLICK AQUI</preference>
+            <preference preference-id="eventDefinitionKey">APIEvent-71834447-6901-1e13-6a6c-2a29c9d49007</preference>
+            <preference preference-id="timerCartAbandoned">30</preference>
+            <preference preference-id="enable_cart_abandoned">false</preference>
+            <preference preference-id="promoCodeMC">pashNewUSer</preference>
+            <preference preference-id="eventDefinitionKey_cart_abandoned">APIEvent-1d0c4afc-fc6e-cebc-4f70-cb4ddeb805b0</preference>
+            <preference preference-id="imageConfigDIS">
+                {
+                    "viewTypeMapping": {
+                        "zoom": "hi-res",
+                        "xlarge": "hi-res",
+                        "large": "hi-res",
+                        "medium": "hi-res",
+                        "small": "hi-res",
+                        "swatch": "hi-res",
+                        "plp-gallery": "plp-gallery"    },
+                    "zoom": {
+                        "scaleWidth": 1200,
+                        "scaleHeight": 1200    },
+                    "xlarge": {
+                        "scaleWidth": 800,
+                        "scaleHeight": 800    },
+                    "large": {
+                        "scaleWidth": 680,
+                        "scaleHeight": 680    },
+                    "medium": {
+                        "scaleWidth": 350,
+                        "scaleHeight": 380    },
+                    "small": {
+                        "scaleHeight": 140    },
+                    "swatch": {
+                        "scaleWidth": 40,
+                        "scaleHeight": 40    },
+                    "plp-gallery": {
+                        "scaleWidth": 800,
+                        "scaleHeight": 400    },
+                    "missingImages": {
+                        "xlarge": "large_missing.jpg",
+                        "zoom": "images/noimagelarge.png",
+                        "large": "images/noimagelarge.png",
+                        "medium": "images/noimagemedium.png",
+                        "small": "images/noimagesmall.png"    }
+                }
+            </preference>
+        </all-instances>
+    </custom-preferences>
+</preferences>

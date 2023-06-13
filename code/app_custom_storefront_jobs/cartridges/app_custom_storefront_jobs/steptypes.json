@@ -1,0 +1,52 @@
+{
+    "step-types": {
+        "chunk-script-module-step": [
+            {
+                "@type-id":"custom.exportCatalogFeed",
+                "@supports-parallel-execution":"false",
+                "@supports-site-context":"true",
+                "@supports-organization-context":"false",
+                "description":"Custom Job for exporting product attributes and import them into 3rd party vendors",
+                "module":"app_custom_storefront_jobs/cartridge/scripts/jobsteps/exportCatalogFeed.js",
+                "before-step-function":"beforeStep",
+                "read-function":"read",
+                "process-function":"process",
+                "write-function":"write",
+                "after-step-function":"afterStep",
+                "chunk-size":1000,
+                "transactional":"true",
+                "parameters": {
+                    "parameter": [
+                        {
+                            "@name":"folderName",
+                            "@type":"string",
+                            "@required":"true"
+                        },
+                        {
+                            "@name":"fileName",
+                            "@type":"string",
+                            "@required":"true"
+                        },
+                        {
+                        "@name":"selectedCategory",
+                        "@type":"string",
+                        "@required":"false"
+                        }
+                    ]
+                },
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when the step finished successfully."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+<isloop items="${pdict.totals.discounts}" var="discount">
+            <isif condition="${discount.lineItemText}">
+                <div class="promotion-information RedHatDisplayFont fontSize14 greyPatFont83 mb-1 mt-0">
+                    <span class="promotion-name promotion-name-${discount.UUID}">${discount.lineItemText}</span>
+                    <isset name="descuento" value="${discount.price.slice(0,2).split('').reverse().join('').concat(discount.price.slice(2));}" scope="page" />
+                    <span class="applied-promotion-discount-cart applied-promotion-discount-cart-${discount.UUID}">${descuento}</span>
+                </div>
+                <iselse/>
+                <isloop items="${discount.priceCustom}" var="relatedPromotion">
+                    <isif condition="${relatedPromotion.totalCupon}">
+                        <div class="coupon-price-adjustment  RedHatDisplayFont fontSize14 greyPatFont83 mb-1 mt-0">
+                            <span class="promotion-name promotion-name-${discount.UUID}">${discount.couponCode}</span>
+                            <isscript>
+                                    var descuentoCupon = relatedPromotion.totalCupon.toFixed().substring(1).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                            </isscript>
+                            <span class="applied-promotion-discount-cart applied-promotion-discount-cart-${discount.UUID}">-$${descuentoCupon}</span>
+                        </div>
+
+                    </isif>
+                </isloop>
+
+                </isif>
+        
+</isloop>

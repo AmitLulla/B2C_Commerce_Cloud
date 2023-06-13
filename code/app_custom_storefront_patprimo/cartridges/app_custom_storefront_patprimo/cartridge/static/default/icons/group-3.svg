@@ -1,0 +1,9 @@
+<svg width="50" height="20" viewBox="0 0 50 20" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#E9E9E9" fill="#FFF" d="M.5.5h49v19H.5z"/>
+        <text font-family="RedHatDisplay-Regular, Red Hat Display" font-size="12" fill="#787878">
+                        <tspan x="17" y="14">1</tspan>
+                    </text>
+        <path d="M41.5 12a.498.498 0 0 1-.354-.147l-3-3a.5.5 0 1 1 .707-.707l2.647 2.648 2.647-2.647a.5.5 0 1 1 .707.707l-3 3A.499.499 0 0 1 41.5 12z" fill="#999" fill-rule="nonzero"/>
+    </g>
+</svg>

@@ -1,0 +1,112 @@
+{
+    "name": "Main Banner Custom",
+    "description": "Image, text overlay that links user to a category using the markup editor",
+    "group": "patprimo_components_homepage",
+    "attribute_definition_groups": [
+      {
+        "id": "bannerImage",
+        "name": "Banner Image",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image",
+            "name": "Image",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "bannerImageMobile",
+        "name": "Banner Image Mobile",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "imageMobile",
+            "name": "ImageMobile",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_1",
+        "name": "CTA 1",
+        "description": "text for the button 1.",
+        "attribute_definitions": [
+          {
+            "id": "cta_1",
+            "name": "CTA 1",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_2",
+        "name": "CTA 2",
+        "description": "text for the button 2.",
+        "attribute_definitions": [
+          {
+            "id": "cta_2",
+            "name": "CTA 2",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "tag_cta",
+        "name": "Tag For CTA",
+        "description": "Tag for cta: h1, h2, h3, p, etc",
+        "attribute_definitions": [
+          {
+            "id": "tag_cta",
+            "name": "Tag For CTA",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_link1",
+        "name": "cta link 1",
+        "description": "The Shop Now link on the banner button 1",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink",
+            "name": "Category Link",
+            "type": "category",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_link2",
+        "name": "cta link 2",
+        "description": "The Shop Now link on the banner button 2",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink2",
+            "name": "Category Link",
+            "type": "category",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "seccion_datalayers_info",
+        "name": "Sección Datalayers",
+        "attribute_definitions": [
+            {
+                "id": "component_id",
+                "name": "Component ID",
+                "type": "text",
+                "required": false
+            }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }
+  

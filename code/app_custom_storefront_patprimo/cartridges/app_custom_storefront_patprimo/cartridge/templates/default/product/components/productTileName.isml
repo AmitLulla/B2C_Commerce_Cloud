@@ -1,0 +1,3 @@
+<div class="productNameMobile mb-0 truncate">
+    <a class="prodLink RedHatDisplayFont text-left" href="${pdict.urls.product}" data-url-product-info="${URLUtils.url('Product-Info','pid', product.id, 'index', pdict.index)}">${product.productName}</a>
+</div>

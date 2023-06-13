@@ -1,0 +1,48 @@
+<div class="row">
+<div class="col-10 RedHatDisplayFont mt-3">
+    <span>${lineItem.productName}</span>
+</div>
+<isif condition="${!lineItem.isBonusProductLineItem}"/>
+    <div class="col-2 remove-line-item">
+        <button type="button" class="remove-btn remove-product btn btn-light" data-toggle="modal"
+                data-target="#removeProductModal" data-pid="${lineItem.id}"
+                data-name="${lineItem.productName}"
+                data-action="${pdict.actionUrls.removeProductLineItemUrl}"
+                data-uuid="${lineItem.UUID}"
+                aria-label="${Resource.msgf('text.remove.line.item','cart', null, lineItem.productName)}">
+            <span aria-hidden="true"><img class="icons20x20" src="${URLUtils.staticURL('icons/emptyBin.svg')}" alt="great_choice_icon"></span>
+        </button>
+    </div>
+</isif>
+</div>
+
+<div class="product-line-item row" data-product-line-item="${lineItem.UUID}">
+
+        <div class="col-6 line-item-quantity">
+            <isif condition=${miniCart}>
+                <isinclude template="checkout/productCard/productCardQuantitySelector" />
+            <iselse>
+                <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+            </isif>
+        </div>
+            <div class="col-6 align-items-start">
+        <!--- item price --->
+        <div class="line-item-unit-price float-right">
+            <isif condition="${lineItem.price}">
+            <p class="line-item-pricing-info">
+                <span class="line-item-total-text unit-price-label">
+                    ${Resource.msg('label.each.item.price','cart',null)}
+                </span><br/>
+                <isset name="price" value="${lineItem.price}" scope="page"/>
+                <div class="unit-price">
+                    <isinclude template="/product/components/pricing/main" />
+                </div>
+            </p>
+            </isif>
+        </div>
+        <!--- quantity --->
+
+        <!--- line item total price --->
+
+    </div>
+    </div>

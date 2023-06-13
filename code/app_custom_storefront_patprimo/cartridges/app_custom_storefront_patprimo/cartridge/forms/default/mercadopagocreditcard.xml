@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+
+    <field formid="cardType" label="profile.cardtype" type="string" mandatory="true" binding="cardType"
+           max-length="16" missing-error="error.message.required" />
+
+    <field formid="paymentTypeId" label="profile.paymentTypeId" type="string" mandatory="false" binding="paymentTypeId" />
+
+    <field formid="cardNumber" label="label.input.creditcard.number" type="string" mandatory="true" binding="cardNumber"
+           max-length="20" missing-error="error.message.required" parse-error="error.message.required" />
+
+    <field formid="cardOwner" label="label.input.creditcard.owner" type="string" mandatory="true" binding="cardOwner"
+           max-length="16" missing-error="error.message.required" />
+
+    <field formid="expirationMonth" label="label.input.payment.expirationmonth" type="integer" mandatory="true" binding="expirationMonth" missing-error="error.message.required"
+           value-error="address.field.invalid">
+        <options>
+            <option optionid="" label="select.default.month" value=""/>
+            <option optionid="01" label="01" value="01"/>
+            <option optionid="02" label="02" value="02"/>
+            <option optionid="03" label="03" value="03"/>
+            <option optionid="04" label="04" value="04"/>
+            <option optionid="05" label="05" value="05"/>
+            <option optionid="06" label="06" value="06"/>
+            <option optionid="07" label="07" value="07"/>
+            <option optionid="08" label="08" value="08"/>
+            <option optionid="09" label="09" value="09"/>
+            <option optionid="10" label="10" value="10"/>
+            <option optionid="11" label="11" value="11"/>
+            <option optionid="12" label="12" value="12"/>
+        </options>
+    </field>
+
+    <field formid="expirationYear" label="label.input.payment.expirationyear" type="integer" mandatory="true"
+           missing-error="error.message.required">
+        <options>
+            <option optionid="" label="select.default.year" value=""/>
+        </options>
+    </field>
+
+    <field formid="securityCode" label="profile.securitycode" type="string" mandatory="true" binding="securityCode"
+           max-length="4" missing-error="error.card.info.missing.securityCode" />
+
+    <field formid="email" label="profile.email" type="string" mandatory="true" binding="email"
+           max-length="254" missing-error="error.card.info.missing.email" />
+
+    <field formid="phone" label="profile.phone" description="address.phone.example" type="string" mandatory="true"
+           binding="phone" max-length="20" missing-error="error.card.info.missing.phone" />
+
+    <field formid="financialinstitution" label="profile.financialinstitution" type="string" mandatory="true"
+           binding="financialinstitution" max-length="20" missing-error="error.card.info.missing.financialinstitution" />
+
+   <field formid="apartment" label="profile.apartment" type="string" mandatory="true" binding="apartment"
+           max-length="50" missing-error="error.card.info.missing.apartment" />
+
+    <field formid="city" label="profile.city" type="string" mandatory="true" binding="city"
+           max-length="50" missing-error="error.card.info.missing.city" />
+
+    <field formid="via" label="profile.via" type="string" mandatory="true" binding="via"
+           max-length="20" missing-error="error.card.info.missing.via" />
+
+    <field formid="n1" label="profile.n1" type="string" mandatory="true" binding="n1"
+           max-length="5" missing-error="error.card.info.missing.n1" />
+
+    <field formid="n2" label="profile.n2" type="string" mandatory="true" binding="n2"
+           max-length="5" missing-error="error.card.info.missing.n2" />
+
+    <field formid="n3" label="profile.n3" type="string" mandatory="true" binding="n3"
+           max-length="5" missing-error="error.card.info.missing.n3" />
+
+    <field formid="cedula" label="profile.cedula" type="string" mandatory="true" binding="cedula"
+           max-length="12" missing-error="error.card.info.missing.cedula" />
+
+    <field formid="piso" label="profile.piso" type="string" mandatory="true" binding="piso"
+           max-length="12" missing-error="error.card.info.missing.piso" />
+
+     <!-- field for installments -->
+    <field formid="installments" label="label.input.payment.installments" type="integer" mandatory="true"
+           missing-error="error.message.required">
+        <options>
+            <option optionid="" label="select.default.installments" />
+        </options>
+    </field>
+
+    <!-- field for issuer -->
+    <field formid="issuer" label="label.input.payment.issuer" type="integer" mandatory="true"
+           missing-error="error.message.required">
+        <options>
+            <option optionid="" label="select.default.issuer" value=""/>
+        </options>
+    </field>
+
+    <!-- field for docType -->
+    <field formid="docType" label="label.input.payment.docType" type="string" mandatory="true"
+           missing-error="error.message.required">
+    </field>
+
+    <!-- field for docNumber -->
+    <field formid="docNumber" label="label.input.creditcard.docNumber" type="string" mandatory="false"
+       missing-error="error.message.required" />
+
+    <!-- field for card id -->
+    <field formid="cardId" type="string" mandatory="false" />
+
+    <!-- hidden field for token -->
+    <field formid="token" type="string" mandatory="false" />
+
+    <field formid="saveCard" label="label.save.card" binding="saveCard" type="boolean" mandatory="false" checked="true" />
+
+</form>

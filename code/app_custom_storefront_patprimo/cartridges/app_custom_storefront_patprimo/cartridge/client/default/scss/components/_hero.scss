@@ -1,0 +1,72 @@
+@import "~base/components/hero";
+@import "../variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/mixins/breakpoints";
+
+h1.title-jeans {
+
+    text-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.4);
+    font-family: "Play fair Display";
+    font-size: 2.188rem;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.91;
+    letter-spacing: normal;
+    text-align: center;
+    color: #f2f2f2;
+    display: inline-block;
+    margin-top: 9.375rem;
+    @include media-breakpoint-down(sm) {
+            color: #f2f2f2;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.86) !important;
+            font-family: "Play fair Display" !important;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 0.91;
+            letter-spacing: normal;
+            text-align: center;
+            display: inline-block;
+            margin-top: -0.5rem;
+        }
+    
+        @include media-breakpoint-down(xs) {
+            color: #f2f2f2;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.86) !important;
+            font-family: "Play fair Display" !important;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 0.91;
+            letter-spacing: normal;
+            text-align: center;
+            display: inline-block;
+            margin-top: -0.5rem;
+        }
+    }
+    
+    .marginSort {
+        margin: 0px;
+    
+        @include media-breakpoint-down(md) {
+    
+            margin-left: 0px;
+        }
+    
+        @include media-breakpoint-down(sm) {
+            
+                margin-top: 12px;
+                    margin-right: 14px;
+        }
+    
+        @include media-breakpoint-down(xs) {
+                margin-top: 12px;
+                    margin-right: 14px;
+        }
+                                }

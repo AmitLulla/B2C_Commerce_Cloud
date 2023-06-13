@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="mis-referidos">
+        <display-name xml:lang="x-default">Mis Referidos</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="customerNumber">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="cedulaAhijado">
+                <display-name xml:lang="x-default">Cedula Ahijado</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="cedulaPadrino">
+                <display-name xml:lang="x-default">Cedula Padrino</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="cupon">
+                <display-name xml:lang="x-default">Cupón</display-name>
+                <description xml:lang="x-default">Código del cupón de descuento</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerPadrino">
+                <display-name xml:lang="x-default">Customer Number - Padrino</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="emailReferido">
+                <display-name xml:lang="x-default">Email de tu Referido</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="estadoCupon">
+                <display-name xml:lang="x-default">Estado</display-name>
+                <description xml:lang="x-default">Estado del cupón de descuento</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Cupón disponible</display>
+                        <value>cuponDisponible</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Esperando compra</display>
+                        <value>esperandoCompra</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Cupón canjeado</display>
+                        <value>cuponCanjeado</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="fechaCanjeCupon">
+                <display-name xml:lang="x-default">Fecha de canje de cupón</display-name>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fechaCanjeFisico">
+                <display-name xml:lang="x-default">Fecha Canje Fisico</display-name>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fechaCanjePadrino">
+                <display-name xml:lang="x-default">Fecha Canje Padrino</display-name>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fechaReferido">
+                <display-name xml:lang="x-default">Fecha en la que referiste</display-name>
+                <type>date</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nombrePadrino">
+                <display-name xml:lang="x-default">Nombre Padrino</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="referidoNombre">
+                <display-name xml:lang="x-default">Referido</display-name>
+                <description xml:lang="x-default">Nombre del referido</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="mis-referidos">
+                <display-name xml:lang="x-default">Mis referidos</display-name>
+                <attribute attribute-id="emailReferido"/>
+                <attribute attribute-id="customerPadrino"/>
+                <attribute attribute-id="cupon"/>
+                <attribute attribute-id="estadoCupon"/>
+                <attribute attribute-id="referidoNombre"/>
+                <attribute attribute-id="cedulaAhijado"/>
+                <attribute attribute-id="fechaReferido"/>
+                <attribute attribute-id="fechaCanjeCupon"/>
+                <attribute attribute-id="fechaCanjeFisico"/>
+                <attribute attribute-id="nombrePadrino"/>
+                <attribute attribute-id="cedulaPadrino"/>
+                <attribute attribute-id="fechaCanjePadrino"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="departamento">
+        <description xml:lang="x-default">Departamentos, municipios y costos</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="departamento-municipio">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="ciudad">
+                <display-name xml:lang="x-default">ciudad</display-name>
+                <description xml:lang="x-default">ciudad</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="coberturaContraEntrega">
+                <display-name xml:lang="x-default">Coberura contra entrega</display-name>
+                <description xml:lang="x-default">Coberura contra entrega</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="codigoDiviPola">
+                <display-name xml:lang="x-default">Divi Pola</display-name>
+                <description xml:lang="x-default">Divi Pola</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="costoEnvioContraentrega">
+                <display-name xml:lang="x-default">Costo Envío Contraentrega</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="costoEnvioExpress">
+                <display-name xml:lang="x-default">Costo Envío Express</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="costoEnvioNormal">
+                <display-name xml:lang="x-default">Costo Envío Normal</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="municipio">
+                <display-name xml:lang="x-default">Municipio</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="tiempoTransportadora">
+                <display-name xml:lang="x-default">Tiempo Transportadora</display-name>
+                <description xml:lang="x-default">Días Hábiles</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="default">
+                <display-name xml:lang="x-default">default</display-name>
+                <attribute attribute-id="codigoDiviPola"/>
+                <attribute attribute-id="ciudad"/>
+                <attribute attribute-id="coberturaContraEntrega"/>
+                <attribute attribute-id="municipio"/>
+            </attribute-group>
+            <attribute-group group-id="costosEnvio">
+                <display-name xml:lang="x-default">Costos de envío</display-name>
+                <attribute attribute-id="costoEnvioExpress"/>
+                <attribute attribute-id="costoEnvioContraentrega"/>
+                <attribute attribute-id="costoEnvioNormal"/>
+                <attribute attribute-id="tiempoTransportadora"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="codeAuth">
+        <display-name xml:lang="x-default">email</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="email">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="code">
+                <display-name xml:lang="x-default">code</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="oauthProviderID">
+                <display-name xml:lang="x-default">oauthProviderID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="userID">
+                <display-name xml:lang="x-default">userID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+    </custom-type>
+
+    <custom-type type-id="socialSelling">
+        <description xml:lang="x-default">Venta Social Selling</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <retention-days>1</retention-days>
+        <key-definition attribute-id="key">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="formRegister">
+                <display-name xml:lang="x-default">informacion de formulario de registro</display-name>
+                <description xml:lang="x-default">informacion de formulario de registro</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+             <attribute-definition attribute-id="formShipping">
+                <display-name xml:lang="x-default">informacion de formulario de envio</display-name>
+                <description xml:lang="x-default">informacion de formulario de envio</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="infBasket">
+                <display-name xml:lang="x-default">informacion de carrito</display-name>
+                <description xml:lang="x-default">informacion de carrito</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="infVendedor">
+                <display-name xml:lang="x-default">informacion de vendedor</display-name>
+                <description xml:lang="x-default">informacion de vendedor</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="default">
+                <display-name xml:lang="x-default">default</display-name>
+                <attribute attribute-id="formRegister"/>
+                <attribute attribute-id="formShipping"/>
+                <attribute attribute-id="infBasket"/>
+                <attribute attribute-id="infVendedor"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+    <custom-type type-id="cartAbandoned">
+        <description xml:lang="x-default">Carrito Abandonado</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="UUID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="infoCart">
+                <display-name xml:lang="x-default">informacion del cart</display-name>
+                <description xml:lang="x-default">informacion del cart</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="recibeName">
+                <display-name xml:lang="x-default">Nombre del usuario</display-name>
+                <description xml:lang="x-default">Nombre del usuario</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="brand">
+                <display-name xml:lang="x-default">Marca</display-name>
+                <description xml:lang="x-default">Marca</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendToMarketing">
+                <display-name xml:lang="x-default">Enviado a Marketing?</display-name>
+                <description xml:lang="x-default">Enviado a Marketing?</description>
+                <type>boolean</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="logError">
+                <display-name xml:lang="x-default">Log Error</display-name>
+                <description xml:lang="x-default">Log Error</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="linkBackToCart">
+                <display-name xml:lang="x-default">Link back to cart</display-name>
+                <description xml:lang="x-default">Link back to cart</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">email</display-name>
+                <description xml:lang="x-default">email</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="items">
+                <display-name xml:lang="x-default">items</display-name>
+                <description xml:lang="x-default">informacion productos del carro</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="firstSend">
+                <display-name xml:lang="x-default">First Send</display-name>
+                <description xml:lang="x-default">First Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="secondSend">
+                <display-name xml:lang="x-default">Second Send</display-name>
+                <description xml:lang="x-default">Second Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="thirdSend">
+                <display-name xml:lang="x-default">Third Send</display-name>
+                <description xml:lang="x-default">Third Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fourthSend">
+                <display-name xml:lang="x-default">Fourth Send</display-name>
+                <description xml:lang="x-default">Fourth Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="default">
+                <display-name xml:lang="x-default">default</display-name>
+                <attribute attribute-id="infoCart"/>
+                <attribute attribute-id="items"/>
+                <attribute attribute-id="recibeName"/>
+                <attribute attribute-id="brand"/>
+                <attribute attribute-id="linkBackToCart"/>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="sendToMarketing"/>
+                <attribute attribute-id="logError"/>
+                <attribute attribute-id="firstSend"/>
+                <attribute attribute-id="secondSend"/>
+                <attribute attribute-id="thirdSend"/>
+                <attribute attribute-id="fourthSend"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+    <custom-type type-id="price">
+        <display-name xml:lang="x-default">Price</display-name>
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="attrValor">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="imagenFiltro">
+                <display-name xml:lang="x-default">Imagen Filtro</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="atributos">
+                <display-name xml:lang="x-default">Atributos</display-name>
+                <attribute attribute-id="attrValor"/>
+                <attribute attribute-id="imagenFiltro"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+    <custom-type type-id="size">
+        <display-name xml:lang="x-default">Size</display-name>
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="attrValor">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="imagenFiltro">
+                <display-name xml:lang="x-default">Imagen Filtro</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="filtroAtributo">
+                <attribute attribute-id="imagenFiltro"/>
+                <attribute attribute-id="attrValor"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+    <custom-type type-id="filtroFit">
+        <display-name xml:lang="x-default">Filtro Fit</display-name>
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="attrValor">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="imagenFiltro">
+                <display-name xml:lang="x-default">Imagen Filtro</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="filtroAtributo">
+                <display-name xml:lang="x-default">Filtro Atributo</display-name>
+                <attribute attribute-id="imagenFiltro"/>
+                <attribute attribute-id="attrValor"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+    <custom-type type-id="color">
+        <display-name xml:lang="x-default">Color</display-name>
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="attrValor">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="imagenFiltro">
+                <display-name xml:lang="x-default">Imagen Filtro</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="atributos">
+                <display-name xml:lang="x-default">Atributos</display-name>
+                <attribute attribute-id="attrValor"/>
+                <attribute attribute-id="imagenFiltro"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+</metadata>

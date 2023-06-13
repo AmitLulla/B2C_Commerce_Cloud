@@ -1,0 +1,76 @@
+<div class="card confirm-details no-borde mb-0">
+    <div class="card-header pb-0 metodDesk">
+        <p><a href="${pdict.exitLinkUrl}" class="font13-Medium azul-pat text-underline" title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+            aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">${Resource.msg('link.regresar', 'account', null)}
+        </a></p>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <label class="title">${Resource.msg('label.detalle', 'wishlist', null)} ${pdict.order.orderNumber}</label>
+            </div>
+            <isif condition="${pdict.estadoOrden}">
+            <isif condition="${pdict.AvalibleReturns.retractos.length > 0}">
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                    <a class="font14 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'retracto')}">
+                        <p>${Resource.msg('text.retracto', 'return', null)}</p>
+                    </a>
+                </div>
+            </isif>
+                <isif condition="${pdict.AvalibleReturns.devoluciones.length > 0}">
+             <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                    <a class="font14 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'devolucion')}">
+                        <p>${Resource.msg('text.devolucion', 'return', null)}</p>
+                    </a>
+                </div>
+            </isif>
+                <isif condition="${pdict.AvalibleReturns.garantias.length > 0}">
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                    <a class="font14 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'garantia')}">
+                        <p>${Resource.msg('text.garantia', 'return', null)}</p>
+                    </a>
+                </div>
+            </isif>
+            </isif>
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                <iscomment> <a class="font14 gris-texto1 text-underline" href=""><p>${Resource.msg('link.factura', 'wishlist', null)}</p></a> </iscomment>
+            </div>
+        </div>
+    </div>
+    <div class="card-header pb-0 metodMob">
+        <p><a href="${pdict.exitLinkUrl}" class="font13-Medium azul-pat text-underline" title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+            aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">${Resource.msg('link.regresar', 'account', null)}
+        </a></p>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <label class="font15-Semi azul-pat">${Resource.msg('label.detalle', 'wishlist', null)} ${pdict.order.orderNumber}</label>
+            </div>
+            <isif condition="${pdict.estadoOrden === 'entregado'}">
+            <isif condition="${pdict.AvalibleReturns.retractos.length > 0}">
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                    <a class="font11 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'retracto')}">
+                        <p>${Resource.msg('text.retracto', 'return', null)}</p>
+                    </a>
+                </div>
+            </isif>
+                <isif condition="${pdict.AvalibleReturns.devoluciones.length > 0}">
+                <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                    <a class="font11 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'devolucion')}">
+                        <p>${Resource.msg('text.devolucion', 'return', null)}</p>
+                    </a>
+                </div>
+                </isif>
+                <isif condition="${pdict.AvalibleReturns.garantias.length > 0}">
+                <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                    <a class="font11 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'garantia')}">
+                        <p>${Resource.msg('text.garantia', 'return', null)}</p>
+                    </a>
+                </div>
+                </isif>
+            </isif>
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                <iscomment> <a class="font11 gris-texto1 text-underline" href=""><p>${Resource.msg('link.factura', 'wishlist', null)}</p></a> </iscomment>
+            </div>
+        </div>
+    </div>
+</div>
+<isinclude template="account/order/detailOrder" />
+<isinclude template="account/return/orderProductSummary" />

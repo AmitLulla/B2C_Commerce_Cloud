@@ -1,0 +1,579 @@
+/* The side navigation menu */
+@import "./search";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/mixins/breakpoints";
+.color-filters-side-bar {
+    li {
+        display: inline-block;
+        padding-left: 0.6em!important;
+    }
+}
+button.title {
+  /* stylelint-disable-next-line no-descending-specificity */
+  &::before {
+    content: '\f078';
+    font-size: calculaterem(20px);
+    float: left;
+    font-weight: 100;
+    font-family: 'FontAwesome';
+    height: 20px;
+    width: 20px;
+  }
+}
+.clean {
+  text-decoration: underline !important;
+}
+
+.show-per{
+  position: relative;
+  left: -122px;
+}
+
+.show-grid{
+  position: relative;
+  left: 33px;
+}
+
+.show-pag{
+  position: relative;
+  left: 163px;
+}
+
+#appyFilter {
+  text-transform: uppercase !important;
+}
+.title-close {
+  /* stylelint-disable-next-line no-descending-specificity */
+  &::before {
+    transform: rotate(180deg)!important;
+  }
+}
+button.filter-list {
+  width: 100%;
+  &::after {
+    content: 'X';
+    float: right;
+    font-weight: 100;
+    font-family: 'FontAwesome';
+    height: 20px;
+    width: 20px;
+  }
+}
+.categoriess-filter-list i {
+  &::before {
+    content: '\f096'!important;
+    font-weight: 100;
+    font-family: 'FontAwesome';
+    height: 20px;
+    width: 20px;
+    color: black;
+  }
+}
+.categoriess-filter-list-checked i {
+  &::before {
+    content: '\f14a'!important;
+    color: black;
+  }
+}
+.color-attribute {
+    button {
+        border: none;
+        background-color: transparent;
+    }
+}
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* Modal Description and Characteristics Desktop */
+.background-pdp {
+  width: 100%;
+  padding: 23px 30px 26px 40px;
+  background-color: #F7F7F7;
+  position: relative;
+  top: -3.73rem;
+}
+
+.base-background {
+  width: 100% !important;
+  height: auto !important;
+  padding: 23px 30px 26px 40px;
+  transform: translate(-5px, -30px);
+}
+
+.back-pdp {
+  cursor: pointer;
+}
+
+.backArrow-pdp {
+
+  margin: 0 0 0 10px;
+  font-family: "Red Hat Display";
+  font-size: 1rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.sideDC {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Stay on top */
+  top: 0;
+  background-color: white;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sideDC p {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
+}
+
+.sideDC p:hover,
+.offcanvas p:focus {
+  color: black;
+}
+
+.sideDC .closeModal {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.options-tabs {
+  position: relative;
+  top: -1.875rem;
+  margin-left: 1rem;
+}
+.caracStyle {
+  margin-bottom: 1rem;
+}
+
+.tabDes {
+  margin: 0 25px 4px 30.1px;
+  font-family: "Play fair Display";
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #B7B7B7 !important;
+}
+
+.tabCarac {
+  margin: 0 25px 4px 30.1px;
+  font-family: "Play fair Display";
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #B7B7B7 !important;
+}
+
+.tabDes2 {
+  margin: 0 25px 4px 30.1px;
+  font-family: "Play fair Display";
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #B7B7B7 !important;
+}
+
+.tabCarac2 {
+  margin: 0 25px 4px 30.1px;
+  font-family: "Play fair Display";
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #B7B7B7 !important;
+}
+
+.tab-active a {
+  margin: 4px 24.6px 9px 30px;
+  border-bottom: solid 2px;
+  color: #1c1f2c !important;
+}
+
+.tab-active-2 a {
+  margin: 4px 24.6px 9px 30px;
+  border-bottom: solid 2px;
+  color: #1c1f2c !important;
+}
+
+.tab-inactive {
+  color: #B7B7B7 !important;
+}
+
+.desText {
+  font-family: "Red Hat Display";
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  color: #797979;
+}
+
+.tabs-stage {
+  width: auto;
+}
+
+.tabs-stage-2 {
+  width: auto;
+}
+
+
+.description p {
+  cursor: pointer;
+}
+
+.characteristics p {
+  cursor: pointer;
+}
+
+/**********************************************************************************************************************/
+
+/* Modal Description and Characteristics Mobile */
+.sideDC-mobile {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Stay on top */
+  top: 0;
+  right: 0;
+  background-color: white;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sideDC-mobile p {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
+}
+
+.background-pdp-mobile {
+  width: 100%;
+  height: 3rem;
+  margin: 0 0 0 29px;
+  padding: 0.75rem 0.625rem 0.688rem 0.938rem;
+  box-shadow: 0 0.063rem 0.125rem 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+  top: -3.73rem;
+  right: 0.875rem;
+}
+
+.back-pdp-mobile {
+  cursor: pointer;
+}
+
+.backArrow-pdp-mobile {
+  margin: 0 0 0 10px;
+  font-family: "Red Hat Display";
+  font-size: 1rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.base-background-mobile {
+  width: 100% !important;
+  height: auto !important;
+  padding: 1.125rem 1.875rem 1.625rem 2.5rem;
+  transform: translate(-5px, -55px);
+}
+
+.desText-mobile {
+  font-family: "Red Hat Display";
+  font-size: 0.813rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.08;
+  letter-spacing: normal;
+  color: #797979;
+}
+
+.stage-mobile {
+  width: auto !important;
+}
+
+
+.description-mobile p {
+  cursor: pointer;
+}
+
+.characteristics-mobile p {
+  cursor: pointer;
+}
+/**********************************************************************************************************************/
+.filter-list p {
+   padding: 0px 0px 0px 0px;
+}
+/* The navigation menu links */
+.sidenav p {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav p:hover, .offcanvas p:focus{
+    color: black;
+}
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+    overflow:hidden;
+    width:100%;
+}
+body {
+  overflow-x: hidden;
+}
+/* Add p black background color to the top navigation */
+.topnav {
+    background-color: white;
+    overflow: hidden;
+}
+/* Style the links inside the navigation bar */
+.topnav p {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav p:hover {
+    background-color: #ddd;
+    color: black;
+}
+.textFilter {
+  font-family: "Red Hat Display";
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1c1f2a;
+  @include media-breakpoint-down(sm) {
+      font-family: "Red Hat Display";
+      font-size: 0.813rem;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #1c1f2a;
+    }
+  
+    @include media-breakpoint-down(xs) {
+      font-family: "Red Hat Display";
+      font-size: 0.813rem;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #1c1f2a;
+    }
+}
+/* Add p color to the active/current link */
+.topnav p.active {
+    background-color: #4CAF50;
+    color: black;
+}
+.order-mobile {
+
+
+  @include media-breakpoint-down(sm) {
+    position: relative;
+    left: -7px;
+    top: -13px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    position: relative;
+    left: -7px;
+    top: -13px;
+  }
+}
+
+.mobile-order {
+  display: block;
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
+}
+
+.position-1 {
+  position: relative;
+  left: -16px;
+}
+
+.position-2 {
+  position: relative !important;
+  left: -35px !important;
+    top: -6px !important;
+}
+.vl {
+  border-left: 0.5px solid gray;
+  height: 2vh;
+  display: none;
+
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+
+  @include media-breakpoint-down(sm) {
+    border-left: 0.5px solid #e9e9e9;
+      height: 3vh;
+    display: block;
+    position: relative;
+      left: 8px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    border-left: 0.5px solid #e9e9e9;
+      height: 3vh;
+      position: relative;
+      left: 8px;
+    display: block;
+  }
+}
+.line-filter {
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+
+  @include media-breakpoint-down(sm) {
+    display: block;
+    margin-top: 21px !important;
+  }
+
+  @include media-breakpoint-down(xs) {
+    display: block;
+    margin-top: 21px !important;
+  }
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and p smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav p {font-size: 18px;}
+.sideDC {
+  padding-top: 15px;
+}
+
+.sideDC p {
+  font-size: 18px;
+}
+}
+// p svg{
+//   transition:all .5s ease;
+//   &:hover{
+//     #transform:rotate(180deg);
+//   }
+// }
+#ico{
+  display: none;
+}
+.menu{
+  background: #000;
+  display: none;
+  padding: 5px;
+  width: 320px;
+  p{
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 10px 2px;
+    margin: 3px 0;
+    text-decoration: none;
+    background: #444;
+    &:nth-child(1){
+      margin-top: 0;
+     
+    }
+    &:nth-child(5){
+      margin-bottom: 0;
+     
+    }
+    &:hover{
+      background: #555;
+    }
+  }
+}

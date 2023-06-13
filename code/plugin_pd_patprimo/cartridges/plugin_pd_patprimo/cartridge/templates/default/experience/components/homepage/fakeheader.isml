@@ -1,0 +1,56 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/imageAndTextCommon_A.css');
+</isscript>
+<style>
+.fakeheader-desktop{
+  background-image: url(${pdict.image ? pdict.image.src.mobile:null});
+    width: 100%;
+    position: absolute;
+   
+    top: 0px;
+    left: 0px;
+}
+
+.fakeheader-mobile{
+  background-image: url(${pdict.imageMobile ? pdict.imageMobile.src.mobile:null});
+  display:none;
+}
+
+@media screen and (max-width: 842px){
+.fakeheader-desktop{
+  background-image: url(${pdict.image ? pdict.image.src.mobile:null});
+  display:none;
+}
+
+.fakeheader-mobile{
+  background-image: url(${pdict.imageMobile ? pdict.imageMobile.src.mobile:null});
+   display:inline;
+    position:absolute;
+    top: 0px;
+}
+}
+
+</style>
+<div class="fakeheader" >
+
+ 
+
+     
+                    <source srcset="${pdict.image.src.tablet}" media="(min-width: 768px)"/>
+                    <source srcset="${pdict.image.src.desktop}" media="(min-width: 1024px)"/>
+                
+                    <div class="fakeheader-desktop" >
+                                            
+                       
+                    </div>
+
+                    <div class="fakeheader-mobile" >
+                                            
+                       
+                    </div>
+                 
+              
+       
+</div>
+

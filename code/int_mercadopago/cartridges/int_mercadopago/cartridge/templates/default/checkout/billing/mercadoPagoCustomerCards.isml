@@ -1,0 +1,28 @@
+<isloop items="${pdict.mercadoPago.customerCards}" var="card" status="loopSate">
+    <div
+        class="row ${loopSate.first ? 'selected-payment' : ''} js-mp-customer-card"
+        data-mp-customer-card="${card.id}"
+        data-mp-method-id="${card.payment_method.id}"
+    >
+        <div class="form-group required saved-credit-card-image col-6 col-md-3">
+            <img class="card-image" alt="${card.payment_method.name}" src="${card.payment_method.secure_thumbnail}">
+        </div>
+        <div class="saved-payment-information col-6 col-md-9">
+            <div class="saved-credit-card-type">
+                <span>
+                    ${Resource.msg('msg.payment.type.credit', 'confirmation', null)}
+                    ${card.payment_method.id}
+                </span>
+            </div>
+            <div class="saved-credit-card-number">
+                ${Resource.msgf('customer.card.masked.number', 'mercadoPago', null, card.last_four_digits)}
+            </div>
+            <div class="saved-credit-card-expiration-date">
+                <span>
+                    ${Resource.msg('msg.card.type.ending', 'confirmation', null)}
+                    ${card.expiration_month}/${card. expiration_year}
+                </span>
+            </div>
+        </div>
+    </div>
+</isloop>

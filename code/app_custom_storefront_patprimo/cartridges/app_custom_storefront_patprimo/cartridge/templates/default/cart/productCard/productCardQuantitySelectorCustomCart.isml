@@ -1,0 +1,45 @@
+<div class="col-md-5 RedHatDisplayFontPP align-self-end mb-0 mt-lg-4 mt-xs-0 pl-0">
+    <div class="row">
+        <isif condition="${!lineItem.isBonusProductLineItem}"/>
+
+            <!--- extra slot for spacing reasons due to large remove button --->
+            <div class="col-lg-1 hidden-md-down remove-line-item-lg"></div>
+            <div class="col-9" style="display:flex;justify-content:end"></div> 
+    </div>
+
+    <!--- Desktop --->
+    <div class="row ml-auto hidden-lg-down">    
+        <!--- quantity --->
+        <div class="col-6 align-self-center pr-lg-0 pl-0">
+            <isinclude template="checkout/productCard/productCardQuantitySelectorCustom" />
+        </div>
+        <div class="col-6 item-total-${lineItem.UUID} price text-right align-self-center">
+            <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+        </div>
+    </div>
+
+    <!--- mobile --->
+    <div class="row ml-auto d-lg-none d-xl-none">    
+        <!--- quantity --->
+        
+        <div class="col-6 align-self-center pr-lg-0 pl-0  pr-0 ">
+            <isinclude template="checkout/productCard/productCardQuantitySelectorCustom" />
+        </div>
+        <div class="col item-total-${lineItem.UUID} price text-right align-self-center">
+            <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+        </div>
+    </div>
+    <div class="row ml-auto pl-1 product-edit product-move">
+        <!--- quantity --->            
+            <isinclude template="cart/productCard/cartProductCardEdit" />
+    </div>
+
+    <!--- promotions --->
+    <div class="line-item-promo item-${lineItem.UUID}  pl-2 pl-lg-0">
+
+    
+        <isinclude template="checkout/productCard/productCardProductPromotions" />
+    </div>
+        
+    </isif>
+</div>

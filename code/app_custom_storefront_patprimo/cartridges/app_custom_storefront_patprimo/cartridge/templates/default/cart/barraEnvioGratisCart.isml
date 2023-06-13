@@ -1,0 +1,7 @@
+<div class="barra-envio-gratis-mensaje mt-0 mb-3 text-center RedHatDisplayFont fontSize14 beigePat align-items-center " style="height: 35px; line-height: 35px;" >
+    <isif condition="${pdict.hayDiferencia} ">
+        <span class="fontWeight600"> ${Resource.msgf('label.barra.envio.faltan', 'cart', null, pdict.diferenciaTotal.toFixed().toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))}</span><span>&nbsp; ${Resource.msg('label.para.tu', 'cart', null)}</span><span class="text-uppercase fontWeight600"  >&nbsp; ${Resource.msg('label.envio.gratis', 'cart', null)}</span>
+    <iselse/>
+    <span class="text-uppercase fontWeight600">¡${Resource.msg('info.cart.congrats.msg', 'cart', null)}!</span><span > ${Resource.msg('info.cart.you.won.free.shipping.msg', 'cart', null)} </span><span class="fontWeight600">${Resource.msg('info.cart.free.msg', 'cart', null)} </span>
+    </isif>
+</div>

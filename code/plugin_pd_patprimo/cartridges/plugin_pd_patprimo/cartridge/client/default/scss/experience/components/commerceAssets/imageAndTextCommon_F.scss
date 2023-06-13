@@ -1,0 +1,140 @@
+@import "base/experience/components/commerceAssets/imageAndTextCommon";
+@import "~custom/variables";
+
+.main-banner{
+    display: flex;
+    flex-direction: column;
+    height:40vw;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center; 
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.titulo-mainbanner{
+  margin-top: 2rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    font-family: $font-Fair-Extra;
+    font-size: 45px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.71;
+    letter-spacing: normal;
+    text-align: center;
+    color: #f2f2f2;
+
+}
+.titulo2-mainbanner{
+    margin-top: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-family: $font-AvenirNext;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #f2f2f2;
+}
+
+.botones-mainbanner{
+    margin-top: 3rem;
+    display: flex;
+}
+
+.boton-main{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 12vw;
+    height: 3vw;
+    object-fit: contain;
+    text-align: center;
+    display: flex;
+    background-color: white;
+    font-size: 12px;
+
+}
+.boton-main {
+    h1,h2,h3,h4,h5,h6{
+        align-self: center;
+        width: inherit;
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 1.5px;
+        text-align: center;
+        color: #1c1f2a;
+        font-family: $font-RedHat-Semi;
+        margin: auto;
+        text-transform: uppercase;
+}
+}
+
+@media screen and (max-width: 842px){
+    .main-banner{
+        height:110vw;
+        background-size:cover;
+        background-position: center;
+        
+    
+    }
+
+    .titulo-mainbanner{
+          margin-top: 5rem;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        font-size: 1.5rem;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        text-align: center;
+          color: #f2f2f2;
+          margin-top:32px;
+        }
+      .titulo2-mainbanner{
+        font-size: 0.938rem;
+        width: fit-content;
+        margin-top: 0;
+        height: 20px; 
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);  
+        font-stretch: normal; 
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+          text-align: center;
+          color: #f2f2f2;
+      }
+      .botones-mainbanner{
+        margin-top: 0;
+     
+         }
+      .boton-main{
+        width: 120px;
+        height: 35px;
+        object-fit: contain;
+        margin: 30px 0 0 15px;
+        text-align: center;
+        display: flex;
+        background-color: white;
+    }
+    .boton-main h3{
+      font-size: 0.688rem;
+
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 1.38px;
+      text-align: center;
+        color: #1c1f2a;
+    }
+    
+    
+
+
+
+}

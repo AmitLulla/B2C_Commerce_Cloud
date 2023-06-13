@@ -1,0 +1,28 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/account/profile.css');
+        assets.addJs('/js/addressBook.js');
+        assets.addJs('/js/pagoContraEntrega.js');
+    </isscript>
+    <div class="container">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                    <isif condition="${pdict.addressId}">
+                            <label class="title">${Resource.msg('label.addressbook.editaddress','account',null)}</label>
+                        <iselse>
+                            <label class="title">${Resource.msg('label.addressbook.addnewaddress','account',null)}</label>
+                    </isif>
+                    </div>
+                    <div class="card-body">
+                        <isinclude template="checkout/shipping/formShippingPatPrimo"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

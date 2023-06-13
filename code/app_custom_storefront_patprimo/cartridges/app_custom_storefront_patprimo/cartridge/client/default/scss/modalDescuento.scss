@@ -1,0 +1,66 @@
+#modalDescuento {
+
+    @media (min-width: 769px) {
+        &.modal.fade .modal-dialog {
+            button.close {
+                margin: 0;
+                position: absolute;
+                opacity: 1;
+                z-index: 10;
+                cursor: pointer;
+                right: -25px;
+                top: 265px;
+            }
+        }
+    }
+  
+
+    @media (max-width: 768px) {
+
+        &.modal.fade .modal-dialog {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            max-width: none;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .modal-content {
+            display: grid;
+            height: 55vh;
+            border-radius: 0;
+            border: none;
+            width: 100vw;
+
+            .modal-title {
+                text-align: center;
+            }
+        }
+
+        .modal-main-section{
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+        }
+        .text-modal-section{
+            grid-row: 2/3;
+        }
+        .img-modal-section{
+            grid-row: 1/2;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+        }
+
+        .img-modal{
+            width: 100%;
+        }
+        .close-patprimo {
+            right: 5vw;
+        }
+    }
+
+}

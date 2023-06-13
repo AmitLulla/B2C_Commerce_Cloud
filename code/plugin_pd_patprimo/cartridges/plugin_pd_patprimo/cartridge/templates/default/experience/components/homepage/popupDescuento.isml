@@ -1,0 +1,123 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/homepage/popupDescuento2.css');
+    assets.addJs('/js/popupDescuento.js');
+</isscript>
+<div class="seccion-descuentos-desktop d-none d-md-block">
+    <div class="pleca-descuentos-estado-inicial">
+        <div class="mensaje-descuento">
+            ${pdict.mensaje_descuento}
+        </div>
+    </div>
+    <div class="pleca-descuentos d-none">
+        <div class="seccion-newsletter d-inline-block">
+            <div>
+                <div class="titulo-newsletter">
+                    <h4>${pdict.titulo_newsletter}</h4>
+                </div>
+                <div class="sub-titulo-newsletter">
+                    <h6>${pdict.subtitulo_newsletter}</h6>
+                </div>
+                 <div class="suscribirme-newsletter">
+                    <input type="" name="" value="" placeholder="${pdict.placeholder_input}" id="newsLetterReg" />
+                    <button type="" id="sendNewsLetterReg">${pdict.texto_boton_newsletter}</button>
+                </div>
+                <span class="fast errormail d-none">${Resource.msg('msg.error.reg1', 'account', null)}</span>
+                <span class="fast errormail2 d-none">${Resource.msg('msg.error.reg2', 'account', null)}</span>
+                <span class="fast errormail4 d-none">${Resource.msg('msg.reg', 'account', null)}</span>
+            </div>
+        </div>
+        <div class="seccion-referidos d-inline-block">
+            <div>
+                <div class="titulo-referidos">
+                    <h4>${pdict.titulo_referidos}</h4>
+                </div>
+                <div class="sub-titulo-referidos">
+                    <h6>${pdict.subtitulo_referidos}</h6>
+                </div>
+                <div class="section-only-button">
+                    <button type="button" class="check-customer-email boton-activar-referidos">Referir</button>
+                </div>
+                <div class="section-email-input d-none">
+                    <form class="form-email-referido" action="${pdict.actionFormCheckCustomerEmail}">
+                    <div class="input-referidos-boton">
+                        <div >
+                            <input type="email" class="customerEmail form-control" name="customerEmail" placeholder="Ingresa tu correo electronico" value="" required>
+                            <div class="invalid-feedback w-75" id="form-email-error-ref"></div>
+                        </div>
+                        <div >
+                            <button type="submit">${pdict.texto_boton_referidos}</button>
+                        </div>
+                    </div>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+        <button type="button" class="pull-right btn-close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only"> </span>
+        </button>
+    </div>
+</div>
+<div class="seccion-descuentos-mobile d-xs-block d-md-none">
+    <div class="mobile-button">
+        <div  class="mensaje-descuento" style="cursor: pointer;" >
+            <span> ${pdict.mensaje_descuento} </span>
+            <i class='fa fa-angle-up' aria-hidden="true"></i>
+        </div>
+        <button type="button" data-toggle="modal" data-target="#modalDescuento">${pdict.texto_boton_referidos}</button>
+    </div>
+</div>
+
+
+<div class="pleca-descuentos-mobile "> 
+ <button type="button" class="pull-right btn-close-mobile" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only"> </span>
+        </button>
+
+    <div class="seccion-newsletter-mobile ">
+        <div class="titulo-newsletter-mobile">
+            <h4>${pdict.titulo_newsletter}</h4>
+        </div>
+        <div class="sub-titulo-newsletter-mobile">
+            <h6>${pdict.subtitulo_newsletter}</h6>
+        </div>
+        <div class="suscribirme-newsletter-mobile">
+                <input type="" name="" value="" placeholder="${pdict.placeholder_input}" />
+                <button type="button" class="check-customer-email" data-toggle="modal" data-target="#modalDescuento">${pdict.texto_boton_newsletter}</button>
+        </div>
+    </div>
+
+    <div class="line-mobile"> </div>
+    <div class="seccion-referidos-mobile ">
+        <div class="titulo-referidos-mobile">
+                <h4>${pdict.titulo_referidos}</h4>
+        </div>
+        <div class="sub-titulo-referidos-mobile">
+                <h6>${pdict.subtitulo_referidos}</h6>
+        </div>
+        <div class="section-only-button-mobile">
+                <button type="button" class="check-customer-email check-mobile-email" >REFERIR AHORA</button>
+        </div>
+
+          <div class="section-email-input d-none">
+                    <form class="form-email-referido2" action="${pdict.actionFormCheckCustomerEmail}">
+                    <div class="input-referidos-boton">
+                        <div >
+                            <input type="email" class="customerEmail-mobile form-control" name="customerEmail" placeholder="Ingresa tu correo electronico" value="" required>
+                            <div class="invalid-feedback w-75" id="form-email-error-ref2"></div>
+                        </div>
+                        <div >
+                            <button type="submit">${pdict.texto_boton_referidos}</button>
+                        </div>
+                    </div>
+                    </form>
+                    
+                </div>
+    </div>
+
+</div>
+
+<isinclude template="referidos/modalDescuento" />

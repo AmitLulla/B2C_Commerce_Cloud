@@ -1,0 +1,45 @@
+<header>
+    <isinclude template="/components/header/skipNav" />
+    <isinclude template="/components/header/content-top-head"/>
+    <nav>
+        <div class="header">
+            <div class="row">
+                <div class="content-Head">
+                    <div class="navbar-header">
+                        <iscomment> <div class="navbar-header-center">
+                           <isinclude template="components/header/topMenu"/>
+                           <button class="navbar-toggler d-block d-sm-none" type="button" aria-controls="sg-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
+                            <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown" id="sg-navbar-collapse">
+                                <div class="row">
+                                    <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}"/>
+                                </div>
+                            </div>
+                        </div> </iscomment>
+                        <div class="pull-left">
+                            <div class="head-logo">
+                                <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${ Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg('global.home', 'common', null)) }">
+                                    <img class="hidden-md-down" src="${URLUtils.staticURL('/images/header/logo-patprimo.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
+                                    <img class="d-lg-none" src="${URLUtils.staticURL('/images/header/logo-patprimo.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
+                                </a>
+                            </div>
+                        </div>
+                        <iscomment> <div class="pull-right">
+                            <div class="search">
+                                <isinclude template="components/header/search" />
+                            </div>
+                            <div class="wish hidden-xs-down">
+                                <isinclude template="components/header/wish" />
+                            </div>
+                            <div class="user">
+                                <isinclude url="${URLUtils.url('Account-Header')}" />
+                            </div>
+                            <div class="minicart" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                                <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                            </div>
+                        </div> </iscomment>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

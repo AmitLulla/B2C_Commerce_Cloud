@@ -1,0 +1,68 @@
+<div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0"
+    data-prev="${Resource.msg('button.previous', 'common', null)}"
+    data-next="${Resource.msg('button.next', 'common', null)}">
+    <isif condition="${product.images['medium'].length > 1}">
+        <ol class="carousel-indicators" aria-hidden="true">
+            <isloop items="${product.images['medium']}" var="image" status="loopStatus">
+                <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
+                    class='<isif condition="${loopStatus.index == 0}">active</isif>'>
+                </li>
+
+            </isloop>
+        </ol>
+    </isif>
+
+    <div class="carousel-inner" role="listbox">
+        <a href="${pdict.urls.product}">
+            <isif condition="${product.images['medium'].length > 1}">
+                <isloop items="${product.images['medium']}" var="image" status="loopStatus">
+                    <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                        <img src="${image.url}" class="hover-image-slide d-block img-fluid"
+                            alt="${image.alt} image number ${image.index}" itemprop="image" />
+                    </div>
+                </isloop>
+            <iselse/>
+                <isloop items="${product.imagesDefaultVariation['medium']}" var="image" status="loopStatus">
+                    <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                        <img src="${image.url}" class="hover-image-slide d-block img-fluid"
+                            alt="${image.alt} image number ${image.index}" itemprop="image" />
+                    </div>
+                </isloop>
+            </isif>
+        </a>
+    </div>
+    <div class="sizes">
+        <ul class="<isif condition="${product.isProductAccessoriesType}">size-list-product-accesories<iselse/>size-list</isif> add-to-cart-custom">
+            <isif condition="${product.defaultVariants[1].values.length > 0}">
+                <isloop items="${product.defaultVariants[1].values.reverse()}" var="size" status="loopStatus">
+                    <li data-custom-url="${size.url}"
+                        data-value="${size.value}">${size.displayValue}</li>
+                </isloop>
+            <iselseif condition="${product.isProductAccessoriesType}" />
+                <li data-custom-url="${product.id}"
+                        data-value="${size.value}"><span class="icon-buy-fast-img"></span></li>
+            </isif>
+        </ul>
+    </div>
+    <isif condition="${product.images['medium'].length > 1 || product.imagesDefaultVariation['medium'].length > 1}">
+        <a class="carousel-control-prev" style="width: 1rem" href="${" #"}pdpCarousel-${product.id}" role="button"
+            data-slide="prev">
+            <span class="fa icon-prev" aria-hidden="true"></span>
+            <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+        </a>
+        <a class="carousel-control-next" style="width: 1rem" href="${" #"}pdpCarousel-${product.id}" role="button"
+            data-slide="next">
+            <span class="fa icon-next" aria-hidden="true"></span>
+            <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+        </a>
+    </isif>
+
+    <a class="wishlistTile" href="${URLUtils.url('Wishlist-AddProduct')}"
+        title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-inverse fa-stack-2x"></i>
+            <i class="fa fa-heart-o fa-stack-1x"></i>
+        </span>
+    </a>
+
+</div>

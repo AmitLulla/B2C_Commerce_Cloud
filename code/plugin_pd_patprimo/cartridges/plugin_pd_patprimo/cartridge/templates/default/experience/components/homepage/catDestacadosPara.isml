@@ -1,0 +1,98 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/homeDestacadosPara_F.css');
+    assets.addCss('/css/experience/components/commerceAssets/homeDestacadosPara_Carrusel.css');
+    assets.addJs('/js/catDestacadosPara.js');
+    assets.addCss('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
+    assets.addCss('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
+    assets.addJs('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/docs/assets/vendors/jquery.min.js');
+    assets.addJs('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js');
+</isscript>
+<script>
+  dataLayer.push({ ecommerce: null });
+  dataLayer.push({
+    event: "view_promotion",
+    ecommerce: {
+      items: [{
+      component_id:  ${"'"+pdict.component_id+"'"},
+      category_url_1:  ${"'"+pdict.categoryURL1+"'"},
+      category_url_2:  ${"'"+pdict.categoryURL2+"'"},
+      category_url_3:  ${"'"+pdict.categoryURL3+"'"},
+      category_url_4:  ${"'"+pdict.categoryURL4+"'"},
+      category_url_5:  ${"'"+pdict.categoryURL5+"'"},
+      banner_image_url_1: ${"'"+pdict.image1.src.desktop+"'"},
+      banner_image_url_2: ${"'"+pdict.image2.src.desktop+"'"},
+      banner_image_url_3: ${"'"+pdict.image3.src.desktop+"'"},
+      banner_image_url_4: ${"'"+pdict.image4.src.desktop+"'"},
+      banner_image_url_5: ${"'"+pdict.image5.src.desktop+"'"}
+      }]
+    }
+  });
+</script>
+
+<div class="categorias-destacadas">
+<input class="component_id_catDestacadosPara" type="hidden" value="${pdict.component_id}">
+        
+          <div class="titulo-seccion titulo-cat-destacadas"> 
+        <h3> ${pdict.title ? pdict.title : null}  </h3>
+          </div>
+
+          <div class="categorias-destacadas-fichas"  >
+               
+              
+                        <div class="ficha1 fichas" data-image-url="${pdict.image1.src.desktop}" style="background-image: url(${pdict.image1 ? pdict.image1.src.mobile:null})">
+                            <div class="text-fichas" data-category-url="${pdict.categoryURL1}" onclick="location.href='${pdict.categoryLink1 ? pdict.categoryLink1:null}';" style="cursor: pointer;">${pdict.cta1 ? pdict.cta1: null} </div>
+                        </div>
+
+                         <div class="ficha2 fichas" data-image-url="${pdict.image2.src.desktop}" style="background-image: url(${pdict.image2 ? pdict.image2.src.mobile:null})">
+                            <div class="text-fichas" data-category-url="${pdict.categoryURL2}" onclick="location.href='${pdict.categoryLink2 ? pdict.categoryLink2:null}';" style="cursor: pointer;" >${pdict.cta2 ? pdict.cta2: null} </div>
+                        </div>
+
+                         <div class="ficha3 fichas"  data-image-url="${pdict.image3.src.desktop}" style="background-image: url(${pdict.image3 ? pdict.image3.src.mobile:null})">
+                            <div class="text-fichas" data-category-url="${pdict.categoryURL3}" onclick="location.href='${pdict.categoryLink3 ? pdict.categoryLink3:null}';" style="cursor: pointer;" >${pdict.cta3 ? pdict.cta3: null} </div>
+                        </div>
+
+                         <div class="ficha4 fichas" data-image-url="${pdict.image4.src.desktop}" style="background-image: url(${pdict.image4 ? pdict.image4.src.mobile:null})">
+                            <div class="text-fichas" data-category-url="${pdict.categoryURL4}" onclick="location.href='${pdict.categoryLink4 ? pdict.categoryLink4:null}';" style="cursor: pointer;">${pdict.cta4 ? pdict.cta4: null} </div>
+                        </div>
+                     
+          </div>
+
+          <div class="ver-mas" onclick="location.href='${pdict.categoryLink5 ? pdict.categoryLink5:null}';"  style="cursor: pointer;">
+           <p>Ver todo de ${pdict.cta5 ? pdict.cta5 : null}  <p>
+           <div  class="rectangle"> </div>
+          </div>
+
+
+
+ <div class="carrousel-categories">
+                               
+                <div class="owl-container">
+                    <div class="owl-carousel owl-theme">
+
+                    <div class="item ficha-mobile" data-image-url="${pdict.image1.src.mobile}" style="background-image: url(${pdict.image1 ? pdict.image1.src.mobile:null})">
+                        <div class="text-fichas-mobile" data-category-url="${pdict.categoryURL1}" onclick="location.href='${pdict.categoryLink1 ? pdict.categoryLink1:null}';" style="cursor: pointer;"> ${pdict.cta1 ? pdict.cta1: null} </div>
+                    </div>
+                    <div class="item ficha-mobile" data-image-url="${pdict.image2.src.mobile}" style="background-image: url(${pdict.image2 ? pdict.image2.src.mobile:null})">
+                        <div class="text-fichas-mobile" data-category-url="${pdict.categoryURL2}" onclick="location.href='${pdict.categoryLink2 ? pdict.categoryLink2:null}';" style="cursor: pointer;">${pdict.cta2 ? pdict.cta2: null} </div>
+                    </div>
+                    <div class="item ficha-mobile" data-image-url="${pdict.image3.src.mobile}" style="background-image: url(${pdict.image3 ? pdict.image3.src.mobile:null})">
+                       <div class="text-fichas-mobile" data-category-url="${pdict.categoryURL3}" onclick="location.href='${pdict.categoryLink3 ? pdict.categoryLink3:null}';" style="cursor: pointer;">${pdict.cta3 ? pdict.cta3: null} </div>
+                    </div>
+                    <div class="item ficha-mobile" data-image-url="${pdict.image4.src.mobile}" style="background-image: url(${pdict.image4 ? pdict.image4.src.mobile:null})">
+                       <div class="text-fichas-mobile" data-category-url="${pdict.categoryURL4}" onclick="location.href='${pdict.categoryLink4 ? pdict.categoryLink4:null}';" style="cursor: pointer;">${pdict.cta4 ? pdict.cta4: null} </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+
+              <div class="ver-mas-mobile" onclick="location.href='${pdict.categoryLink5 ? pdict.categoryLink5:null}';" style="cursor: pointer;">
+           <p>Ver todo de ${pdict.cta5 ? pdict.cta5 : null}  <p>
+           <div  class="rectangle-mobile"> </div>
+          </div>
+          
+</div>    
+
+

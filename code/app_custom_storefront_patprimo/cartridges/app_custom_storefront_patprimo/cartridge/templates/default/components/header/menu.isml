@@ -1,0 +1,49 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<nav class="navbar navbar-expand-md bg-inverse col-12">
+    <div class="menu-group" role="navigation">
+        <ul class="nav navbar-nav" role="menu">
+            <isif condition="${pdict.categories}">
+                <isloop items="${pdict.categories}" var="category">
+                    <isif condition="${category.subCategories}">
+                        <li class="nav-item dropdown" role="presentation">
+                            <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link dropdown-toggle parent ${category.name}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">${category.name}</a>
+                            <isset name="menuItem" value="${category}" scope="page" />
+                            <isinclude template="components/header/menuItem" />
+                        </li>
+                    <iselse/>
+                        <li class="nav-item" role="presentation">
+                            <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link parent ${category.name}" role="link" tabindex="0">${category.name}</a>
+                        </li>
+                    </isif>
+                </isloop>
+            </isif>
+        </ul>
+        <iscontentasset aid="banners-menu" />
+    </div>
+    <ul class="other-options">
+        <li class="my-account">
+            <div class="title">Mi Cuenta</div>
+            <div class="list">
+                <div class="user-login">
+                    <a href="${URLUtils.https('Login-Show')}" role="button" aria-label="${Resource.msg('label.header.loginbutton', 'account', null)}">
+                        <span class="text-icon"></span>${Resource.msg('label.header.icons.sesion', 'header', null)}
+                    </a>
+                    | <a href="${URLUtils.https('Login-Show')}" role="button" aria-label="${Resource.msg('label.header.loginbutton', 'account', null)}">
+                        <span class="text-icon"></span>Registrate
+                    </a>
+                </div>
+                <div class="wishlist">
+                    <a href="/">Favoritos</a>
+                </div>
+            </div>
+        </li>
+        <li class="my-account">
+            <div class="title">Rastrea tu pedido</div>
+            <isinclude url="${URLUtils.url('Page-Locale')}" />
+        </li>
+        <li class="my-account">
+            <div class="title">Asistencia</div>
+            <isinclude url="${URLUtils.url('Page-Locale')}" />
+        </li>
+    </ul>
+</nav>

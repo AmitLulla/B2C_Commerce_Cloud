@@ -1,0 +1,59 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/imageAndTextCommon_F.css');
+    assets.addJs('/js/mainBannerCustom.js');
+
+</isscript>
+<style>
+.main-banner{
+  background-image: url(${pdict.image ? pdict.image.src.mobile:null});
+}
+
+@media screen and (max-width: 842px){
+.main-banner{
+  background-image: url(${pdict.imageMobile ? pdict.imageMobile.src.mobile:null});
+}
+}
+
+</style>
+<script>
+  dataLayer.push({ ecommerce: null });
+  dataLayer.push({
+    event: "view_promotion",
+    ecommerce: {
+      items: [{
+      component_id:  ${"'"+pdict.component_id+"'"}, //ID interno del banner
+      category_url_1:  ${"'"+pdict.categoryURL1+"'"},
+      category_url_2:  ${"'"+pdict.categoryURL2+"'"},
+      banner_image_url: ${"'"+pdict.image.src.desktop+"'"}
+      }]
+    }
+  });
+</script>
+<div class="main-banner" >
+<input class="component_id_mainBanner" type="hidden" value="${pdict.component_id}">
+<input class="image_banner" type="hidden" name="" value="${pdict.image ? pdict.image.src.mobile:null}">
+
+        <div class="titulo-mainbanner">¡Nadie como tú, papá! </div>
+        <div class="titulo2-mainbanner">Porque eres fiel a tu esencia</div>
+       
+                    <source srcset="${pdict.image.src.tablet}" media="(min-width: 768px)"/>
+                    <source srcset="${pdict.image.src.desktop}" media="(min-width: 1024px)"/>
+                
+                    <div class="botones-mainbanner" >
+                            <div class="boton-main boton1-mainbanner" data-category-url="${pdict.categoryURL1}" onclick="location.href='${pdict.categoryLink1 ? pdict.categoryLink1:null}';" style="cursor: pointer;">
+                            <<isprint value="${pdict.tagForCta}" encoding="htmlcontent" /> >${pdict.cta1 ? pdict.cta1: null}</<isprint value="${pdict.tagForCta}" encoding="htmlcontent" />>
+                            </div>
+
+                             <div class="boton-main boton2-mainbanner" data-category-url="${pdict.categoryURL2}" onclick="location.href='${pdict.categoryLink2 ? pdict.categoryLink2:null}';" style="cursor: pointer;">
+                            <<isprint value="${pdict.tagForCta}" encoding="htmlcontent" /> >${pdict.cta2 ? pdict.cta2: null}</<isprint value="${pdict.tagForCta}" encoding="htmlcontent" />>
+                            </div>
+
+                    
+                       
+                    </div>
+                 
+              
+       
+</div>
+

@@ -1,0 +1,14 @@
+<isif condition="${slotcontent != null}">
+	<isscript>
+		var ContentAssetHelper = require('*/cartridge/scripts/util/ContentAssetHelper');
+		var content = ContentAssetHelper.getQualifyingAssets(slotcontent.content);
+		var slotID = slotcontent.slotID + '-container';
+	</isscript>
+	<div id="${slotID}" class="content-slot-container slot-banner">
+		<isif condition="${content}">
+			<isloop items="${content}" var="asset" begin="0" end="1" status="loopStatus">
+				 <isprint value="${asset.custom.body}" encoding="off" />
+			</isloop>
+		</isif>
+	</div>
+</isif>

@@ -1,0 +1,79 @@
+<isif condition="${empty(store)}">
+    <table>
+        <tr class="store-address">
+            <td>
+                <i aria-hidden="true" class="fa fa-map-marker"></i>
+            </td>
+            <td class="pl-3">
+                ${Resource.msg('link.no.store.selected', 'shoppingthestore', null)}
+            </td>
+        </tr>
+    </table>
+<iselse/>
+    <table>
+        <tr class="store-address">
+            <td>
+                <iscomment> <a aria-label="${Resource.msg('label.showStoreOnGoogleMaps', 'shoppingthestore', null)}"
+                   class="text-dark" href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}"
+                   target='_blank'>
+                <i aria-hidden="true" class="fa fa-map-marker"></i>
+                </a> </iscomment>
+            </td>
+            <td class="title-and-km">
+                <button aria-label="${Resource.msg('label.storeProfile', 'shoppingthestore', null)}"
+                        class="store-profile-link store-name btn btn-link pl-2"
+                        data-action="${URLUtils.https('Stores-GetStoreProfilePage')}"
+                        data-availableSlot="${URLUtils.url('Stores-GetNextAvailableSlot')}"
+                        data-profileUrl="${URLUtils.https('Stores-GetStoreProfilePagePD')}"
+                        data-storeId="${store.ID}"
+                        data-postal-code="${store.ID}"
+                        >
+
+                    <u class="title-u">
+                        <span>${store.name}</span>
+                    </u>
+
+                </button>
+                  <div class="ditance-km-left-map">
+                <isif condition="${'distance' in store && store.distance}">
+                    <span class="km-distances">
+                         (${store.distance})
+                    </span> 
+                </isif>
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pr-1">
+            </td>
+            <td class="pl-2 body-card-font">
+                <isif condition="${store.address1}">
+                    <div class="pl-1 adrress-left-map">${Resource.msg('direccion.show', 'shoppingthestore', null)} ${store.address1}
+                        <isif condition="${store.address2}">
+                            <span>${store.address2}</span>
+                        </isif>
+                    </div>
+                </isif>
+                <p id="space"></p>
+                <isif condition="${store.phone}">
+                    <div class="pl-1 mobile-left-map">
+                        ${Resource.msg('tel.show', 'shoppingthestore', null)}
+                        <a aria-label="${Resource.msg('label.callStore', 'shoppingthestore', null)}" class="storelocator-phone" href="tel:${store.phone}">
+                            ${store.phone}
+                        </a>
+                    </div>
+                </isif>
+                <p id="space"></p>
+                <isif condition="${store.storeHours}">
+
+                    <div class="pl-1 horario-left-map">
+                       ${Resource.msg('time.open.store', 'shoppingthestore', null)} ${store.storeHours}
+
+                    </div>
+                </isif>
+            </td>
+        </tr>
+    </table>
+   
+    <div class="storeListNextAvailableSlot pt-2" data-storeid="${store.ID}"></div>
+</isif>

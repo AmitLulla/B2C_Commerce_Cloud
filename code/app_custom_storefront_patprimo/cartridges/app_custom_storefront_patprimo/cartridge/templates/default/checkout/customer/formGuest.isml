@@ -1,0 +1,79 @@
+<div id="customerNotRegister" class="<isif condition="${!session.custom.showFormNotRegister}">d-none</isif>">
+    <form id="customerNotRegisterForm" data-action="${URLUtils.url('CheckoutServices-SubmitCustomer')}" method="POST">
+        <input class="token-csrf" type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        <div class="container-register row">
+            <span class="container desc-form-checkout col-12">${Resource.msg('information.for.guest', 'form', null)}</span>
+            
+                <div class="form-group col-lg-6 col-12">
+                    <label class="label-form-checkout" for="exampleFormControlInput1">${Resource.msg('email.label', 'form', null)}</label>
+                    <input type="email" required tabindex="1" name="${pdict.forms.customerNotRegisterForm.email.htmlName}" readonly class="form-control input-style" id="emailInput1"
+                     <isprint value="${pdict.forms.customerNotRegisterForm.email.attributes}" encoding="off" />>
+                </div>
+
+                 <div class="form-group col-lg-6 col-12">
+                    <label class="label-form-checkout" for="exampleFormControlInput1">${Resource.msg('first.name.label', 'form', null)}</label>
+                    <input type="text" required tabindex="2" name="${pdict.forms.customerNotRegisterForm.firstName.htmlName}" class="form-control input-style" id="exampleFormControlInput1"
+                        placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.firstName.attributes}" encoding="off" />>
+                </div>
+                <div class="form-group col-lg-6 col-12">
+                    <label class="label-form-checkout" for="exampleFormControlInput1">${Resource.msg('last.name.label', 'form', null)}</label>
+                    <input type="text" required tabindex="3" name="${pdict.forms.customerNotRegisterForm.lastName.htmlName}" class="form-control input-style" id="exampleFormControlInput1"
+                        placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.lastName.attributes}" encoding="off" />>
+                </div>
+
+                 <div class="form-group col-lg-6 col-12">
+                    <label class="label-form-checkout" for="exampleFormControlInput1">${Resource.msg('cedula.ciudadania.label', 'form', null)}</label>
+                    <input type="text" required tabindex="4" name="${pdict.forms.customerNotRegisterForm.cedula.htmlName}" class="form-control input-style" id="exampleFormControlInput1"
+                        placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.cedula.attributes}" encoding="off" />>
+                </div>
+
+                <div class="form-group col-lg-6 col-12">
+                    <label class="label-form-checkout" for="exampleFormControlInput1">${Resource.msg('tel.label.required', 'form', null)}</label>
+                    <div class="row">
+                        <div class="col-lg-4 col-4">
+                            <input type="text" class="form-control country-flag-phone input-style" name="tel_pref" value="+57" disabled />
+                        </div>
+                        <div class="col-lg-8 col-8">
+                            <input type="number"  maxlength="12" required tabindex="5" name="${pdict.forms.customerNotRegisterForm.phoneMobile.htmlName}" class="form-control input-style" id="phone"
+                            placeholder="233 2323232 0000" <isprint value="${pdict.forms.customerNotRegisterForm.phoneMobile.attributes}" encoding="off" />>
+                            <div class="msj-error"><p id="wrongMsjTel"></p></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-12">
+                    <a id="addCompanyInformation">${Resource.msg('add.company.information', 'form', null)}</a>
+                </div>
+        </div>
+       
+        <iscomment> company information </iscomment>
+        <div class="cont-company-inf company-information d-none">
+             <input type="checkbox" name="${pdict.forms.customerNotRegisterForm.responsableIVA.htmlName}"  id="isResponsableIVA" value="true">
+            <label for="cb1"></label>
+            <label style="display:initial;" for="checkbox" class="label-checkbox">${Resource.msg('label.checkbox.responsable.iva', 'checkout', null)}</label>
+            <div class="form-group">
+                <label for="exampleFormControlInput1" class="label-form-checkout">${Resource.msg('razon.social', 'form', null)}</label>
+                <input type="text" tabindex="6" name="${pdict.forms.customerNotRegisterForm.razonSocial.htmlName}" class="form-control input-style" id="razonSocialInput1"
+                    <isprint value="${pdict.forms.customerNotRegisterForm.razonSocial.attributes}" encoding="off" />>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1" class="label-form-checkout">${Resource.msg('nit', 'form', null)}</label>
+                <input type="text" tabindex="8" name="${pdict.forms.customerNotRegisterForm.nit.htmlName}" class="form-control input-style" id="exampleFormControlInput1"
+                    placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.nit.attributes}" encoding="off" />>
+            </div>
+             <div class="form-group">
+                <label for="exampleFormControlInput1" class="label-form-checkout">${Resource.msg('repeat.nit', 'form', null)}</label>
+                <input type="text" tabindex="9" name="${pdict.forms.customerNotRegisterForm.confirmNit.htmlName}" class="form-control input-style" id="exampleFormControlInput1"
+                    placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.confirmNit.attributes}" encoding="off" />>
+                    <div class="msj-error" id="nitWrong"></div>
+            </div>
+        </div>
+         <div class="d-flex justify-content-end container-btn-checkout row">
+            <button type="button" onclick="location.href='${URLUtils.url('Cart-Show')}'" tabindex="10" id="submit-customer-not-register"
+                class="col-md-3 d-flex align-items-center justify-content-center w-25 order-1 order-sm-2 regresar-btn col-12">${Resource.msg('btn.volver.carrito', 'checkout', null)}</button>
+            <div class="col-md-3 col-12 order-sm-first order-md-2"> 
+                <button type="submit" tabindex="10" id="submit-customer-not-register" class="d-flex align-items-center justify-content-center w-25 btn-default-pat-primo">${Resource.msg('continue', 'checkout', null)}</button>
+            </div>       
+        </div>
+    </form>
+</div>

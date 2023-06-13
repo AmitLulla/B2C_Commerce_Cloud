@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slot-configurations xmlns="http://www.demandware.com/xml/impex/slot/2008-09-08">
+    <slot-configuration slot-id="cart-recommendations-m-custom" context="global" configuration-id="cart-recommendations-m" default="true" assigned-to-site="true">
+        <description>Agrega alguno de tus favoritos</description>
+        <template>slots/recommendation/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Agrega alguno de tus favoritos</callout-msg>
+        <content>
+            <recommended-products recommendation-rule-id="recently-viewed"/>
+        </content>
+    </slot-configuration>
+    
+    <slot-configuration slot-id="plp-recommendations-m-custom" context="global" configuration-id="plp-recommendations-m-custom" default="true" assigned-to-site="true">
+        <template>slots/recommendation/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Producto Recomendados</callout-msg>
+        <content>
+            <products>
+                <product product-id="7704281057243"/>
+                <product product-id="7701134512157"/>
+                <product product-id="7701134201860"/>
+                <product product-id="7704281285035"/>
+                <product product-id="7704281196171"/>
+                <product product-id="7704281239830"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="plp-recommendations-m-custom-2" context="global" configuration-id="plp-recommendations-m-custom-2" default="true" assigned-to-site="true">
+        <description>Agrega alguno de tus favoritos</description>
+        <template>slots/recommendation/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Agrega alguno de tus favoritos</callout-msg>
+        <content>
+            <products>
+                <product product-id="7704281057243"/>
+                <product product-id="7701134512157"/>
+                <product product-id="7701134201860"/>
+                <product product-id="7704281285035"/>
+                <product product-id="7704281196171"/>
+                <product product-id="7704281239830"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="cart-recommendations-m" context="global" configuration-id="cart-recommendations-m" default="true" assigned-to-site="true">
+        <description>Visto Recientemente</description>
+        <template>slots/recommendation/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Visto Recientemente</callout-msg>
+        <content>
+            <recommended-products recommendation-rule-id="recently-viewed"/>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="homepage-recommendations" context="global" configuration-id="New Slot Configuration - 2022-12-22 16:28:59" assigned-to-site="true">
+        <template>slots/product/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <products>
+                <product product-id="7706340164190"/>
+                <product product-id="7705177844152"/>
+                <product product-id="7705177814834"/>
+                <product product-id="7705177810614"/>
+                <product product-id="7705177615608"/>
+                <product product-id="7705177528786"/>
+                <product product-id="7705177522562"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="homepage-MasBuscadoHombres" context="global" configuration-id="New Slot Configuration - 2022-12-23 14:05:43" assigned-to-site="true">
+        <template>slots/product/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <products>
+                <product product-id="7703613930575"/>
+                <product product-id="7703613440739"/>
+                <product product-id="7703613410275"/>
+                <product product-id="7701153699136"/>
+                <product product-id="7701134512157"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="homepage-AgregadosRecientesHombres" context="global" configuration-id="New Slot Configuration - 2022-12-23 14:16:13" assigned-to-site="true">
+        <template>slots/product/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <products>
+                <product product-id="7704593151684"/>
+                <product product-id="7704593151639"/>
+                <product product-id="7704593151585"/>
+                <product product-id="7704593151554"/>
+                <product product-id="7704593151660"/>
+                <product product-id="7704593151707"/>
+                <product product-id="7704593151721"/>
+                <product product-id="7704593151608"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="homepage-AgregadosRecientesMujeres" context="global" configuration-id="New Slot Configuration - 2022-12-23 14:18:21" assigned-to-site="true">
+        <template>slots/product/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <products>
+                <product product-id="7705177522487"/>
+                <product product-id="7705177431154"/>
+                <product product-id="7705177420998"/>
+                <product product-id="7705177364698"/>
+                <product product-id="7705177303208"/>
+                <product product-id="7705177279312"/>
+                <product product-id="7705177362830"/>
+                <product product-id="7705177169118"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="homepage-MasBuscadoMujeres" context="global" configuration-id="newConf" assigned-to-site="true">
+        <template>slots/product/cart.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <products>
+                <product product-id="7706340164251"/>
+                <product product-id="7705177870830"/>
+                <product product-id="7706340218893"/>
+                <product product-id="7705177814834"/>
+                <product product-id="7705177842820"/>
+                <product product-id="7705177836881"/>
+            </products>
+        </content>
+    </slot-configuration>
+    
+    <slot-configuration slot-id="cat-grid-tile-banner2" context="category" context-id="P1000000" configuration-id="cat-grid-tile-banner2" assigned-to-site="true">
+        <template>slots/content/ContentSlotContainer.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="banner-promo" />
+            </content-assets>
+        </content>
+    </slot-configuration>
+</slot-configurations>

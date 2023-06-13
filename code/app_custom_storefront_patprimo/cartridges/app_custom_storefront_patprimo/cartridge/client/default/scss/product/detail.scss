@@ -1,0 +1,866 @@
+@import "~base/global";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.popover{
+display: none;
+}
+
+.pdp-carrousel-mobile{
+    display: none !important;
+}
+
+.pdp-grid-desktop{
+    display: block !important;
+        }
+
+.container{
+    //width: 100vw !important;
+    max-width: none !important;
+}
+
+.menu-secciones{
+    display: flex;
+    flex-direction: row;
+  align-items: baseline;
+}
+.volver-pdp{
+    width: fit-content;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    font-family: "Red Hat Display";
+    font-weight: 600;
+    font-stretch: normal;  
+    font-style: normal;
+    line-height: normal;  
+    letter-spacing: normal;
+    color:#1c1f2a ;
+}
+.categorias-pdp {
+    margin-left: 2rem;
+    width: fit-content;
+    font-family: "Red Hat Display";
+    font-size: 1rem;
+    color:#999999;
+    font-weight: normal;
+    font-stretch: normal; 
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+
+.main-pdp{
+    display: flex;
+    max-width: 100vw;
+}
+.galerry-pdp{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.select-pdp{
+    width: 40%;
+}
+
+.ref-section{
+    display: flex;
+    align-items: flex-end;
+}
+.ref-pdp{
+    width: 80%;
+    font-size: 1rem;
+    font-family: "Red Hat Display";
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #999999;
+    text-align: left;
+}
+
+.ref-section img{
+    align-self: flex-end;
+    margin: 1rem 1rem 0 1rem;
+    
+}
+
+.title-pdp{
+    font-family: "Red Hat Display";
+    font-weight: 500;
+    font-stretch: normal; 
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #1c1f2a;
+    font-size: 1.5rem;
+}
+
+.reseñas-producto-section{
+    display: flex;
+    
+    margin-top: 1rem;
+}
+.reseñas-pdp{
+    font-weight: 600;
+    font-stretch: normal; 
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: "Red Hat Display";
+    font-size: 1rem;
+    text-decoration: underline;
+    margin-left: 2rem;
+    color: #999999;
+}
+
+.precios-pdp{
+    display: flex;
+    align-items: flex-end;
+}
+
+.current-price{
+    font-size: 1.2rem;
+    font-weight: 900; 
+    font-stretch: normal;
+    font-style: normal; 
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: "Red Hat Display";
+     color: #1c1f2a;
+    margin: 1rem 1rem 0 0;
+}
+
+.cuotas-meses{
+    font-size: 0.9rem;
+    font-weight: normal;
+    font-stretch: normal;  
+    font-style: normal;
+    line-height: normal;  
+    letter-spacing: normal;
+    font-family: "Red Hat Display";
+    margin-top: 1rem;
+    color: #787878;
+}
+.cuotas-meses span{
+    color: #009053;
+}
+
+
+
+.agregar-section{
+    display: flex;
+}
+.agregar-section{
+    width: 100%;
+    margin: 1rem 1rem 0 0;
+}
+.cart-and-ipay{
+    width: 40%;
+}
+.col-sm-12{
+    display: flex;
+    align-items: flex-end;
+}
+.agregar-pdp{
+    width: 100%;
+    height: 2.6rem;
+    border: none;
+    background-color: #1c1f2a;
+    color: white;
+    font-family: "Red Hat Display";
+    font-size: 0.8rem;
+    text-align: center;
+}
+.comprar-pdp{
+    width: 40%;
+    height: 2.6rem;
+    border: none;
+    margin: 1rem 1rem 0 1rem;
+    background-color: #f2f2f2;
+    color: #1c1f2a;
+    font-family: "Red Hat Display";
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.custom-select{
+    width: 17%;
+ height:  2.6rem;
+ margin: 1rem 1rem 0 0;
+ border: solid 1px #e9e9e9;
+ background-color: #f2f2f2 !important;
+ color: #787878 !important;
+}
+
+.agregar-section{
+    label{
+        display: none;
+    }
+}
+
+.envio-devoluciones-section{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;   
+}
+
+.envios-text-pdp{
+    display: flex;
+   
+    margin-top: 0.5rem;
+}
+
+.envios-text-pdp img{
+    width: 2rem;
+    height: 1.5rem;    
+}
+.envios-text-pdp p{
+    margin-left: 1rem;  
+    font-size: 0.9rem;
+    font-family: "Red Hat Display";
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+   color: #787878;
+   align-self: flex-end;
+}
+
+.description-caracteristicas-section{
+margin-top: 3rem;
+}
+.desc-caract-pdp{
+    display: flex;
+    margin-top: 1rem;
+  
+}
+.desc-caract-pdp img{
+    margin-left: 1.5rem;
+    align-self: center;
+  
+}
+
+.description-pdp{
+    font-size: 1rem;
+    font-weight: 500;
+    font-stretch: normal;  
+    font-style: normal;
+    line-height: normal; 
+    letter-spacing: normal;
+    font-family: "Red Hat Display";
+    color: #1c1f2a;
+    
+}
+
+.description-mobile-pdp {
+    font-size: 1rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: "Red Hat Display";
+    color: #1c1f2a;
+}
+.characteristics-pdp {
+    font-size: 1rem;
+    font-weight: 500;
+    font-stretch: normal;  
+    font-style: normal;
+    line-height: normal; 
+    letter-spacing: normal;
+    font-family: "Red Hat Display";
+    color: #1c1f2a; 
+}
+
+.characteristics-mobile-pdp {
+    font-size: 1rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: "Red Hat Display";
+    color: #1c1f2a;
+}
+.fa-star{
+    color:#009053;
+}
+.fa-star-half-o{
+    color:#009053;
+}
+
+.attribute{
+    button{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 35px;
+    }
+}
+
+.breadcrumb-item a{
+
+font-family: "Red Hat Display" !important;
+    font-size: 1rem !important;
+    color:#999999 !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb{
+    margin: 0 !important;
+    border-bottom: none !important;
+    margin-left: 1rem !important;
+}
+
+
+.select-pdp{
+    display: block;
+}
+.select-menu-mobile-pdp{
+    display: none;
+}
+
+@media screen and (max-width: 842px){ 
+    .main-pdp{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pdp-carrousel-mobile{
+        display: block !important;
+    }
+
+    .galerry-pdp{
+        width: 100%;
+    }
+    
+    .pdp-grid-desktop{
+        display: none !important;
+            }
+
+        
+    .select-menu-mobile-pdp{
+              display: block;
+            }
+
+    .product-name{
+        display: none;
+    }
+    .menu-secciones{
+        display: none;
+    }
+    .ref-section{
+        display: none;
+    }
+    .review-producto-section{
+        display: none;
+    }
+    .interses-cuotas-section{
+        display: none;
+    }
+
+    .select-pdp{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        height: 35vh;
+        width: 100vw;  
+        margin-left: 0.5rem;
+    }
+
+    .swatches-section{
+        grid-row: 1/2;
+        display: flex;
+        justify-content: flex-start;
+  
+        }
+    .titulo-producto-section{
+            margin-top: 1rem;
+            grid-row: 3/4;
+                   }
+        .title-pdp{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 1rem;
+            max-width: 80vw;
+        }
+
+    .precios-pdp{
+            grid-row:4/5 ;
+        }
+    .prices {
+        margin: 0;
+        padding: 0;
+    }
+    .current-price{
+        margin: 0;
+        padding: 0;
+    }
+
+    .agregar-section{
+            grid-row: 5/6;
+            display: flex;
+            justify-content: left;
+            margin-bottom: 20rem;
+            align-items: baseline;
+        }
+        .agregar-section .comprar-pdp{
+            display: none;
+        }
+        .select-talla{
+            width: 20vw !important;
+        }
+        .cart-and-ipay {
+            width: 72vw !important;
+        }
+        
+
+        .envio-devoluciones-section{
+            display: none;
+        }
+        .description-caracteristicas-section{
+            display: none;
+        }
+        .description-characteristics-section{
+            display: none;
+        }
+            
+
+        .Review-main-section{
+            margin-top: 10rem;
+            display: flex;
+            flex-direction: column !important;
+            align-items: center;
+        }
+        .review-articulo-section{
+            width: 90% !important;
+           
+        }
+        .titulo-review-articulo{
+            font-size: 1rem;
+        }
+        .calificacion-review p{
+            font-size: 0.8rem;
+        }
+        .estrellas-review{
+            width: 100% !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .num-de-estrella{
+            font-size: 0.6rem !important;
+            width: 15% !important;
+            text-align: right !important;
+        }
+        .estrellas-review img{
+            width: 2.5rem;
+        }
+        .total-estrella{
+            font-size: 0.6rem;
+        }
+        .review-comentarios-section{
+            margin-top: 1.5rem;
+            width: 90% !important;
+        }
+        .titulo-comentario{
+            font-size: 0.9rem;
+        }
+        .comentario-text{
+            font-size: 0.8rem;
+        }
+        .autor-comentario{
+            font-size: 0.6rem;
+        }
+        .feedback-review{
+            font-size: 0.6rem;
+        }
+        .mas-review{
+            width: 90% !important;
+            margin: auto;
+            font-size:0.7rem ;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+
+
+
+        .slick-next{
+           display: none !important; 
+        }
+        .img-grid-patprimo{
+            height: 62vw !important;
+        }
+        .cart-recommendations .slick-slide {
+            padding: 0 0.1rem !important;
+            width: 44vw !important;
+        }
+        .productNameMobile a{
+            font-size: 0.6rem;
+        }
+        .price span{
+            
+            font-size: 0.7rem;
+            color: #1c1f2a;
+            
+        }
+        .btn {
+            display: none !important;
+        }
+        .select-compra-rapida-mobile{
+            display: none !important;
+        }
+        .color-swatches{
+            display: none;
+        }
+        .title-carrousel h3{
+            font-size: 1rem;
+            
+        }
+        .title-carrousel h5{
+            display: none;
+        }
+        .title-carrousel {
+            justify-content: center;
+        }
+        .product-tile{
+            margin-bottom: 0;
+        }
+        .product-tile{
+            margin-bottom: 0;
+        }
+
+
+
+}
+
+.select-menu-mobile-pdp{
+    margin-top: 3rem;
+   // border-top: 0.1px solid ;
+    padding-top: 1rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+        background-color: white;
+        margin-bottom: 5rem;
+}
+
+.titulo-producto-section-mobile{
+       
+    display: flex;
+    justify-content: center;
+}
+.title-pdp-mobile {
+
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.42;
+    letter-spacing: normal;
+    text-align: center;
+    font-family: "Red Hat Display";
+    font-size: 0.9rem;
+    width: 80%;
+    color: #444444;
+}
+
+.ref-section-mobile{
+    display: flex;
+    justify-content: center;
+}
+.ref-pdp-mobile{
+    font-family: "Red Hat Display";
+    font-size: 0.8rem;
+    color: #999999;
+    margin-bottom: 1rem;
+}
+
+.precios-pdp-mobile{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    flex-wrap: wrap;
+    
+    
+}
+.interses-cuotas-section-mobile{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+    justify-content: center;
+}
+.cuotas-meses-mobile{
+    color: #787878;
+    font-size: 0.7rem;
+    font-family: "Red Hat Display";
+}
+
+.cuotas-meses-mobile span{
+    color: #009053;  
+}
+
+.description-caracteristicas-section-mobile{
+    margin-top: 1rem;
+
+}
+.desc-caract-pdp-mobile{
+    font-weight: 500;
+    color:#1c1f2a;
+    font-family: "Red Hat Display";
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+}
+ .desc-caract-pdp-mobile h3{
+margin-right: 1rem; 
+}
+
+.envio-devoluciones-section-mobile{
+   display: flex;
+   width: 98%;
+   flex-direction: column;
+   margin: auto;
+   margin-top: 1rem;
+   align-items: flex-start;
+   margin-bottom: 5rem;
+}
+.envios-text-pdp-mobile{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 0.7rem;
+    font-family: "Red Hat Display";
+    align-items: center;
+    color: #787878;
+    margin-top: 0.5rem;
+}
+.envios-text-pdp-mobile img{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.etiquetas-mobile{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 70%;
+    margin-bottom: 1rem;
+}
+.tag1{
+    width: 30vw;
+    height: 7vw;
+    margin-right: 1rem;
+}
+
+.tag2 {
+    width: 22vw;
+    height: 7vw;
+}
+
+.main-mobile-active{
+    transform: translateY(13rem) !important;
+ 
+    background-color: white !important;
+   
+    margin-bottom: 10rem !important;
+    width: 100vw !important;
+}
+
+.main-mobile-active-gallery{
+    position: absolute !important;
+    z-index: -1 !important;
+
+
+}
+
+.main-mobile-active-select{
+    display: none !important ;
+    
+}
+
+
+//Carousel 
+
+.recommendations-carousel{
+    background-color:#f7f7f7 !important ;
+    width: 100vw;
+    padding-top:2rem;
+}
+
+.grid-container{
+    background-color:#f7f7f7 !important ;
+    width: 100vw;
+}
+
+
+
+  
+  .img-grid-patprimo  {
+    height:30vw;
+  }
+
+.slick-slide{
+    width: 17vw !important;
+    padding: 0 0.1rem !important;
+}
+
+.einstein-carousel{
+    width: 92%;
+    margin-left: 2vw;
+}
+
+.recommendations__title{
+    color: #262626;
+    
+    font-family: "PlayfairDisplay";
+    letter-spacing: 0.5px;
+    font-size: 2rem ;
+    margin-left: 2vw;
+    font-weight: 500;
+
+}
+
+.title-carrousel h5 {
+    text-decoration: underline;
+    color: #1c1f2a;
+    font-size: 1rem;
+    font-family: "Red Hat Display";
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-left: 2rem ;
+   
+
+}
+.title-carrousel{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 2rem;
+}
+
+.slick-track{
+padding: 0 !important;
+}
+.slick-prev{
+    display: block !important;
+}
+.slick-next{
+    right: 2vw;
+    background-size: contain;
+}
+.slick-next{
+    width: 2rem !important;
+    height: 4.25rem !important;
+    top: 45% !important;
+    opacity: 1 !important;
+    z-index: 0 !important;
+}
+.cart-recommendations{
+    margin: 0 !important;
+}
+
+
+.caja {
+    background: #FFFFFF;
+    width: 100% !important;
+    height: auto !important;
+    padding: 10px 31px 15px 34px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 5.25rem;
+    height: 5.563rem;
+    margin: 0.125rem 2.188rem 0 1.125rem;
+}
+
+.product-title {
+    margin: 0 6.625rem 0.188rem 2.188rem;
+    font-family: "Red Hat Display";
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+.separator {
+    height: 1px;
+    margin: 0 0 14.5px;
+    object-fit: contain;
+    border: solid 1px;
+    color: #E9E9E9;
+}
+.price{
+margin: 0 1rem 0rem 2rem;
+font-family: "Red Hat Display";
+font-size: 1rem;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+}
+
+.tachado{
+margin: 0 1rem 0 2;
+font-family: "Red Hat Display";
+font-size: 0.875rem;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+color: #838383;
+text-decoration:line-through;
+}
+.acomodo{
+transform: translateX(-40px);
+}
+.discount-percent{
+font-family: "Red Hat Display";
+font-size: 0.875rem;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+color: #838383;
+}
+
+.presale{
+margin: 0 0 0 1rem;
+font-family: "Red Hat Display";
+font-size: 0.875rem;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+}
+
+.presale-price{
+font-family: "Red Hat Display";
+font-size: 0.875rem;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+color: #838383;
+margin-bottom: 1rem;
+margin-left: 0.3rem;
+}

@@ -1,0 +1,144 @@
+@import "~custom/variables";
+
+
+.explora-lo-nuevo{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin: auto;
+    margin-bottom: 4rem;
+}
+
+.titulo-seccion{
+    width:70vw;
+    align-self: center;
+    
+}
+
+.titulo-seccion {
+    h3{
+    font-family: $font-Fair-Medium;
+    text-align: center;
+    color:#262626;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+}
+
+.categorias-lo-nuevo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.textbox-categorias{
+    border: solid 1px #c0c0c0;
+    width: 283px;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;  
+    margin-right: 2rem;
+    height: 50px;
+    display: flex;
+}
+
+.textbox-categorias{
+
+ h5{  
+    font-family: $font-RedHat-Regular;
+    color: #787878;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    align-self: center;
+    width: inherit;
+    margin: auto;
+}
+}
+
+.textbox-categorias:hover{
+    background-color: #1c1f2a;
+    h5{
+        color: #eae4d8;
+        font-size: 16px;
+    }
+    
+    
+}
+
+
+@media screen and (max-width: 842px){
+   
+  
+    .titulo-seccion h3{
+        font-family: "Playfair Display";
+        font-size: 1rem;  
+        font-weight: 500;
+        font-stretch: normal; 
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.33px;
+        text-align: center;
+        margin-bottom: 1.5rem;
+       color:#262626;
+       
+    }
+    
+    .categorias-lo-nuevo{
+        display: flex;
+        justify-content:center;
+        flex-wrap: wrap;
+        }
+    
+    .textbox-categorias{
+      
+        border: solid 1px #c0c0c0;
+        width: 86vw;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 1rem;
+        height: 2.5rem;
+        display: flex;
+        background-color:white;
+    }
+
+    .textbox-categorias:hover{
+        background-color: #1c1f2a;
+      
+    }
+    
+    .textbox-categorias h5{
+        color: #787878;
+        font-size: 0.813rem;
+        font-weight: normal;
+        font-stretch: normal; 
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+    }
+
+    .textbox-categorias h5:hover{
+        color: #eae4d8;
+      
+    }
+    .explora-lo-nuevo {
+        margin-bottom: 0rem;
+    }
+    
+  
+    
+    
+
+
+}

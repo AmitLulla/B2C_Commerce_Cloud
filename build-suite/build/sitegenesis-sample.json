@@ -1,0 +1,49 @@
+{
+  "dependencies": [
+    {
+      "repository": {
+        "url": "git@github.com:SalesforceCommerceCloud/sitegenesis.git",
+        "branch": "master",
+        "type": "git"
+      },
+      "source": {
+        "path": ".",
+        "glob": "**/*"
+      },
+      "siteImport": {
+        "enabled": "true",
+        "demoPath": "demo_data_no_hires_images"
+      },
+      "cartridges": [
+        "app_storefront_core",
+        "app_storefront_controllers"
+      ],
+      "npm": {
+        "cwd": "./",
+        "install": "production",
+        "scripts": ["css", "js", "test:unit"]
+      }
+    }
+  ],
+
+  "environments": {
+    "sitegenesis": {
+      "server": "staging.<server>.dw.demandware.net",
+      "username": "builduser",
+      "password": "secret"   
+    }
+  },
+  
+  "settings": {
+    "project": {
+      "version": "build-suite-sitegenesis-sample"
+    },
+    "optimize": {
+      "postcss": false,
+      "browserify": false,
+      "js": false,
+      "css": false,
+      "concatenate": true
+    }
+  }
+}

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jobs xmlns="http://www.demandware.com/xml/impex/jobs/2015-07-01">
+    
+    <job job-id="sendDataToMarketing" priority="0">
+        <description>Enviar informacion a Marketing Cloud</description>
+        <parameters/>
+        <flow>
+            <context site-id="PatPrimo"/>
+            <step step-id="sendDataMKT" type="ExecuteScriptModule" enforce-restart="false">
+                <description/>
+                <parameters>
+                    <parameter name="ExecuteScriptModule.Module">app_custom_storefront_jobs/cartridge/scripts/jobsteps/sendDataToMKT.js</parameter>
+                    <parameter name="ExecuteScriptModule.FunctionName">sendData</parameter>
+                    <parameter name="ExecuteScriptModule.Transactional">false</parameter>
+                </parameters>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-recurring enabled="false">
+                <recurrence>
+                    <date-from>2022-11-18Z</date-from>
+                    <start-time>20:24:12.000Z</start-time>
+                    <interval>5m</interval>
+                    <day-of-week/>
+                </recurrence>
+            </run-recurring>
+        </triggers>
+    </job>
+
+    <job job-id="createTokenMkt" priority="0">
+        <description>Se obtiene el token para realizar transacciones en Marketing Cloud</description>
+        <parameters/>
+        <flow>
+            <context site-id="PatPrimo"/>
+            <step step-id="GetToken" type="ExecuteScriptModule" enforce-restart="false">
+                <description/>
+                <parameters>
+                    <parameter name="ExecuteScriptModule.Module">app_custom_storefront_jobs/cartridge/scripts/jobsteps/generateTokenMkt.js</parameter>
+                    <parameter name="ExecuteScriptModule.FunctionName">getToken</parameter>
+                    <parameter name="ExecuteScriptModule.Transactional">false</parameter>
+                </parameters>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-recurring enabled="false">
+                <recurrence>
+                    <date-from>2022-11-01Z</date-from>
+                    <start-time>19:18:39.000Z</start-time>
+                    <interval>20m</interval>
+                    <day-of-week>
+                        <weekday>Tuesday</weekday>
+                        <weekday>Thursday</weekday>
+                        <weekday>Saturday</weekday>
+                        <weekday>Wednesday</weekday>
+                        <weekday>Sunday</weekday>
+                        <weekday>Friday</weekday>
+                        <weekday>Monday</weekday>
+                    </day-of-week>
+                </recurrence>
+            </run-recurring>
+        </triggers>
+    </job>
+
+    <job job-id="cartAbandoned" priority="0">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="PatPrimo"/>
+            <step step-id="cartAbandoned" type="ExecuteScriptModule" enforce-restart="false">
+                <description/>
+                <parameters>
+                    <parameter name="ExecuteScriptModule.Module">app_custom_storefront_jobs/cartridge/scripts/jobsteps/sendBasketToMarketing.js</parameter>
+                    <parameter name="ExecuteScriptModule.FunctionName">sendData</parameter>
+                    <parameter name="ExecuteScriptModule.Transactional">false</parameter>
+                </parameters>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2022-12-02Z</date>
+                <time>19:31:50.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+
+    <job job-id="exportCatalogFeedStep" priority="0">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="PatPrimo"/>
+            <step step-id="exportCatalogFeedStep" type="custom.exportCatalogFeed" enforce-restart="false">
+                <description/>
+                <parameters>
+                    <parameter name="folderName">exportedCatalogs</parameter>
+                    <parameter name="fileName">feed</parameter>
+                </parameters>
+            </step>
+        </flow>
+        <rules>
+            <on-running runtime-threshold="60m" enabled="false">
+                <mark-job-as-hanging/>
+            </on-running>
+        </rules>
+        <triggers>
+            <run-once enabled="false">
+                <date>2023-02-21Z</date>
+                <time>23:20:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+
+</jobs>

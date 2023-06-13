@@ -1,0 +1,153 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/checkout/checkout.css');
+        assets.addJs('/js/checkoutRegistration.js');
+        assets.addJs('/js/functionFormat.js');
+
+        function transformCol(number){
+            number += '';
+            var x = number.split('.');
+            var x1 = x[0];
+            var x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + '.' + '$2');
+            } 
+            return x1 + x2;
+        }
+
+    </isscript>
+   
+        <script>
+            dataLayer.push({ ecommerce: null });
+            dataLayer.push({
+                event: "checkout_payment",
+                ecommerce: {
+                    checkout_step: ${"'"+pdict.basketObj.checkout_step+"'"}, //Número de paso del checkout
+                    total_cart_size: ${"'"+pdict.basketObj.total_cart_size+"'"}, //Número de productos en el carrito
+                    total_cart_amount: ${"'"+pdict.basketObj.total_cart_amount+"'"}, //Total del carrito
+                    cart_id: ${"'"+pdict.basketObj.cart_id+"'"}, //Id del carrito
+                    email_name: ${"'"+pdict.basketObj.email_name+"'"}, //Email relacionado al usuario
+                    coupon: ${"'"+pdict.basketObj.coupon+"'"}, //Opcional, si usa un cupón
+                    shipping_type: ${"'"+pdict.basketObj.shipping_type+"'"}, //Tipo de envío seleccionado normal o express
+                    payment_type: ${"'"+pdict.basketObj.payment_type+"'"}, //Tipo de pago seleccionado PSE, débito, crédito,
+                    items: <isprint value="${pdict.productArray}" encoding="off" />
+                }
+            });
+            dataLayer.push({
+                event: "purchase",
+                ecommerce: {
+                    transaction_id: ${"'"+pdict.orderObj.transaction_id+"'"}, //Orden ID de la transacción generada
+                    affiliation: ${"'"+pdict.orderObj.affiliation+"'"}, //Ecommerce donde se realizó la transacción
+                    value: ${"'"+pdict.orderObj.value+"'"}, //Valor total de la compra
+                    shipping: ${"'"+pdict.orderObj.shipping+"'"}, //Valor del envío
+                    currency: ${"'"+pdict.orderObj.currency+"'"}, //Moneda de la compra
+                    coupon: ${pdict.basketObj.coupon ? "'"+pdict.basketObj.coupon+"'" : "''"}, //Opcional, si usa un cupón
+                    items: <isprint value="${pdict.productArray}" encoding="off" />
+                }
+            });
+        </script>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+
+    <div class="container  receipt <isif condition=" ${pdict.order.shipping.length> 1}">multi-ship</isif>">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 px-0">
+                <isinclude template="checkout/confirmation/confirmationDetails" />
+                <iscomment> <div class="mb-3">
+                    <a href="${URLUtils.url('Home-Show')}"
+                        class="btn btn-primary btn-block order-confirmation-continue-shopping" role="button"
+                        aria-pressed="true">
+                        ${Resource.msg('button.continue.shopping','confirmation',null)}
+                    </a>
+                </div> </iscomment>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pr-0 plMob">
+                <div class="card checkout-order-total-summary  test-receipt-confirmation">
+                    <div class="card-header background-gray pl-3 ml-0 mt-0">
+                        <span class="font-14-title font14Mob">${Resource.msg('label.resumen.compra', 'orderConfirmation', null)}</span>
+                    </div>
+                    <div class="card-body order-total-summary">
+                        <isinclude template="checkout/orderTotalSummary" />
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header background-gray pl-3 ml-0 mt-0">
+                        <span class="font-14-title font14Mob">${Resource.msg('label.resumen.pago', 'orderConfirmation', null)}</span>
+                        <p class="text-right d-none"><span class="grand-total-sum">${pdict.order.totals.grandTotal}</span></p>
+
+                    </div>
+                    <!--- Payment information --->
+                    <div class="summary-details">
+                        <div class="payment-details">
+                            <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
+                            <iscomment> ajustar para payment method a utilizar </iscomment>
+                                <isif condition="${payment.paymentMethod === 'CREDIT_CARD'}">
+                                    <div class="row m-2">
+                                        <div class="col-8 RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond pl-2">
+                                            ${payment.type}  ${payment.maskedCreditCardNumber}
+                                        </div>
+                                        <div class="col-4 RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond">
+                                            <span>$${transformCol(payment.amount)}</span>
+                                        </div>
+                                    </div>
+                                </isif>
+                                <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
+                                    <div class="row m-2">
+                                        <div class="col-8 RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond pl-2">
+                                            ${Resource.msg('label.certificado.regalo', 'orderConfirmation', null)} ${payment.maskedGiftCertificateCode}
+                                        </div>
+                                        <div class="col-4 RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond text-right pr-0">
+                                            <span>$${transformCol(payment.amount)}</span>
+                                        </div>
+                                    </div>
+                                </isif>
+                                <isif condition="${payment.paymentMethod === 'MercadoPago'}">
+                                    <div class="row mr-3 ml-0">
+                                        <div class="col-8 RedHatDisplayFont fontSize14 greyPatFont83 modMobP modMobTextSecond">
+                                            ${Resource.msg('label.mercado.pago', 'orderConfirmation', null)}<br>
+                                            <isset name="paymentName" value="${require('*/cartridge/scripts/helpers/MercadoPagoHelper').getPaymentMethodName(payment.type)}" scope="page" />
+                                            ${Resource.msg('label.efectivo', 'orderConfirmation', null)}
+                                        </div>
+                                        <div class="col-4 RedHatDisplayFont fontSize14 greyPatFont83 pr-0 modMobTextSecond text-right pr-0">
+                                            <span>$${transformCol(payment.amount)}</span>
+                                        </div>
+                                    </div>
+                                    <isif condition="${pdict.installments.installments > 1}">
+                                    <div class="row mt-3 mr-3 ml-0">
+                                        <div class="col-8 RedHatDisplayFont fontSize14 greyPatFont83 modMobP modMobTextSecond">
+                                             ${pdict.installments.installments} Meses de 
+                                        </div>
+                                        <div class="col-4 RedHatDisplayFont fontSize14 greyPatFont83 pr-0 modMobTextSecond text-right pr-0">
+                                            <span>$${transformCol(pdict.installments.installment_amount)}</span>
+                                        </div>
+                                    </div>
+                                    </isif>
+                                </isif>
+                                <isif condition="${payment.paymentMethod === 'PAGO_CONTRA_ENTREGA'}">
+                                    <div class="row m-2">
+                                        <div class="col-8 RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond pl-2">
+                                            ${Resource.msg('label.pago.contra.entrega', 'orderConfirmation', null)}
+                                        </div>
+                                        <div class="col-4 RedHatDisplayFont fontSize14 greyPatFont83 pr-0 modMobTextSecond text-right pr-0">
+                                            <span>$${transformCol(payment.amount)}</span>
+                                        </div>
+                                    </div>
+                                </isif>
+                            </isloop>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                <isif condition="${pdict.customer}">
+                    <a href="${URLUtils.url('Order-History')}" class="btn btn-dark btn-beige">${Resource.msg('button.ver.en.pedido', 'orderConfirmation', null)}</a>
+                </isif>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

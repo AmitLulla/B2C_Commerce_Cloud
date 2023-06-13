@@ -1,0 +1,36 @@
+{
+    "name": "lo Mas Buscado Hombres",
+    "description": "Image, text overlay that links user to a category using the markup editor",
+    "group": "patprimo_components_homepage",
+    "attribute_definition_groups": [
+  
+       {
+        "id": "heading",
+        "name": "CTA 1",
+        "description": "text for the button 1.",
+        "attribute_definitions": [
+          {
+            "id": "heading",
+            "name": "CTA 1",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_link",
+        "name": "cta link ",
+        "description": "The Shop Now link on the banner button 2",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink",
+            "name": "Category Link",
+            "type": "category",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }
+  

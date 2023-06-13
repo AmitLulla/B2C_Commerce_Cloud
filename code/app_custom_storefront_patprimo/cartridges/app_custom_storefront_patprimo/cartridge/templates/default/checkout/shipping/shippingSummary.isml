@@ -1,0 +1,67 @@
+<isscript>
+    function maskString(data) {
+        var tel = data;
+        var mask = "";
+        for (var i = 0; i < tel.length; i++) {
+            mask+= '*';
+        }
+        session.custom.shippingPhone = tel.substring(0,4) + mask + tel.substring((tel.length -3),(tel.length));
+        return tel.substring(0,4) + mask + tel.substring((tel.length -3),(tel.length));
+        
+    }
+</isscript>
+<isset name="typeSend" value="datosEnvio" scope="page" />
+<div class="d-none">
+    ${maskString(pdict.order.shipping[0].shippingAddress.phone)}
+</div>
+<!--- Shipping Address --->
+<isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
+    <isif condition="${shippingLoop.first}">
+        <div class="single-shipping" data-shipment-summary="${shippingModel.UUID}">
+            <p class="shipping-addr-label font-14-title modMobTextSecond mb-2 pt-1">${Resource.msg('label.enviar.a', 'orderConfirmation', null)}</p>
+            <isif condition="${shippingModel.shippingAddress !== null}">
+                <isset name="address" value="${shippingModel.shippingAddress}" scope="page"/>
+            <iselse>
+                <isset name="address" value="${{}}" scope="page"/>
+            </isif>
+            <div class="summary-details shipping card-header-payment modMobTextSecond">
+                <isinclude template="checkout/addressSummary" />
+                <isif condition="${typeSend != 'datosEnvio'}">
+                    <div class="shipping-phone">
+                        <isif condition="${session.customer.isAuthenticated()}">
+                            ${shippingModel.shippingAddress.phone}
+                        <iselse/>
+                            ${session.custom.shippingPhone ? session.custom.shippingPhone : shippingModel.shippingAddress.phone}
+                        </isif>
+
+                        <iscomment> ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''} </iscomment>
+                    </div>
+                </isif>
+            </div>
+
+            <!--- Shipping information --->
+            <p class="font-14-title modMobTextSecond shipping-method-label mb-2 pt-3">${Resource.msg('label.order.shipping.method', 'orderConfirmation', null)}</p>
+            <div class="row summary-details leading-lines">
+                <div class="col-8 pl-0">
+                    <p class="shipping-method">
+                        <span class="shipping-method-title card-header-payment modMobTextSecond">${shippingModel.selectedShippingMethod.displayName}</span>
+                        <span class="shipping-method-arrival-time">
+                            <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
+                                ( ${shippingModel.selectedShippingMethod.estimatedArrivalTime} )
+                            </isif>
+                        </span>
+                    </p>
+                </div>
+                <div class="col-4 end-lines d-none">
+                    <p class="text-right pricing shipping-method-price font12Mob">
+                        ${shippingModel.selectedShippingMethod.shippingCost}
+                    </p>
+                </div>
+            </div>
+            <isinclude template="checkout/shipping/giftMessageSummary" />
+        </div>
+    </isif>
+</isloop>
+<p class="summary-section-label shipping-addr-label multi-shipping">
+    ${Resource.msg('order.summery.section.text', 'order', null)}
+</p>

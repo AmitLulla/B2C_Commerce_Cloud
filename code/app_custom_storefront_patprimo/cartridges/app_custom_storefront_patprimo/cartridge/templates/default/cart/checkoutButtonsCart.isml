@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-6 justify-content-center pl-3 pl-lg-3">
+        <a href="${URLUtils.https('Home-Show')}
+        "
+            class="finalizarcompraCartContinue fontSize13 fontWeight500" role="button" >
+            ${Resource.msg('button.more.products', 'cart', null)}
+        </a>
+    </div>
+    <div class="col-6  p-0 m-0 pr-3">
+        <a href="<isif condition=" ${pdict.action === 'Cart-Show'}">${URLUtils.https('Checkout-Begin')}
+        <iselse/>${URLUtils.https('Cart-Show')}</isif>"
+            class="btn btn-block RedHatDisplayFontWhite 
+            text-uppercase rounded-0 fontSize11 fontWeight600 ${pdict.valid.error ? 'disabled' : ''} btn-finalizarcompraCart " role="button">
+            <span>${Resource.msg('title.cart.continue', 'cart', null)}</span>
+        </a>
+    </div>
+</div>
+
+<isif condition="${pdict.isAdminSocialSelling}">
+    <div class="d-flex justify-content-center">
+        <a href="${URLUtils.https('SocialSelling-Show')}"
+            class="btn btn-block checkout-btn checkout-btn-custom  ${pdict.valid.error ? 'disabled' : ''}"
+            role="button">
+            ${Resource.msg('button.checkout.social.selling', 'cart', null)}
+        </a>
+    </div>
+</isif>

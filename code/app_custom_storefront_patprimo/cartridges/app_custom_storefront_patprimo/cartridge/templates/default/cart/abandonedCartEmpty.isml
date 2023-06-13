@@ -1,0 +1,5 @@
+<isdecorate template="common/layout/page">
+    <div class="container d-flex justify-content-center">
+        <h1>Lo siento tu carrito ha expirado</h1>
+    </div>
+</isdecorate>

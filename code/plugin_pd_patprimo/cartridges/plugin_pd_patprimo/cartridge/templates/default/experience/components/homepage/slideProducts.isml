@@ -1,0 +1,14 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/carrousel.css'); 
+</isscript> 
+
+
+<div class="titulo-div-carrousel" >
+<h3 class="titulo-carrousel"> ${pdict.heading} </h3>  <h5 class="ver-todo " onclick="location.href='${pdict.categoryLink ? pdict.categoryLink:null}';" style="cursor: pointer;" >Ver todo</h5>
+</div>
+
+ <isslot id="homepage-recommendations" description="Homepage" context="global" />
+
+
+

@@ -1,0 +1,143 @@
+@import "base/experience/components/commerceAssets/imageAndTextCommon";
+@import "~custom/variables";
+
+.carrousel-categories, .ver-mas-mobile{
+    display: none;
+}
+.categorias-destacadas-fichas , .ver-mas{
+    display: block;
+}
+
+.categorias-destacadas{
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;    
+}
+
+
+.titulo-cat-destacadas{
+    width: 80vw;
+    align-self: center;
+    font-family: $font-Fair-Medium;
+    text-align: center;
+    color:#262626;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    margin: auto;
+    
+}
+
+.categorias-destacadas-fichas{
+display: flex;
+justify-content:space-evenly;
+flex-wrap: wrap;
+width: 95vw;
+margin: auto;
+
+
+}
+
+.fichas{
+    width:  23vw;
+    height: 31vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+ 
+}
+
+
+.text-fichas{
+    align-self:flex-end;
+    margin-bottom: 2rem;
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    background-color: #f2f2f2;
+    font-size: 11px;
+    font-family: $font-RedHat-Semi;
+    font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 1.38px;
+      text-align: center;
+      color: #1c1f2a;
+      width: 131px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ver-mas{
+        
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        cursor: pointer;
+        margin-top: 2rem;
+        p{
+            font-family: $font-RedHat-Medium;
+            font-size: 0.813rem ;
+            color: #1c1f2a;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+        }
+    }
+
+    .rectangle{
+        margin-top: 0.3rem;
+       background-color: #1b1f2b;
+       width: inherit;
+       height: 1px;
+       border: solid 1px #1b1f2b;
+    }
+
+
+    @media screen and (max-width: 842px){
+        .carrousel-categories, .ver-mas-mobile{
+            display: block;
+        }
+        .categorias-destacadas-fichas , .ver-mas{
+            display: none;
+        }
+     .titulo-cat-destacadas{
+        font-size: 16px;
+        letter-spacing: 0.33px;
+       
+     }
+     .ver-mas-mobile{
+        font-size: 12px;
+        color: #1c1f2a;
+        text-align: center;
+        letter-spacing: 0.92px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+     .rectangle-mobile{
+        width: 130px;
+        height: 1px;
+        margin: -1.8rem 0 0;
+        background-color: #1b1f2b;
+        border: solid 1px #1c1f2a;
+     }
+  
+    
+        
+       
+            
+        }

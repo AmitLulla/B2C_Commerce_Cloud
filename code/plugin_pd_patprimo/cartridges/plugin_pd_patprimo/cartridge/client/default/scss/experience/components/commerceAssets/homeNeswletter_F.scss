@@ -1,0 +1,227 @@
+@import "~custom/variables";
+.newsletter{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #eae4d8;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.titulo-newsletter{
+    text-align: center;
+    width: 80vw;
+    margin: auto;
+    font-family: $font-Fair-Medium;
+    font-size: 24px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: #262626;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+.titulo-newsletter2{
+    width: 80vw;
+    margin: auto;
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+   align-self: center;
+    color:#787878;
+    margin-bottom: 1rem;
+}
+.input-newsletter{
+align-self: center;
+font-family:  $font-RedHat-Regular;
+font-size: 16px;
+display: flex;
+align-items: center;
+
+width: 60vw;
+justify-content: center;
+}
+.input-newsletter input{
+    width: 31rem;
+    height: 39px;
+    margin-right: 10px;
+    
+    }
+
+    .input-newsletter button{
+        width: 12rem;
+        height: 40px;
+        background-color:black ;
+        color: white;
+        font-family: $font-RedHat-Semi;
+        font-size: 12px;
+        }
+
+.checkbox-newsletter{
+
+    margin: 14px 0 0 0;
+    font-family: $font-RedHat-Semi;
+    font-size: 11px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    color: hsl(0, 0%, 47%);
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-newsletter span{
+    text-decoration: underline;
+}
+.talk-icon{
+    width: 45px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    margin-bottom: 15rem;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.email-text{
+    text-align: center;
+    margin-right: 42rem;
+    font-size: 12px;
+    color: #787878;
+    font-family:  $font-RedHat-Regular; 
+}
+.talk-mobile{
+    display: none;
+}
+.talk-desktop{
+display: block;
+}
+label {
+    position: relative;
+}
+
+[type= "checkbox"]{display: none;}
+
+label::before{
+    content: ' ';
+    border: solid 1px #9e9e9e;
+    border-radius: 3px;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    left: -25px;
+   
+    background-color: white;
+}
+[type= "checkbox"]:checked + label::before{
+    background-color:#1c1f2a;
+    color: white;
+    content: '\f00c';
+    font-family: FontAwesome;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border: solid 1px #1c1f2a;
+
+}
+
+@media screen and (max-width: 842px){
+    label {
+    margin-left: 8px;
+    }
+
+    label::before{
+       
+        left: -20px;
+    }
+    .talk-mobile{
+        display: block;
+    }
+    .talk-desktop{
+    display: none;
+    }
+
+    .talk-icon{
+        right: 1rem;
+        margin-bottom: 20rem;
+      
+    }
+
+    .newsletter{
+        padding-bottom: 80px;
+    
+    }
+    
+    .titulo-newsletter{
+        
+        width: 50vw;
+        height: auto;
+        margin-left: 50px;
+        margin-right: 50px;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      
+    }
+    .titulo-newsletter2{
+        width: 90vw;
+        height: auto;
+        font-size: 0.75rem;
+        margin-left: 10px;
+        margin-right: 10px;
+       
+    }
+    .input-newsletter{
+        align-self: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .input-newsletter input{
+        width: 330px;
+        height: 40px;
+        font-size: 0.875rem;
+        margin-left: -3rem;
+        }
+    
+        .input-newsletter button{
+            align-self: center;
+            margin-top: 6rem;
+            font-size: 0.688rem;
+            width: 57vw;
+            margin-left: -3rem;
+            }
+    
+    .checkbox-newsletter{
+        text-align: center;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: -105px;
+        text-align: left;
+        width: 75vw;
+    }
+    
+    .checkbox-newsletter span{
+        text-decoration: underline;
+    }
+
+    .email-text{
+    
+        margin-right: 19rem;
+        font-size: 11px;
+    }
+
+}

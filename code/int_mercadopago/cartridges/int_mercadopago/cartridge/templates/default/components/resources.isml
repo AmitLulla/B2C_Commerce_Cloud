@@ -1,0 +1,6 @@
+<script>
+    window.mercado_pago  = {};
+    window.mercado_pago.creditCard = "${dw.order.PaymentInstrument.METHOD_CREDIT_CARD}";
+    window.mercado_pago.giftCertificate = "${dw.order.PaymentInstrument.METHOD_GIFT_CERTIFICATE}";
+    window.mercado_pago.mercadoPagoCard = "${Resource.msg('billing.mercadoPago.paymentMethod', 'creditCard', null)}";
+</script>

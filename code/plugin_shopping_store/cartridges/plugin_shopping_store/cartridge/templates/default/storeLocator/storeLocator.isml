@@ -1,0 +1,49 @@
+ 
+<isdecorate template="common/layout/page">
+    <isscript>
+        var enable = dw.system.Site.getCurrent().getCustomPreferenceValue('locator_enable');
+        var assets = require('*/cartridge/scripts/assets.js');
+        if (pdict.stores.googleMapsApi && enable) {
+            assets.addJs(pdict.stores.googleMapsApi);
+        }
+        assets.addJs('/js/storeLocator.js');
+        assets.addCss('/css/shoppingTheStore/shoppingTheStore.css');
+    </isscript>
+
+    <isinclude template="storeLocator/dialogs/changeStoreDialog" />
+    <isinclude template="storeLocator/dialogs/confirmSlotDialog" />
+    <isinclude template="storeLocator/dialogs/reserveFailedDialog" />
+
+    <div class="container-fluid">
+        <isinclude template="storeLocator/progressBar"/>
+    <div class="view-desktop"> 
+        <div class="main-store-locator">
+            <div class="data-left-store-locator">
+                <isinclude template="storeLocator/storeLocatorNoDecorator" />
+            </div>
+            <div class="map-right-store-locator">
+                <div id="mapdiv" <isif condition="${pdict.showMap == 'false'}">data-hideafterinit="true"</isif>>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('api_google')}">
+                        <div class="jumbotron map-canvas d-block" data-has-google-api="${pdict.stores.googleMapsApi ? true : false}" data-locations="${pdict.stores.locations}"></div>
+                    <iselse/>
+                        <p class="store-locator-no-apiKey alert alert-danger">${Resource.msg('error.no.api.key','storeLocator',null)}</p>
+                    </isif>
+                </div>
+                <div id="pickerdiv" class="d-none">
+                    <isif condition="${pdict.showMap!='true'}">
+                        <isinclude template="storeLocator/slotPicker"/>
+                    </isif>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="view-mobile">
+        <isinclude template="storeLocator/storeLocatorMobile"/>
+    </div>
+
+        <iscomment> <div class="row d-md-none">
+            <isinclude template="storeLocator/storeSearchResults" />
+        </div> </iscomment>
+    </div>
+</isdecorate>

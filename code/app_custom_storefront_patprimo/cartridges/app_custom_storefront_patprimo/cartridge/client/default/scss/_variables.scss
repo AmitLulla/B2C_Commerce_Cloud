@@ -1,0 +1,170 @@
+@import "~bootstrap/scss/functions";
+
+// font-awesome font file locations in relation to target location of the css file.
+$fa-font-path: "../fonts" !default;
+
+// flag icons location in relation to target location of the css file.
+$flag-icon-css-path: "../fonts/flags/" !default;
+
+// images file locations in relation to target location of the css file.
+$images-path: "../../images"  !default;
+
+$white: #fff !default;
+$black: #000 !default;
+$blue: #0070d2 !default;
+$green: #008827 !default;
+// primary is replaced by css variable --skin-primary-color-1
+$primary: #00a1e0 !default;
+$red: #c00 !default;
+$red2: #bc3939 !default;
+$success: $green !default;
+$danger: $red !default;
+$light-blue: #7ed0ee !default;
+$skin :#D9D7D7;
+$backbground-card-login :#f7f7f7;
+$second-text-log:#838383;
+$beige-pat-btns:#eae4d8;
+
+// Consolidated values
+$grey0: #e9e9e9 !default;
+$grey1: #f9f9f9 !default;
+$grey2: #eee !default;
+$grey3: #ccc !default;
+$grey4: #999 !default;
+$grey5: #666 !default;
+$grey6: #444 !default;
+$grey7: #222 !default;
+$grey8: #333 !default;
+$grey9: #D8D8D8;
+$grey10: #b4b4b4;
+$grey-transparent-1: rgba(0, 0, 0, 0.65) !default;
+$grey-transparent-2: rgba(0, 0, 0, 0.25) !default;
+$base: 8px;
+$margin: $base * 2;
+
+$negro-pat: #262626 !default;
+$beige-pat: #eae4d8 !default;
+$azul-pat: #1c1f2a !default;
+$azul2:#4b739c;
+$gris-texto1: #787878 !default;
+$gris-texto3: #c0c0c0 !default;
+$gris-texto-2: #999999 !default;
+$gris-texto-4: #ced4da;
+$gris-back: #f7f7f7 !default;
+$input: #e9e9e9;
+
+@font-face {
+    font-family: "RedHatRegular";
+    src: url($fa-font-path + "/RedHatDisplay-Regular.ttf");
+}
+
+@font-face {
+    font-family: "RedHatSemi";
+    src: url($fa-font-path +"/RedHatDisplay-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "RedHatMedium";
+    src: url( $fa-font-path +"/RedHatDisplay-Medium.ttf");
+    
+}
+
+@font-face {
+    font-family: "RedHatExtra";
+    src: url($fa-font-path +"/RedHatDisplay-ExtraBold.ttf");
+    
+}
+
+@font-face {
+    font-family: "RedHatItalic";
+    src: url($fa-font-path +"/RedHatDisplay-Italic.ttf");
+    
+}
+
+@font-face {
+    font-family: "FairExtra";
+    src: url($fa-font-path +"/PlayfairDisplay-ExtraBold.ttf");
+    
+}
+
+@font-face {
+    font-family: "AvenirNext-Medium";
+     src: url($fa-font-path +"/AvenirNextCyr-Medium.ttf"); }
+
+@font-face {
+    font-family: "FairMedium";
+    src: url($fa-font-path +"/PlayfairDisplay-Medium.ttf");
+        
+}
+
+$system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+$font-RedHat-Semi: "RedHatSemi", $system-fonts;
+$font-RedHat-Regular: "RedHatRegular", $system-fonts;
+$font-RedHat-Medium: "RedHatMedium", $system-fonts;
+$font-RedHat-Italic: "RedHatItalic", $system-fonts;
+$font-RedHat-ExtraBold: "RedHatExtra", $system-fonts;
+$font-Fair-Medium: "FairMedium", $system-fonts;
+$font-Fair-Extra: "FairExtra", $system-fonts;
+$font-AvenirNext: "AvenirNext-Medium", $system-fonts;
+$font-PlayfairDisplay: "PlayfairDisplay";
+$font-RedHat-Bold: "RedHatBold", $system-fonts;
+
+$light-gray: $grey1 !default;
+$slightly-darker-gray: $grey4 !default;
+$dark-gray: $grey6 !default;
+$darker-gray: $grey7 !default;
+$horizontal-rule-grey: $grey3 !default;
+$product-number-grey: $grey3 !default;
+$horizontal-border-grey: $grey4 !default;
+$menu-link: $grey6 !default;
+$close-menu-bg: $grey2 !default;
+$link-color: $dark-gray !default;
+$hr-border-color: $grey3 !default;
+// dashboard-menu-colors
+$link-color-dash: #787878;
+$link-color-dash-select: #1c1f2a;
+$select-dash-option: #eae4d8;
+//wishlist-product-tile-colors
+$link-color-tile-product: #444;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 544px,
+    md: 769px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+$container-max-widths: (
+    md: 720px,
+    lg: 940px,
+    xl: 1140px
+) !default;
+
+$border-radius: 0.1875rem !default;
+$border-radius-lg: $border-radius !default;
+$border-radius-sm: $border-radius !default;
+
+$state-danger-text: #fff !default;
+$alert-success-text: #fff !default;
+
+// Font sizes
+$base16-14px: 0.875em !default;
+
+// Bootstrap overrides
+$body-bg: $grey1 !default;
+$card-cap-bg: $white !default;
+
+// Tabs
+$nav-tabs-border-width: 0 !default;
+$nav-tabs-border-radius: 0 !default;
+$nav-tabs-active-link-hover-bg: transparent !default;
+
+// breadcrumb
+$breadcrumb-bg: transparent !default;
+
+// table border
+$table-border-color: $grey3 !default;
+
+$svg-check: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'  %3E%3Cpath fill='%23ff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") !default;
+$arrow-height: 1.25em; /* 20/16 */

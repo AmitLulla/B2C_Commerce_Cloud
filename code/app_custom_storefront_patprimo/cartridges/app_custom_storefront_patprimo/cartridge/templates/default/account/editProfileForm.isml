@@ -1,0 +1,254 @@
+<isif condition="${pdict.action === 'Account-Show'}">
+    <form action="${URLUtils.url('Account-SaveProfile')}" class="edit-profile-form-custom mr-3" method="POST" <isprint
+        value="${pdict.profileForm.attributes}" encoding="off" />>
+         <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" /> 
+        <!-- INFORMACION PERSONAL -->
+        <div class="row infoMobHide">
+            <div class="col-12">             
+                <span class="float-left titleMob">
+                    <span class="icon-movil">
+                        <i class="fa fa-angle-left"></i>
+                        <span class="infoMob">${Resource.msg('label.informacion.perfil', 'account', null)}</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <a class="title-collapse" data-toggle="collapse" href="#collInfoPersonal" aria-expanded="true" aria-controls="collInfoPersonal">           
+                    <span class="float-left azul-pat">
+                        <span class="caretCollapse"><i class="fa fa-caret-down pr-2"></i></span>
+                        <span class="title textMob">${Resource.msg('label.informacion.personal', 'account', null)}</span>
+                    </span>
+                    <span class="float-right iconCollapse">
+                        <img src=""/>
+                    </span>
+                </a>
+            </div>        
+        </div>
+        <div id="collInfoPersonal" class="row collapse show mt-2 pl-4">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group
+                    <isif condition=" ${pdict.profileForm.customer.firstname.mandatory === true}"></isif>">
+                    <label class="control-label form-control-label label-title"> ${Resource.msg('label.nombre', 'account', null)}</label>
+                    <input type="text" class="form-control text-secondary" id="firstName" <isprint
+                        value="${pdict.profileForm.customer.firstname.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group
+                    <isif condition=" ${pdict.profileForm.customer.lastname.mandatory === true}"></isif>">
+                    <label class="control-label form-control-label label-title"> ${Resource.msg('label.apellido', 'account', null)}</label>
+                    <input type="text" class="form-control text-secondary " id="lastName" <isprint
+                        value="${pdict.profileForm.customer.lastname.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+           
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group
+                    <isif condition=" ${pdict.profileForm.customer.email.mandatory === true}"></isif>">
+                    <label class="control-label form-control-label label-title"> ${Resource.msg('label.correo.electronico', 'account', null)}</label>
+                    <input type="email" readonly class="form-control text-secondary " id="email" <isprint
+                        value="${pdict.profileForm.customer.email.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group
+                    <isif condition=" ${pdict.profileForm.customer.documentoIdentidad.mandatory === true}"></isif>">
+                    <label class="control-label form-control-label label-title"> ${Resource.msg('label.cedula.ciudadania', 'account', null)}</label>
+                    <input type="text" class="form-control text-secondary " name="${pdict.profileForm.customer.documentoIdentidad.htmlName}"
+                        id="documentoIdentidad" required <isprint
+                        value="${pdict.profileForm.customer.documentoIdentidad.attributes}" encoding="off" />>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group
+                    <isif condition=" ${pdict.profileForm.customer.phone.mandatory === true}"></isif>">
+                    <label class="control-label form-control-label label-title"> ${Resource.msg('label.telefono.celular', 'account', null)}</label>
+                    <input type="number" maxlength="13" class="form-control text-secondary " id="phone" <isprint
+                        value="${pdict.profileForm.customer.phone.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group
+                    <isif condition=" ${pdict.profileForm.customer.genero.mandatory === true}"></isif>">
+                    <label class="control-label form-control-label label-title"> ${Resource.msg('label.genero', 'account', null)}</label>
+                    <select class="form-control text-secondary " name="${pdict.profileForm.customer.genero.htmlName}" <isprint
+                        value="${pdict.profileForm.customer.genero.attributes}" encoding="off" />
+                    id="genero" required>
+                        <option <isif condition="${pdict.profileForm.customer.genero.value === 'Masculino'}">selected</isif> value="1"> ${Resource.msg('select.hombre', 'account', null)}</option>
+                        <option  <isif condition="${pdict.profileForm.customer.genero.value === 'Femenino'}">selected</isif> value="2"> ${Resource.msg('select.mujer', 'account', null)}</option>
+                    </select>   
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group">
+                    <label class="control-label form-control-label label-title">${Resource.msg('label.fecha.nacimiento', 'account', null)}</label>
+                    <input type="date" class="form-control text-secondary " name="${pdict.profileForm.customer.birthday.htmlName}" id="birthday"
+                        required
+                        value='<isif condition="${pdict.profileForm.customer.birthday.value}"><isprint value="${new Date(pdict.profileForm.customer.birthday.value)}" formatter="YYYY-MM-dd" timezone = "SITE"/></isif>'>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFORMACION CORPORATIVA -->        
+        <div class="row mt-4 ">
+            <div class="col-12">
+                <a class="title-collapse" data-toggle="collapse" href="#collInfoCorp" aria-expanded="true" aria-controls="collInfoCorp">           
+                    <span class="float-left title textMob">
+                        <span class="caretCollapse"><i class="fa fa-caret-down pr-2"></i></span>
+                        ${Resource.msg('label.informacion.corporativa', 'account', null)}
+                    </span>
+                    <span class="float-right iconCollapse">
+                        <img src=""/>
+                    </span>
+                </a>
+            </div>        
+        </div>
+        <isinclude template="checkout/customer/companyInformation" />
+        <iscomment> <div class="row st-m " >
+            
+            <div class="col-lg-2 pt-3 offset-md-8  text-end">
+                <a href="${URLUtils.url('Account-Show')}"
+                    class="font14 gris-texto1 text-underline">${Resource.msg('label.cancelar', 'account', null)}</a>
+            </div>
+
+            <div class="col-lg-2 ">
+                <button type="submit" name="save"
+                    class="btn btn-submit-edit-profile-form-custom btn-beige btn-dark btnSave">${Resource.msg('button.guardar', 'account', null)}</button>
+            </div>
+            <div class="col-3"></div>
+        </div> </iscomment>
+
+            <div class="row mr-1 st-m">
+
+        <div class="col-md-2 mt-3 offset-lg-8 ">
+            <a href="${URLUtils.url('Account-Show')}" class="font14 gris-texto1 text-underline float-right">${Resource.msg('label.cancelar', 'account', null)}</a>
+        </div>
+
+        <div class="col-md-2">
+            <button type="submit" name="save" class="btn btn-submit-edit-profile-form-custom btn-beige btn-dark btnSave">${Resource.msg('button.guardar', 'account', null)}</button>
+        </div>
+
+        </div>
+    </form>
+    
+    <!-- CAMBIAR CONTRASEÑA -->
+    <div class="row mt-4 " style="margin-top:-100px!important">
+        <div class="col-12">
+            <a class="title-collapse" data-toggle="collapse" href="#collPassword" aria-expanded="true" aria-controls="collPassword">           
+                <span class="float-left title textMob">
+                    <span class="caretCollapse"><i class="fa fa-caret-down pr-2"></i></span>
+                    ${Resource.msg('label.change.password', 'account', null)}
+                </span>
+                <span class="float-right iconCollapse mr-3">
+                    <img src=""/>
+                </span>
+            </a>
+        </div>
+    </div>
+    <isinclude template="account/changePasswordForm"/>
+
+<iselse/>
+    <form validate action="${URLUtils.url('Account-SaveProfile')}" class="edit-profile-form-custom" method="POST" <isprint
+        value="${pdict.profileForm.attributes}" encoding="off" />>
+        <div class="row">
+            <input type="hidden" name="isCheckoutPage" value="true">
+            <div class="col-12">
+                <div class="form-group
+                        <isif condition=" ${pdict.profileForm.customer.email.mandatory === true}"></isif>">
+                    <label class="form-control-label label-form-checkout" for="email">
+                        <isprint value="${pdict.profileForm.customer.email.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="email" readonly class="form-control input-style" id="email" <isprint
+                        value="${pdict.profileForm.customer.email.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group
+                    <isif condition=" ${pdict.profileForm.customer.firstname.mandatory === true}"></isif>">
+                    <label class="form-control-label label-form-checkout" for="firstName">
+                        <isprint value="${pdict.profileForm.customer.firstname.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="text" class="form-control input-style" id="firstName" <isprint
+                        value="${pdict.profileForm.customer.firstname.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <div class="form-group
+                        <isif condition=" ${pdict.profileForm.customer.lastname.mandatory === true}"></isif>">
+                    <label class="form-control-label label-form-checkout" for="lastName">
+                        <isprint value="${pdict.profileForm.customer.lastname.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="text" class="form-control input-style" id="lastName" <isprint
+                        value="${pdict.profileForm.customer.lastname.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label class="control-label form-control-label label-form-checkout">${Resource.msg('label.document', 'login', null)}</label>
+                    <input type="text" class="form-control input-style" name="${pdict.profileForm.customer.documentoIdentidad.htmlName}"
+                        id="documentoIdentidad" required maxlength="13" <isprint
+                        value="${pdict.profileForm.customer.documentoIdentidad.attributes}" encoding="off" />>
+                </div>
+            </div>
+
+            <div class="col-12">
+                
+                <div class="form-group
+                            <isif condition=" ${pdict.profileForm.customer.phone.mandatory === true}"></isif>">
+                    <label class="form-control-label label-form-checkout" for="phone">
+                        <isprint value="${pdict.profileForm.customer.phone.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="text" class="form-control input-style" id="phone" <isprint
+                        value="${pdict.profileForm.customer.phone.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <a id="addCompanyInformation" class="txt-url">${Resource.msg('add.company.information', 'form', null)}</a>
+            </div>
+
+            <div class="col-12">
+                
+                
+            </div>
+            <div class="container company-information d-none w-100">
+                <input type="checkbox" class="mycheck mycheckEmpresa" <isif condition="${pdict.profileForm.customer.responsableIVA.value === true}">checked</isif> name="${pdict.profileForm.customer.responsableIVA.htmlName}"  id="responsableIVA" value="true"
+                <isprint value="${pdict.profileForm.customer.responsableIVA.attributes}" encoding="off" />>
+                <label for="cb1"></label>
+                <label style="display:initial;" for="checkbox" class="label-form-checkout">${Resource.msg('label.checkbox.responsable.iva', 'checkout', null)}</label>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" class="label-form-checkout">${Resource.msg('razon.social', 'form', null)}</label>
+                    <input type="text" tabindex="6" name="${pdict.profileForm.customer.razonSocial.htmlName}" class="form-control input-style" id="razonSocialInput1"
+                        <isprint value="${pdict.profileForm.customer.razonSocial.attributes}" encoding="off" />>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" class="label-form-checkout">${Resource.msg('nit', 'form', null)}</label>
+                    <input type="text" tabindex="8" name="${pdict.profileForm.customer.nit.htmlName}" class="form-control" id="exampleFormControlInput1"
+                        placeholder="" <isprint value="${pdict.profileForm.customer.nit.attributes}" encoding="off" />>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" class="label-form-checkout" style="White-space: nowrap;">${Resource.msg('repeat.nit', 'form', null)}</label>
+                    <input type="text" tabindex="9" name="confirmNit" class="form-control input-style" id="exampleFormControlInput1"
+                        placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.confirmNit.attributes}" encoding="off" />>
+                        <div class="msj-error" id="nitWrong"></div>
+                </div>
+            </div>   
+        </div>
+        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" /> 
+        <div class="row container-btn-modals">
+            <div class="col">
+                <button type="submit" name="save"
+                    class="btn-submit-edit-profile-form-custom btn-save btn-block">${Resource.msg('button.guardar', 'account', null)}</button>
+            </div>
+        </div>
+    </form>
+</isif>

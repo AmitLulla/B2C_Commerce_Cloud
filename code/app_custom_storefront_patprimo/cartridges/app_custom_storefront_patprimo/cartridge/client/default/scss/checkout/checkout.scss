@@ -1,0 +1,2353 @@
+@import "base/checkout/checkout";
+@import "~base/variables";
+@import "../variables";
+
+#maincontent {
+    background-color: $white;
+}
+
+#checkout-main {
+    @media (min-width: 769px) {
+        padding-top: 27px;
+    }
+}
+
+.steps-bar-background {
+    margin: 0 0 15px 0;
+    padding: 0;
+    @media (max-width: 769px) {
+        margin: 0;
+    }
+
+    #step-customer-bar, #step-ship-bar, #step-pay-bar{
+        align-items: center;
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        color: $grey8;
+        background-color: $grey1;
+        @media (max-width: 769px) {
+            background-color: $azul-pat !important;
+            justify-content: left;
+        }
+        h4 {
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            margin-bottom: 0;
+            color: $gris-texto3;
+            font-family: $font-RedHat-Bold;
+            @media (max-width: 769px) {
+                color: $white !important;
+                font-family: $font-RedHat-Medium;
+                font-size: 13px;
+            }
+        }
+    }
+
+    #step-1-3, #step-2-3, #step-3-3 {
+        background-color: $beige-pat-btns;
+        align-items: center;
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        padding-top: 7px;
+
+        h4 {
+            font-size: 13px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: $azul-pat;
+            font-family: $font-RedHat-Medium;
+        }
+    }
+
+    .border-right {
+        border-right: 0.9px solid $grey0 !important;
+    }
+
+    .background-select {
+        background-color: $select-dash-option !important;
+
+        h4 {
+            color: $azul-pat !important;
+            font-weight: bold !important;
+        }
+        
+    }
+}
+
+.identificate-step {
+    #formIdentificate {
+        @media (max-width: 769px) {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $link-color-dash;
+            margin-bottom: 15px;
+            font-family: $font-RedHat-Regular;
+
+            @media (max-width: 769px) {
+                font-size: 14px;
+            }
+        }
+
+        .input-style {
+            font-style: italic;
+        }
+
+        .container-btn-register {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .container-term-and-conditions {
+            margin-top: 20px; 
+            padding-bottom: 20px;
+            border-bottom: solid 1px $grey0;
+
+            @media (max-width: 769px) {
+                padding-left: 16px;
+                padding-right: 16px;;
+                border-bottom: none;
+            }
+
+            label {
+                padding: 0;
+                font-size: 12px;
+                color: $grey4;
+                font-family: $font-RedHat-Regular;
+                @media (max-width: 769px) {
+                    font-size: 11px;
+                }
+            }
+        }
+
+        div.container-btn {
+            margin-top: 20px;
+
+            @media (max-width: 769px) {
+                padding: 15px 60px 74px 60px;
+                position:fixed;
+                background-color: $white;
+                z-index: 10;
+                margin-top: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            button.submit-form-global {
+                width: 150px !important;
+                height: 40px;
+                object-fit: contain;
+                color: $white;
+                background-color: $black;
+                border-color: $black;
+                margin-left: 20px;
+                font-size: 13px;
+                text-transform: uppercase;
+                font-family: $font-RedHat-Medium;
+                &:disabled {
+                    background-color: $grey4;
+                    border-color: $grey4;
+                }
+
+                @media (max-width: 769px) {
+                    width: 100% !important;
+                    margin-left: 0;
+                    font-size: 11px;
+                }
+            }
+
+            .volver-carrito {
+                width: 150px;
+                height: 40px;
+                object-fit: contain;
+                font-size: 13px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: 1px;
+                text-align: center;
+                background-color: transparent;
+                border-color: transparent;
+                text-decoration: underline;
+                color: $azul-pat !important;
+                font-family: $font-RedHat-Medium;
+                @media (max-width: 769px) {
+                    width: 100%;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    #customerNotRegister {
+        #customerNotRegisterForm {
+            .container-register {
+                margin-bottom: 30px;
+                @media (max-width: 769px) {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+
+                #addCompanyInformation {
+                    font-family: $font-RedHat-Regular;
+                    font-size: 14px;
+                    color: $gris-texto1;
+                    text-decoration: underline !important;
+
+                    @media (max-width: 769px) {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            .container-btn-checkout {
+                padding-top: 19px;
+                border-top: solid 1px $grey0;
+                padding-right: 40px;
+
+                @media (max-width: 769px) {
+                    padding-left: 20%;
+                    padding-right: 20%;
+                    padding-bottom: 25px;
+                }
+            }
+        }
+
+        .btn-default-pat-primo {
+            width: 150px !important;
+            height: 40px;
+            object-fit: contain;
+            color: $white;
+            background-color: $black;
+            border-color: $black;
+            margin-left: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-family: $font-RedHat-Medium;
+
+            &:disabled {
+                background-color: $grey4;
+                border-color: $grey4
+            }
+
+            @media (max-width: 769px) {
+                width: 100% !important;
+                margin-left: 0;
+                font-size: 11px;
+            }
+        }
+    }
+    .a-underline {
+        text-decoration: underline!important;
+        color: $azul-pat!important;
+        font-family: $font-RedHat-Medium;;
+    }
+}
+
+.cont-company-inf {
+    width: 50%;
+    @media (max-width: 769px) {
+        width: 100% !important;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+#buttonCardMp {
+    @media (max-width: 769px) {
+       margin-bottom: 100px;
+    }
+}
+
+.mycheck {
+    cursor: pointer;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 1px solid $black;
+}
+
+.mycheckEmpresa {
+    width: 15px !important;
+    height: 15px !important;
+}
+.mycheck:checked {
+    background-color: $black;
+}
+
+.label-form-checkout {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $grey4;
+    font-family: $font-RedHat-Regular;
+}
+
+.form-control-label {
+    font-family: $font-RedHat-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto-2;
+}
+
+.txt-instructions {
+    font-family: $font-RedHat-Medium;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat;
+}
+
+.cartTotalsMarginS {
+    display: none;
+}
+
+.checkout-checkbox, .contra-entrega-card-content {
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $second-text-log;
+}
+
+.custom-control-label, .custom-control-label-method {
+    font-family: $font-RedHat-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto-2;
+}
+
+.js-mail-phone-container {
+    @media (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.save-credit-card {
+    @media (min-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.check-same-data {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.saved-credit-card-type, .saved-credit-card-number, .saved-credit-card-expiration-date {
+    font-family: $font-RedHat-Bold;
+    font-size: 14px;
+    color: $second-text-log;
+}
+
+.card-image {
+    margin-top: 20px;
+}
+input.form-control {
+    height: 40px;
+    border: solid 1px $input;
+    background-color: $white;
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1;
+}
+
+.custom-select {
+    height: 40px;
+}
+
+@media (min-width: 768px) {
+    .collapse.dont-collapse-sm {
+      display: block;
+      height: auto !important;
+      visibility: visible;
+    }
+}
+
+a.regresar-link {
+    margin-top: 10px;
+}
+
+.regresar-btn {
+    width: 150px;
+    height: 40px;
+    object-fit: contain;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration: underline !important;
+    color: $azul-pat !important;
+    padding-top: 10px;
+    font-family: $font-RedHat-Medium;
+
+    @media (max-width: 769px) {
+        font-size: 12px;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+#MPCreditCardMethodsImg {
+    .card-select {
+        width: 33px;
+        height: 22px;
+    }
+}
+
+.enviarDomicilio {
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    h5 {
+        font-family: $font-RedHat-Regular;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $gris-texto1;
+    }
+}
+
+.container-enviarDomicilio {
+    margin-left: 50px;
+    @media (max-width: 769px) {
+        margin-left: 40px;
+    }
+    .list-group-item {
+        font-size: 16px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        font-size: 16px;
+        margin-bottom: 15px;
+
+        label {
+            font-family: $font-RedHat-Medium;
+            font-weight: 500;
+            color: $azul-pat;
+            margin-left: 10px;
+        }
+
+        p {
+            font-family: $font-RedHat-Regular;
+            color: $gris-texto1;
+            margin-left: 13px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.desc-form-checkout {
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: $font-RedHat-Regular;
+    color: $gris-texto1;
+
+    @media (max-width: 769px) {
+        font-size: 14px;
+    }
+}
+
+.nav-item {
+    @media (max-width: 770px) {
+        background-color: $white;
+        border: 1px solid #ebebeb;
+        margin-bottom: 10px !important;
+        width: 100%;
+    }
+}
+
+.debito-target-cont {
+    width: 100%;
+}
+
+.line-item-total-price {
+    padding-top: 5px !important;
+}
+
+// Seleccionado 1 muestra 1 no regresa a ningun lugar
+// seleccionado 2 muestra 2 y regresa a 1
+// seleccionado 3 muestra 3 y regresa a 2
+
+.data-checkout-stage {
+    @media (min-width: 770px) {
+        #step-pay-bar.txt-step,.txt-step-sm, #step-1-3, #step-2-3, #step-3-3 {
+            display: none;
+        }
+    }
+    @media (max-width: 769px) {
+        &[data-checkout-stage=customer] {
+            .txt-step,#step-pay-bar,#step-ship-bar,.txt-sel-2,.txt-sel-3,.txt-sel-4,#step-2-3, #step-3-3 {
+                display: none;
+            }   
+        }
+
+        &[data-checkout-stage=shipping] {
+            .txt-step,#step-customer-bar,#step-pay-bar,#step-1-3, #step-3-3 {
+                display: none;
+            }
+
+            .next-step-button {
+                @media (max-width: 769px) {
+                    z-index: 10;
+                    position: inherit;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        &[data-checkout-stage=payment] {
+            .txt-step,#step-customer-bar,#step-ship-bar,#step-1-3, #step-2-3, .regresar-link {
+                display: none;
+            }
+        }
+        &[data-checkout-stage=placeOrder] {
+            .txt-step,#step-customer-bar,#step-ship-bar,#step-1-3, #step-2-3, .next-step-button {
+                display: none;
+            }
+        }
+    }
+}
+.data-checkout-stage[data-checkout-stage=payment] {
+    .custom-control-input.mycheck {
+        opacity: 1;
+        position: relative;
+        z-index: 2;
+    }
+    .custom-checkbox .custom-control-label::before {
+        border-color: transparent;
+        background-color: transparent;
+    }
+    .custom-control-label-method, .label-same-address {
+        padding-left: 10px;
+    }
+    
+    .custom-control {
+        padding-left: 15px;
+    }
+}
+
+.data-checkout-stage[data-checkout-stage=payment] #step-pay-bar, .data-checkout-stage[data-checkout-stage=payment] #step-ship-bar {
+    @media (min-width: 769px) {
+        background-color: #eae4d8 !important;
+        color: $azul-pat;
+    }
+    .txt-step {
+        color: $azul-pat;
+        font-family: $font-RedHat-Bold;
+        font-weight: bold;
+    }
+}
+
+.container-next-step {
+    display: flex;
+    padding-right: 15px;
+    justify-content: end;
+    @media (max-width: 769px) {
+        justify-content: center;
+        padding-right: 0;
+    }
+}
+
+.next-step-button {
+    right: 0;
+    justify-content: end;
+    @media (max-width: 769px) {
+        justify-content: center;
+        z-index: 10;
+    }
+}
+
+.masked-code {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $second-text-log;
+    font-family: $font-RedHat-Regular;
+}
+
+.remove-gift-certificate {
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $red2 !important;
+    text-decoration: underline !important;
+    font-family: $font-RedHat-Medium;
+}
+
+.code-amount-p {
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $red2 !important;
+    font-family: $font-RedHat-Medium;
+}
+
+.applied-gift-certificates {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.gift-certificate-card {
+    padding: 5px 0 20px;
+    border-bottom: solid 1px $grey0;
+    margin-bottom: 14px;
+    div {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.data-checkout-stage {
+    &[data-checkout-stage=customer] {
+        .identificate-step {
+            #formIdentificate {
+                div.container-btn {
+                    @media (max-width: 769px) {
+                        position: initial;
+                        padding: 15px 60px 0px;
+                    }
+                }
+            }
+        }
+        a.regresar-link { 
+            display: none;
+        }
+    }
+
+    &[data-checkout-stage=payment] {
+        a.regresar-link { 
+            display: none !important;
+        }
+    }
+
+    &[data-checkout-stage=shipping] {
+        a.regresar-link { 
+            display: none;
+        }
+    }
+}
+
+.title-none {
+    display: none !important;
+}
+
+#saldoPending {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat;
+    font-family: $font-RedHat-Regular;
+}
+.desc-form-checkout-shipping {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: $font-RedHat-Regular;
+    color: $gris-texto1;
+    @media (max-width: 769px) {
+        font-size: 14px;
+    }
+}
+
+.section-shipping-radio-address {
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1;
+    margin-top: 15px;
+    
+
+    label {
+        margin-left: 10px;
+    }
+}
+
+.container-form-address {
+    margin-top: 15px;
+    padding-left: 50px;
+    @media (max-width: 769px) {
+        padding-left: 0;
+    }
+}
+
+.section-shipping-radio {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat;
+    padding: 0 21px !important;
+    font-family: $font-RedHat-Regular;
+    @media (max-width: 769px) {
+        padding: 0 13px !important;
+    }
+}
+
+.order-discount-total, .applied-promotion-discount, .shipping-discount-total {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $red2 !important;
+    font-family: $font-RedHat-Regular;
+}
+
+.cont-shipping-discount-total {
+    position: inherit;
+    top: -5px;
+}
+
+.shipping-method-list {
+    padding-left: 30px;
+    margin-top: 7px;
+    margin-bottom: 30px;
+    @media (max-width: 769px) {
+       padding-left: 0px;
+       margin-bottom:  0;
+    }
+
+    .content-method {
+        display: flex !important;
+        justify-content: center;
+        padding-right: 0;
+        @media (max-width: 769px) {
+            margin-bottom: 15px;
+            padding-right: 0;
+        }
+        &:checked {
+            border-color: red;
+        }    
+    }
+}
+
+.border-complete {
+    margin-right: 25px;
+}
+
+.txt-instruction {
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1;
+    margin-bottom: 15px;
+    @media (max-width: 769px) {
+        font-size: 14px;
+    }
+}
+
+.txt-information {
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin-bottom: 6px;
+    color: $negro-pat;
+    @media (max-width: 769px) {
+        font-size: 14px;
+    }
+}
+
+.label-checkbox {
+    font-size: 12px;
+    color: #999;
+    font-family: $font-RedHat-Regular;
+}
+
+.promotion-information {
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 14px;
+    font-family: $font-RedHat-Regular;
+    color: $second-text-log;
+}
+
+.btn-submit-edit-profile-form-custom {
+    float: right;
+    letter-spacing: 1.5px;
+    width: auto !important;
+    height: 40px;
+    object-fit: contain;
+    color: $white;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: $black;
+    border-color: $black;
+    margin-left: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: $font-RedHat-Medium;
+    &:disabled {
+        background-color: $grey4;
+        border-color: $grey4;
+    }
+
+    @media (max-width: 769px) {
+        font-size: 11px;   
+    }
+}
+
+.company-information {
+    margin-top: 15px;
+}
+
+.container-btn-modals {
+    margin-top: 15px;
+}
+
+.margin-phone {
+    margin-bottom: 16px;
+}
+
+.txt-url, #show-shipping-form {
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-decoration: underline !important;
+    color: $gris-texto1 !important;
+
+    @media (max-width: 769px) {
+        font-size: 13px;
+    }
+}
+
+.content-usar-correo-diferente {
+    margin-top: 15px;
+}
+
+.content-btn-register {
+    .btn-continuar-to-shipping {
+        margin-left: 0;
+        @media (max-width: 769px) {
+            margin-right: 22%;
+            margin-left: 22%;
+        }
+    }
+}
+
+#LoginCheckoutModal {
+    .modal-header {
+        padding: 15px 30px 0 30px;
+        @media (max-width: 769px) {
+            padding: 15px 15px 0 15px;
+        }
+
+        >span {
+            font-family: $font-Fair-Medium;
+            font-size: 20px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $azul-pat;
+            @media (max-width: 769px) {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .modal-body {
+        padding-left: 30px;
+        padding-right: 30px;
+        @media (max-width: 769px) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        span {
+            font-family: $font-RedHat-Regular;
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $gris-texto1;
+        }
+
+        p {
+            margin-bottom: 0;
+            text-align: left;
+            @media (max-width: 769px) {
+                font-size: 14px;
+            }
+        }
+
+        #re-send-code {
+            color: $gris-texto1;
+            text-decoration: underline !important;
+        }
+
+        .login-custom-checkout {
+            >div {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .input-style {
+                font-style: italic;
+                margin-top: 15px;
+                font-size: 16px;
+                @media (max-width: 769px) {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .txt-add-pass {
+            font-family: $font-RedHat-Regular;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $gris-texto1;
+            
+            a {
+                color: $gris-texto1 !important;
+                text-decoration: underline !important;
+            }
+
+            @media (max-width: 769px) {
+                font-size: 13px;
+            }
+        }
+
+        .btn-continuar-to-shipping {
+            @media (max-width: 769px) {
+                margin-left: 32%;
+                margin-top: 15px;
+                margin-right: 0;
+            }
+        }
+    }
+
+    .modal-footer {
+        border-top: none;
+        padding: 15px 30px 30px 30px;
+        @media (max-width: 769px) {
+            padding: 15px;
+        }
+
+        span {
+            font-family: $font-RedHat-Regular;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $gris-texto1;
+            a {
+                color: $gris-texto1 !important;
+                text-decoration: underline !important;
+            }
+
+            @media (max-width: 769px) {
+                display:block;
+                margin:auto;
+                font-size: 13px;
+            }
+        }
+    }
+}
+.title-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-continuar-to-shipping {
+    width: auto !important;
+    min-width: 150px;
+    height: 40px;
+    object-fit: contain;
+    color: $white;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: $azul-pat;
+    border-color: $azul-pat;
+    margin-left: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: $font-RedHat-Medium;
+    &:disabled {
+        background-color: $grey4;
+        border-color: $grey4;
+    }
+
+    @media (max-width: 769px) {
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size: 11px;   
+    }
+}
+
+.content-buttons {
+    float: right;
+    margin-top: 40px;
+    width: 100%;
+    flex-direction: row-reverse;
+    @media (max-width: 769px) {
+        flex-direction: column;
+        background-color: $white;
+        padding-top: 15px;
+        margin-top: 0;
+        left: 0;
+    }
+}
+
+
+#contentAddress {
+    .desc-form-checkout-shipping {
+        @media (max-width: 769px) {
+            margin-left: 13px;
+        }
+    }
+    .shipping-address-form {
+        @media (max-width: 769px) {
+            padding-right: 13px;
+        }
+    }
+}
+
+.msj-error {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $red2;
+    font-family: $font-RedHat-Regular;
+    margin-top: 5px;
+    margin-left: 0;
+    padding-left: 10px;
+}
+
+.shipping-method-option {
+    border: solid 1px $grey0;
+    padding: 10px 20px 16px 17px;
+    width: 100%;
+    height: 80px;
+
+    input {
+        margin-left: 0;
+    }
+
+    .display-name {
+        margin-left: 32px;
+        font-family: $font-RedHat-Medium;
+        color: $azul-pat;
+    }
+
+    .container-flex-method {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .arrival-time {
+        margin-left: 32px;
+        margin-top: 10px;
+        font-size: 14px;
+        font-family: $font-RedHat-Regular;
+        color: $second-text-log;
+    }
+}
+
+.container-flex-direction {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.content-method-shipping {
+    margin-right: 25px;
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid, .form-control:valid, .form-control.is-valid {
+    background-position: center right calc(13px) !important;
+}
+
+.input-style {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto3;
+    padding: 10px;
+    height: 40px;
+    font-family: $font-RedHat-Regular;
+    border: 0.9px solid $grey0;
+
+    @media (max-width: 769px) {
+        font-size: 13px;
+    }
+}
+
+#shippingIsBilling {
+    width: 16px;
+    height: 16px;
+}
+
+.error-message {
+    display: none;
+}
+
+.card {
+    background-color: $grey1;
+}
+
+.country-flag-phone {
+    background-image: url(../../images/colombia_flag_32.png);
+    background-repeat: no-repeat;
+    background-position: 15% 50%;
+    text-align: right;
+}
+.header-banner {
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+.data-checkout-stage {
+    .container-steps-bar {
+        @media (max-width: 769px) {
+            padding: 0;
+            position: fixed;
+            z-index: 2;
+            .content-img-patprimo-sm {
+                margin-bottom: 14px;
+                margin-top: 14px;
+                text-align: center;
+                img {
+                    height: 13px;
+                }
+            }
+        }
+    }
+    .container-summary {
+        @media (min-width: 769px) {
+            margin-top: -55px;
+        }
+        
+        .card {
+            background-color: $grey1;
+            padding: 15px 21px;
+            @media (max-width: 769px) {
+                background-color: $white;
+                padding: 0;
+            }
+
+            .card-header {
+                padding: 0;
+                border-bottom: 0;
+
+                @media (max-width: 769px) {
+                    display: none;
+                }
+
+                .card-header-custom {
+                    color: $azul-pat;
+                    font-size: 20px;
+                    font-weight: 600;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    padding-left: 15px;
+                    letter-spacing: normal;
+                    font-family: $font-RedHat-Semi;
+                }
+            }
+            
+            .card-body {
+                padding: 10px 0;
+            }
+
+            .order-product-summary {
+                .card-body {
+                    .section-product-summary-scroll {
+                        height: 391px;
+                        @media (max-width: 769px) {
+                            height: auto;
+                        }
+                    }
+
+                    .leading-lines {
+                        font-family: $font-RedHat-Regular;
+                        font-size: 14px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: $gris-texto1;
+                        @media (max-width: 769px) {
+                            background-color: #f9f9f9;
+                            height: 40px;
+                        }
+
+                        .grand-total-title {
+                            padding-top: 15px;
+                            padding-bottom: 15px;
+                            background-color: $backbground-card-login;
+                            font-family: $font-RedHat-Medium;
+                            color: $negro-pat;
+                            font-size: 13px;
+                            display: none !important;
+
+                            @media (max-width: 769px) {
+                                display: block !important;
+                                padding-top: 10px;
+                            }
+                        }
+                        .edit-card-link {
+                            color: $gris-texto1 !important;
+                            text-decoration: underline !important;
+                            float:right;
+                        }
+                    }
+
+                    .product-summary-block {
+                        margin-top: 31px;
+
+                        @media (max-width: 769px) {
+                            background-color: $white;
+                            margin: 15px;
+                            max-height: 340px;
+                        }
+
+                        .product-line-item {
+                            
+                            img.product-image-miniCart {
+                                width: 60px;
+                                height: 85px;
+                                max-height: 85px;
+                                max-width:  60px;
+                                margin-right: 10px;
+                            }
+
+                            .line-item-name {
+                                font-family: $font-RedHat-Semi;
+                                font-size: 13px;
+                                font-weight: 600;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: normal;
+                                letter-spacing: normal;
+                                color: $azul-pat;
+                                margin-bottom: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .order-total-summary {
+                padding-top: 15px;
+                border-top: solid 1px $grey0;
+                @media (max-width: 769px) {
+                    padding-top: 10px;
+                }
+                .justify-content-center {
+                    margin-bottom: 15px;
+                    @media (max-width: 769px) {
+                        display: none !important;
+                    }
+                }
+
+                .total-title {
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    background-color: $backbground-card-login;
+                    font-family: $font-RedHat-Medium;
+                    $color: $negro-pat;
+                    font-size: 13px;
+                    display: none !important;
+
+                    @media (max-width: 769px) {
+                        display: block !important;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        height: 40px;
+                        padding-top: 10px;
+                    }
+                }
+
+                .subtotal-item {
+                    .order-receipt-label, .text-right {
+                        margin-bottom: 8px;
+                    }
+                }
+
+                .order-receipt-label, .sub-total, .shipping-total-cost, .grand-total-sum, .order-discount-total {
+                    font-family: $font-RedHat-Regular;
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #838383;
+                }
+
+                .grand-total {
+                    .order-receipt-label, .grand-total-sum {
+                        font-size: 16px;
+                        font-weight: 800;
+                        color: $azul-pat;
+                        font-family: $font-RedHat-ExtraBold;
+                    }
+
+                    .order-receipt-label, .text-right {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.payment-form {
+    .card-header {
+        padding: 0;
+        border-bottom: none;
+    }
+}
+
+.credit-card-option-txt {
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $second-text-log;
+    padding-top: 7px;
+    text-align: initial;
+}
+
+.cont-fecha-vencimiento {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0;
+    padding-left: 0;
+    .form-group {
+        width: 45%;
+    }
+}
+.col-vencimiento {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0; 
+}
+
+.info-icon {
+    display: inline-grid;
+    border: 1px solid black;
+    border-radius: 15px;
+    .icon {
+        font-size: 10px;
+        width:14px;
+        height: 14px;
+        color: $black;
+        background-color: $white;
+    }
+}
+.cont-vencimiento {
+    padding-left: 0;
+    padding-right: 0;
+}
+.container-label-pago, .cont-codigo-seguridad {
+    padding: 0;
+}
+.content-img-patprimo {
+    margin-bottom: 37px;
+    @media (max-width: 769px) {
+        margin-bottom: 14px;
+        margin-top: 14px;
+        text-align: center;
+        display: none;
+        img {
+            height: 13px;
+        }
+    }
+}
+.content-img-patprimo-sm {
+    @media (min-width: 769px) {
+        display: none;
+    }
+}
+.billing-nav {
+    background-color: $backbground-card-login;
+    padding: 0;
+    @media (max-width: 769px) {
+        background-color: $white;
+        padding-right: 15px;
+        padding-left: 0;
+    }
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: none;
+}
+
+.nav-link {
+    padding: 7px 11px;
+}
+
+.cont-card-gift {
+    width: 100%;
+}
+
+.container-payment {
+    margin-left: 0;
+    @media (max-width: 769px) {
+        padding: 0;
+    }
+    .btn-continuar-to-shipping {
+        @media (min-width: 769px) {
+            float: right;
+        }
+    }
+}
+
+.container-paymment-info {
+    margin-left: 0;
+}
+
+.coupon-code-field {
+    height: 30px;
+    width: 100%;
+    padding: 7px 27px 7px 10px;
+    border: solid 1px $grey0;
+    color: $gris-texto3;
+    font-size: 12px;
+    font-family: $font-RedHat-Italic;
+    font-style: italic;
+}
+
+.modal-body {
+    p {
+        font-family: $font-RedHat-Regular;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: $gris-texto1;
+        b {
+            color: $azul-pat !important;
+        }
+    }
+}
+
+.modal-title-sesion {
+    font-family: $font-Fair-Medium;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat;
+    margin-bottom: 30px;
+}
+
+#footercontent {
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+
+input[id="cb1"] + label {
+    border: none !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+
+.bienvenido-txt {
+    font-family: $font-RedHat-Bold;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+    color: $azul-pat;
+}
+
+.collapse-sm {
+    display: none;
+    @media (max-width: 769px) {
+        display: block !important;
+    }
+}
+.collapse:not(.show) {
+    @media (min-width: 770px) {
+        display: block !important;
+    }
+}
+.order-rl, .number-items-content {
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+
+#collapseTotalSummary {
+    @media (max-width: 769px) {
+        margin-top: 15px;
+    }
+}
+
+.modal-footers {
+    margin-bottom: 24px;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.emoji-img {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: auto;
+}
+.container-summary {
+    @media (max-width: 769px) {
+        padding: 0;
+        margin-top: 90px;
+    }
+    .card {
+        @media (max-width: 769px) {
+            padding: 0;
+        } 
+    }
+}
+
+.nav-tabs { 
+    border-bottom: none;
+}
+
+.js-mp-container {
+    padding: 0;
+}
+
+.shipping-section {
+    margin-top: 15px;
+    @media (max-width: 769px) {
+        margin: 0 15px;
+    }
+}
+
+.show-collapse {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.67;
+    letter-spacing: normal;
+    text-align: right;
+    color: $gris-texto1;
+    font-family: $font-RedHat-Regular;
+    float: right;
+    @media (max-width: 769px) {
+        margin-top: -6px;
+    }
+}
+
+.line-item-availability, .line-item-total-price-label {
+    display: none;
+}
+
+.line-item-total-price, .line-item-total-price-amount {
+    padding: 0;
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: $azul-pat;
+    font-family: $font-RedHat-Bold;
+}
+
+.line-item-quantity {
+    padding: 0;
+}
+
+.line-item-attributes, .line-item-quantity, .line-item-pricing-info, .line-item-total-text {
+    font-family: $font-RedHat-Regular;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1;
+}
+.card-header-payment {
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1;
+    margin-bottom: 20px;
+}
+
+.coupon-promotion-relationship {
+    display: none;
+}
+
+.coupon-code {
+    font-size: 14px;
+}
+
+.coupon-price-adjustment {
+    margin: 0 15px 15px;
+}
+
+.coupon-applied {
+    color: $second-text-log !important;
+}
+
+.modal-body p.coupon-to-remove {
+    text-align: left;
+}
+#removeCouponModal {
+    .modal-footer {
+        border-top: none;
+    }
+}
+#removeCouponLineItemModal {
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat;
+    font-family: $font-Fair-Medium;
+}
+
+.delete-coupon-confirmation-body {
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1;
+}
+
+.totalEntregaReplace {
+    margin-top: 15px;
+    font-family: $font-RedHat-Bold;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat;
+}
+
+.payment-form {
+    @media (max-width: 769px) {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+#efecty-tab {
+    width: 100%;
+}
+
+
+.container-paymment-info {
+    .modal {
+        @media (min-width: 769px) {
+            position: relative;
+            right: 0;
+            z-index: 0;
+            display: block;
+        }
+        @media (max-width: 769px) {
+            background-color: $white;
+            padding: 0 !important;
+            z-index: 9;
+        }
+    }
+}
+
+.mod-mobile {
+    @media (min-width: 769px) {
+        display: none;
+    }
+}
+.mod-desktop {
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+
+.credit-card-form, .js-mp-container {
+    @media (max-width: 769px) {
+        padding: 0 15px !important;
+    }
+}
+
+.top-fixed-card {
+    @media (min-width: 770px) {
+        display: none !important;
+    }
+    justify-content: space-between;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+    margin-bottom: 21px;
+    p {
+        margin-bottom: 0;
+        padding: 11px 15px;
+        font-family: $font-RedHat-Semi;
+        font-size: 14px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $azul-pat;
+    }
+    button {
+        border-color: transparent;
+        background-color: transparent;
+        color: $black;
+        font-family: $font-RedHat-Semi;
+        font-size: 15px;
+        margin-top: 0;
+        padding-right: 15px;
+    }
+}
+.font24 {
+    font-family: $font-Fair-Medium;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: $negro-pat;
+}
+  
+  .background-gray {
+    width: 100%;
+    height: 35px;
+    margin: 15px 35px 10px 28px;
+    padding: 9px 60px 8px 15px;
+    background-color: $gris-back !important; 
+}
+  
+  .background-beige {
+    background: $beige-pat !important;
+    width: 100% !important;
+    height: 70px !important; 
+}
+.font18{
+    font-family: $font-RedHat-Medium;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat !important;
+}
+.btn-beige{
+    color: $beige-pat !important;
+    font-family: $font-RedHat-Semi;
+    font-size: 11px;
+    font-weight: 600;
+    height: 35px;
+    width: 150px;
+}
+
+@media only screen and (max-width:545px){
+    .modMobDet{
+        padding-right: 0px !important;
+    }
+    [data-action="Order-Confirm"] {
+        .product-summary-block.section-product-summary-scroll.collapse{
+            display: block !important;
+        }
+        .card-header{
+            border-bottom:0px !important;
+        }
+        .product-line-item + .product-line-item::before,
+        .multi-shipping + .product-line-item::before {
+            content: "";
+            display: block;
+            border-bottom: 0.063em solid #ccc !important;
+            margin: 0.625em -0.625em; 
+        }
+        .linkTarjetasMob{
+            font-family: $font-RedHat-Regular;
+            font-size: 13px !important;
+            font-weight: normal !important;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $azul2 !important;
+        }
+    }
+    .font16Second{
+        font-family: $font-RedHat-Bold;
+        font-size: 16px !important;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color:$azul-pat;
+    }
+    .modMobTitle{
+        font-size: 16px !important;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.33px;
+        text-align: center;
+        color: $negro-pat;
+    }
+    .modMobTextSecond{
+        font-size: 13px !important;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+    .padR14Mob{
+        padding-right: 14px !important;
+    }
+    .plMob{
+        padding-left: 0px !important;
+    }
+    .pl3Mob{
+        padding-left: 11px !important;
+    }
+    .font11Mob{
+        font-size: 11px !important;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.27;
+    }
+    .font12Mob{
+        font-size: 12px !important;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: $azul-pat !important;
+    }
+    .font11SemiMob{
+        font-family: $font-RedHat-Semi !important;
+        font-size: 11px !important;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.27;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    .font14Mob{
+        font-family: $font-RedHat-Medium !important;
+        font-size: 14px !important;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    [data-action="Order-Confirm"] {
+        #collapseTotalSummary {
+            display: block !important;
+        }
+        .card-header{
+            border-bottom:0px !important;
+        }
+        .product-line-item + .product-line-item::before,
+        .multi-shipping + .product-line-item::before {
+            content: "";
+            display: block;
+            border-bottom: 0.063em solid #ccc !important;
+            margin: 0.625em -0.625em; 
+        }
+    }
+}
+
+@media only screen and (max-width:768px){
+    .modMobDet{
+        padding-right: 0px !important;
+    }
+    [data-action="Order-Confirm"] {
+        .product-summary-block.section-product-summary-scroll.collapse{
+            display: block !important;
+        }
+        .product-line-item + .product-line-item::before,
+        .multi-shipping + .product-line-item::before {
+            content: "";
+            display: block;
+            border-bottom: 0.063em solid #ccc !important;
+            margin: 0.625em -0.625em; 
+        }
+    }
+    
+    .font16Second{
+        font-family: $font-RedHat-Bold;
+        font-size: 16px !important;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color:$azul-pat;
+    }
+    .modMobTitle{
+        font-size: 16px !important;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.33px;
+        text-align: center;
+        color: $negro-pat;
+    }
+    .modMobTextSecond{
+        font-size: 13px !important;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+    .padR14Mob{
+        padding-right: 14px !important;
+    }
+    .plMob{
+        padding-left: 0px !important;
+    }
+    .pl3Mob{
+        padding-left: 11px;
+    }
+    .font11Mob{
+        font-size: 11px !important;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.27;
+    }
+    .font12Mob{
+        font-size: 12px !important;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: $azul-pat !important;
+    }
+    .font11SemiMob{
+        font-family: $font-RedHat-Semi !important;
+        font-size: 11px !important;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.27;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    .font14Mob{
+        font-family: $font-RedHat-Medium !important;
+        font-size: 14px !important;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    [data-action="Order-Confirm"] {
+        #collapseTotalSummary {
+            display: block !important;
+        }
+        .card-header{
+            border-bottom:0px !important;
+        }
+        .product-line-item + .product-line-item::before,
+        .multi-shipping + .product-line-item::before {
+            content: "";
+            display: block;
+            border-bottom: 0.063em solid #ccc !important;
+            margin: 0.625em -0.625em; 
+        }
+    }
+}
+
+#contra-entrega-card-content {
+    padding-right: 15px;
+    @media (max-width: 769px) {
+        padding-right: 0;
+    }
+    >h3 {
+        @media (max-width: 769px) {
+            display: none;
+        }
+    }
+    >p {
+        @media (max-width: 769px) {
+            padding: 0 15px;
+        }
+    }
+}
+.font-14-title{
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat !important;
+}
+@media only screen and (max-width:544px){
+    [data-action="Order-Confirm"] {
+        .product-summary-block.section-product-summary-scroll.collapse{
+            display: block !important;
+        }
+        .product-line-item + .product-line-item::before,
+        .multi-shipping + .product-line-item::before {
+            content: "";
+            display: block;
+            border-bottom: 0.063em solid #ccc !important;
+            margin: 0.625em -0.625em; 
+        }
+        .linkTarjetasMob{
+            font-family: $font-RedHat-Regular;
+            font-size: 13px !important;
+            font-weight: normal !important;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $azul2 !important;
+        }
+    }
+    .font16Second{
+        font-family: $font-RedHat-Bold;
+        font-size: 16px !important;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color:$azul-pat;
+    }
+    .modMobTitle{
+        font-size: 16px !important;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.33px;
+        text-align: center;
+        color: $negro-pat;
+    }
+    .modMobTextSecond{
+        font-size: 13px !important;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+    .padR14Mob{
+        padding-right: 14px !important;
+    }
+    .plMob{
+        padding-left: 0px !important;
+    }
+    .pl3Mob{
+        padding-left: 11px !important;
+    }
+    .font11Mob{
+        font-size: 11px !important;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.27;
+    }
+    .font12Mob{
+        font-size: 12px !important;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: $azul-pat !important;
+    }
+    .font11SemiMob{
+        font-family: $font-RedHat-Semi !important;
+        font-size: 11px !important;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.27;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    .font14Mob{
+        font-family: $font-RedHat-Medium !important;
+        font-size: 14px !important;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    .font14Extra{
+        font-family: $font-RedHat-ExtraBold !important;
+        font-size: 14px !important;
+        font-weight: 800;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+    [data-action="Order-Confirm"] {
+        #collapseTotalSummary {
+            display: block !important;
+        }
+        .card-header{
+            border-bottom:0px !important;
+        }
+        .product-line-item + .product-line-item::before,
+        .multi-shipping + .product-line-item::before {
+            content: "";
+            display: block;
+            border-bottom: 0.063em solid #ccc !important;
+            margin: 0.625em -0.625em; 
+        }
+        .linkTarjetasMob{
+            font-family: $font-RedHat-Regular;
+            font-size: 13px !important;
+            font-weight: normal !important;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $azul2 !important;
+        }
+    }
+}
+.over-none{
+    overflow-y: unset !important;
+}
+.text-underline{
+    text-decoration: underline !important;
+}
+
+.tab-content > .tab-pane {
+    display: block;
+}
+
+.gift-cert-fields {
+    @media (max-width: 769px) {
+        padding: 0;
+    }
+}
+
+.gift-cert-buttons {
+    @media (max-width: 769px) {
+        display:flex;
+        justify-content: center;
+    }
+}
+
+input[type='radio'] {
+    width: 16px;
+    height: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    padding: 3px;
+    background-clip: content-box;
+    border: 2px solid $gris-texto-2;
+    background-color: $white;
+    border-radius: 50%;
+}
+
+input[type='radio']:checked {
+    border: 1px solid $azul-pat;
+    background-color: $azul-pat;
+}
+
+[data-action="Order-Confirm"] {
+    .row.leading-lines.total-title.collapse.collapse-sm{
+        display: none !important;
+    }
+    .font16-bold{
+        font-family: $font-RedHat-ExtraBold !important;
+        font-size: 16px;
+        font-weight: 800 !important;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    .card-header{
+        border-bottom:0px !important;
+    }
+    .product-line-item + .product-line-item::before,
+        .multi-shipping + .product-line-item::before {
+            content: "";
+            display: block;
+            border-bottom: 0.063em solid #ccc !important;
+            margin: 0.625em -0.625em; 
+    }
+}
+
+.linkTarjetas{
+    font-family: $font-RedHat-Regular;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul2 !important;
+}
+.addColor{
+    padding: 10px 19px 18px 16px;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.07);
+    border: solid 1px $azul-pat;
+}

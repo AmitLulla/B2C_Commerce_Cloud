@@ -1,0 +1,17 @@
+<div data-store-id="${store.ID}">
+    <div class="row">
+        <div class=" movil-result">
+            <isinclude template="storeLocator/decorators/storeAddress"/>
+        </div>
+        
+        <div class="col-12 infobox mt-2">
+            <button aria-label="${Resource.msg('label.rescheduleAria', 'shoppingthestore', null)}" class="list-mystore d-none btn btn-block btn-secondary text-center"
+                    data-storeid="${store.ID}"
+                    onclick="location.href='${URLUtils.https('Stores-Find', 'showMap', false, 'storeId', store.ID)}'">
+                ${Resource.msg('label.reschedule', 'shoppingthestore', null)}
+            </button>
+        </div>
+    </div>
+</div>
+
+

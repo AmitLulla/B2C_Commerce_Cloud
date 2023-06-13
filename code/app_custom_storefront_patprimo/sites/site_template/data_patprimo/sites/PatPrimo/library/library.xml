@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.demandware.com/xml/impex/library/2006-10-31">
+  <content content-id="menu-dashboard">
+    <display-name xml:lang="x-default">menu dashboard</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>true</searchable-flag>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;ul class=&quot;&quot;
+        role=&quot;menu&quot; aria-hidden=&quot;true&quot;&gt;&#13; &lt;li
+        class=&quot;account-page&quot; role=&quot;menuitem&quot;&gt; &lt;span
+        class=&quot;my-user-img&quot;&gt;&lt;a href='$url(Account-Show)$'&#13;
+        class=&quot;dropdown-link&quot; role=&quot;button&quot;&gt;Informacion del&#13;
+        Perfil&lt;/a&gt;&#13; &lt;/span&gt;&#13; &lt;/li&gt;&#13; &lt;li
+        class=&quot;order-history&quot; role=&quot;menuitem&quot;&gt;&lt;span
+        class=&quot;my-pedidos-img&quot;&gt; &lt;a href='$url(Order-History)$'&#13;
+        class=&quot;dropdown-link&quot; role=&quot;button&quot;&gt;Mis&#13; Pedidos&lt;/a&gt;&#13;
+        &lt;/span&gt;&#13; &lt;/li&gt;&#13; &lt;li class=&quot;mis-productos&quot;
+        role=&quot;menuitem&quot;&gt;&lt;span class=&quot;my-productos-img&quot;&gt;&lt;a
+        href='$url(Wishlist-Show)$'&#13; class=&quot;dropdown-link&quot;
+        role=&quot;button&quot;&gt;Mis&#13; Productos&#13; Favoritos&lt;/a&gt;&lt;/span&gt;&#13;
+        &lt;/li&gt;&#13; &lt;li class=&quot;mis-referidos&quot; role=&quot;menuitem&quot;&gt;
+        &lt;span class=&quot;my-referidos-img&quot;&gt;&lt;/span&gt;&lt;a&#13;
+        href='$url(ReferidosAccount-MisReferidos)$' class=&quot;dropdown-link&quot;
+        role=&quot;button&quot;&gt;Mis Referidos&lt;/a&gt;&lt;/span&gt;&#13; &lt;/li&gt;&#13; &lt;li
+        class=&quot;mis-tarjetas&quot; role=&quot;menuitem&quot;&gt;&lt;span
+        class=&quot;my-tarjetas-img&quot;&gt;&lt;/span&gt; &lt;a&#13;
+        href='$url(PaymentInstruments-List)$' class=&quot;dropdown-link&quot;
+        role=&quot;button&quot;&gt;Mis Tarjetas&lt;/a&gt;&lt;/span&gt;&#13; &lt;/li&gt;&#13; &lt;li
+        class=&quot;mis-direcciones&quot; role=&quot;menuitem&quot;&gt;&lt;span
+        class=&quot;my-direcciones-img&quot;&gt;&lt;/span&gt; &lt;a href='$url(Address-List)$'&#13;
+        class=&quot;dropdown-link&quot; role=&quot;button&quot;&gt;Mis&#13;
+        Direcciones&lt;/a&gt;&lt;/span&gt;&#13; &lt;/li&gt;&#13; &lt;li class=&quot;logout&quot;
+        role=&quot;menuitem&quot;&gt;&lt;span class=&quot;logout-img&quot;&gt;&lt;/span&gt; &lt;a
+        href='$url(Login-Logout)$'&#13; class=&quot;dropdown-link&quot;
+        role=&quot;button&quot;&gt;Cerrar sesión&lt;/a&gt;&lt;/span&gt;&#13;
+        &lt;/li&gt;&#13;&lt;/ul&gt;</custom-attribute>
+    </custom-attributes>
+    <folder-links>
+    </folder-links>
+  </content>
+
+<content content-id="banners-menu">
+        <display-name xml:lang="x-default">Banners Menu</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script&gt;&#13;
+              dataLayer.push({&#13;
+                  ecommerce: null&#13;
+              });&#13;
+              dataLayer.push({&#13;
+                  event: "view_promotion",&#13;
+                  ecommerce: {&#13;
+                      items: [{&#13;
+                          component_id: "banner_header",&#13;
+                          category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                          banner_image_url_1: "banner-mujer-1.png?$staticlink$",&#13;
+                          category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                          banner_image_url_1: "banner-mujer-2.png?$staticlink$",&#13;
+                          category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                          banner_image_url_1: "banner-mujer-2.png?$staticlink$",&#13;
+                          category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                          banner_image_url_1: "banner-mujer-4.png?$staticlink$"&#13;
+                      }]&#13;
+                  }&#13;
+              });&#13;
+              &#13;
+              function banner1() {&#13;
+                  dataLayer.push({&#13;
+                      ecommerce: null&#13;
+                  });&#13;
+                  dataLayer.push({&#13;
+                      event: "select_promotion",&#13;
+                      ecommerce: {&#13;
+                          items: [{&#13;
+                              component_id: "banner_header",&#13;
+                              category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                              banner_image_url_1: "banner-mujer-1.png?$staticlink$"&#13;
+                          }]&#13;
+                      }&#13;
+                  });&#13;
+              }&#13;
+              &#13;
+              function banner2() {&#13;
+                  dataLayer.push({&#13;
+                      ecommerce: null&#13;
+                  });&#13;
+                  dataLayer.push({&#13;
+                      event: "select_promotion",&#13;
+                      ecommerce: {&#13;
+                          items: [{&#13;
+                              component_id: "banner_header",&#13;
+                              category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                              banner_image_url_1: "banner-mujer-2.png?$staticlink$"&#13;
+                          }]&#13;
+                      }&#13;
+                  });&#13;
+              }&#13;
+              &#13;
+              function banner3() {&#13;
+                  dataLayer.push({&#13;
+                      ecommerce: null&#13;
+                  });&#13;
+                  dataLayer.push({&#13;
+                      event: "select_promotion",&#13;
+                      ecommerce: {&#13;
+                          items: [{&#13;
+                              component_id: "banner_header",&#13;
+                              category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                              banner_image_url_1: "banner-mujer-2.png?$staticlink$"&#13;
+                          }]&#13;
+                      }&#13;
+                  });&#13;
+              }&#13;
+              &#13;
+              function banner4() {&#13;
+                  dataLayer.push({&#13;
+                      ecommerce: null&#13;
+                  });&#13;
+                  dataLayer.push({&#13;
+                      event: "select_promotion",&#13;
+                      ecommerce: {&#13;
+                          items: [{&#13;
+                              component_id: "banner_header",&#13;
+                              category_url_1: "${URLUtils.https('Search-Show', 'cgid', '	P1000000')}",&#13;
+                              banner_image_url_1: "banner-mujer-4.png?$staticlink$"&#13;
+                          }]&#13;
+                      }&#13;
+                  });&#13;
+              }&#13;
+              &lt;/script&gt;&#13;
+              &lt;div class="wrapper-banners-menu d-none d-md-block"&gt;&#13;
+                  &lt;div class="Mujer"&gt;&#13;
+                      &lt;div class="row"&gt;&#13;
+                          &lt;div class="col-md-7"&gt;&#13;
+                              &lt;div class="row"&gt;&#13;
+                                  &lt;div class="col-md-6"&gt; &lt;a href="/" onclick="banner1(this)"&gt;&#13;
+                                          &lt;img alt="Banner-1" src="banner-mujer-1.png?$staticlink$" title="Banner-1" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+              &#13;
+                                  &lt;/div&gt;&#13;
+                                  &lt;div class="col-md-6 d-flex flex-column justify-content-between"&gt; &lt;a href="/" onclick="banner2(this)"&gt;&#13;
+                                          &lt;img alt="Banner-2" src="banner-mujer-2.png?$staticlink$" title="Banner-2" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+                                      &lt;a href="/"  onclick="banner3(this)"&gt;&#13;
+                                          &lt;img alt="Banner-3" src="banner-mujer-2.png?$staticlink$" title="Banner-3" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+              &#13;
+                                  &lt;/div&gt;&#13;
+                              &lt;/div&gt;&#13;
+                          &lt;/div&gt;&#13;
+                          &lt;div class="col-md-5"&gt; &lt;a href="/" onclick="banner4(this)"&gt;&#13;
+                                  &lt;img alt="Banner-4" src="banner-mujer-4.png?$staticlink$" title="Banner-4" /&gt;&#13;
+                              &lt;/a&gt;&#13;
+              &#13;
+                          &lt;/div&gt;&#13;
+                      &lt;/div&gt;&#13;
+                  &lt;/div&gt;&#13;
+                  &lt;div class="Hombre"&gt;&#13;
+                      &lt;div class="row"&gt;&#13;
+                          &lt;div class="col-md-7"&gt;&#13;
+                              &lt;div class="row"&gt;&#13;
+                                  &lt;div class="col-md-6"&gt; &lt;a href="/"&gt;&#13;
+                                          &lt;img alt="Banner-1" src="banner-mujer-1.png?$staticlink$" title="Banner-1" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+              &#13;
+                                  &lt;/div&gt;&#13;
+                                  &lt;div class="col-md-6 d-flex flex-column&#13;
+                      justify-content-between"&gt; &lt;a href="/"&gt;&#13;
+                                          &lt;img alt="Banner-2" src="banner-mujer-2.png?$staticlink$" title="Banner-2" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+                                      &lt;a href="/"&gt;&#13;
+                                          &lt;img alt="Banner-3" src="banner-mujer-2.png?$staticlink$" title="Banner-3" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+              &#13;
+                                  &lt;/div&gt;&#13;
+                              &lt;/div&gt;&#13;
+                          &lt;/div&gt;&#13;
+                          &lt;div class="col-md-5"&gt; &lt;a href="/"&gt;&#13;
+                                  &lt;img alt="Banner-4" src="banner-mujer-4.png?$staticlink$" title="Banner-4" /&gt;&#13;
+                              &lt;/a&gt;&#13;
+              &#13;
+                          &lt;/div&gt;&#13;
+                      &lt;/div&gt;&#13;
+                  &lt;/div&gt;&#13;
+                  &lt;div class="Infantil"&gt;&#13;
+                      &lt;div class="row"&gt;&#13;
+                          &lt;div class="col-md-7"&gt;&#13;
+                              &lt;div class="row"&gt;&#13;
+                                  &lt;div class="col-md-6"&gt; &lt;a href="/"&gt;&#13;
+                                          &lt;img alt="Banner-1" src="banner-mujer-1.png?$staticlink$" title="Banner-1" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+              &#13;
+                                  &lt;/div&gt;&#13;
+                                  &lt;div class="col-md-6 d-flex flex-column justify-content-between"&gt; &lt;a href="/"&gt;&#13;
+                                          &lt;img alt="Banner-2" src="banner-mujer-2.png?$staticlink$" title="Banner-2" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+                                      &lt;a href="/"&gt;&#13;
+                                          &lt;img alt="Banner-3" src="banner-mujer-2.png?$staticlink$" title="Banner-3" /&gt;&#13;
+                                      &lt;/a&gt;&#13;
+              &#13;
+                                  &lt;/div&gt;&#13;
+                              &lt;/div&gt;&#13;
+                          &lt;/div&gt;&#13;
+                          &lt;div class="col-md-5"&gt; &lt;a href="/"&gt;&#13;
+                                  &lt;img alt="Banner-4" src="banner-mujer-4.png?$staticlink$" title="Banner-4" /&gt;&#13;
+                              &lt;/a&gt;&#13;
+              &#13;
+                          &lt;/div&gt;&#13;
+                      &lt;/div&gt;&#13;
+                  &lt;/div&gt;&#13;
+              &lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+  </content>
+
+  <content content-id="banner-promo">
+        <display-name xml:lang="x-default">banner-promo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script&gt;&#13;
+                dataLayer.push({ ecommerce: null });&#13;
+                dataLayer.push({&#13;
+                    event: "view_promotion",&#13;
+                    ecommerce: {&#13;
+                    items: [{&#13;
+                    component_id:  "banner_plp", &#13;
+                    category_url: null,&#13;
+                    banner_image_url: "https://www.patprimo.com/arquivos/BannerCategoria20AdicionalPat-ENE2023.png"&#13;
+                    }]&#13;
+                    }&#13;
+                });&#13;
+                function promoBanner() {&#13;
+                    dataLayer.push({&#13;
+                        ecommerce: null&#13;
+                    });&#13;
+                    dataLayer.push({&#13;
+                        event: "select_promotion",&#13;
+                        ecommerce: {&#13;
+                            items: [{&#13;
+                                component_id: "banner_plp",&#13;
+                                category_url_1: null,,&#13;
+                                banner_image_url_1: "https://www.patprimo.com/arquivos/BannerCategoria20AdicionalPat-ENE2023.png"&#13;
+                            }]&#13;
+                        }&#13;
+                    });&#13;
+                }&#13;
+                    &lt;/script&gt;&#13;
+                &lt;span onclick="promoBanner(this)"&gt;&#13;
+                        &lt;img src="https://www.patprimo.com/arquivos/BannerCategoria20AdicionalPat-ENE2023.png"&#13;
+                        alt="Promoción" style="height: 447px; width:100%; object-fit:cover;" /&gt;&#13;
+                        &lt;/span&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+</library>

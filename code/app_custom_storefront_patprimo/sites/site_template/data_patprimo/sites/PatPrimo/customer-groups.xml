@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer-groups xmlns="http://www.demandware.com/xml/impex/customergroup/2007-06-30">
+    <customer-group group-id="adminSocialSelling">
+        <description>Administrador de social selling</description>
+        <membership-rule>
+            <included-customers>
+                <condition-group match-mode="all">
+                    <condition>
+                        <attribute-path>customer.profile.login</attribute-path>
+                        <operator>is-equal</operator>
+                        <string>egarciae@freewayconsulting.com</string>
+                    </condition>
+                </condition-group>
+            </included-customers>
+            <excluded-customers>
+                <condition-group match-mode="all">
+                    <condition>
+                        <attribute-path>customer.profile.email</attribute-path>
+                        <operator>contains</operator>
+                        <string>gmail</string>
+                    </condition>
+                </condition-group>
+            </excluded-customers>
+        </membership-rule>
+        <custom-attributes/>
+    </customer-group>
+
+</customer-groups>

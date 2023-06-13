@@ -1,0 +1,56 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/myOrdersData.js');
+</isscript>
+<div class="d-none" id="data-load">
+    
+</div>
+<div class="metodMob">
+    <div class="card-body card-info-group">
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.fecha.compra', 'account', null)}</span>
+            <p class="font12 gris-texto1"><isprint value="${new Date(pdict.order.creationDate)}" formatter="dd-MM-yyyy" timezone = "SITE"/></p>
+            <p class="font12 gris-texto1"><isprint value="${new Date(pdict.order.creationDate)}" formatter="hh:mm" timezone = "SITE"/></p>               
+        </div>
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.no.pedido', 'account', null)}</span>
+            <p class="font12 gris-texto1">${pdict.order.orderNumber}</p>                
+        </div>
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.total', 'account', null)}</span>
+            <p class="font12 gris-texto1"><isprint value="${pdict.order.priceTotal}" /></p>        
+        </div>            
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.metodo.pago', 'account', null)}</span>
+            <isprint value="${pdict.order.paymentInstruments}" />
+            
+                <p class="font12 gris-texto1 tipo-pago">${paymentInstrument.creditCardType ? paymentInstrument.creditCardType:null} </p>
+              
+        </div>
+        <isscript>
+            var direccion = pdict.shippingAddress.custom.departamento +
+            '. ' + pdict.order.shippingAddress.address1;
+            var direccion2 = pdict.order.shippingAddress.address2;
+        </isscript>
+        
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.direccion.entrega', 'account', null)}</span>
+            <p class="font12 gris-texto1 direccion-entrega1 ">${direccion} </p>
+            <p class="font12 gris-texto1 direccion-entrega2">${direccion2} </p>
+        
+        </div>
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.estatus.envio', 'account', null)}</span>
+            <p class="font12 gris-texto1 status-envio"></p>
+        </div>
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.numero.guia', 'account', null)}</span>
+            
+                <a href="${pdict.order.TrackingGuia}" target="_blank"><p class="font12 azul2 text-underline numero-guia"></p></a>
+          
+        </div>
+        <div class="col-12 pl-0 mb-2">
+            <span class="font11 azul-pat">${Resource.msgf('label.productos', 'account', null)} <isprint value="${pdict.order.productQuantityTotal}" formatter="##" /></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<isset name="paymentName" value="${require('*/cartridge/scripts/helpers/MercadoPagoHelper').getPaymentMethodName(payment.type)}" scope="page" />
+<div class="credit-card-type card-header-payment modMobTextSecond">
+    <span>${payment.paymentMethod} ${paymentName}</span>
+</div>

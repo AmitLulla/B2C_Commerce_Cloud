@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name": "app.payment.form.processor.pago_contra_entrega_credit",
+            "script": "./cartridge/scripts/hooks/payment/processor/basic_pago_contra_entrega_processor"
+        },
+        {
+            "name": "app.payment.processor.pago_contra_entrega_credit",
+            "script": "./cartridge/scripts/hooks/payment/processor/basic_compra_contra_entrega"
+        }
+    ]
+}

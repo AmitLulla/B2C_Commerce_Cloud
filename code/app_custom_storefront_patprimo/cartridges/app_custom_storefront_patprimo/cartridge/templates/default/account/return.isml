@@ -1,0 +1,125 @@
+<isdecorate template="common/layout/page">
+  <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/returnScripts.js');
+        assets.addCss('/css/account/orderTrack.css');
+        assets.addCss('/css/account/profile.css');
+  </isscript>
+  <div class="container receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
+    <!---Breadcrumbs--->
+    <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+    <div class="col-12">
+      <h1 class="title" >${Resource.msgf('text.returnType', 'return', null, pdict.returnType)}</h1>
+      <p class="second-text font16">${Resource.msg('text.text1', 'return', null)}<a class="azul2 font16 text-underline" href=""> ${Resource.msg('text.text2', 'return', null)}</a> </p>
+      <p class="second-text font16">${Resource.msg('text.text3', 'return', null)}<a class="azul2 font16 text-underline" href="${URLUtils.url('Stores-Find')}"> ${Resource.msg('text.text4', 'return', null)}</a> </p>
+      <p>
+      
+      </p>
+    </div>
+    
+    <div class="col-12 mt-4">
+    
+      <div class="row">
+        <div class="col-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 backgroundGray pl-4 mb-3">
+          <p class="text-bold font-size-16"><b>${Resource.msg('order.title', 'return', null)}</b></p>
+          <span class="font14 azul-pat">${Resource.msg('order.date', 'return', null)}</span>
+          <p class="text-secondary">
+            <isprint value="${pdict.order.creationDate}" />
+          </p>
+          <span class="font14 azul-pat">${Resource.msg('order.number', 'return', null)}</span>
+          <p class="text-secondary">
+            <isprint value="${pdict.order.orderNumber}" />
+          </p>
+          <span class="font14 azul-pat">${Resource.msg('order.total', 'return', null)}</span>
+          <p class="text-secondary">
+            <isprint value="${pdict.newTotal}" />
+          </p>
+          <span class="font14 azul-pat">${Resource.msg('order.quantity', 'return', null)}</span>
+          <p class="text-secondary">
+            <isprint value="${pdict.quantity}" formatter="##" />
+          </p>
+        </div>
+        <div class="col-12 col-xs-12 col-md-9 col-lg-9 col-xl-9 px-0">
+        <a class="font13-Medium azul-pat text-underline" style="margin-top-15px!important" href="${URLUtils.url('Order-Details', 'orderID', pdict.order.orderNumber)}"> ${Resource.msg('link.regresar', 'account', null)} </a>
+          <div class="tab">
+            <button class="tabsdisabled tablinks col-4 active">${Resource.msg('tab1.text', 'return', null)}</button>
+            <button class="tabsdisabled tablinks col-4">${Resource.msg('tab2.text', 'return', null)}</button>
+            <button class="tabsdisabled tablinks col-4">${Resource.msg('tab3.text', 'return', null)}</button>
+          </div>
+          <div>
+            <form id="returnData" class="returnData" method="POST" action="${URLUtils.url('Order-SaveReturn')}">
+              <input type="hidden" name="orderNumber" value="${pdict.order.orderNumber}">
+              <input type="hidden" name="customerNo" value="${pdict.customerNo}">
+              <input type="hidden" name="numberProducts" id="numberProducts" value="">
+              <input type="hidden" name="dataProducts" id="dataProducts" value="">
+              <div id="return" class="tab-pash tabcontent select-step pl-0">
+                <span class="text-secondary">${Resource.msg('text.step1', 'return', null)}</span>
+                <isinclude template="account/return/returnItems" />
+              </div>
+              <div id="address" class="tab-pash tabcontent">
+                <span class="text-secondary">${Resource.msg('text.step2', 'return', null)}</span>
+                <isinclude template="account/return/returnAddress" />
+              </div>
+              <div id="info" class="tab-pash tabcontent">
+                <span class="text-bold font-size-16 font-W600">${Resource.msg('text.step3', 'return', null)}</span>
+                <isinclude template="account/return/returnInfo" />
+              </div>
+
+<style>
+.currency:before{ content:'$'; }
+</style>
+  
+              <div style="">
+                <div class="col-12 row">
+                  <div class="col-6">
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-end">
+                    <div style="display:flex;justify-content: center;">
+                      <span id="message-returnType" class="d-none" style="color:red;" >${Resource.msg('message.returnType', 'return', null)}</span>
+                      <span id="message-checks" class="d-none" style="color:red!important; " >${Resource.msg('message.checks', 'return', null)}</span>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-6 col-xs-6 col-md-3 col-lg-3 col-xl-3 mt-2">
+                        <b class="pl-3 "><span id="items">0</span></b>
+                        <input type="hidden" name="totalProducts" value="0">
+                      </div>
+                      <div class="col-5 col-xs-5 col-md-3 col-lg-3 col-xl-3 pl-0 mt-2">
+                        <b class="d-none"><span id="summary" >0</span></b>
+                        <b class="currency "><span id="summary2" >0</span></b>
+                        <input type="hidden" name="totalReturn" value="0">
+                      </div> 
+                      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-4 text-end pr-0 mt-3">
+                    <button type="button" id="nextBtn" style="width: 233px; height: 40px;margin-top:-15px"
+                      class="nextBtn btn btn-dark btn-beige btn-return return-step1">${Resource.msg('btn.continuar', 'return', null)}</button>
+                    </div>                                             
+                    </div>
+                  </div>
+                </div>  
+              </div>
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 text-end mt-4">
+                    <p><button type="button" id="prevBtn" class="prevBtn button-pash2 font13-Medium azul-pat text-underline"><ins>${Resource.msg('link.regresar', 'account', null)}</ins></button></p>
+                  </div>
+                  
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pr-0 text-end">
+                      <p id="text-info" class="textGray">${Resource.msg('text.Disclaimer1', 'return', null)} 
+                        <a class="font14 azul2" href=""> ${Resource.msg('text.Disclaimer2', 'return', null)}</a>
+                      </p>
+                  </div>
+                </div>                
+              </div>
+              <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</isdecorate>
+

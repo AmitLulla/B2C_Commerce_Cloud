@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shipping xmlns="http://www.demandware.com/xml/impex/shipping/2007-03-31">
+    <shipping-method method-id="envioNormal" default="true">
+        <display-name xml:lang="x-default">Envío Normal</display-name>
+        <online-flag>true</online-flag>
+        <price-table>
+            <amount order-value="0.01">1</amount>
+        </price-table>
+        <custom-attributes>
+            <custom-attribute attribute-id="storePickupEnabled">false</custom-attribute>
+        </custom-attributes>
+        <currency>COP</currency>
+    </shipping-method>
+
+    <shipping-method method-id="envioExpress" default="false">
+        <display-name xml:lang="x-default">Envío Express</display-name>
+        <online-flag>true</online-flag>
+        <price-table>
+            <amount order-value="0.01">1</amount>
+        </price-table>
+        <custom-attributes>
+            <custom-attribute attribute-id="storePickupEnabled">false</custom-attribute>
+        </custom-attributes>
+        <currency>COP</currency>
+    </shipping-method>
+
+    <shipping-method method-id="envioContraEntrega" default="false">
+        <display-name xml:lang="x-default">Envío Contra Entrega</display-name>
+        <online-flag>true</online-flag>
+        <price-table>
+            <amount order-value="0.01">1</amount>
+        </price-table>
+        <custom-attributes>
+            <custom-attribute attribute-id="storePickupEnabled">false</custom-attribute>
+        </custom-attributes>
+        <currency>COP</currency>
+    </shipping-method>
+
+</shipping>

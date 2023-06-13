@@ -1,0 +1,32 @@
+<li class="nav-item js-method-id" data-method-id="${paymentOption.ID}">
+    <a
+        class="nav-link mercadopago-tab js-payment-option-tab debito-target-cont mod-desktop"
+        data-toggle="tab"
+        href="#mercadopago-content"
+        role="tab"
+        data-payment-option-tab
+    >   <div class="row">
+            <div class="col-3">
+                <img class="credit-card-option" src="${URLUtils.staticURL('/images/icons8-debit-card-66.png')}" height="28"
+                        alt="${paymentOption.name}" title="${paymentOption.name}">
+            </div>
+            <div class="col-9">
+                <h3 class="credit-card-option-txt">${Resource.msg('txt.tarjetas.debito', 'checkout', null)}</h3>
+            </div>
+        </div>
+    </a>
+    <a
+        class="nav-link mercadopago-tab js-payment-option-tab debito-target-cont mod-mobile"
+        data-toggle="modal" data-target="#creditCardModal"
+        data-payment-option-tab
+    >   <div class="row">
+            <div class="col-3">
+                <img class="credit-card-option" src="${URLUtils.staticURL('/images/icons8-debit-card-66.png')}" height="28"
+                        alt="${paymentOption.name}" title="${paymentOption.name}">
+            </div>
+            <div class="col-9">
+                <h3 class="credit-card-option-txt">${Resource.msg('txt.tarjetas.debito', 'checkout', null)}</h3>
+            </div>
+        </div>
+    </a>
+</li>

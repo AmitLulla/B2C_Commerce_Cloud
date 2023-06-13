@@ -1,0 +1,39 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/homeMainGallery_F.css');
+</isscript>
+
+
+ <section class="main-destacados">
+            <div class="titulo-gallery-destacados titulo-Seccion  titulo-desktpop"><h3>Destacados </h3> </div>
+              <div class="titulo-gallery-destacados titulo-Seccion titulo-movil "><h3>Destacados  General </h3> </div>
+
+        <div class="galley-main-destacados"> 
+            <div class="destacado1 destacados" style="background-image: url(${pdict.image1 ? pdict.image1.src.mobile:null})">
+                
+                <h4 class="titulo-main-destacados">${pdict.cta1 ? pdict.cta1: null}</h4>
+                <h5 class="text-comprar-ahora" onclick="location.href='${pdict.categoryLink1 ? pdict.categoryLink1:null}';" style="cursor: pointer;">Comprar ahora</h5>
+            </div>
+
+            <div class="destacado2 destacados" style="background-image: url(${pdict.image2 ? pdict.image2.src.mobile:null})">
+                <h4 class="titulo-main-destacados">${pdict.cta2 ? pdict.cta2: null}</h4>
+                <h5 class="text-comprar-ahora" onclick="location.href='${pdict.categoryLink2 ? pdict.categoryLink2:null}';" style="cursor: pointer;">Comprar ahora</h5>
+            </div>
+
+            <div class="destacado3 destacados" style="background-image: url(${pdict.image3 ? pdict.image3.src.mobile:null})">
+                <h4 class="titulo-main-destacados">${pdict.cta3 ? pdict.cta3: null}</h4>
+                <h5 class="text-comprar-ahora" onclick="location.href='${pdict.categoryLink3 ? pdict.categoryLink3:null}';" style="cursor: pointer;">Comprar ahora</h5>
+            </div>
+
+            <div class="destacado4 destacados" style="background-image: url(${pdict.image4 ? pdict.image4.src.mobile:null})">
+                <h4 class="titulo-main-destacados">${pdict.cta4 ? pdict.cta4: null}</h4>
+                <h5 class="text-comprar-ahora" onclick="location.href='${pdict.categoryLink4 ? pdict.categoryLink4:null}';" style="cursor: pointer;">Comprar ahora</h5>
+            </div>
+
+            <div class="destacado5 destacados" style="background-image: url(${pdict.image5 ? pdict.image5.src.mobile:null})">
+                <h4 class="titulo-main-destacados">${pdict.cta5 ? pdict.cta5: null} </h4>
+                <h5 class="text-comprar-ahora" onclick="location.href='${pdict.categoryLink5 ? pdict.categoryLink5:null}';" style="cursor: pointer;">Comprar ahora</h5>
+            </div>
+        </div>
+        </section>
+

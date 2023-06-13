@@ -1,0 +1,115 @@
+<isif condition="${lineItem.cantidadDespachada > 0}">
+<div class="product-line-item" data-product-line-item="${lineItem.UUID}">
+    <isif condition="${lineItem.productType === 'bundle'}">
+        <div class="bundle-includes">${Resource.msg('msg.bundle.includes', 'cart', null)}</div>
+        <!--- individual bundled line items --->
+        <isinclude template="cart/productCard/cartProductCardBundledItems" />
+    <iselse/>
+        <div class="row">
+            <div class="col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2 padd-pash pr-0">
+                <isif condition="${pdict.days < lineItem.devoluciones[0].devolucion}">
+                    <input type="checkbox" class="vertical-center return-items mycheck" id="${lineItem.id}" value="${lineItem.id}">
+                <iselse/>
+                    <input type="checkbox" class="vertical-center return-items " id="${lineItem.id}" value="${lineItem.id}" disabled>
+                </isif>
+                <input type="hidden" class="data-return" id="dataReturn-${lineItem.id}" value='-{"id":"0","qty":0,"return":0}'>
+                <div class="item-image d-inline-block" style="margin-left: 15px">
+                    <img class="product-image" src="${lineItem.images.small[0].url}"
+                        alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}">
+                </div>
+            </div>
+            <div class="col-8 col-sm-8 col-md-2 col-lg-2 col-xl-2 px-0">
+                <div class="product-line-item-details ">
+                    <div class="line-item-header d-inline-block">
+                        <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id).relative().toString()}">
+                            <isinclude template="checkout/productCard/productCardProductName" />
+                        </a> 
+                    </div>
+                    <br />
+                    <div class="item-attributes font13Reg second-text">
+                        <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopState">
+                            <isif condition="${loopState.cout > 2}">
+                                <isif condition="${loopState.first || loopState.last}">
+                                    <span class="line-item-attributes metodDesk">${attribute.displayValue}</span>
+                                    <span class="line-item-attributes gris-texto1 font11 font-W500 metodMob">${attribute.displayValue}</span>
+                                <iselse/>
+                                    <span class="line-item-attributes metodDesk"> / ${attribute.displayValue} / </span>
+                                    <span class="line-item-attributes gris-texto1 font11 font-W500 metodMob"> / ${attribute.displayValue} / </span>
+                                </isif>
+                            <iselse/>
+                                <isif condition="${loopState.first}">
+                                    <span class="line-item-attributes metodDesk">${attribute.displayValue} / </span>
+                                    <span class="line-item-attributes gris-texto1 font11 font-W500 metodMob">${attribute.displayValue} / </span>
+                                <iselse/>
+                                    <span class="line-item-attributes metodDesk">${attribute.displayValue}</span>
+                                    <span class="line-item-attributes gris-texto1 font11 font-W500 metodMob">${attribute.displayValue}</span>
+                                </isif>
+                            </isif>
+                        </isloop>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2 mt-30">
+                <div class="gris-texto1 font16 d-inline-block metodDesk pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                    ${lineItem.priceDiscount}
+                    <input type="hidden" id="basePriceValue-${lineItem.id}" value="${lineItem.priceDiscountNumber}">
+                </div>
+            </div>
+            <div class="col-4 col-sm-4 col-md-1 col-lg-1 col-xl-1 mt-68 pl-0">
+                <div class="align-items-start">
+                    <isif condition="${pdict.days < lineItem.devoluciones[0].devolucion}">
+                        <isif condition="${lineItem.cantidadDespachada}" />
+                        <select id="qty-${lineItem.id}" class="count-select textGray borderGray styleMob">
+                            <option value="0">0</option>
+                            <isloop items="${lineItem.CantidadDespachadaQuantityCount}" var="quantityCount">
+                                <option value="${quantityCount.value}">${(quantityCount.value).toFixed()}</option>
+                            </isloop>
+                        </select>
+                    <iselse/>
+                        <select id="qty-${lineItem.id}" class="count-select textGray borderGray styleMob">
+                            <option value="0">0</option>
+                            <isloop items="${lineItem.quantityCount}" var="quantityCount">
+                                <option value="${quantityCount.value}">${(quantityCount.value).toFixed()}</option>
+                            </isloop>
+                        </select>
+                        </isif>
+                    <iselse/>
+                        <select id="qty-${lineItem.id}" class="count-select textGray borderGray" disabled>
+                            <option value="0">0</option>
+                            <isloop items="${lineItem.quantityCount}" var="quantityCount">
+                                <option value="${quantityCount.value}">${(quantityCount.value).toFixed()}</option>
+                            </isloop>
+                        </select>
+                    </isif>
+                    <input type="hidden" id="qtySel-${lineItem.id}" value="0">
+                </div>
+            </div>
+            <isif condition="${lineItem.cantidadDespachada}" />
+            <div class="col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2 mt-68">
+                <div class="font14-Semi azul-pat pricing line-item-total-price-amount item-total-${lineItem.UUID}">${lineItem.totalCantidadDespachada}</div>
+            </div>
+            <iselse/>
+            <div class="col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2 mt-68">
+                <div class="font14-Semi azul-pat pricing line-item-total-price-amount item-total-${lineItem.UUID}">${lineItem.priceDiscountTotal}</div>
+            </div>
+            </isif>
+            <div class="col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2 mt-35 metodMob"></div>
+            <div class="col-8 col-sm-8 col-md-1 col-lg-1 col-xl-1 pl-0 mt-35">
+                <isif condition="${pdict.days < lineItem.devoluciones[0].devolucion}">
+                    <select class="return-data gris-texto1 font16 borderGray styleMob width-heightMob pl-1" id="return-${lineItem.id}" style="width: 233px; height: 40px;">
+                        <option id="option-${lineItem.id}" value="0">${Resource.msg('select.text1', 'return', null)}</option>
+                        <isloop items="${JSON.parse(pdict.preferencesReturn.serviceOptions)}" var="serviceOptions">
+                            <isif condition="${serviceOptions.idServicio === pdict.service}">
+                                <option value="${serviceOptions.idOpcionPash}">${serviceOptions.nombreServicio}</option>
+                            </isif>
+                        </isloop>
+                    </select>
+                <iselse/>
+                    <span class="text-disabled-pash">${Resource.msg('select.text2', 'return', null)}</span>
+                </isif>
+                <input type="hidden" id="returnSel-${lineItem.id}" value="0">
+            </div>
+        </div>
+    </isif>
+</div>
+</isif>

@@ -1,0 +1,136 @@
+<script defer src="${URLUtils.staticURL('/js/filters-features.js')}"></script>
+
+<isif condition="${pdict.cards == 'false'}">
+<div class="customFilters">
+<isif condition="${pdict.filter == 'size'}">
+<ul class="d-flex justify-content-center filter-fit size-filter ${pdict.cards} owl-carousel owl-theme mt-3">
+        <isloop items="${pdict.refinementValues}" var="refinementValue">
+            <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                <isif condition="${attrobj.attrValor == refinementValue.displayValue}">
+                    <li>
+                        <button class="cards-size" data-href="${refinementValue.url}" data-filter="${pdict.filter}" data-cards="${pdict.cards}">
+                            <p class="title-filter-size">${refinementValue.displayValue}</p>
+                        </button>
+                    </li>
+                </isif>
+            </isloop>
+        </isloop>
+    </ul>
+<iselseif condition="${pdict.filter == 'color'}" />
+    <ul class="d-flex justify-content-center filter-fit color-fit ${pdict.cards} owl-carousel owl-theme">
+        <isloop items="${pdict.refinementValues}" var="refinementValue">
+            <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                <isif condition="${attrobj.attrValor == refinementValue.presentationId}">
+                    <li>
+                        <button data-href="${refinementValue.url}" data-filter="${pdict.filter}" data-cards="${pdict.cards}">
+                            <img src="${attrobj.image.absURL}" alt="${refinementValue.displayValue}" class="size-color" />
+                            <p class="title-filter mt-1">${refinementValue.displayValue}</p>
+                        </button>
+                    </li>
+                </isif>
+            </isloop>
+        </isloop>
+    </ul>
+<iselseif condition="${pdict.filter == 'filtroFit'}" />
+    <ul class="d-flex justify-content-center filter-fit jeans-fit owl-carousel ${pdict.cards} owl-theme mt-1 mt-md-0">
+        <isloop items="${pdict.refinementValues}" var="refinementValue">
+            <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                <isif condition="${attrobj.attrValor == refinementValue.ID}">
+                    <li>
+                        <button data-href="${refinementValue.url}" data-filter="${pdict.filter}" data-cards="${pdict.cards}">
+                            <img src="${attrobj.image.absURL}" alt="${refinementValue.displayValue}" />
+                            <p class="title-filter mt-1">${refinementValue.displayValue}</p>
+                        </button>
+                    </li>
+                </isif>
+            </isloop>
+        </isloop>
+    </ul>
+    
+<iselseif condition="${pdict.filter == 'price'}" />
+    <ul class="d-flex justify-content-center filter-fit price-fit owl-carousel owl-theme mt-3">
+        <isloop items="${pdict.refinementValues}" var="refinementValue">
+            <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                <isif condition="${attrobj.attrValor == refinementValue.displayValue}">
+                    <li>
+                        <button class="cards-size" data-href="${refinementValue.url}" data-filter="${pdict.filter}" data-cards="${pdict.cards}">
+                            <p class="title-filter-size">${refinementValue.displayValue}</p>
+                        </button>
+                    </li>
+                </isif>
+            </isloop>
+        </isloop>
+    </ul>
+</isif>
+</div>
+</isif>
+
+<isif condition="${pdict.cards == 'true'}">
+    <div class="customFilters">
+        <isif condition="${pdict.filter == 'size'}">
+            <ul class="d-flex justify-content-center filter-fit size-filter ${pdict.cards} owl-carousel owl-theme mt-3">
+                <isloop items="${pdict.refinementValues}" var="refinementValue">
+                    <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                        <isif condition="${attrobj.attrValor == refinementValue.displayValue}">
+                            <li>
+                                <button class="cards-size" data-href="${refinementValue.url}"
+                                    data-filter="${pdict.filter}" data-cards="${pdict.cards}">
+                                    <p class="title-filter-size">${refinementValue.displayValue}</p>
+                                </button>
+                            </li>
+                        </isif>
+                    </isloop>
+                </isloop>
+            </ul>
+        <iselseif condition="${pdict.filter == 'color'}" />
+            <ul class="d-flex justify-content-center filter-fit color-fit ${pdict.cards} owl-carousel owl-theme mt-3 mb-5 mr-5">
+                <isloop items="${pdict.refinementValues}" var="refinementValue">
+                    <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                        <isif condition="${attrobj.attrValor == refinementValue.presentationId}">
+                            <li>
+                                <button data-href="${refinementValue.url}" data-filter="${pdict.filter}" data-cards="${pdict.cards}"
+                                    class="cards-size">
+                                    <p class="title-filter mt-1">${refinementValue.displayValue}</p>
+                                </button>
+                            </li>
+                        </isif>
+                    </isloop>
+                </isloop>
+            </ul>
+        <iselseif condition="${pdict.filter == 'filtroFit'}" />
+            <ul class="d-flex justify-content-center filter-fit jeans-fit ${pdict.cards} owl-carousel owl-theme mt-3">
+                <isloop items="${pdict.refinementValues}" var="refinementValue">
+                    <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                        <isif condition="${attrobj.attrValor == refinementValue.ID}">
+                            <li>
+                                <button data-href="${refinementValue.url}" data-filter="${pdict.filter}" data-cards="${pdict.cards}"
+                                    class="cards-size">
+                                    <p class="title-filter mt-1">${refinementValue.displayValue}</p>
+                                </button>
+                            </li>
+                        </isif>
+                    </isloop>
+                </isloop>
+            </ul>
+
+        <iselseif condition="${pdict.filter == 'price'}" />
+            <ul class="d-flex justify-content-center filter-fit price-fit owl-carousel owl-theme  mb-2 mb-md-0">
+                <isloop items="${pdict.refinementValues}" var="refinementValue">
+                    <isloop items="${pdict.attrObj}" var="attrobj" status="loopstatus">
+                        <isif condition="${attrobj.attrValor == refinementValue.displayValue}">
+                            <li>
+                                <button class="cards-size" data-href="${refinementValue.url}" data-cards="${pdict.cards}"
+                                    data-filter="${pdict.filter}">
+                                    <p class="title-filter-size">${refinementValue.displayValue}</p>
+                                </button>
+                            </li>
+                        </isif>
+                    </isloop>
+                </isloop>
+            </ul>
+        </isif>
+    </div>
+</isif>
+
+
+

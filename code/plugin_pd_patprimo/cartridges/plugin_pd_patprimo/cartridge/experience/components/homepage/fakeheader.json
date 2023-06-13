@@ -1,0 +1,35 @@
+{
+    "name": "Fake Header",
+    "description": "Image, text overlay that links user to a category using the markup editor",
+    "group": "patprimo_components_homepage",
+    "attribute_definition_groups": [
+      {
+        "id": "headerImage",
+        "name": "Banner Image",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image",
+            "name": "Image",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "headerImageMobile",
+        "name": "Banner Image Mobile",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "imageMobile",
+            "name": "ImageMobile",
+            "type": "image",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }
+  

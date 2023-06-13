@@ -1,0 +1,7 @@
+<div class="row bloque-mixto">
+    <div class="title-bloque-top"><i class="icon-Colombia gray image-foot"></i><span>${Resource.msg('global.footer.envio_colombia', 'footer', null)}</span></div>
+    <div class="title-bloque-top"><i class="icon-Envios gray image-foot"></i><span>${Resource.msg('global.footer.envio_gratis', 'footer', null)}</span></div>
+    <div class="title-bloque-top"><i class="icon-Devoluciones gray image-foot"></i><span>${Resource.msg('global.footer.devolucion_gratis', 'footer', null)}</span></div>
+    <div class="title-bloque-top"><i class="icon-Contraentrega gray image-foot"></i><span>${Resource.msg('global.footer.pago_contraentrega', 'footer', null)}</span></div>
+    <div class="title-bloque-top"><i class="icon-Safety gray image-foot"></i><span>${Resource.msg('global.footer.compra_segura', 'footer', null)}</span></div>
+</div>

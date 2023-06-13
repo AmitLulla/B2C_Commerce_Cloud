@@ -1,0 +1,102 @@
+<iscomment>
+    <isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption" status="loopSate">
+        <isif condition="${paymentOption.ID === 'CREDIT_CARD'}">
+            <isinclude template="checkout/billing/paymentOptions/creditCardTab" />
+        </isif>
+        <isif
+            condition="${pdict.mercadoPago && pdict.mercadoPago.enable && paymentOption.ID === Resource.msg('payment.method.id',
+                       'mercadoPagoPreferences', null)}">
+            <isinclude template="checkout/billing/paymentOptions/mercadoPagoTab" />
+        </isif>
+    </isloop>
+</iscomment>
+
+
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption">
+    <isif condition="${paymentOption.ID === 'GIFT_CERTIFICATE'}">
+        <li class="nav-item cont-card-gift" data-method-id="${paymentOption.ID}">
+            <a class="nav-link credit-card-tab mod-desktop" data-toggle="tab" href="#credit-card-content-gift" role="tab">
+                <div class="row">
+                    <div class="col-3">
+                        <img class="credit-card-option" src="${URLUtils.staticURL('/images/gift-card-icon.png')}" width=28 alt="${paymentOption.name}" title="${paymentOption.name}">
+                    </div>
+                    <div class="col-9">
+                        <h3 class="credit-card-option-txt">${Resource.msg('txt.vale.descuento', 'checkout', null)}</h3>
+                    </div>
+                </div>
+            </a>
+            <a class="nav-link credit-card-tab mod-mobile" data-toggle="modal" data-target="#creditCardModal">
+                <div class="row">
+                    <div class="col-3">
+                        <img class="credit-card-option" src="${URLUtils.staticURL('/images/gift-card-icon.png')}" width=28 alt="${paymentOption.name}" title="${paymentOption.name}">
+                    </div>
+                    <div class="col-9">
+                        <h3 class="credit-card-option-txt">${Resource.msg('txt.vale.descuento', 'checkout', null)}</h3>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </isif>
+    <iscomment>
+    <isif condition="${paymentOption.ID === 'CREDIT_CARD'}">
+        <isinclude template="checkout/billing/paymentOptions/creditCardTab" />
+    </isif>
+    </iscomment>
+    <iscomment> <isif
+        condition="${pdict.mercadoPago && pdict.mercadoPago.enable && paymentOption.ID === Resource.msg('payment.method.id',
+                   'mercadoPagoPreferences', null)}">
+        <isinclude template="checkout/billing/paymentOptions/mercadoPagoTab" />
+    </isif> </iscomment>
+
+    <isif condition="${pdict.mercadoPago && pdict.mercadoPago.enable && !session.custom.giftComplete && paymentOption.ID === 'MPCreditCard'}">
+        <isinclude template="checkout/billing/paymentOptions/mercadoPagoTabCC" />
+    </isif>
+    <isif condition="${pdict.mercadoPago && pdict.mercadoPago.enable && !session.custom.giftComplete && paymentOption.ID === 'MPDebitCard'}">
+        <isinclude template="checkout/billing/paymentOptions/mercadoPagoTabDC" />
+    </isif>
+    <isif condition="${pdict.mercadoPago && pdict.mercadoPago.enable && !session.custom.giftComplete && paymentOption.ID === 'MPEfecty'}">
+        <isinclude template="checkout/billing/paymentOptions/mercadoPagoTabEfecty" />
+    </isif>
+    <isif condition="${pdict.mercadoPago && pdict.mercadoPago.enable && !session.custom.giftComplete && paymentOption.ID === 'MPPse'}">
+        <isinclude template="checkout/billing/paymentOptions/mercadoPagoTabPse" />
+    </isif>
+    <isif condition="${paymentOption.ID === 'PAGO_CONTRA_ENTREGA' && !session.custom.giftComplete}">
+        <isscript>
+            var preferences = require('*/cartridge/config/preferences');
+        </isscript>
+        <p id="decision" data-decision="${pdict.viewPayment}"></p>
+        <li id="li-payment-method-contra-entrega" class="nav-item" data-method-id="${paymentOption.ID}">
+            <a class="info-pago-contra-entrega mod-desktop <isif condition=" ${preferences.compraMinima > pdict.order.totals.subTotalValue}">disabled </isif> nav-link credit-card-tab" data-toggle="tab"
+            href="#contra-entrega-card-content" role="tab">
+           
+                <div class="row">
+                    <div class="col-3">
+                        <img class="credit-card-option" src="${URLUtils.staticURL('/images/bitmap.png')}" width="33" alt="${paymentOption.name}" title="">
+                    </div>
+                    <div class="col-9">
+                        <h3 class="credit-card-option-txt">${Resource.msg('txt.pago.contra.entrega', 'checkout', null)}</h3>
+                    </div>
+                </div>
+            <span class="tooltip d-none">
+                ${Resource.msgf('text.compra.minima', 'checkout', null, preferences.compraMinima)}
+            </span>
+            </a>
+             <a class="info-pago-contra-entrega mod-mobile <isif condition=" ${preferences.compraMinima > pdict.order.totals.subTotalValue}">disabled </isif> nav-link credit-card-tab"
+            data-toggle="modal" data-target="#creditCardModal" href="#contra-entrega-card-content" role="tab">
+           
+                <div class="row">
+                    <div class="col-3">
+                        <img class="credit-card-option" src="${URLUtils.staticURL('/images/bitmap.png')}" width="33" alt="${paymentOption.name}" title="">
+                    </div>
+                    <div class="col-9">
+                        <h3 class="credit-card-option-txt">${Resource.msg('txt.pago.contra.entrega', 'checkout', null)}</h3>
+                    </div>
+                </div>
+            <span class="tooltip d-none">
+                ${Resource.msgf('text.compra.minima', 'checkout', null, preferences.compraMinima)}
+            </span>
+            </a>
+    </li>
+
+    </isif>
+</isloop>

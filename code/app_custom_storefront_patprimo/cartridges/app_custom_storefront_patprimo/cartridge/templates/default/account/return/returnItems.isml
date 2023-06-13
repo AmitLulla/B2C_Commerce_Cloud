@@ -1,0 +1,16 @@
+<div class="">
+    <table class="metodDesk" style="width:100%">
+        <tr>
+            <th class="col-4 font-W600 font12-Semi gris-texto1">${Resource.msg('items.text1', 'return', null)}</th>
+            <th class="col-2 font-W600 font12-Semi gris-texto1">${Resource.msg('items.text2', 'return', null)}</th>
+            <th class="col-1 px-0 font-W600 font12-Semi gris-texto1">${Resource.msg('items.text3', 'return', null)}</th>
+            <th class="col-2 font-W600 font12-Semi gris-texto1">${Resource.msg('items.text4', 'return', null)}</th>
+            <th class="col-3 font-W600 font12-Semi gris-texto1">${Resource.msg('items.text5', 'return', null)}</th>
+        </tr>
+    </table>
+    <isloop items="${pdict.order.shipping}" var="shippingModel">
+        <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
+            <isinclude template="account/return/productCardReturn" />
+        </isloop>
+    </isloop>
+</div>

@@ -1,0 +1,20 @@
+<div class=" quantity-form">
+    <select class="form-control quantity fontSize12 custom-select selectpicker m-0 py-0 productSizes pr-0" style="max-width: 50px !important;"
+            data-uuid="${lineItem.UUID}"
+            data-pid="${lineItem.id}"
+            data-action="${pdict.actionUrls.updateQuantityUrl}"
+            data-pre-select-qty="${lineItem.quantity}"
+            id="quantity-${lineItem.UUID}"
+            name="quantity-${lineItem.UUID}"
+            aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}">
+        <isloop begin="${lineItem.quantityOptions.minOrderQuantity}"
+                end="${lineItem.quantityOptions.maxOrderQuantity}"
+                status="status">
+            <isif condition="${lineItem.quantity === status.index}">
+                <option class="productSizesOption" selected>${status.index}</option>
+            <iselse/>
+                <option class="productSizesOption">${status.index}</option>
+            </isif>
+        </isloop>
+    </select>
+</div>

@@ -1,0 +1,205 @@
+{
+    "name": "Destacados Main Gallery",
+    "description": "Image, text overlay that links user to a category using the markup editor",
+    "group": "patprimo_components_homepage",
+    "attribute_definition_groups": [
+      {
+        "id": "bannerImage1",
+        "name": "Banner Image1",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image1",
+            "name": "Image1",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "bannerImage2",
+        "name": "Banner Image2",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image2",
+            "name": "Image2",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "bannerImage3",
+        "name": "Banner Image3",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image3",
+            "name": "Image3",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "bannerImage4",
+        "name": "Banner Image4",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image4",
+            "name": "Image4",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "bannerImage5",
+        "name": "Banner Image5",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image5",
+            "name": "Image5",
+            "type": "image",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_1",
+        "name": "CTA 1",
+        "description": "text for the button 1.",
+        "attribute_definitions": [
+          {
+            "id": "cta_1",
+            "name": "CTA 1",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_2",
+        "name": "CTA 2",
+        "description": "text for the button 2.",
+        "attribute_definitions": [
+          {
+            "id": "cta_2",
+            "name": "CTA 2",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_3",
+        "name": "CTA 3",
+        "description": "text for the button 2.",
+        "attribute_definitions": [
+          {
+            "id": "cta_3",
+            "name": "CTA 3",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_4",
+        "name": "CTA 4",
+        "description": "text for the button 2.",
+        "attribute_definitions": [
+          {
+            "id": "cta_4",
+            "name": "CTA 4",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_5",
+        "name": "CTA 5",
+        "description": "text for the button 2.",
+        "attribute_definitions": [
+          {
+            "id": "cta_5",
+            "name": "CTA 5",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+
+      {
+        "id": "cta_link1",
+        "name": "cta link 1",
+        "description": "The Shop Now link on the banner button 1",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink1",
+            "name": "Category Link1",
+            "type": "category",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_link2",
+        "name": "cta link 2",
+        "description": "The Shop Now link on the banner button 2",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink2",
+            "name": "Category Link2",
+            "type": "category",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_link3",
+        "name": "cta link 3",
+        "description": "The Shop Now link on the banner button 2",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink3",
+            "name": "Category Link3",
+            "type": "category",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_link4",
+        "name": "cta link 4",
+        "description": "The Shop Now link on the banner button 2",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink4",
+            "name": "Category Link4",
+            "type": "category",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "cta_link5",
+        "name": "cta link 5",
+        "description": "The Shop Now link on the banner button 2",
+        "attribute_definitions": [
+          {
+            "id": "categoryLink5",
+            "name": "Category Link5",
+            "type": "category",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }
+  

@@ -1,0 +1,185 @@
+<style>
+    .box-page {
+        width: 76px;
+        height: 35px;
+        border: 1px solid black;
+        margin-top: 0.5px;
+        margin-right: 1px;
+        padding-top: 0.125rem;
+        padding-left: 0.25rem;
+    }
+
+    .button-next {
+        border-radius: 0% 15% 15% 0%;
+        height: 36px;
+        width: 35px;
+    }
+
+    .button-prev {
+        border-radius: 15% 0% 0% 15%;
+        height: 36px;
+        width: 35px;
+    }
+    .numbers-mobile{
+    font-family: "Red Hat Display";
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #787878;
+    }
+</style>
+<isinclude template="search/components/productTiles" />
+
+<div class="col-12 grid-footer" id="datas" data-sort-options="${JSON.stringify(pdict.productSearch.productSort)}"
+    data-page-size="${pdict.productSearch.pageSize}" data-page-number="${pdict.productSearch.pageNumber}"
+    data-shows="${JSON.stringify(pdict.productSearch)}">
+
+    <!--- More button --->
+    <isif condition="${pdict.productSearch.showMoreUrl !== ''}">
+    <div class="show-more d-md-flex  d-flex flex-column flex-md-row  justify-content-between">
+        <div class="d-none d-md-block d-lg-block text-below per">${Resource.msg('label.show', 'search', null)}:
+        <span class="number-page"> ${parseInt(pdict.productSearch.pageSize, 10).toString()}</span>
+        </div>
+        <isif condition="${pdict.productSearch.pageNumber == 0 && pdict.productSearch.productIds.length == 32}">
+            <div class="legend-below  ml-md-5 text-center showM">
+                Mostrando ${(((parseInt(pdict.productSearch.pageSize + 1, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10)
+                         .toString()).toString()) - (parseInt(pdict.productSearch.pageSize).toString())).toString()}-${(parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                                                                                                 .toString()} de
+                ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                </div>
+        </isif>
+        
+        <isif condition="${pdict.productSearch.pageNumber > 0 && pdict.productSearch.productIds.length == 32}">
+            <div class="legend-below  ml-md-5 text-center showM">
+                Mostrando ${(((parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                         .toString()) - (parseInt(pdict.productSearch.pageSize).toString())).toString()}-${(parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                                                                                     .toString()} de
+                ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                </div>
+        </isif>
+        <isif condition="${pdict.productSearch.pageNumber == 0 && pdict.productSearch.productIds.length < 32}">
+            <div class="legend-below  ml-md-5 text-center showM">
+                Mostrando ${((parseInt(pdict.productSearch.count, 10).toString()) / (parseInt(pdict.productSearch.productIds.length, 10).toString())
+                          .toString()).toString()}-${parseInt(pdict.productSearch.count, 10).toString()} de
+                ${parseInt(pdict.productSearch.count, 10).toString()} productos
+            </div>
+        </isif>
+        
+        <isif condition="${pdict.productSearch.pageNumber > 0 && pdict.productSearch.productIds.length < 32}">
+            <div class="legend-below  ml-md-5 text-center showM">
+                Mostrando ${(parseInt(pdict.productSearch.count, 10).toString() - parseInt(pdict.productSearch.productIds.length, 10).toString()
+                          .toString()).toString()}-${parseInt(pdict.productSearch.count, 10).toString()} de
+                ${parseInt(pdict.productSearch.count, 10).toString()} productos
+            </div>
+        </isif>
+        <div class="text-center ml-5 pagination-desktop pagination-grid">
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination" id="pag">
+                    <isloop items="${pdict.productSearch.showMoreUrl}" var="url" status="loopStatus">
+                        <isif condition="${loopStatus.index == pdict.productSearch.pageNumber - 1}">
+                            <li class=" page-item">
+                                <button class="page-link follow prev-next" data -
+                                    indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}" data-url="${url}" role="button" >
+                                    <i class="fa fa-angle-left fa-lg"> </i></button>
+                            </li>                
+                        </isif>
+                    </isloop>
+
+                <isloop items="${pdict.productSearch.showMoreUrl}" var="url" status="loopStatus">
+                    <isif condition="${loopStatus.index == pdict.productSearch.pageNumber}">
+                        <isset name="active" value="${parseInt(loopStatus.index + 3, 10).toString()}" scope="page" />
+                    </isif>
+                <isif condition="${loopStatus.index <= active}">
+                    <isif condition="${loopStatus.index == pdict.productSearch.pageNumber}">
+                        <li class=" page-item active">
+                            <button class="page-link btn-outline-info on" data -
+                                indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}" data-url="${url}" role="button">
+                                ${parseInt(loopStatus.index + 1, 10).toString()}</button>
+                        </li>
+                <iselseif condition="${loopStatus.index == pdict.productSearch.pageNumber + 1}">
+                        <li class=" page-item " >
+                            <button class="page-link btn-outline-info on numbers-pagination" data -
+                                indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}" data-url="${url}" role="button" >
+                                ${parseInt(loopStatus.index + 1, 10).toString()}</button>
+                        </li>
+                </iselseif>
+                    <iselse/>
+                        <li class=" page-item">
+                            <button class="page-link btn-outline-info on numbers-pagination" data -
+                                indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}" data-url="${url}" role="button">
+                                ${parseInt(loopStatus.index + 1, 10).toString()}</button>
+                        </li>
+                    </isif>
+                </isif>
+
+                <isif condition="${loopStatus.index == 1}">
+                    <isset name="second" value="${url}" scope="page" />
+                    <isset name="secondIndex" value="${parseInt(loopStatus.index + 1, 10).toString()}" scope="page" />        
+                </isif>
+            </isloop>
+            <isloop items="${pdict.productSearch.showMoreUrl}" var="url" status="loopStatus">
+                <isif condition="${loopStatus.index == pdict.productSearch.pageNumber + 1}">
+                    <li class=" page-item " >
+                        <button class="page-link follow prev-next" data - indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}"
+                            data-url="${url}" role="button">
+                            <i class="fa fa-angle-right fa-lg"> </i></button>
+                    </li>                
+                </isif>
+            </isloop>
+        </ul>
+    </nav>
+        </div>
+        
+        <div class="d-flex justify-content-center mt-md-0 mt-3 mobile-pagination">
+            <div>
+                <isloop items="${pdict.productSearch.showMoreUrl}" var="url" status="loopStatus">
+                    <isif condition="${loopStatus.index == pdict.productSearch.pageNumber - 1}">
+                        <button class="page-link follow button-prev"
+                            data-indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}" data-url="${url}" role="button">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+        
+                    <iselse/>
+                        <isif condition="${loopStatus.index == 0 && pdict.productSearch.pageNumber == 0}">
+                            <button class="page-link follow button-prev gridIconOpacity" disabled
+                                data-indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}" data-url="${url}"
+                                role="button">
+                                <i class="fa fa-chevron-left"></i>
+                            </button>
+                        </isif>
+                    </isif>
+                </isloop>
+            </div>
+            <div class="box-page text-center">
+                    <span class="text-center mr-1 numbers-mobile">
+                        ${parseInt(pdict.productSearch.pageNumber + 1, 10).toString()} de
+                        ${parseInt(pdict.productSearch.showMoreUrl.length, 10).toString()}
+                    </span>
+            </div>
+            <div>
+                <isloop items="${pdict.productSearch.showMoreUrl}" var="url" status="loopStatus">
+                
+                    <isif condition="${loopStatus.index == pdict.productSearch.pageNumber + 1}">
+                        <button class="page-link follow button-next"
+                            data-indexbutton="${parseInt(loopStatus.index + 1, 10).toString()}" data-url="${url}" role="button">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+        
+                    </isif>
+                </isloop>
+            </div>
+        </div>
+    </div>
+    </isif>
+
+    <input type="hidden" class="permalink" value="${pdict.productSearch.permalink}" />
+    <isif condition="${pdict.productSearch.category != null}">
+        <input type="hidden" class="category-id" value="${pdict.productSearch.category.id}" />
+    </isif>
+</div>
+    

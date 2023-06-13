@@ -1,0 +1,37 @@
+<iscontent type="text/javascript" charset="UTF-8" compact="true"/>
+
+<isscript>
+	importPackage( dw.system );
+	importPackage( dw.catalog );
+	importPackage( dw.util );
+	importPackage( dw.value );
+	importPackage( dw.web );
+
+	
+	// application constants
+	var constants = {
+		
+	};
+
+	// application resources
+	var resources =  {
+
+		nitWrong : Resource.msgf('nit.wrong.msj','form',null),
+		telWrong :Resource.msgf('tel.wrong.msj','form',null)
+		
+	};
+
+	// application urls
+	var urls =  {
+		wishlist				: URLUtils.url('Wishlist-AddProduct').toString(),
+		urlAddToCartCustom      : URLUtils.abs('Cart-AddProductCustom').toString()
+	};
+
+</isscript> 
+<script>
+    (function(app){
+        app.resources = <isprint value="${JSON.stringify(resources)}" encoding="off"/>;
+		app.urls = <isprint value="${JSON.stringify(urls)}" encoding="off"/>;
+    }(window.app = window.app || {}));
+</script>
+

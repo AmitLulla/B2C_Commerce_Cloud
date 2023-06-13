@@ -1,0 +1,36 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/homeBeneficios_K.css');
+</isscript>
+
+<div class="beneficios">
+
+
+        <div class="beneficio">
+          <img  src="${URLUtils.staticURL('icons/colombia.svg')}" alt="icon colombia"> <p> ${pdict.title1 ? pdict.title1: null}</p>
+        </div>
+
+         <div class="beneficio beneficios-envios">
+           <img  src="${URLUtils.staticURL('icons/envios.svg')}" alt="icon envios"> <p> ${pdict.title2 ? pdict.title2: null}</p>
+
+        </div>
+
+        <div class="beneficio">
+          <img  src="${URLUtils.staticURL('icons/devoluciones.svg')}" alt="icon envios">  <p> ${pdict.title3 ? pdict.title3: null}</p>
+        </div>
+
+        <div class="beneficio">
+            <img  class="contraentrega" src="${URLUtils.staticURL('icons/contraentrega.png')}" alt="icon envios"> <p> ${pdict.title4 ? pdict.title4: null}</p>
+        </div>
+
+        <div class="beneficio">
+       
+               <img  src="${URLUtils.staticURL('icons/compraSegura.svg')}" alt="icon envios"> <p> ${pdict.title5 ? pdict.title5: null}</p>
+        </div>
+
+
+     
+   
+       
+                
+</div>           

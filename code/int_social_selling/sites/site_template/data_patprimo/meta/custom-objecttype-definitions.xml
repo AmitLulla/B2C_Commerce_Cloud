@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="socialSelling">
+        <description xml:lang="x-default">Venta Social Selling</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <retention-days>1</retention-days>
+        <key-definition attribute-id="key">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="formRegister">
+                <display-name xml:lang="x-default">informacion de formulario de registro</display-name>
+                <description xml:lang="x-default">informacion de formulario de registro</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+             <attribute-definition attribute-id="formShipping">
+                <display-name xml:lang="x-default">informacion de formulario de envio</display-name>
+                <description xml:lang="x-default">informacion de formulario de envio</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="infBasket">
+                <display-name xml:lang="x-default">informacion de carrito</display-name>
+                <description xml:lang="x-default">informacion de carrito</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="infVendedor">
+                <display-name xml:lang="x-default">informacion de vendedor</display-name>
+                <description xml:lang="x-default">informacion de vendedor</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="default">
+                <display-name xml:lang="x-default">default</display-name>
+                <attribute attribute-id="formRegister"/>
+                <attribute attribute-id="formShipping"/>
+                <attribute attribute-id="infBasket"/>
+                <attribute attribute-id="infVendedor"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+</metadata>

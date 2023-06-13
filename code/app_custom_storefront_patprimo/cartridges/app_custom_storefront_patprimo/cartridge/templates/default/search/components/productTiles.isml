@@ -1,0 +1,108 @@
+<isscript>
+ var assets = require('*/cartridge/scripts/assets.js');
+     assets.addJs('/js/containerGrid.js');
+ </isscript>
+
+<div class="col-md-12 show-legend-desktop">
+    <div class="d-flex justify-content-between mb-md-3">
+        <div class="filters-button" data-filter="${pdict.productSearch.productSearch.category.custom.filter}" data-cards="${pdict.productSearch.productSearch.category.custom.cards}" id="btnFilterApplied"></div>
+        <div class="count">
+                <isif condition="${pdict.productSearch.pageNumber == 0 && pdict.productSearch.productIds.length == 32}">
+                    <div>
+                        Mostrando ${(((parseInt(pdict.productSearch.pageSize + 1, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10)
+                                  .toString()).toString()) - (parseInt(pdict.productSearch.pageSize).toString())).toString()}-${(parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                                                                                                          .toString()} de
+                        ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                    </div>
+                </isif>
+                
+                <isif condition="${pdict.productSearch.pageNumber > 0 && pdict.productSearch.productIds.length == 32}">
+                    <div>
+                        Mostrando ${(((parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                  .toString()) - (parseInt(pdict.productSearch.pageSize).toString())).toString()}-${(parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                                                                                              .toString()} de
+                        ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                    </div>
+                </isif>
+<isif condition="${pdict.productSearch.pageNumber == 0 && pdict.productSearch.productIds.length < 32}">
+                    <div>
+                        Mostrando ${((parseInt(pdict.productSearch.count, 10).toString()) / (parseInt(pdict.productSearch.productIds.length, 10).toString())
+                                 .toString()).toString()}-${parseInt(pdict.productSearch.count, 10).toString()} de
+                        ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                        </div>
+                        </isif>
+                        
+                        <isif condition="${pdict.productSearch.pageNumber > 0 && pdict.productSearch.productIds.length < 32}">
+                            <div>
+                                Mostrando ${(parseInt(pdict.productSearch.count, 10).toString() - parseInt(pdict.productSearch.productIds.length, 10).toString()
+                                          .toString()).toString()}-${parseInt(pdict.productSearch.count, 10).toString()} de
+                                ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                    </div>
+                </isif>
+            </div>
+            </div>
+</div>
+
+<div class="col-md-12 show-legend-mobile">
+    <div class="d-flex justify-content-end mb-md-3">
+        <div class="filters-button" id="btnFilterApplied"></div>
+        <div class="count">
+                <isif condition="${pdict.productSearch.pageNumber == 0 && pdict.productSearch.productIds.length == 32}">
+                    <div>
+                        Mostrando ${(((parseInt(pdict.productSearch.pageSize + 1, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10)
+                                  .toString()).toString()) - (parseInt(pdict.productSearch.pageSize).toString())).toString()}-${(parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                                                                                                          .toString()} de
+                        ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                    </div>
+                </isif>
+                
+                <isif condition="${pdict.productSearch.pageNumber > 0 && pdict.productSearch.productIds.length == 32}">
+                    <div>
+                        Mostrando ${(((parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                  .toString()) - (parseInt(pdict.productSearch.pageSize).toString())).toString()}-${(parseInt(pdict.productSearch.pageSize, 10).toString() * parseInt(pdict.productSearch.pageNumber + 1, 10).toString())
+                                                                                                              .toString()} de
+                        ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                    </div>
+                </isif>
+
+                <isif condition="${pdict.productSearch.pageNumber == 0 && pdict.productSearch.productIds.length < 32}">
+                    <div>
+                        Mostrando ${((parseInt(pdict.productSearch.count, 10).toString()) / (parseInt(pdict.productSearch.productIds.length, 10).toString())
+                                  .toString()).toString()}-${parseInt(pdict.productSearch.count, 10).toString()} de
+                        ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                    </div>
+                </isif>
+                
+                <isif condition="${pdict.productSearch.pageNumber > 0 && pdict.productSearch.productIds.length < 32}">
+                    <div>
+                        Mostrando ${(parseInt(pdict.productSearch.count, 10).toString() - parseInt(pdict.productSearch.productIds.length, 10).toString()
+                                  .toString()).toString()}-${parseInt(pdict.productSearch.count, 10).toString()} de
+                        ${parseInt(pdict.productSearch.count, 10).toString()} productos
+                    </div>
+                </isif>
+            </div>
+            </div>
+</div>
+<isloop items="${pdict.productSearch.productIds}" var="product" status="loopstate">
+    <div class="productGrid col-6 col-md-3 col-sm-6  p-0">
+    <iscomment> banner promocional </iscomment>
+    
+    <isif condition="${product.productID != null}">
+        <isobject object="${product.productSearchHit}" view="searchhit">
+                <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.productID, 'swatches', true, 'ratings', true)}" />
+                </isobject>
+        </isif>
+    </div>
+
+    <isif condition="${pdict.productSearch.category != null && pdict.category.custom.catBannerID != null && ((pdict.productSearch.pageNumber *
+                         pdict.productSearch.pageSize) + loopstate.count) == pdict.category.custom.catBannerID}">
+        
+        <isslot id="cat-grid-tile-banner2" description="Banner in the product grid" context="category"
+            context-object="${pdict.productSearch.category.raw}" />
+        
+    </isif>  
+    
+    
+
+    
+</isloop>

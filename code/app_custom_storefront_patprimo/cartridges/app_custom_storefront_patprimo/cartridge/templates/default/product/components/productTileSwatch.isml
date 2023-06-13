@@ -1,0 +1,30 @@
+<isif condition="${product.variationAttributes[0].values.length > 1}"> 
+<div class="color-swatches" >
+    <div class="swatches d-flex">
+        <isif condition="${product.variationAttributes && product.variationAttributes.length > 0}">
+    
+    <div class="d-flex swatch-mobile">
+        <isloop items="${product.variationAttributes[0].values}" var="swatch" status="loopState">
+                <isif condition="${loopState.count < 4 && swatch.images != null && swatch.images.swatch[0] != null && swatch.images.swatch[0].url != null}">
+                    <a data-id="${loopState.first}" data-url="${swatch.urlCustom}" class="swatch-custom pr-2"
+                        data-href="${swatch.url}" aria-label="${product.productName}, ${swatch.displayValue}">                        
+                        <span class="mt-2 swatch-filter-${swatch.id.toLowerCase()} <isif condition="${swatch.selected}">selectedSwatch</isif>"></span>
+                    </a>
+                
+                     <iselse/>
+                    <span>
+                    <a href="${pdict.urls.product}"
+                        aria-label="${Resource.msgf('label.tile.swatch.more', 'product', null, product.productName)}"></a>
+                    </span>
+                <isbreak />
+
+                
+         </isif>
+            </isloop>
+        </div>
+     </isif> 
+            
+    </div>
+</div>
+</isif>
+<isinclude template="product/components/seccionCompraRapidaMobile"/>

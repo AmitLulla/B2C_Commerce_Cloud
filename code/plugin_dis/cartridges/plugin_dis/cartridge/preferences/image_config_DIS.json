@@ -1,0 +1,46 @@
+{
+	"viewTypeMapping": {
+		"zoom": "hi-res",
+		"xlarge": "hi-res",
+	    "large": "hi-res",
+		"medium": "hi-res",
+		"small": "hi-res",
+		"swatch": "hi-res",
+		"plp-gallery": "plp-gallery"
+	},
+	"zoom": {
+		"scaleWidth": 1200,
+		"scaleHeight": 1200
+	},
+	"xlarge": {
+		"scaleWidth": 800,
+		"scaleHeight": 800
+	},
+	"large": {
+		"scaleWidth": 680,
+		"scaleHeight": 680
+	},
+	"medium": {
+        "scaleWidth": 350,
+        "scaleHeight": 380
+    },
+	"small": {
+		"scaleWidth": 140,
+		"scaleHeight": 140
+	},
+	"swatch": {
+		"scaleWidth": 40,
+		"scaleHeight": 40
+	},
+	"plp-gallery": {
+		"scaleWidth": 800,
+		"scaleHeight": 400
+	},
+	"missingImages": {
+		"xlarge": "large_missing.jpg",
+		"zoom": "images/noimagelarge.png",
+		"large": "images/noimagelarge.png",
+		"medium": "images/noimagemedium.png",
+		"small": "images/noimagesmall.png"
+	}
+}

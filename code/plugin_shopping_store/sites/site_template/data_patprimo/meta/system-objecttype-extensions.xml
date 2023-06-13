@@ -1,0 +1,1765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="locator_enable">
+                <display-name xml:lang="x-default">Locator enable/disable</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="locator_citys">
+                <display-name xml:lang="x-default">Locator Citys</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="api_google">
+                <display-name xml:lang="x-default">API Google</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="show_limit">
+                <display-name xml:lang="x-default">show limit</display-name>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="store_locator">
+                <display-name xml:lang="x-default">Store Locator</display-name>
+                <attribute attribute-id="locator_enable"/>
+                <attribute attribute-id="locator_citys"/>
+                <attribute attribute-id="api_google"/>
+                <attribute attribute-id="show_limit"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Store">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address1">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address2">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="city">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="countryCode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">United States</display>
+                        <value>US</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Canada</display>
+                        <value>CA</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Germany</display>
+                        <value>DE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Colombia</display>
+                        <value>CO</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Costa Rica</display>
+                        <value>CR</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Ecuador</display>
+                        <value>EC</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="email">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fax">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="image"/>
+            <attribute-definition attribute-id="inventoryListID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="latitude">
+                <scale>6</scale>
+                <min-value>-90.0</min-value>
+                <max-value>90.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="longitude">
+                <scale>6</scale>
+                <min-value>-180.0</min-value>
+                <max-value>180.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phone">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="posEnabled"/>
+            <attribute-definition attribute-id="postalCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="stateCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="storeEvents"/>
+            <attribute-definition attribute-id="storeHours"/>
+            <attribute-definition attribute-id="storeLocatorEnabled"/>
+        </system-attribute-definitions>
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="countryCodeValue">
+                <display-name xml:lang="x-default">Country Code Value</display-name>
+                <description xml:lang="x-default">Country Code Value - for the form values</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="enable">
+                <display-name xml:lang="x-default">enable/disabled</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="facilityId">
+                <display-name xml:lang="x-default">Facility ID</display-name>
+                <description xml:lang="x-default">For Heroku sync</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="inventoryListId">
+                <display-name xml:lang="x-default">Store Inventory List ID</display-name>
+                <description xml:lang="x-default">Store Inventory List ID</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="orderLeadTime">
+                <display-name xml:lang="x-default">Order lead time</display-name>
+                <description xml:lang="x-default">Order lead time</description>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageDesignerId">
+                <display-name xml:lang="x-default">Page Designer ID</display-name>
+                <description xml:lang="x-default">Page Designer Id of the store's profile page</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pickupNotes">
+                <display-name xml:lang="x-default">Pickup Notes</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>100</field-length>
+                <field-height>5</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="pricebookID">
+                <display-name xml:lang="x-default">Pricebook ID</display-name>
+                <description xml:lang="x-default">The store's individual price book</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="sameDayAvailable">
+                <display-name xml:lang="x-default">Delivery Same Day</display-name>
+                <description xml:lang="x-default">Is available same day</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="timezone">
+                <display-name xml:lang="x-default">Timezone</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Abidjan</display>
+                        <value>Africa/Abidjan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Accra</display>
+                        <value>Africa/Accra</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Algiers</display>
+                        <value>Africa/Algiers</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Bissau</display>
+                        <value>Africa/Bissau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Cairo</display>
+                        <value>Africa/Cairo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Casablanca</display>
+                        <value>Africa/Casablanca</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Ceuta</display>
+                        <value>Africa/Ceuta</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/El_Aaiun</display>
+                        <value>Africa/El_Aaiun</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Johannesburg</display>
+                        <value>Africa/Johannesburg</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Juba</display>
+                        <value>Africa/Juba</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Khartoum</display>
+                        <value>Africa/Khartoum</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Lagos</display>
+                        <value>Africa/Lagos</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Maputo</display>
+                        <value>Africa/Maputo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Monrovia</display>
+                        <value>Africa/Monrovia</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Nairobi</display>
+                        <value>Africa/Nairobi</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Ndjamena</display>
+                        <value>Africa/Ndjamena</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Tripoli</display>
+                        <value>Africa/Tripoli</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Tunis</display>
+                        <value>Africa/Tunis</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Africa/Windhoek</display>
+                        <value>Africa/Windhoek</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Adak</display>
+                        <value>America/Adak</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Anchorage</display>
+                        <value>America/Anchorage</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Araguaina</display>
+                        <value>America/Araguaina</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Buenos_Aires</display>
+                        <value>America/Argentina/Buenos_Aires</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Catamarca</display>
+                        <value>America/Argentina/Catamarca</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Cordoba</display>
+                        <value>America/Argentina/Cordoba</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Jujuy</display>
+                        <value>America/Argentina/Jujuy</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/La_Rioja</display>
+                        <value>America/Argentina/La_Rioja</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Mendoza</display>
+                        <value>America/Argentina/Mendoza</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Rio_Gallegos</display>
+                        <value>America/Argentina/Rio_Gallegos</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Salta</display>
+                        <value>America/Argentina/Salta</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/San_Juan</display>
+                        <value>America/Argentina/San_Juan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/San_Luis</display>
+                        <value>America/Argentina/San_Luis</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Tucuman</display>
+                        <value>America/Argentina/Tucuman</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Argentina/Ushuaia</display>
+                        <value>America/Argentina/Ushuaia</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Asuncion</display>
+                        <value>America/Asuncion</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Atikokan</display>
+                        <value>America/Atikokan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Bahia</display>
+                        <value>America/Bahia</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Bahia_Banderas</display>
+                        <value>America/Bahia_Banderas</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Barbados</display>
+                        <value>America/Barbados</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Belem</display>
+                        <value>America/Belem</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Belize</display>
+                        <value>America/Belize</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Blanc-Sablon</display>
+                        <value>America/Blanc-Sablon</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Boa_Vista</display>
+                        <value>America/Boa_Vista</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Bogota</display>
+                        <value>America/Bogota</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Boise</display>
+                        <value>America/Boise</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Cambridge_Bay</display>
+                        <value>America/Cambridge_Bay</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Campo_Grande</display>
+                        <value>America/Campo_Grande</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Cancun</display>
+                        <value>America/Cancun</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Caracas</display>
+                        <value>America/Caracas</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Cayenne</display>
+                        <value>America/Cayenne</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Chicago</display>
+                        <value>America/Chicago</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Chihuahua</display>
+                        <value>America/Chihuahua</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Costa_Rica</display>
+                        <value>America/Costa_Rica</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Creston</display>
+                        <value>America/Creston</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Cuiaba</display>
+                        <value>America/Cuiaba</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Curacao</display>
+                        <value>America/Curacao</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Danmarkshavn</display>
+                        <value>America/Danmarkshavn</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Dawson</display>
+                        <value>America/Dawson</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Dawson_Creek</display>
+                        <value>America/Dawson_Creek</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Denver</display>
+                        <value>America/Denver</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Detroit</display>
+                        <value>America/Detroit</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Edmonton</display>
+                        <value>America/Edmonton</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Eirunepe</display>
+                        <value>America/Eirunepe</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/El_Salvador</display>
+                        <value>America/El_Salvador</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Fort_Nelson</display>
+                        <value>America/Fort_Nelson</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Fortaleza</display>
+                        <value>America/Fortaleza</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Glace_Bay</display>
+                        <value>America/Glace_Bay</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Godthab</display>
+                        <value>America/Godthab</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Goose_Bay</display>
+                        <value>America/Goose_Bay</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Grand_Turk</display>
+                        <value>America/Grand_Turk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Guatemala</display>
+                        <value>America/Guatemala</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Guayaquil</display>
+                        <value>America/Guayaquil</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Guyana</display>
+                        <value>America/Guyana</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Halifax</display>
+                        <value>America/Halifax</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Havana</display>
+                        <value>America/Havana</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Hermosillo</display>
+                        <value>America/Hermosillo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Indianapolis</display>
+                        <value>America/Indiana/Indianapolis</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Knox</display>
+                        <value>America/Indiana/Knox</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Marengo</display>
+                        <value>America/Indiana/Marengo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Petersburg</display>
+                        <value>America/Indiana/Petersburg</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Tell_City</display>
+                        <value>America/Indiana/Tell_City</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Vevay</display>
+                        <value>America/Indiana/Vevay</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Vincennes</display>
+                        <value>America/Indiana/Vincennes</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Indiana/Winamac</display>
+                        <value>America/Indiana/Winamac</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Inuvik</display>
+                        <value>America/Inuvik</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Iqaluit</display>
+                        <value>America/Iqaluit</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Jamaica</display>
+                        <value>America/Jamaica</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Juneau</display>
+                        <value>America/Juneau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Kentucky/Louisville</display>
+                        <value>America/Kentucky/Louisville</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Kentucky/Monticello</display>
+                        <value>America/Kentucky/Monticello</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/La_Paz</display>
+                        <value>America/La_Paz</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Lima</display>
+                        <value>America/Lima</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Los_Angeles</display>
+                        <value>America/Los_Angeles</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Maceio</display>
+                        <value>America/Maceio</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Managua</display>
+                        <value>America/Managua</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Manaus</display>
+                        <value>America/Manaus</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Martinique</display>
+                        <value>America/Martinique</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Matamoros</display>
+                        <value>America/Matamoros</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Mazatlan</display>
+                        <value>America/Mazatlan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Menominee</display>
+                        <value>America/Menominee</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Merida</display>
+                        <value>America/Merida</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Metlakatla</display>
+                        <value>America/Metlakatla</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Mexico_City</display>
+                        <value>America/Mexico_City</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Miquelon</display>
+                        <value>America/Miquelon</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Moncton</display>
+                        <value>America/Moncton</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Monterrey</display>
+                        <value>America/Monterrey</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Montevideo</display>
+                        <value>America/Montevideo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Nassau</display>
+                        <value>America/Nassau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/New_York</display>
+                        <value>America/New_York</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Nipigon</display>
+                        <value>America/Nipigon</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Nome</display>
+                        <value>America/Nome</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Noronha</display>
+                        <value>America/Noronha</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/North_Dakota/Beulah</display>
+                        <value>America/North_Dakota/Beulah</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/North_Dakota/Center</display>
+                        <value>America/North_Dakota/Center</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/North_Dakota/New_Salem</display>
+                        <value>America/North_Dakota/New_Salem</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Ojinaga</display>
+                        <value>America/Ojinaga</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Panama</display>
+                        <value>America/Panama</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Pangnirtung</display>
+                        <value>America/Pangnirtung</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Paramaribo</display>
+                        <value>America/Paramaribo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Phoenix</display>
+                        <value>America/Phoenix</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Port_of_Spain</display>
+                        <value>America/Port_of_Spain</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Port-au-Prince</display>
+                        <value>America/Port-au-Prince</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Porto_Velho</display>
+                        <value>America/Porto_Velho</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Puerto_Rico</display>
+                        <value>America/Puerto_Rico</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Punta_Arenas</display>
+                        <value>America/Punta_Arenas</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Rainy_River</display>
+                        <value>America/Rainy_River</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Rankin_Inlet</display>
+                        <value>America/Rankin_Inlet</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Recife</display>
+                        <value>America/Recife</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Regina</display>
+                        <value>America/Regina</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Resolute</display>
+                        <value>America/Resolute</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Rio_Branco</display>
+                        <value>America/Rio_Branco</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Santarem</display>
+                        <value>America/Santarem</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Santiago</display>
+                        <value>America/Santiago</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Santo_Domingo</display>
+                        <value>America/Santo_Domingo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Sao_Paulo</display>
+                        <value>America/Sao_Paulo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Scoresbysund</display>
+                        <value>America/Scoresbysund</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Sitka</display>
+                        <value>America/Sitka</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/St_Johns</display>
+                        <value>America/St_Johns</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Swift_Current</display>
+                        <value>America/Swift_Current</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Tegucigalpa</display>
+                        <value>America/Tegucigalpa</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Thule</display>
+                        <value>America/Thule</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Thunder_Bay</display>
+                        <value>America/Thunder_Bay</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Tijuana</display>
+                        <value>America/Tijuana</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Toronto</display>
+                        <value>America/Toronto</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Vancouver</display>
+                        <value>America/Vancouver</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Whitehorse</display>
+                        <value>America/Whitehorse</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Winnipeg</display>
+                        <value>America/Winnipeg</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Yakutat</display>
+                        <value>America/Yakutat</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">America/Yellowknife</display>
+                        <value>America/Yellowknife</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Casey</display>
+                        <value>Antarctica/Casey</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Davis</display>
+                        <value>Antarctica/Davis</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/DumontDUrville</display>
+                        <value>Antarctica/DumontDUrville</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Macquarie</display>
+                        <value>Antarctica/Macquarie</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Mawson</display>
+                        <value>Antarctica/Mawson</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Palmer</display>
+                        <value>Antarctica/Palmer</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Rothera</display>
+                        <value>Antarctica/Rothera</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Syowa</display>
+                        <value>Antarctica/Syowa</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Troll</display>
+                        <value>Antarctica/Troll</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Antarctica/Vostok</display>
+                        <value>Antarctica/Vostok</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Almaty</display>
+                        <value>Asia/Almaty</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Amman</display>
+                        <value>Asia/Amman</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Anadyr</display>
+                        <value>Asia/Anadyr</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Aqtau</display>
+                        <value>Asia/Aqtau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Aqtobe</display>
+                        <value>Asia/Aqtobe</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Ashgabat</display>
+                        <value>Asia/Ashgabat</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Atyrau</display>
+                        <value>Asia/Atyrau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Baghdad</display>
+                        <value>Asia/Baghdad</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Baku</display>
+                        <value>Asia/Baku</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Bangkok</display>
+                        <value>Asia/Bangkok</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Barnaul</display>
+                        <value>Asia/Barnaul</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Beirut</display>
+                        <value>Asia/Beirut</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Bishkek</display>
+                        <value>Asia/Bishkek</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Brunei</display>
+                        <value>Asia/Brunei</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Chita</display>
+                        <value>Asia/Chita</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Choibalsan</display>
+                        <value>Asia/Choibalsan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Colombo</display>
+                        <value>Asia/Colombo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Damascus</display>
+                        <value>Asia/Damascus</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Dhaka</display>
+                        <value>Asia/Dhaka</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Dili</display>
+                        <value>Asia/Dili</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Dubai</display>
+                        <value>Asia/Dubai</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Dushanbe</display>
+                        <value>Asia/Dushanbe</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Famagusta</display>
+                        <value>Asia/Famagusta</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Gaza</display>
+                        <value>Asia/Gaza</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Hebron</display>
+                        <value>Asia/Hebron</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Ho_Chi_Minh</display>
+                        <value>Asia/Ho_Chi_Minh</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Hong_Kong</display>
+                        <value>Asia/Hong_Kong</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Hovd</display>
+                        <value>Asia/Hovd</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Irkutsk</display>
+                        <value>Asia/Irkutsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Jakarta</display>
+                        <value>Asia/Jakarta</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Jayapura</display>
+                        <value>Asia/Jayapura</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Jerusalem</display>
+                        <value>Asia/Jerusalem</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Kabul</display>
+                        <value>Asia/Kabul</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Kamchatka</display>
+                        <value>Asia/Kamchatka</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Karachi</display>
+                        <value>Asia/Karachi</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Kathmandu</display>
+                        <value>Asia/Kathmandu</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Khandyga</display>
+                        <value>Asia/Khandyga</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Kolkata</display>
+                        <value>Asia/Kolkata</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Krasnoyarsk</display>
+                        <value>Asia/Krasnoyarsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Kuala_Lumpur</display>
+                        <value>Asia/Kuala_Lumpur</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Kuching</display>
+                        <value>Asia/Kuching</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Macau</display>
+                        <value>Asia/Macau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Magadan</display>
+                        <value>Asia/Magadan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Makassar</display>
+                        <value>Asia/Makassar</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Manila</display>
+                        <value>Asia/Manila</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Nicosia</display>
+                        <value>Asia/Nicosia</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Novokuznetsk</display>
+                        <value>Asia/Novokuznetsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Novosibirsk</display>
+                        <value>Asia/Novosibirsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Omsk</display>
+                        <value>Asia/Omsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Oral</display>
+                        <value>Asia/Oral</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Pontianak</display>
+                        <value>Asia/Pontianak</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Pyongyang</display>
+                        <value>Asia/Pyongyang</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Qatar</display>
+                        <value>Asia/Qatar</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Qyzylorda</display>
+                        <value>Asia/Qyzylorda</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Riyadh</display>
+                        <value>Asia/Riyadh</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Sakhalin</display>
+                        <value>Asia/Sakhalin</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Samarkand</display>
+                        <value>Asia/Samarkand</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Seoul</display>
+                        <value>Asia/Seoul</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Shanghai</display>
+                        <value>Asia/Shanghai</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Singapore</display>
+                        <value>Asia/Singapore</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Srednekolymsk</display>
+                        <value>Asia/Srednekolymsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Taipei</display>
+                        <value>Asia/Taipei</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Tashkent</display>
+                        <value>Asia/Tashkent</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Tbilisi</display>
+                        <value>Asia/Tbilisi</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Tehran</display>
+                        <value>Asia/Tehran</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Thimphu</display>
+                        <value>Asia/Thimphu</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Tokyo</display>
+                        <value>Asia/Tokyo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Tomsk</display>
+                        <value>Asia/Tomsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Ulaanbaatar</display>
+                        <value>Asia/Ulaanbaatar</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Urumqi</display>
+                        <value>Asia/Urumqi</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Ust-Nera</display>
+                        <value>Asia/Ust-Nera</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Vladivostok</display>
+                        <value>Asia/Vladivostok</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Yakutsk</display>
+                        <value>Asia/Yakutsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Yangon</display>
+                        <value>Asia/Yangon</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Yekaterinburg</display>
+                        <value>Asia/Yekaterinburg</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Asia/Yerevan</display>
+                        <value>Asia/Yerevan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Azores</display>
+                        <value>Atlantic/Azores</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Bermuda</display>
+                        <value>Atlantic/Bermuda</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Canary</display>
+                        <value>Atlantic/Canary</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Cape_Verde</display>
+                        <value>Atlantic/Cape_Verde</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Faroe</display>
+                        <value>Atlantic/Faroe</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Madeira</display>
+                        <value>Atlantic/Madeira</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Reykjavik</display>
+                        <value>Atlantic/Reykjavik</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/South_Georgia</display>
+                        <value>Atlantic/South_Georgia</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Atlantic/Stanley</display>
+                        <value>Atlantic/Stanley</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Adelaide</display>
+                        <value>Australia/Adelaide</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Brisbane</display>
+                        <value>Australia/Brisbane</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Broken_Hill</display>
+                        <value>Australia/Broken_Hill</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Currie</display>
+                        <value>Australia/Currie</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Darwin</display>
+                        <value>Australia/Darwin</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Eucla</display>
+                        <value>Australia/Eucla</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Hobart</display>
+                        <value>Australia/Hobart</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Lindeman</display>
+                        <value>Australia/Lindeman</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Lord_Howe</display>
+                        <value>Australia/Lord_Howe</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Melbourne</display>
+                        <value>Australia/Melbourne</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Perth</display>
+                        <value>Australia/Perth</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Australia/Sydney</display>
+                        <value>Australia/Sydney</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Etc/GMT</display>
+                        <value>Etc/GMT</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-1</display>
+                        <value>Etc/GMT-1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-2</display>
+                        <value>Etc/GMT-2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-3</display>
+                        <value>Etc/GMT-3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-4</display>
+                        <value>Etc/GMT-4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-5</display>
+                        <value>Etc/GMT-5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-6</display>
+                        <value>Etc/GMT-6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-7</display>
+                        <value>Etc/GMT-7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-8</display>
+                        <value>Etc/GMT-8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-9</display>
+                        <value>Etc/GMT-9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-10</display>
+                        <value>Etc/GMT-10</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-11</display>
+                        <value>Etc/GMT-11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-12</display>
+                        <value>Etc/GMT-12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-13</display>
+                        <value>Etc/GMT-13</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT-14</display>
+                        <value>Etc/GMT-14</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+1</display>
+                        <value>Etc/GMT+1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+2</display>
+                        <value>Etc/GMT+2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+3</display>
+                        <value>Etc/GMT+3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+4</display>
+                        <value>Etc/GMT+4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+5</display>
+                        <value>Etc/GMT+5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+6</display>
+                        <value>Etc/GMT+6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+7</display>
+                        <value>Etc/GMT+7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+8</display>
+                        <value>Etc/GMT+8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+9</display>
+                        <value>Etc/GMT+9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+10</display>
+                        <value>Etc/GMT+10</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+11</display>
+                        <value>Etc/GMT+11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/GMT+12</display>
+                        <value>Etc/GMT+12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Etc/UTC</display>
+                        <value>Etc/UTC</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Amsterdam</display>
+                        <value>Europe/Amsterdam</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Andorra</display>
+                        <value>Europe/Andorra</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Astrakhan</display>
+                        <value>Europe/Astrakhan</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Athens</display>
+                        <value>Europe/Athens</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Belgrade</display>
+                        <value>Europe/Belgrade</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Berlin</display>
+                        <value>Europe/Berlin</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Brussels</display>
+                        <value>Europe/Brussels</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Bucharest</display>
+                        <value>Europe/Bucharest</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Budapest</display>
+                        <value>Europe/Budapest</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Chisinau</display>
+                        <value>Europe/Chisinau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Copenhagen</display>
+                        <value>Europe/Copenhagen</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Dublin</display>
+                        <value>Europe/Dublin</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Gibraltar</display>
+                        <value>Europe/Gibraltar</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Helsinki</display>
+                        <value>Europe/Helsinki</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Istanbul</display>
+                        <value>Europe/Istanbul</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Kaliningrad</display>
+                        <value>Europe/Kaliningrad</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Kiev</display>
+                        <value>Europe/Kiev</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Kirov</display>
+                        <value>Europe/Kirov</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Lisbon</display>
+                        <value>Europe/Lisbon</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/London</display>
+                        <value>Europe/London</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Luxembourg</display>
+                        <value>Europe/Luxembourg</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Madrid</display>
+                        <value>Europe/Madrid</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Malta</display>
+                        <value>Europe/Malta</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Minsk</display>
+                        <value>Europe/Minsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Monaco</display>
+                        <value>Europe/Monaco</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Moscow</display>
+                        <value>Europe/Moscow</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Oslo</display>
+                        <value>Europe/Oslo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Paris</display>
+                        <value>Europe/Paris</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Prague</display>
+                        <value>Europe/Prague</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Riga</display>
+                        <value>Europe/Riga</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Rome</display>
+                        <value>Europe/Rome</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Samara</display>
+                        <value>Europe/Samara</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Sarajevo</display>
+                        <value>Europe/Sarajevo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Saratov</display>
+                        <value>Europe/Saratov</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Simferopol</display>
+                        <value>Europe/Simferopol</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Sofia</display>
+                        <value>Europe/Sofia</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Stockholm</display>
+                        <value>Europe/Stockholm</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Tallinn</display>
+                        <value>Europe/Tallinn</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Tirane</display>
+                        <value>Europe/Tirane</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Ulyanovsk</display>
+                        <value>Europe/Ulyanovsk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Uzhgorod</display>
+                        <value>Europe/Uzhgorod</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Vienna</display>
+                        <value>Europe/Vienna</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Vilnius</display>
+                        <value>Europe/Vilnius</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Volgograd</display>
+                        <value>Europe/Volgograd</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Warsaw</display>
+                        <value>Europe/Warsaw</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Zaporozhye</display>
+                        <value>Europe/Zaporozhye</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Europe/Zurich</display>
+                        <value>Europe/Zurich</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Chagos</display>
+                        <value>Indian/Chagos</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Christmas</display>
+                        <value>Indian/Christmas</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Cocos</display>
+                        <value>Indian/Cocos</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Kerguelen</display>
+                        <value>Indian/Kerguelen</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Mahe</display>
+                        <value>Indian/Mahe</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Maldives</display>
+                        <value>Indian/Maldives</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Mauritius</display>
+                        <value>Indian/Mauritius</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Indian/Reunion</display>
+                        <value>Indian/Reunion</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Apia</display>
+                        <value>Pacific/Apia</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Auckland</display>
+                        <value>Pacific/Auckland</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Bougainville</display>
+                        <value>Pacific/Bougainville</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Chatham</display>
+                        <value>Pacific/Chatham</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Chuuk</display>
+                        <value>Pacific/Chuuk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Easter</display>
+                        <value>Pacific/Easter</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Efate</display>
+                        <value>Pacific/Efate</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Enderbury</display>
+                        <value>Pacific/Enderbury</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Fakaofo</display>
+                        <value>Pacific/Fakaofo</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Fiji</display>
+                        <value>Pacific/Fiji</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Funafuti</display>
+                        <value>Pacific/Funafuti</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Galapagos</display>
+                        <value>Pacific/Galapagos</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Gambier</display>
+                        <value>Pacific/Gambier</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Guadalcanal</display>
+                        <value>Pacific/Guadalcanal</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Guam</display>
+                        <value>Pacific/Guam</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Honolulu</display>
+                        <value>Pacific/Honolulu</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Kiritimati</display>
+                        <value>Pacific/Kiritimati</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Kosrae</display>
+                        <value>Pacific/Kosrae</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Kwajalein</display>
+                        <value>Pacific/Kwajalein</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Majuro</display>
+                        <value>Pacific/Majuro</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Marquesas</display>
+                        <value>Pacific/Marquesas</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Nauru</display>
+                        <value>Pacific/Nauru</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Niue</display>
+                        <value>Pacific/Niue</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Norfolk</display>
+                        <value>Pacific/Norfolk</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Noumea</display>
+                        <value>Pacific/Noumea</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Pago_Pago</display>
+                        <value>Pacific/Pago_Pago</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Palau</display>
+                        <value>Pacific/Palau</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Pitcairn</display>
+                        <value>Pacific/Pitcairn</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Pohnpei</display>
+                        <value>Pacific/Pohnpei</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Port_Moresby</display>
+                        <value>Pacific/Port_Moresby</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Rarotonga</display>
+                        <value>Pacific/Rarotonga</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Tahiti</display>
+                        <value>Pacific/Tahiti</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Tarawa</display>
+                        <value>Pacific/Tarawa</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Tongatapu</display>
+                        <value>Pacific/Tongatapu</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Wake</display>
+                        <value>Pacific/Wake</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pacific/Wallis</display>
+                        <value>Pacific/Wallis</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Basic">
+                <display-name xml:lang="x-default">Basic Attributes</display-name>
+                <attribute attribute-id="ID" system="true"/>
+                <attribute attribute-id="name" system="true"/>
+                <attribute attribute-id="inventoryListID" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Address">
+                <display-name xml:lang="x-default">Address</display-name>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="longitude" system="true"/>
+                <attribute attribute-id="latitude" system="true"/>
+                <attribute attribute-id="countryCodeValue"/>
+            </attribute-group>
+            <attribute-group group-id="Contact">
+                <display-name xml:lang="x-default">Contact Details</display-name>
+                <attribute attribute-id="phone" system="true"/>
+                <attribute attribute-id="fax" system="true"/>
+                <attribute attribute-id="email" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Details">
+                <display-name xml:lang="x-default">Store Details</display-name>
+                <attribute attribute-id="storeHours" system="true"/>
+                <attribute attribute-id="storeEvents" system="true"/>
+                <attribute attribute-id="image" system="true"/>
+                <attribute attribute-id="longitude" system="true"/>
+                <attribute attribute-id="latitude" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Inventory">
+                <display-name xml:lang="x-default">Inventory</display-name>
+                <attribute attribute-id="inventoryListId"/>
+            </attribute-group>
+            <attribute-group group-id="ShopTheStore">
+                <display-name xml:lang="x-default">Shop the Store Attributes</display-name>
+                <description xml:lang="x-default">Represents custom attributes to mange Shop the Store</description>
+                <attribute attribute-id="pricebookID"/>
+                <attribute attribute-id="pageDesignerId"/>
+                <attribute attribute-id="facilityId"/>
+            </attribute-group>
+            <attribute-group group-id="custom">
+                <display-name xml:lang="x-default">Custom</display-name>
+                <attribute attribute-id="enable"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>

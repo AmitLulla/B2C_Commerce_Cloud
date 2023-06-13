@@ -1,0 +1,1001 @@
+@import "../variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+@import "menu";
+
+$banner-padding: 0.3125em;
+$menu-padding: 0.5em;
+$menu-item-margin: 0.625em;
+
+
+header {
+    html {
+        font-size:1rem
+    }
+    position: relative;
+    .header-banner {
+        background-color: #1c1f2a;
+        text-align: center;
+        color: #999999;
+        height: 30px;
+    
+        .close-button {
+            width: 1.5em + $banner-padding * 2;
+    
+            .close {
+                opacity: 1;
+                color: $white;
+                width: 100%;
+                height: 100%;
+                background-color: #{var(--skin-primary-color-1)};
+            }
+        }
+    
+        .content {
+            margin-right: 1.5em;
+            padding-top: $banner-padding;
+            padding-bottom: $banner-padding;
+        }
+        .container-top {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-around;
+            width: 100%;
+            height: 35px;
+            padding: 3px;
+            .content-left {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: baseline;
+                .drop-country {
+                    display: none;
+                    ul.dropdown {
+                        li {
+                            text-align: center;
+                        }
+                    }
+                }
+                .fields-text {
+                    .span-text-top {
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        .image-top {
+                            margin-right: 10px;
+                        }
+                        a {
+                            font-size: 12px;
+                            font-weight: 600;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            text-align: center;
+                            text-transform: capitalize;
+                            color: #eae4d8;
+                        }
+                    }
+                }
+            }
+            .content-center {
+                .fields-text-center {
+                    font-size: 12px;
+                    font-weight: 600;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: #eae4d8;
+                    span {                        
+                        &.text-style {
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+            .content-right {
+                .fields-text {
+                    .span-text-top {
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        .image-top {
+                            margin-right: 10px;
+                        }
+                        a {
+                            font-size: 12px;
+                            font-weight: 600;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            text-align: center;
+                            text-transform: uppercase;
+                            color: #eae4d8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    nav {
+        .header {
+            &.fixed {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 3;
+                background-color: $white!important;
+            }
+            .row {
+                width: 100%;
+                margin: auto;
+                .content-Head {
+                    width: 100%;
+                    margin: auto;
+                    padding: 3px;
+                    .navbar-header {
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        // height: 4.375em; /* 70/16 */
+                    
+                        .search, .user, .wish, .country-selector, .minicart, .navbar-toggler{
+                            display: block;
+                            margin: auto;
+                        }
+                    
+                        .user, .country-selector, .minicart, .navbar-toggler {                            
+                            height: auto;
+                        }
+                        .pull-left {
+                            .head-logo {
+                                .logo-home {
+                                    width: 100%;
+                                    height: auto;
+                                    img {
+                                        width: 150px;
+                                        height: auto;
+                                    }
+                                }
+                            }
+                            .d-lg-none {
+                                display: block;
+                            }
+                        }
+                        .navbar-header-center {
+                            .main-menu {
+                                background-color: $white;
+                                .container {
+                                    .row {
+                                        width: 100%;
+                                        margin: auto;
+                                        .navbar {                                            
+                                            height: 40px;
+                                            .close-menu {
+                                                button
+                                                .close-button button {
+                                                    background-color: transparent;
+                                                    border: 0;
+                                                    -webkit-appearance: none;
+                                                }
+                                            }
+                                            .menu-group {
+                                                background-color: transparent;
+                                                .navbar-nav {
+                                                    .nav-item {
+                                                        position: inherit;
+                                                        .show {
+                                                            width: 100%;
+                                                            position: absolute;
+                                                            top: 50px;
+                                                            left: 0px;
+                                                            padding: 30px;
+                                                        }
+                                                        a{
+                                                            color: #000;
+                                                            text-transform: uppercase;
+                                                            font-size: 13px;
+                                                            font-weight: 500;
+                                                            font-stretch: normal;
+                                                            font-style: normal;
+                                                            line-height: normal;
+                                                            letter-spacing: normal;
+                                                            text-align: center;
+                                                            &::after {
+                                                                display: none;
+                                                            }
+                                                        }                                                        
+                                                    }
+                                                }                                                
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .pull-right {
+                            display: flex;
+                            justify-content: center;
+                            align-items: baseline;
+                            width: 100%;
+                            max-width: 480px;
+                            .search {
+                                .site-search {
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    align-items: center;
+                                    form {
+                                        display: none;
+                                        .button-search {
+                                            display: grid;
+                                            justify-content: center;
+                                            justify-items: center;
+                                            margin: auto;                                            
+                                        }
+                                        .content-input {
+                                            position: fixed;
+                                            width: 100%;
+                                            height: 40px;
+                                            top: 90px;
+                                            left: 0;
+                                            right: 0;
+                                            background-color: #ffffff;
+                                            input.search-field {
+                                                background-color: transparent;
+                                                width: 90%;
+                                                height: 30px;
+                                                margin: auto;
+                                            }
+                                        }
+                                        button {
+                                            background-color: transparent;
+                                            border: none;
+                                            margin: auto;
+                                        }
+                                    }
+                                    &.active {
+                                        display: grid;
+                                        justify-content: center;
+                                        justify-items: center;
+                                        height: auto;                                    
+                                        form {
+                                            display: flex;
+                                            align-items: center;                                            
+                                            background-color: #ffffff;
+                                        }
+                                        .search-icon {
+                                            display: none;
+                                        }
+                                    }
+                                    .search-icon {
+                                        cursor: pointer;
+                                        display: grid;
+                                        justify-content: center;
+                                        justify-items: center;
+                                        &:hover {
+                                            i:before, .text-icon{
+                                                color: #000;
+                                                font-weight: 600;
+                                            }  
+                                        }
+                                    }
+                                }
+                            }                            
+                            .user-login {
+                                position: relative;                                
+                                .popover {                                                
+                                    display: none;           
+                                    nav {
+                                        ul {
+                                            li {
+                                                font-size: 12px;
+                                                font-weight: normal;
+                                                font-stretch: normal;
+                                                font-style: normal;
+                                                line-height: normal;
+                                                letter-spacing: normal;
+                                                text-align: center;
+                                            }
+                                        }
+                                    }                                     
+                                } 
+                                a {
+                                    display: grid;
+                                    justify-content: center;
+                                    justify-items: center;
+                                    text-decoration: none;
+                                }
+                            }                            
+                            .minicart {
+                                position: inherit;
+                                .popover {
+                                    position: absolute;
+                                    display: none;
+                                    padding: 0;
+                                    top: 0;
+                                    right: 0;
+                                    height: 100vh;
+                                    a {
+                                        white-space: nowrap;
+                                        margin-bottom: 0.5em;
+                                    }
+                        
+                                    &::before {
+                                        left: 1.5rem;
+                                    }
+                        
+                                    &::after {
+                                        left: 1.5rem;
+                                    }
+                        
+                                    &.show {
+                                        display: block;
+                                    }
+                                }
+                                .minicart-total {
+                                    position: relative;
+                                }
+                                .minicart-link {
+                                    display: grid;
+                                    justify-content: center;
+                                    justify-items: center;
+                                    &:hover {
+                                        i:before, .text-icon{
+                                            color: #000;
+                                            font-weight: 600;
+                                        }  
+                                        .minicart-quantity {
+                                            font-weight: 600;
+                                            color: #000;
+                                            border: 1px solid #000;
+                                        }                                      
+                                    }
+                                }
+                                vertical-align: top;
+                            
+                                .minicart-icon {
+                                    font-size: 1.5em;
+                                }
+                            
+                                a.minicart-link {
+                                    display: grid;
+                                    justify-content: center;
+                                    justify-items: center;
+                                    &:hover {
+                                        text-decoration: none;
+                                    }
+                                }
+                            
+                                .minicart-quantity {
+                                    background-color: #ffffff;
+                                    border-radius: 50%;
+                                    width: 15px;
+                                    height: 15px;
+                                    line-height: normal;
+                                    display: inline-block;
+                                    text-align: center;
+                                    font-size: 9px;
+                                    position: absolute;
+                                    bottom: 15px;
+                                    right: 0px;
+                                    color: #999999;
+                                    border: 1px solid #999999;
+                                }
+                            }
+                        }
+                        .navbar-toggler {
+                            font-size: 1.6em;
+                            width: auto;
+                            &.close{
+                                font-size: 0;
+                                &::before{
+                                    content: "";
+                                    background-image: url(data:image/svg+xml,%3Csvg%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M9.091%207.5%2013.9%202.693l.991-.992a.375.375%200%200%200%200-.53L13.83.111a.375.375%200%200%200-.53%200L7.5%205.908%201.701.11a.375.375%200%200%200-.53%200L.11%201.172a.375.375%200%200%200%200%20.53l5.8%205.8-5.8%205.798a.375.375%200%200%200%200%20.53l1.06%201.061a.375.375%200%200%200%20.53%200l5.8-5.799%204.808%204.808.991.991a.375.375%200%200%200%20.53%200l1.061-1.06a.375.375%200%200%200%200-.53L9.091%207.5z%22%20fill%3D%22%23000%22%20fill-rule%3D%22nonzero%22%2F%3E%0A%3C%2Fsvg%3E%0A);
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: 20px;
+                                    border: 0;
+                                    display: block;
+                                    height: 20px;
+                                    margin-right: 7px;
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    
+                        
+                    }
+                }
+            }
+        }
+    }
+    &.fixed {
+        nav {
+            .header {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 3;
+                background-color: $white!important;            
+                .row {
+                    .content-Head {
+                        .navbar-header{
+                            .pull-right {
+                                .search {
+                                    .site-search {
+                                        .content-input {
+                                            position: fixed;
+                                            width: 100%;
+                                            height: 40px;
+                                            top: 65px;
+                                            left: 0;
+                                            right: 0;
+                                            background-color: #ffffff;
+                                            input.search-field {
+                                                background-color: transparent;
+                                                width: 90%;
+                                                height: 30px;
+                                                margin: auto;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+    }
+    .text-icon {
+        font-size: 10px;
+        color: #999999;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        background-color: var(--color-white);
+        position: relative;        
+        z-index: 3;
+        .header-banner {
+            background-color: #1c1f2a;
+            text-align: center;
+            color: #999999;
+            height: 35px;
+        
+            .close-button {
+                width: 1.5em + $banner-padding * 2;
+        
+                .close {
+                    opacity: 1;
+                    color: $white;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #{var(--skin-primary-color-1)};
+                }
+            }
+        
+            .content {
+                margin-right: 1.5em;
+                padding-top: $banner-padding;
+                padding-bottom: $banner-padding;
+            }
+            .container-top {
+                display: flex;
+                align-items: stretch;
+                justify-content: space-around;
+                width: 100%;
+                height: 35px;
+                padding: 3px;
+                .content-left {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: baseline;
+                    .drop-country {
+                        display: none;
+                        ul.dropdown {
+                            li {
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .fields-text {
+                        .span-text-top {
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            .image-top {
+                                margin-right: 10px;
+                            }
+                            a {
+                                font-size: 12px;
+                                font-weight: 600;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: normal;
+                                letter-spacing: normal;
+                                text-align: center;
+                                text-transform: capitalize;
+                                color: #eae4d8;
+                            }
+                        }
+                    }
+                }
+                .content-center {
+                    .fields-text-center {
+                        font-size: 12px;
+                        font-weight: 600;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        text-align: center;
+                        text-transform: uppercase;
+                        color: #eae4d8;
+                        span {                        
+                            &.text-style {
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+                .content-right {
+                    .fields-text {
+                        .span-text-top {
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            .image-top {
+                                margin-right: 10px;
+                            }
+                            a {
+                                font-size: 12px;
+                                font-weight: 600;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: normal;
+                                letter-spacing: normal;
+                                text-align: center;
+                                text-transform: capitalize;
+                                color: #eae4d8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        nav {
+            .header {
+                
+                .row {
+                    width: 100%;
+                    margin: auto;
+                    .content-Head {
+                        width: 100%;
+                        margin: auto;
+                        padding: 3px;
+                        .navbar-header {
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            // height: 4.375em; /* 70/16 */
+                        
+                            .search, .user, .wish, .country-selector, .minicart, .navbar-toggler{
+                                display: block;
+                                margin: auto;
+                            }
+                        
+                            .user, .country-selector, .minicart, .navbar-toggler {
+                                height: auto;
+                            }
+                            .pull-left {
+                                .hidden-md-down {
+                                    .logo-home {
+                                        width: 100%;
+                                        height: auto;
+                                        img {
+                                            width: 150px;
+                                            height: auto;
+                                        }
+                                    }
+                                }
+                            }
+                            .navbar-header-center {
+                                .main-menu {
+                                    background-color: $white;
+                                    .container {
+                                        .row {
+                                            width: 100%;
+                                            margin: auto;
+                                            .navbar {                                            
+                                                height: 40px;
+                                                position: initial;
+                                                .close-menu {
+                                                    button
+                                                    .close-button button {
+                                                        background-color: transparent;
+                                                        border: 0;
+                                                        -webkit-appearance: none;
+                                                    }
+                                                }
+                                                .menu-group {
+                                                    background-color: transparent;
+                                                    .navbar-nav {
+                                                        .nav-item {
+                                                            position: inherit;
+                                                            .show {
+                                                                width: 100%;
+                                                                position: absolute;
+                                                                top: 50px;
+                                                                left: 0px;
+                                                                padding: 30px;
+                                                            }
+                                                            a{
+                                                                color: #000;
+                                                                color: #000;
+                                                                text-transform: uppercase;
+                                                                font-size: 13px;
+                                                                font-weight: 500;
+                                                                font-stretch: normal;
+                                                                font-style: normal;
+                                                                line-height: normal;
+                                                                letter-spacing: normal;
+                                                                text-align: center;
+                                                                &::after {
+                                                                    display: none;
+                                                                }
+                                                            }                                                        
+                                                        }
+                                                    }                                                
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .pull-right {
+                                display: flex;
+                                justify-content: center;
+                                align-items: baseline;
+                                width: 100%;
+                                max-width: 480px;
+                                .search {
+                                    .site-search {             
+                                        display: flex;
+                                        justify-content: flex-end;
+                                        align-items: center;                       
+                                        form {
+                                            display: none;
+                                            align-items: center;                                            
+                                            .content-input {
+                                                position: inherit;
+                                                background-color: #ffffff;
+                                                width: 100%;
+                                                input {
+                                                    background-color: transparent;
+                                                }
+                                            }
+                                            button {
+                                                background-color: transparent;
+                                                border: none;
+                                                margin: auto;
+                                            }
+                                        }
+                                        &.active {
+                                            display: grid;
+                                            justify-content: end;
+                                            justify-items: center;
+                                            form {
+                                                display: flex;
+                                                align-items: center;
+                                                .content-input {
+                                                    position: inherit;                                                      
+                                                }                                       
+                                            }
+                                            .search-icon {
+                                                display: none;
+                                            }
+                                        }
+                                        .search-icon {
+                                            cursor: pointer;
+                                            display: grid;
+                                            justify-content: center;
+                                            justify-items: center;
+                                            &:hover {
+                                                i:before, .text-icon{
+                                                    color: #000;
+                                                    font-weight: 600;
+                                                }  
+                                            }
+                                        }
+                                    }
+                                }
+                                .wish {
+                                    .site-wish {
+                                        cursor: pointer;
+                                        line-height: normal;                                        
+                                        a {
+                                            display: grid;
+                                            justify-content: center;
+                                            justify-items: center;
+                                            text-decoration: none;
+                                        }
+                                        &:hover {
+                                            i:before, .text-icon{
+                                                color: #000;
+                                                font-weight: 600;
+                                            }  
+                                        }
+                                    }
+                                }                                 
+                                .user-login {
+                                    position: relative;
+                                    line-height: normal;
+                                    &:hover {
+                                        i:before, .text-icon{
+                                            color: #000;
+                                            font-weight: 600;
+                                        } 
+                                        .popover {                                                
+                                            display: block;           
+                                            nav {
+                                                ul {
+                                                    li {
+                                                        font-size: 12px;
+                                                        font-weight: normal;
+                                                        font-stretch: normal;
+                                                        font-style: normal;
+                                                        line-height: normal;
+                                                        letter-spacing: normal;
+                                                        text-align: center;
+                                                    }
+                                                }
+                                            }                                     
+                                        } 
+                                    }
+                                    a {
+                                        display: grid;
+                                        justify-content: center;
+                                        justify-items: center;
+                                        text-decoration: none;
+                                    }
+                                    .popover {
+                                        position: absolute;
+                                        top: 50px;
+                                        right: 0;
+                                        left: -50px;
+                                        z-index: 3;
+                                        display: none;
+                                        width: 146px;
+                                        height: 61px;
+                                        max-width: 276px;
+                                        background-color: #1c1f2a;
+                                        opacity: 0.8;
+                                        padding: 10px;
+                                        ul {
+                                            li {
+                                                span {
+                                                    font-size: 10px;
+                                                    color: #ffffff;
+                                                }
+                                            }
+                                        }
+                                        &:after {
+                                            position: absolute;
+                                            top: -4px;
+                                            right: 0;
+                                            left: 57px;
+                                            width: 15px;
+                                            height: 16px;
+                                            z-index: 2;
+                                            border-left: solid 1px #1c1f2a;
+                                            border-top: solid 1px #1c1f2a;
+                                            transform: rotate(132deg) skewX(-10deg) skewY(-5deg);
+                                            background: #1c1f2a linear-gradient(45deg, #1c1f2a, #1c1f2a 37%, #1c1f2a 57%, #1c1f2a);
+                                            content: '';
+                                            opacity: 0.8;
+                                            }
+                                    }
+                                }
+                                .minicart {
+                                    position: inherit;
+                                    line-height: normal;
+                                    .popover {
+                                        position: absolute;
+                                        display: none;
+                                        padding: 0;
+                                        top: 0;
+                                        right: 0;
+                                        height: 100vh;
+                                        a {
+                                            white-space: nowrap;
+                                            margin-bottom: 0.5em;
+                                        }
+                            
+                                        &::before {
+                                            left: 1.5rem;
+                                        }
+                            
+                                        &::after {
+                                            left: 1.5rem;
+                                        }
+                            
+                                        &.show {
+                                            display: block;
+                                        }
+                                    }
+                                    .minicart-total {
+                                        position: relative;
+                                    }
+                                    .minicart-link {
+                                        display: grid;
+                                        justify-content: center;
+                                        justify-items: center;
+                                        &:hover {
+                                            i:before, .text-icon{
+                                                color: #000;
+                                                font-weight: 600;
+                                            }  
+                                            .minicart-quantity {
+                                                font-weight: 600;
+                                                color: #000;
+                                                border: 1px solid #000;
+                                            }
+                                        }
+                                    }
+                                    vertical-align: top;
+                                
+                                    .minicart-icon {
+                                        font-size: 1.5em;
+                                    }
+                                
+                                    a.minicart-link {
+                                        display: grid;
+                                        justify-content: center;
+                                        justify-items: center;
+                                        &:hover {
+                                            text-decoration: none;
+                                        }
+                                    }
+                                
+                                    .minicart-quantity {
+                                        background-color: #ffffff;
+                                        border-radius: 50%;
+                                        width: 15px;
+                                        height: 15px;
+                                        line-height: normal;
+                                        display: inline-block;
+                                        text-align: center;
+                                        font-size: 9px;
+                                        position: absolute;
+                                        bottom: 15px;
+                                        right: 0px;
+                                        color: #999999;
+                                        border: 1px solid #999999;
+                                    }
+                                }
+                            }
+                            .navbar-toggler {
+                                font-size: 1.6em;
+                                width: auto;
+                            }
+                        
+                            
+                        }
+                    }
+                }
+            }
+        }
+        &.fixed {
+            nav {
+                .header {
+                    position: fixed;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
+                    background-color: $white!important;   
+                    .row {
+                        .content-Head {
+                            .navbar-header{
+                                .pull-right {
+                                    .search {
+                                        .site-search {
+                                            &.active{
+                                                .content-input {
+                                                    position: inherit;                                                  
+                                                }  
+                                            }
+                                        }
+                                    }
+                                }
+                            }                            
+                        }
+                    }                 
+                }
+            }
+        }
+    }
+}
+
+[class^="icon-"] {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+.brand {
+    position: absolute;
+    left: 50%;
+    display: block;
+    text-align: center;
+
+    img {
+        width: 100%;
+    }
+
+    // @include media-breakpoint-up(lg) {
+    //     width: 14.125em; /* 226/16 */
+    //     margin-left: -7.0625em; /* 113/16 */
+    //     padding-top: 0.5em;
+    // }
+
+    // @include media-breakpoint-down(md) {
+    //     width: 4em; /* 64/16 */
+    //     margin-left: -2em;
+    //     padding-top: 0.8em;
+    // }
+}
+
+a.normal {
+    color: #{var(--skin-primary-color-1)};
+    text-decoration: underline;
+}
+
+.slide-up {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    max-height: 100px;
+    overflow: hidden;
+
+    &.hide {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    }
+}
+
+.dropdown-country-selector {
+    margin-top: -0.0625em;
+}
+
+.cookie-warning-messaging.cookie-warning {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    display: none;
+}
+
+.valid-cookie-warning {
+    background-color: #{var(--skin-link-color-1)};
+    color: $white;
+    white-space: nowrap;
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0.2em;
+        padding-right: 2em;
+    }
+}

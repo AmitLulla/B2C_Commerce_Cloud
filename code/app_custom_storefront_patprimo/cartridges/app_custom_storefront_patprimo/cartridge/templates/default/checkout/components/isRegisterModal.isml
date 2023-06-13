@@ -1,0 +1,31 @@
+<!-- Modal -->
+<div class="modal fade" id="isRegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h1 class="col-10 modal-title-sesion">${Resource.msg('modal.title.session', 'checkout', null)}</h1>
+          <button type="button" class="close col-2" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
+      <div class="justify-content-center">
+          <div class="col-12"><img class="emoji-img" src="${URLUtils.staticURL('/images/emoji_1.png')}" alt=""></div>
+          <h1 class="bienvenido-txt col-12">${Resource.msg('title.welcome', 'checkout', null)}</h1>
+      </div>
+
+      <div id="bodyModal" class="modal-body">
+        
+      </div>
+      
+      <div class="modal-footers" style="display:grid;">
+        <div class="row justify-content-center content-btn-register">
+          <button type="button" class="btn-continuar-to-shipping ctn-is-register">${Resource.msg('continue', 'checkout', null)}</button>
+        </div>
+        <div class="row d-flex justify-content-center content-usar-correo-diferente">
+          <a data-href="#" class="a-underline txt-url"  data-dismiss="modal">${Resource.msg('use.other.mail', 'checkout', null)}</a>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

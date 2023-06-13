@@ -1,0 +1,162 @@
+<isset name="showWishlist" value="${pdict.wishlist}" scope="page" />
+
+<div id="pdpCarousel-${product.id}" class="carousel slide " data-interval="0"
+    data-prev="${Resource.msg('button.previous', 'common', null)}"
+    data-next="${Resource.msg('button.next', 'common', null)}"
+    data-touch="true" data-ride="carousel">
+
+
+<isif condition="${dw.system.System.getInstanceType() != dw.system.System.PRODUCTION_SYSTEM}">
+    <title>${pdict.CurrentPageMetaData.title} | ${Resource.msg('global.site.name', 'version', null)} | ${Resource.msg('global.version.number', 'version', null)}</title>
+<iselse/>
+  <title><isprint value="${pdict.CurrentPageMetaData.title}" encoding="htmlcontent" /></title>
+</isif>
+
+
+    <isif condition="${product.images['medium'].length > 1}">
+
+        <ol class="carousel-item" aria-hidden="true">
+
+            <isloop items="${product.images['medium']}" var="image" status="loopStatus">
+
+                <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
+                    class='<isif condition="${loopStatus.index == 0}">active</isif>'>
+                </li>
+
+            </isloop>
+        </ol>
+    </isif>
+
+    <div class="carousel-inner " role="listbox">
+
+        <a href="${pdict.urls.product}">
+            <isif condition="${product.images['medium'].length > 1}">
+                <isloop items="${product.images['medium']}" var="image" status="loopStatus">
+                    <div class='box carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                        <a class="heartOver wishlistTile" 
+                            href="${showWishlist.indexOf(product.id) > -1 ? URLUtils.url('Wishlist-RemoveProductWishList', 'pid', product.id) : URLUtils.url('Wishlist-AddProduct')}"
+                            title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
+                            <span class="fa-stack fa-lg fa-inverse" >
+                            
+                                <i class="box  fa fa-heart fa-inverse fa-lg ${showWishlist.indexOf(product.id) > -1 ? 'redPatPrimo' : ''} " ></i>
+
+
+                            </span>
+                        </a>
+                        
+                        <isif condition="${product.variationAttributes.length > 0 && product.variationAttributes[0].values[0].url}">
+                            <a href="${product.variationAttributes[0].values[0].url}" class="prodTile" data-url-product-info="${URLUtils.url('Product-Info','pid', product.id, 'index', pdict.index)}">
+                                <img src="${image.url}" class="<isif condition="${pdict.slot}">img-grid-slots<iselse/>img-grid-patprimo</isif>" alt="${image.alt} image number ${image.index}" itemprop="image" />
+                            </a>
+                        <iselse/>
+                            <a href="${pdict.urls.product}" class="prodTile" data-url-product-info="${URLUtils.url('Product-Info','pid', product.id, 'index', pdict.index)}">
+                                <img src="${image.url}" class="<isif condition="${pdict.slot}">img-grid-slots<iselse/>img-grid-patprimo</isif>" alt="${image.alt} image number ${image.index}" itemprop="image" />
+                            </a>    
+                        </isif>
+                        <span >
+                            <isif condition="${product.price.list !== null}">
+                                <isset name="priceL" value="${product.price.list}" scope="page" />
+                                <isset name="priceS" value="${product.price.sales}" scope="page" />
+                                <isset name="discount"
+                                    value="${'-' + Math.round(((priceL.decimalPrice - priceS.decimalPrice) / priceL.decimalPrice) * 100).toFixed() + '%'}"
+                                    scope="page" />
+                                <span class="badge discount-badge RedHatDisplayFontBold " content="${discount}">
+                                        ${discount}
+                                </span>
+                            </isif>
+                        </span>
+                        <div class="lower-badges RedHatDisplayFont">
+                            <span class="badge spaceSpan font-weight-light rounded-0"> Reserva Día Sin IVA</span><span></span>
+                            <span class="badge spaceSpan font-weight-light rounded-0"> Envío gratis </span>
+
+                        </div>
+                    </div>
+                    
+                </isloop>
+            <iselse/>
+
+                <isloop items="${product.images['medium']}" var="image" status="loopStatus">
+                    <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                        <a class="heartOver wishlistTile"
+                            href="${URLUtils.url('Wishlist-AddProduct')}"
+                            title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
+                            <span class="fa-stack fa-lg">
+                                <i class="box fa fa-heart fa-inverse fa-lg  "></i>
+
+                            </span>
+                        </a>
+                        <a href="${pdict.urls.product}">
+                            <img src="${image.url}" class="img-grid-patprimo"  alt="${image.alt} image number ${image.index}" itemprop="image" />
+                        </a>
+                        <span >
+                            <isif condition="${product.price.list !== null}">
+                                <isset name="priceL" value="${product.price.list}" scope="page" />
+                                <isset name="priceS" value="${product.price.sales}" scope="page" />
+                                <isset name="discount"
+                                    value="${'-' + Math.round(((priceL.decimalPrice - priceS.decimalPrice) / priceL.decimalPrice) * 100).toFixed() + '%'}"
+
+                                    scope="page" />
+                                <span class="badge discount-badge RedHatDisplayFontBold " content="${discount}">
+                                        ${discount}
+                                </span>
+                            </isif>
+                        </span>
+                        <div class="lower-badges RedHatDisplayFont lower-badges-2-colums-mobile">
+                            <span class="badge spaceSpan font-weight-light rounded-0"> Reserva Día Sin IVAs</span><span></span>
+                            <span class="badge spaceSpan font-weight-light rounded-0"> Envío gratis </span>
+
+                        </div>
+                    </div>
+                </isloop>
+            </isif>
+
+        </a>
+    </div>
+
+    <div class="sizes RedHatDisplayFont fontSize14 fontWeight600 justify-content-center" >
+            ${Resource.msg('msg.add.cart', 'cart', null)}
+        <ul class="<isif condition=" ${product.isProductAccessoriesType}">size-list-product-accesories
+        <iselse/>size-list</isif> add-to-cart-custom">
+            <isif condition="${product.variationAttributesCustom[0].values.length > 0}">
+
+                <isloop items="${product.defaultVariants[1].values.reverse()}" var="size" status="loopStatus">
+                    <li class="<isif condition="${size.url == null}">nonAvailableSize disabled</isif> list-group RedHatDisplayFont productSizes " data-custom-url="${size.url}"
+                        data-value="${size.value}">${size.displayValue}</li>
+                </isloop>
+            <iselseif condition="${product.isProductAccessoriesType}" />
+                <li data-custom-url="${product.id}" data-value="${size.value}"><span class="icon-buy-fast-img"></span>
+                </li>
+            <iselseif condition="${product.variationAttributesCustom[0].values.length == 0}" />
+                <li data-custom-url="${product.id}" data-value="${size.value}"><span class="icon-buy-fast-img"></span>
+                </li>
+            </isif>
+        </ul>
+
+    </div>
+<div class=" d-none d-md-block">
+    <isif condition="${product.images['medium'].length > 1 || product.imagesDefaultVariation['medium'].length > 1}">
+        <a class="carousel-control-prev plpIndicator" href="${"#"}pdpCarousel-${product.id}" role="button" data-slide="prev">
+            <span class="fa fa-angle-left  ml-3 fa-3x" style="color: #000;" aria-hidden="true"></span>
+            <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+        </a>
+        <a class="carousel-control-next plpIndicator" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="next">
+            <span class="fa fa-angle-right  ml-3 fa-3x "  style="color: #000;" aria-hidden="true"></span>
+            <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+        </a>
+    </isif>
+</div>
+</div>
+
+<script>
+    function paintHeart(){
+        var typeAction = $('.page').attr('data-action');
+        if( typeAction === 'Wishlist-Show'){
+            $('.fa-heart').addClass('redPatPrimo');
+        } 
+    }
+    setTimeout(() => {
+        paintHeart(); 
+    }, 2000);       
+</script>
+
+

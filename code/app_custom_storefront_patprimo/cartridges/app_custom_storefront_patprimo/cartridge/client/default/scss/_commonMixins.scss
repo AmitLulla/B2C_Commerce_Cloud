@@ -1,0 +1,42 @@
+// Function for converting a px based font-size to rem.
+
+@function calculaterem($fontSize) {
+  @return $fontSize / 16px * 1rem;
+}
+
+//Commonly used Proerty convert to Mixin.
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin border-radius($property) {
+  -webkit-border-radius: $property;
+  -moz-border-radius: $property;
+  border-radius: $property;
+}
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  box-sizing: $box-model;
+}
+
+@mixin boxshadow($boxShadowVal, $hoverBoxShadow, $activeBoxShadow, $focusBoxShadow) {
+  box-shadow: $boxShadowVal;
+
+  &:hover {
+    box-shadow: $hoverBoxShadow;
+  }
+
+  &:active {
+    box-shadow: $activeBoxShadow;
+  }
+
+  &:focus {
+    box-shadow: $focusBoxShadow;
+  }
+}
+

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-12 d-sm-none  mb-0">
+        <p class="optional-promo RedHatDisplayFont fontSize13 textAzulPat mb-2">${Resource.msg('action.enter.promo.code', 'cart', null)}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <form action="${pdict.actionUrls.submitCouponCodeUrl}" class="promo-code-form RedHatDisplayFont " method="GET"
+            name="promo-code-form" >
+            
+                <div class="form-group mb-0">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <input id="addCoupon" name="couponCode" type="text" class="form-control coupon-code-field RedHatDisplayItalic greyPatFontC0 inputPromoPat fontSize12" id="couponCode" name="couponCode"
+                                placeholder="${Resource.msg('label.promo.code.custom', 'cart', null)}">
+                            <div class="coupon-error">
+                                <span class="coupon-missing-error fontSize12 mb-2" id="missingCouponCode"
+                                    role="alert">${Resource.msg('error.missing.coupon.code', 'cart', null)}</span>
+                                <span class="coupon-error-message  mb-2" id="invalidCouponCode" role="alert"></span>
+                            </div>
+                        </div>
+           <div class="col-12 ">
+                <button id="redimirCuponCheckout" type="submit" style="display:none" class="btn btn-block btn-finalizarcompraCart btn-redimirCupon RedHatDisplayFontWhite 
+                    text-uppercase rounded-0 fontSize11 fontWeight600  promo-code-btn coupon-code-field border-0 submit-form-global">
+                        ${Resource.msg('button.submit.promo.code','cart',null)}
+                </button>
+             </div>
+                        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"
+                            placeholder="${Resource.msg('label.promo.code.custom', 'cart', null)}" />
+                    </div>
+                </div>
+            
+ 
+        </form>
+    </div>
+
+</div>

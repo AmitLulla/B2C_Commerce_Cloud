@@ -1,0 +1,264 @@
+<form action="${pdict.createAccountUrl}" class="registration" method="POST" name="${pdict.profileForm.htmlName}">
+    
+    <div class="sub-title-login ">
+        
+        ${Resource.msg('text.login.first','login',null)}
+
+    </div>
+ 
+    
+    <div class="m-0">
+
+       <div class="row separator  form-group minus-m-login mt-2
+        <isif condition="${!!pdict.profileForm.customer.email.mandatory === true}"></isif>">
+        <div class="col-12">
+        <label class="form-control-label text-label-login " for="registration-form-email">
+             <span>${Resource.msg('label.form.referidos.input.email','forms',null)}</span>
+             <iscomment> <isprint value="${pdict.profileForm.customer.email.label}" encoding="htmlcontent" /> </iscomment>
+        </label>
+        <input
+            type="text"
+            class="form-control input-style"
+            id="registration-form-email"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form','forms',null)}"
+            data-range-error="${Resource.msg('error.message.required.chars','forms',null)}"
+            aria-describedby="form-email-error"
+            <isprint value=${pdict.profileForm.customer.email.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-email-error"></div>
+        </div>
+    </div>
+
+         <div class="row separator  form-group minus-m-login
+        <isif condition="${!!pdict.profileForm.customer.emailconfirm.mandatory === true}"></isif>">
+        <div class="col-12">
+        <label class="form-control-label text-label-login2" for="registration-form-email-confirm">
+            
+            <span>${Resource.msg('label.form.referidos.input.email.confirmacion','forms',null)}</span>
+
+            <iscomment> <isprint value="${pdict.profileForm.customer.emailconfirm.label}" encoding="htmlcontent" /> </iscomment>
+        </label>
+        <input
+            type="text"
+            class="form-control input-style"
+            id="registration-form-email-confirm"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form','forms',null)}"
+            data-range-error="${Resource.msg('error.message.required.chars','forms',null)}"
+            aria-describedby="form-email-confirm-error"
+            <isprint value=${pdict.profileForm.customer.emailconfirm.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-email-confirm-error"></div>
+        </div>
+    </div>
+
+        <div class="row separator ">
+
+
+    
+    
+    <div class="col-lg-6 form-group minus-m-login
+        <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}"></isif>">
+        <label class="form-control-label text-label-login2" for="registration-form-fname">
+             <span>${Resource.msg('label.form.referidos.input.nombre','forms',null)}</span>
+            <iscomment> <isprint value="${pdict.profileForm.customer.firstname.label}" encoding="htmlcontent" /> </iscomment>
+        </label>
+        <input
+            type="text"
+            class="form-control input-style"
+            id="registration-form-fname"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.required.min','forms',null)}"
+            aria-describedby="form-fname-error"
+            <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-fname-error"></div>
+    </div>
+    <div class="col-lg-6 form-group minus-m-login pb-3
+        <isif condition="${!!pdict.profileForm.customer.lastname.mandatory === true}"></isif>">
+        <label class="form-control-label text-label-login2" for="registration-form-lname">
+        <span>${Resource.msg('label.form.referidos.input.apellido','forms',null)}</span>
+            <iscomment> <isprint value="${pdict.profileForm.customer.lastname.label}" encoding="htmlcontent" /> </iscomment>
+        </label>
+        <input
+            type="text"
+            class="form-control input-style"
+            id="registration-form-lname"
+            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.required.phone', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.required.chars', 'forms', null)}"
+            aria-describedby="form-lname-error"
+            <isprint value=${pdict.profileForm.customer.lastname.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-lname-error"></div>
+    </div>
+        </div>
+   
+   
+
+        <div class="row separator  form-group minus-m-login <isif condition="${!!pdict.profileForm.customer.phone.mandatory === true}"></isif>">
+            <div class="col-12">
+                <label class="form-control-label text-label-login2" for="registration-form-phone">
+
+                <span class="txt1 text-label-login3">${Resource.msg('label.form.referidos.input.telefono','forms',null)}</span>
+        
+                 <iscomment> <isprint value="${pdict.profileForm.customer.phone.label}" encoding="htmlcontent" /> </iscomment>
+        </label>
+            </div>
+            <div class="row w-100 m-0">
+                <div class="col-lg-3 minus-m-phone custom-clas-phone1"  >
+                
+                    <label class="mini-label-phone" for="">${Resource.msg('mini.label.phone', 'forms', null)}</label>
+                    <input type="text" class="form-control country-flag-phone input-style zone-login-code" name="tel_pref" value="+57" disabled />
+                </div>
+                <div class="col-lg-9 minus-m-phone custom-clas-phone2">
+                    <label class="mini-label-phone" for="">${Resource.msg('mini.label.phone2', 'forms', null)}</label>
+
+                    <input required 
+                        type="number"
+                        class="form-control input-style" id="registration-form-phone"
+                        data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+                        data-pattern-mismatch="${Resource.msg('error.message.required.phone', 'forms', null)}"
+                        data-range-error="${Resource.msg('error.message.required.chars', 'forms', null)}"
+                        aria-describedby="form-phone-error" <isprint
+                        value=${pdict.profileForm.customer.phone.attributes} encoding="off" />
+                    placeholder="${Resource.msg('place.phone.holder', 'forms', null)}">
+                    <div class="invalid-feedback" id="form-phone-error"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row separator  form-group  minus-m-login">
+            <div class="col-12">
+                <label class="control-label form-control-label text-label-login">${Resource.msg('option.tipo.documento.identidad.tipo','forms',null)}</label>
+                <select class="form-control input-style"
+                    name="${pdict.profileForm.customer.tipoDocumentoIdentidad.htmlName}" id="tipoDocumentoIdentidad" required>
+                    <option value="">${Resource.msg('option.tipo.documento.identidad.tipo', 'forms', null)}</option>
+                    <option value="nit">${Resource.msg('option.tipo.documento.identidad.nit', 'forms', null)}</option>
+                    <option value="cedulaCiudadania">
+                        ${Resource.msg('option.tipo.documento.identidad.cedula.ciudadania', 'forms', null)}</option>
+                    <option value="cedulaExtranjeria">
+                        ${Resource.msg('option.tipo.documento.identidad.cedula.extranjeria', 'forms', null)}</option>
+                    <option value="pasaporte">${Resource.msg('option.tipo.documento.identidad.pasaporte', 'forms', null)}
+                    </option>
+                </select>
+                <div class="invalid-feedback" id="form-documentoIdentidad-error"></div>
+            </div>
+        </div>
+        <div class="row separator  form-group minus-m-login
+        <isif condition=" ${!!pdict.profileForm.customer.documentoIdentidad.mandatory === true}"></isif>">
+            <div class="col-12">
+                <label class="control-label form-control-label text-label-login2">${Resource.msg('label.document', 'login', null)}</label>
+              
+                 <input
+            type="text"
+            name="${pdict.profileForm.customer.documentoIdentidad.htmlName}"
+            class="form-control"
+            id="documentoIdentidad"
+            required>
+            <div class="invalid-feedback" id="form-documentoIdentidad-error"></div>
+            </div>
+        </div>
+        
+        <div class="row separator  form-group minus-m-login
+        <isif condition=" ${!!pdict.profileForm.login.password.mandatory === true}"></isif>">
+            <div class="col-12">
+                <label class="form-control-label text-label-login2" for="registration-form-password">  
+                   <span>${Resource.msg('label.form.referidos.input.password','forms',null)}</span>
+                    <iscomment> <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" /> </iscomment>
+                </label>
+                <input type="password" class="form-control input-style" id="registration-form-password"
+                    data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+                    data-range-error="${Resource.msg('error.message.required.chars', 'forms', null)}"
+                    aria-describedby="form-password-error" autocomplete="off" <isprint
+                    value=${pdict.profileForm.login.password.attributes} encoding="off" />>
+                <div class="invalid-feedback" id="form-password-error"></div>
+            </div>
+        </div>
+
+        <div class="row separator  form-group minus-m-login
+        <isif condition=" ${!!pdict.profileForm.login.passwordconfirm.mandatory === true}"></isif>">
+            <div class="col-12">
+                <label class="form-control-label text-label-login2" for="registration-form-password-confirm">
+                   <span>${Resource.msg('label.form.referidos.input.password.confirmation','forms',null)}</span>
+                    <iscomment> <isprint value="${pdict.profileForm.login.passwordconfirm.label}" encoding="htmlcontent" /> </iscomment>
+                </label>
+                <input type="password" class="form-control input-style" id="registration-form-password-confirm"
+                    data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+                    data-range-error="${Resource.msg('error.message.required.chars', 'forms', null)}"
+                    aria-describedby="form-password-confirm-error" autocomplete="off" <isprint
+                    value=${pdict.profileForm.login.passwordconfirm.attributes} encoding="off" />>
+                <div class="invalid-feedback" id="form-password-confirm-error"></div>
+            </div>
+        </div>
+        <div class="row separator  minus-m-login">
+            <div class="col-md-12 form-group">
+                <label class="control-label form-control-label sub-title-login mt-3 "><isprint value="${pdict.profileForm.customer.gender.label}" encoding="htmlcontent" /></label>
+            </div>
+            <div class="col-lg-3 div-radio-femenino ml-4 minus-m-fem custom-class-gender">
+                <input type="radio" class="form-check-input input-style form-control p-3 radio-custom-login" value="2"
+                    name="${pdict.profileForm.customer.gender.htmlName}" id="radioFemenino" required />
+                <label class="form-check-label control-label secondary-texty-form-login " for="radioFemenino">${Resource.msg('label.femenino', 'login', null)}</label>
+            </div>
+            <div class="col-lg-3 div-radio-masculino custom-class-gender" style="padding-right: 0px;">
+            <div class="margin-male">
+                
+                 <input type="radio" class="form-control input-style radio-custom-login " value="1"
+                    name="${pdict.profileForm.customer.gender.htmlName}" id="radioMasculino" />
+            </div>
+               
+                <label class="control-label secondary-texty-form-login " for="radioMasculino">${Resource.msg('label.masculino', 'login', null)}</label>
+            </div>
+        <div class="margin-birth-js  row  margin-birth separator form-group div-fnacimiento 
+        <isif condition=" ${!!pdict.profileForm.customer.birthday.mandatory === true}"></isif>">
+            <div class="col-12 ">
+                <label class="control-label form-control-label sub-title-login   ">${Resource.msg('label.input.birthday', 'forms', null)}</label>
+                 <input
+            type="date"
+            name="${pdict.profileForm.customer.birthday.htmlName}"
+            class="form-control mt-1 minus-m-login text-center secondary-texty-form-login"
+            id="birthday"
+            required>
+            <div class="invalid-feedback" id="form-birthday-error"></div>
+            </div>
+        </div>
+        </div>
+        <div class="row col-12 margin-chkbox-login form-group 
+        <isif condition="${!!pdict.profileForm.customer.datosPersonales.mandatory === true}"></isif>">
+        
+        
+        
+        <div class="col-1">
+        <input type="checkbox" class="form-control  input-style custom-checkbox-login mycheck" id="datosPersonales"data-missing-error="${Resource.msg('error.message.required.datosPersonales','forms',null)}"value=true name="${pdict.profileForm.customer.datosPersonales.htmlName}"<isprint value=${pdict.profileForm.customer.datosPersonales.attributes} encoding="htmlcontent" />>
+            
+            <br>
+
+            <p class="invalid-feedback alertRelative " id="form-datosPersonales-error"></p>
+
+            
+             
+        </div>
+       
+        <div class="col-10">
+        
+        <label class="form-control-label control-label secondary-texty-form-login margin-autorization" for="autorizar-tratamiento-datos">
+        
+            <iscomment> <isprint value="${pdict.profileForm.customer.datosPersonales.label}" encoding="htmlcontent" /> </iscomment>
+                        
+                        <t class="">
+                            ${Resource.msg('label.autorizo', 'login', null)}
+                        </t>
+                        
+
+        </label>
+
+        
+        </div>
+    </div>
+    </div>
+
+     <p class="text-center">
+    
+            <button type="submit" class="p-2 m-2 btn btn-dark float-right row text-btn-login-form customButtons">${Resource.msg('text.login.continue', 'login', null)}</button>
+
+
+  </p>
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+    
+</form>

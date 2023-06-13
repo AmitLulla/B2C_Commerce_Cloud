@@ -1,0 +1,80 @@
+<div class="wrapper-banners-menu d-none d-md-block">
+    <div class="Mujer">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="/">
+                <img alt="Banner-1" src="banner-mujer-1.png?$staticlink$" title="Banner-1"/>
+              </a>
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-between">
+              <a href="/">
+                <img alt="Banner-2" src="banner-mujer-2.png?$staticlink$" title="Banner-2"/>
+              </a>
+              <a href="/">
+                <img alt="Banner-3" src="banner-mujer-2.png?$staticlink$" title="Banner-3"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <a href="/">
+            <img alt="Banner-4" src="banner-mujer-4.png?$staticlink$" title="Banner-4"/>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="Hombre">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="/">
+                <img alt="Banner-1" src="banner-mujer-1.png?$staticlink$" title="Banner-1"/>
+              </a>
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-between">
+              <a href="/">
+                <img alt="Banner-2" src="banner-mujer-2.png?$staticlink$" title="Banner-2"/>
+              </a>
+              <a href="/">
+                <img alt="Banner-3" src="banner-mujer-2.png?$staticlink$" title="Banner-3"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <a href="/">
+            <img alt="Banner-4" src="banner-mujer-4.png?$staticlink$" title="Banner-4"/>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="Infantil">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="/">
+                <img alt="Banner-1" src="banner-mujer-1.png?$staticlink$" title="Banner-1"/>
+              </a>
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-between">
+              <a href="/">
+                <img alt="Banner-2" src="banner-mujer-2.png?$staticlink$" title="Banner-2"/>
+              </a>
+              <a href="/">
+                <img alt="Banner-3" src="banner-mujer-2.png?$staticlink$" title="Banner-3"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <a href="/">
+            <img alt="Banner-4" src="banner-mujer-4.png?$staticlink$" title="Banner-4"/>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>

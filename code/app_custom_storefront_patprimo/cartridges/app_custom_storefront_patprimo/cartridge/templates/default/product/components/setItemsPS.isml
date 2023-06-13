@@ -1,0 +1,45 @@
+<div class="set-items" itemtype="http://schema.org/SomeProducts" itemid="#product">
+    <isloop items="${productCopy.individualProducts}" var="productItem" status="loopState">
+        <isset name="product" value="${productItem}" scope="page" />
+        <isset name="custom_product" value="true" scope="page" />
+            
+            <div class="container product-detail set-item my-0" data-pid="${product.id}">
+                
+                <div class="col-12 row mx- px-0">  
+                    <div class="row product-number pull-left d-none">
+                        <div class="col">
+                             <isinclude template="product/components/productNumber" />
+                        </div>
+                    </div>  
+                    
+                    <div class="col-12 attributes">
+                        <div class="col-12 row">
+                            <isif condition="${product.variationAttributes}">
+                                <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                                    <div class="col-5 swatch" data-attr="${attr.id}">   
+                                        <isinclude template="product/components/variationAttribute" />                                        
+                                    </div>
+
+                                    <isif condition="${attributeStatus.last && !isBundle && product.options.length === 0}">
+                                        <!-- Quantity Drop Down Menu -->
+                                        <div class="attribute quantity col-2">
+                                            <isinclude template="product/components/quantity" />
+                                        </div>
+                                    </isif>
+                                </isloop>
+                            </isif>
+
+                     
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+            <isinclude template="product/components/descriptionAndDetails" />
+    
+            <isif condition="${loopState.last === false}">
+                <hr>
+            </isif>
+        </isobject>
+    </isloop>
+</div>

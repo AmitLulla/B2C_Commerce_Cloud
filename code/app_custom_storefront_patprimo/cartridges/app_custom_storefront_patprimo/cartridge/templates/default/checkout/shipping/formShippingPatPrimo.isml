@@ -1,0 +1,169 @@
+<isscript>
+	
+    var preferences = require('*/cartridge/config/preferences');
+     var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/checkout.js');
+        assets.addJs('/js/giftCertificate.js');
+        assets.addJs('/js/pagoContraEntrega.js');
+       
+
+</isscript>
+
+<div id="shippingFormPatPrimo" class="d-none shipping-section">
+<input type="hidden" id="urlUpdateShippinCostDefault"  data-update-shipping-cost-url="${URLUtils.https('CheckoutShippingServices-UpdateShippingCostDefault')}">
+    <form action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}"
+        class="shippingFormPatPrimo address-form" novalidate
+        data-action="${URLUtils.url('CheckoutServices-SubmitCustomer')}" method="POST"
+        name="${pdict.addressForm.htmlName}">
+        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        <div class="row container-form-address">
+            <div class="invalid-feedback"></div>
+            <span class="container desc-form-checkout $azul-pat font14-Semi testClasShip">${Resource.msg('enter.address.guest', 'form', null)}</span>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="validationCustom01" class="form-label label-form-checkout label-title">${Resource.msg('select.apt', 'form', null)}</label>
+                    <select id="depaSelect"  tabindex="1" required class="form-select form-control input-style text-secondary"
+                        aria-label="Default select example" name="${pdict.addressForm.depaSelect.htmlName}" <isprint
+                        value="${pdict.addressForm.depaSelect.attributes}" encoding="off" />
+                    autocomplete="depaSelect"
+                    data-update-shipping-cost-url="${URLUtils.https('CheckoutShippingServices-UpdateShippingCostDepartamento')}">
+                    <iscomment> <option  disabled value="">${Resource.msg('select.element', 'form', null)}</option> </iscomment>
+                    <isloop items="${pdict.departamentos}" var="depa">
+                        <isif condition="${depa === pdict.addressForm.depaSelect.htmlValue}">
+                            <option selected value="${depa}">${depa}</option>
+                        <iselse/>
+                            <option value="${depa}">${depa}</option>
+                        </isif>
+                    </isloop>
+                    </select>
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="validationCustom05" class="form-label label-form-checkout label-title">${Resource.msg('city.label', 'form', null)}</label>
+                    <select id="citySelect" tabindex="2" required class="form-control input-style text-secondary"
+                        aria-label="Default select example" name="${pdict.addressForm.citySelect.htmlName}" 
+                        <isprint value="${pdict.addressForm.citySelect.attributes}" encoding="off" />
+                        autocomplete="depaSelect"
+                        data-update-shipping-cost-url="${URLUtils.https('CheckoutShippingServices-UpdateShippingCostDepartamento')}">
+                        
+                        <isif condition="${pdict.addressForm.citySelect.htmlValue}">
+                            <option selected value="${pdict.addressForm.citySelect.htmlValue}">${pdict.addressForm.citySelect.htmlValue}</option>
+                        
+                        </isif>
+                    
+                    
+                    </select>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+ 
+
+    
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="validationCustom02" class="form-label label-form-checkout label-title">${Resource.msg('type.via', 'form', null)}</label>
+                    <select required name="${pdict.addressForm.tipoVia.htmlName}" tabindex="3" class="form-control input-style text-secondary"
+                        id="tipoVia">
+                        <option selected disabled value="">${Resource.msg('select.element', 'form', null)}</option>
+                        <isloop items="${preferences.tipoVia.sort()}" var="via">
+                            <isif condition="${via === pdict.addressForm.tipoVia.htmlValue}">
+                                <option selected value="${via}">${via}</option>
+                            <iselse/>
+                                <option value="${via}">${via}</option>
+                            </isif>
+                        </isloop>
+                    </select>
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-sm-12 row cont-address">
+                <div class="form-group cont-address-checkout">
+                    <input type="text" tabindex="3" required placeholder="Ej. 46C" class="form-control input-style text-secondary"
+                        name="${pdict.addressForm.street.htmlName}" id="street" <isprint
+                        value="${pdict.addressForm.street.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <p class="label-form-checkout align-text-street gris-texto1">${Resource.msg('number.sign', 'checkout', null)}</p>
+                <div class="form-group cont-address-checkout">
+                    <input type="text" tabindex="4" required class="form-control input-style text-secondary" placeholder="Ej. 46C"
+                        name="${pdict.addressForm.numberStreet.htmlName}" id="numberStreet" <isprint
+                        value="${pdict.addressForm.numberStreet.attributes}" encoding="off" />>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <p class="label-form-checkout align-text-street gris-texto1">-</p>
+                <div class="form-group cont-address-checkout">
+                    <input type="text" required tabindex="5" placeholder="Ej. 21" class="form-control input-style text-secondary"
+                        name="${pdict.addressForm.numberStreetExtra.htmlName}" id="numberStreetExtra" <isprint
+                        value="${pdict.addressForm.numberStreetExtra.attributes}" encoding="off" />>
+                        <div class="invalid-feedback"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group container w-100">
+                <input id="direccionCompleta" type="text" placeholder="Avenida 87 #45 - 23" readonly class="w-100 form-control input-style text-secondary" name="direccionCompleta" value="${session.custom.direccionComplete ? session.custom.direccionComplete: ''}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="validationCustom03" class="form-label label-form-checkout label-title">${Resource.msg('add.piso', 'form', null)}</label>
+                    <input type="text" name="${pdict.addressForm.piso.htmlName}" tabindex="6"
+                        class="form-control input-style text-secondary" id="piso" placeholder="${Resource.msg('plh.input.dept', 'form', null)}" <isprint
+                        value="${pdict.addressForm.piso.attributes}" encoding="off" />>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" class="label-form-checkout label-title">${Resource.msg('who.recive', 'form', null)}</label>
+                    <input required type="text" tabindex="7" name="${pdict.addressForm.recibeName.htmlName}"
+                        class="form-control input-style text-secondary" id="recibeName" placeholder="${Resource.msg('plh.input.recibe','form',null)}" <isprint
+                        value="${pdict.addressForm.recibeName.attributes}" encoding="off" /> >
+                        <div class="invalid-feedback"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="validationCustom04" class="form-label label-form-checkout label-title">${Resource.msg('alias.direction', 'form', null)}</label>
+                    <input type="text" tabindex="8" required name="${pdict.addressForm.aliasDireccion.htmlName}"
+                        class="form-control input-style text-secondary" id="aliasDireccion" placeholder="${Resource.msg('plh.input.alias', 'form', null)}" <isprint
+                        value="${pdict.addressForm.aliasDireccion.attributes}" encoding="off" />>
+                        <div class="invalid-feedback"></div>
+                </div>
+            </div> 
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <isif condition="${!pdict.addAddress}">
+                    <div class="form-group row d-none">
+                        <input type="checkbox" tabindex="9" name="shippingIsBilling" value="true"
+                            id="shippingIsBilling" class="col-lg-1 col-sm-2 col-2">
+                        <label for="savedAddress-oficina" class="label-form-checkout col-10">${Resource.msg('shipping.is.billing', 'form', null)}</label>
+                    </div>
+                </isif>
+            </div>
+            
+        </div>
+        <isif condition="${pdict.addAddress}">
+            <!-- Cancel and Save Buttons -->
+            <div class="row my-4">
+                <div class="col-6 text-end">
+                    <a href="${URLUtils.url('Address-List')}"
+                        class="btn btn-beige btn-dark input-style">${Resource.msg('button.cancelar', 'account', null)}</a>
+                </div>
+                <div class="col-6">
+                    <button type="submit" name="save"
+                        class="btn btn-save btn-beige btn-dark input-style">${Resource.msg('button.guardar', 'account', null)}</button>
+                </div>
+            </div>
+
+        </isif>
+
+    </form>
+</div>

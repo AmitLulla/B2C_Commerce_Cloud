@@ -1,0 +1,29 @@
+<div class="card-body" id="buttoncard">
+    <div class="row">
+        <div class="d-none col-sm-12 mb-2">
+            <strong>
+                ${Resource.msg('label.selectstoreforpickup', 'shoppingthestore', null)}
+            </strong>
+        </div>
+    </div>
+    <form action="${pdict.stores.actionUrl}" class="store-locator" method="get" name="storelocator">
+        <div class="form-group required">
+            <div class="d-flex input-wrapper" >
+                <svg width="19" height="19" class="input-icon" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(1 1)" stroke="#D1D0D0" fill="none" fill-rule="evenodd">
+                        <circle cx="6.621" cy="6.653" r="6.621"/>
+                        <path d="m11.255 11.287 5.309 5.309"/>
+                    </g>
+                </svg>
+                <input autofocus placeholder="${Resource.msg('field.zip.postal.code','shoppingthestore',null)}" style="width:84%;height:38px;" class="form-controls movil-form-control" id="store-postal-code" data-msgnoresult="${Resource.msg('msg.NoSearchResults', 'shoppingthestore', null)}" name="postalCode" value="" autocomplete="nofill"/>
+                <button type="buttons" class="btn-storelocator-search-current-position movil-button-storelocator">
+                    <i class="store-locator-current-position detect-location" data-action="${pdict.stores.actionUrl}"></i>
+                </button>
+            </div>
+            <div class="invalid-feedback"></div>
+        </div>
+        <button class="d-none btn btn-block btn-outline-secondary btn-storelocator-search" type="submit" aria-label="${Resource.msg('label.findStoresAria', 'shoppingthestore', null)}">
+            ${Resource.msg('button.find.stores','storeLocator',null)}
+        </button>
+    </form>
+</div>

@@ -1,0 +1,9 @@
+<div class="row cart-and-ipay float-right mr-0 pb-0 mt-2">
+        <input type="hidden" class="update-cart-url" value="${pdict.updateCartUrl}" data-selected-quantity="${pdict.selectedQuantity}"
+               data-selected-option="${pdict.selectedOptionValueId}" data-uuid="${pdict.uuid}">
+        <button class="update-cart-product-global btn RedHatDisplayFont btnEditCart mr-1 mt-2 text-uppercase fontWeight500 fontSize14"
+                data-pid="${product.id}"
+                ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+            ${Resource.msg(' Actualizar Producto', 'common', null)}
+        </button>
+</div>

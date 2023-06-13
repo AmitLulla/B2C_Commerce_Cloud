@@ -1,0 +1,6 @@
+<div class="summary-details gift-summary ${shippingModel.isGift ? '' : 'd-none'}">
+    <p class="summary-section-label font-14-title modMobTextSecond">${Resource.msg('heading.gift.message', 'orderConfirmation', null)}</p>
+    <div class="gift-message-summary card-header-payment modMobTextSecond">
+        ${shippingModel.giftMessage ? shippingModel.giftMessage : ''}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.demandware.com/xml/impex/library/2006-10-31" library-id="PatPrimo">
+    <content content-id="mercadopago-other-payment-warning">
+        <display-name xml:lang="x-default">mercadopago-other-payment-warning</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p&gt;Debe pagar la factura en 48 horas a menos que su pedido sea cancelado.&lt;/p&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+</library>

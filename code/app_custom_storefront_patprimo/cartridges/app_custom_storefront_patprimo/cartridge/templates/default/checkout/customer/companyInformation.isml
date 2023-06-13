@@ -1,0 +1,30 @@
+<div id="collInfoCorp" class="company-information row collapse show mt-2 pl-4">
+    <div class="col-12">
+
+   <input type="checkbox" class="mycheck" name="${pdict.forms.customerNotRegisterForm.isResponsableIVA.htmlName}"  id="isResponsableIVA" value="true"/>
+        <label for="cb1"></label>
+        <label style="display:initial;" class="label-title" for="checkbox">${Resource.msg('label.checkbox.responsable.iva', 'checkout', null)}</label>  
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="control-label form-control-label label-title"> ${Resource.msg('label.nombre.corporativo', 'account', null)}</label>
+            <input type="text" tabindex="7" name="${pdict.forms.customerNotRegisterForm.nameCompany.htmlName}" class="form-control text-secondary" id="exampleFormControlInput1"
+                placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.nameCompany.attributes}" encoding="off" />>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="control-label form-control-label label-title" style="White-space: nowrap;">${Resource.msg('repeat.nit', 'form', null)}</label>
+            <input type="text" tabindex="9" name="${pdict.forms.customerNotRegisterForm.confirmNit.htmlName}" class="form-control text-secondary" id="exampleFormControlInput1"
+                placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.confirmNit.attributes}" encoding="off" />>
+                <div class="msj-error" id="nitWrong"></div>
+        </div> 
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="control-label form-control-label label-title">${Resource.msg('nit', 'form', null)}</label>
+            <input type="text" tabindex="8" name="${pdict.forms.customerNotRegisterForm.nit.htmlName}" class="form-control text-secondary" id="exampleFormControlInput1"
+                placeholder="" <isprint value="${pdict.forms.customerNotRegisterForm.nit.attributes}" encoding="off" />>
+        </div> 
+    </div>
+</div>

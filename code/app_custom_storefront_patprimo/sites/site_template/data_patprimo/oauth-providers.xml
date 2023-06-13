@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oauth-providers xmlns="http://www.demandware.com/xml/impex/oauthprovider/2013-07-16">
+    <oauth-provider provider-id="Facebook">
+        <description>test of login with facebook</description>
+        <client-id>338588375139122</client-id>
+        <client-secret>b881a6d0c406627dbed5d2e50a99fa10</client-secret>
+        <scopes>public_profile email</scopes>
+        <authorization-url>https://www.facebook.com/v5.0/dialog/oauth</authorization-url>
+        <token-url>https://graph.facebook.com/v5.0/oauth/access_token</token-url>
+        <user-info-url>https://graph.facebook.com/v5.0/me?fields=id,first_name,last_name,email</user-info-url>
+        <access-token-name>access_token</access-token-name>
+        <redirect-pipeline-node>Login-OAuthReentry</redirect-pipeline-node>
+    </oauth-provider>
+
+    <oauth-provider provider-id="Google">
+        <client-id>384239825933-flpgh429ta942grk1tpo2a9fa97ncj9t.apps.googleusercontent.com</client-id>
+        <client-secret>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</client-secret>
+        <scopes>profile email</scopes>
+        <authorization-url>https://accounts.google.com/o/oauth2/auth</authorization-url>
+        <token-url>https://oauth2.googleapis.com/token</token-url>
+        <user-info-url>https://www.googleapis.com/oauth2/v1/userinfo?alt=json</user-info-url>
+        <access-token-name>access_token</access-token-name>
+        <redirect-pipeline-node>Login-OAuthReentry</redirect-pipeline-node>
+    </oauth-provider>
+
+</oauth-providers>

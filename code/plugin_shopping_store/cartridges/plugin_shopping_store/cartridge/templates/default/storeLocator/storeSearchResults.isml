@@ -1,0 +1,16 @@
+<div class="col-sm-12">
+    <div class="container-results-count">
+        <span id="totalResults" class="span-results">${pdict.stores.resultados}</span>  
+    </div>
+    <div class="card results-card">
+        <div class="card-header d-none">
+            <isinclude template="storeLocator/storeLocatorRadius" />
+        </div>
+        <div class="card-body store-locator-no-results">
+            <p class="text-center ">${Resource.msg('error.no.results.esp','shoppingthestore',null)}</p>
+        </div>
+        <ol class="list-group list-group-flush results striped scroll-invisible" data-search-key="${JSON.stringify(pdict.stores.searchKey)}" data-radius="${pdict.stores.radius}" data-has-results="${pdict.stores.stores.length > 0}">       
+            <isinclude template="storeLocator/storeLocatorResults" />
+        </ol>
+    </div>
+</div>

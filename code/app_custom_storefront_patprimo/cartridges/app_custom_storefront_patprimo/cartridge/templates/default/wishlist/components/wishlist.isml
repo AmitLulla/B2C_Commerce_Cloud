@@ -1,0 +1,37 @@
+ <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addCss('/css/account/dashboard.css');
+        assets.addJs('/js/dashboard.js');
+        assets.addJs('/js/general.js');        
+    </isscript>
+<isset name="pageName" value=mis-productos scope="page" />
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 border-right menu-response">
+    
+        <div id="menu-cerrar">
+       
+
+            <div  class="txt-hide-menu-perfil pl-3 pt-1"> <p> Hola ${customer.profile.firstName} </p> </div>
+                
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div id="menu-dashboard" data-page-id="${pageName}">
+            <isinclude url="${URLUtils.url('Page-Include', 'cid', 'menu-dashboard')}" />
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-9">
+        <iscomment> <h2 class="wishlist-owner">${Resource.msgf('wishlist.owner.name', 'wishlist', null, pdict.wishlist.owner.firstName)}</h2> </iscomment>
+        <div class="row mb-4 wishlist-m">
+            <div class="col-12 p-0">
+                <span class="icon-movil">
+                    <i class="fa fa-angle-left pr-2"></i>
+                </span>
+                <label class="title">${Resource.msgf('title', 'wishlist', null)}</label>
+            </div>
+        </div>
+        <isinclude template="wishlist/components/list">
+    </div>
+</div>

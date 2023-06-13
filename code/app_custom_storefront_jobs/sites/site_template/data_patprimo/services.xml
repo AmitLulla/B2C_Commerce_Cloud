@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://www.demandware.com/xml/impex/services/2014-09-26">
+
+    <service-credential service-credential-id="mktTokenCredential">
+        <url>https://mcj1wqtykxmtjqwc76cfhp01yvhy.auth.marketingcloudapis.com/v2/token</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">x8fYqwF3WvfJ33iEl05yyOv1vkjupXMxUpydLqOgj10=</password>
+    </service-credential>
+
+    <service-credential service-credential-id="mktInsertDataCredential">
+        <url>https://mcj1wqtykxmtjqwc76cfhp01yvhy.rest.marketingcloudapis.com/interaction/v1/events</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">JMG8MACuYS8z12MwoZVM4D1PID8JFK5jljPJF0WfcD0=</password>
+    </service-credential>
+
+    <service-credential service-credential-id="mktUpdateDataCredential">
+        <url>https://mcj1wqtykxmtjqwc76cfhp01yvhy.rest.marketingcloudapis.com/data/v1/async/dataextensions</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">G0bFarNdL5IdEd8WjBcPABTLJargVlScWDbL/PdrUeg=</password>
+    </service-credential>
+
+    <service-profile service-profile-id="mktTokenProfile">
+        <timeout-millis>30000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>false</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service service-id="mkt_Get_Token">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>mkt</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>false</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>mktTokenProfile</profile-id>
+        <credential-id>mktTokenCredential</credential-id>
+    </service>
+
+    <service service-id="mkt_Insert_Data">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>mkt</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>false</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>mktTokenProfile</profile-id>
+        <credential-id>mktInsertDataCredential</credential-id>
+    </service>
+
+    <service service-id="mkt_Update_Data">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix/>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>mktTokenProfile</profile-id>
+        <credential-id>mktUpdateDataCredential</credential-id>
+    </service>
+</services>

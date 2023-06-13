@@ -1,0 +1,158 @@
+<div class="pdp-grid-desktop">
+  <div class="primary-images col-md-12 col-sm-6"> 
+    <div class="row no-gutters text-center">
+      <isloop items="${product.images['large']}" var="image" status="loopStatus">
+        <div class="col-md-6 mt-1 pr-1">
+          <img src="${image.url}" class="img-fluid" alt="${image.alt}" itemprop="image" onclick="openImageModal(${loopStatus.index})"/>
+          <isif condition="${loopStatus.index == 1}">
+            <span class="off">0% OFF</span>  
+          </isif>
+        </div>
+      </isloop>   
+    </div> 
+  </div>    
+</div> 
+
+<div id="image-modal" class="modal">
+  <span class="modal-close-btn" onclick="closeImageModal()">&times;</span> 
+  <div class="image-modal-container">
+    <div class="modal-thumbnails-container">
+      <isloop items="${product.images['small']}" var="image" status="loopStatus">
+        <img class="modal-thumbnail" id="thumbnail-${loopStatus.index}" src="${image.url}" onclick="changeModalImage(${loopStatus.index});" />
+      </isloop>
+    </div>
+    <div class="modal-images-container">
+      <isloop items="${product.images['hi-res']}" var="image" status="loopStatus">
+        <img class="modal-image" src="${image.url}" id="preview-${loopStatus.index}" />
+      </isloop>
+    </div> 
+  </div> 
+</div>
+
+<div class="pdp-carrousel-mobile"> 
+<div class="primary-images col-12 col-sm-6 pdp-carrousel-mobile"> 
+
+    <div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0"
+
+        data-prev="${Resource.msg('button.previous', 'common', null)}"
+
+        data-next="${Resource.msg('button.next', 'common', null)}">
+
+        <isif condition="${product.images['large'].length > 1}">
+
+            <ol class="carousel-indicators" aria-hidden="true">
+
+                <isloop items="${product.images['large']}" var="image" status="loopStatus">
+
+                    <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
+
+                        class='<isif condition="${loopStatus.index == 0}">active</isif>'>
+
+                    </li>
+
+                    </isloop>
+
+                    </ol>
+
+                    </isif>
+
+                   
+
+                    <div class="carousel-inner" role="listbox">
+
+                        <isloop items="${product.images['large']}" var="image" status="loopStatus">
+
+                            <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+
+                                <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}"
+
+                                    itemprop="image" />
+
+                </div>
+
+            </isloop>
+
+        </div>
+
+        <isif condition="${product.images['large'].length > 1}">
+
+            <a class="carousel-control-prev" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="prev">
+
+                <span class="fa icon-prev" aria-hidden="true"></span>
+
+                <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+
+            </a>
+
+            <a class="carousel-control-next" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="next">
+
+                <span class="fa icon-next" aria-hidden="true"></span>
+
+                <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+
+            </a>
+
+        </isif>
+        <div class="ref-section mb-ref-section">  
+                                    <p class="ref-pdp"> REF 
+                                      <span class="product-id">
+                                          <isprint value="${product.id}" />
+                                      </span>
+                                    </p>
+                                    <img  src="${URLUtils.staticURL('icons/shareWhite.svg')}" alt="icon envios"> 
+                                    <img  src="${URLUtils.staticURL('icons/favWhite.svg')}" alt="icon envios"> 
+                                    </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+var modal = document.getElementById("image-modal");
+var modalImage = document.getElementsByClassName("modal-image")[0];
+var modalThumbnails = document.getElementsByClassName("modal-thumbnail");
+var previousSelectedIndex =0;
+
+function openImageModal(initialIndex) {
+  modal.style.display = "block";
+  changeModalImage(initialIndex);
+  scrollToThumbnail(initialIndex);
+
+  // Add event listener to modal background
+  modal.addEventListener("click", function(e) {
+    if (e.target === modal) {
+      closeImageModal();
+    }
+  });
+} 
+
+function closeImageModal() {
+  modal.style.display = "none";
+}
+
+function changeModalImage(imageIndex) {
+    let actPrevElement = document.getElementById('thumbnail-'+previousSelectedIndex);
+    actPrevElement.classList.remove('active');
+    let actElement = document.getElementById('thumbnail-'+imageIndex);
+    let element = document.getElementById('preview-'+imageIndex);
+    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    actElement.classList.add("active");
+    previousSelectedIndex =imageIndex;
+}
+
+// Add event listener to thumbnail container for scrolling to image on click
+var thumbnailContainer = document.getElementsByClassName("modal-thumbnail-container-vertical")[0];
+thumbnailContainer.addEventListener("click", function(e) {
+  if (e.target.classList.contains("modal-thumbnail")) {
+    var index = Array.from(modalThumbnails).indexOf(e.target);
+    scrollToThumbnail(index);
+  }
+});
+
+// Add event listener to modal container for closing on escape key press
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeImageModal();
+  }
+});
+</script>

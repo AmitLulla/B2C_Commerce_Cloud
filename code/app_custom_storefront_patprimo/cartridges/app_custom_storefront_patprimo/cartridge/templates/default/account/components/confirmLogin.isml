@@ -1,0 +1,77 @@
+
+<form action="${pdict.actionUrlConfirm}" class="login-custom-confirm" method="POST" name="login-confirm-form">
+    <div class="form-group required">
+        <input type="hidden" id="form-email" class="form-control" name="formEmail" value="${pdict.userName}">
+    </div>
+    
+    
+
+    <div class="form-group ">
+              <p class="sub-title-login text-center">${Resource.msg('label.input.login.texto.confirmacion', 'login', null)}
+              <span id="email-confirmation-span" >  </span>
+              <br> <span class="sub-title-login text-center justify-content-center">${Resource.msg('label.input.login.texto.recodigo', 'login', null)}</span>
+        <a type="button" id="sendCode" class="sub-title-login text-center justify-content-center aunderline text-btn-login-form" >${Resource.msg('label.input.login.texto.recodigo.btn', 'login', null)}</a></p>
+            
+        <br/>
+        <label class="form-control-label text-label-login2" for="login-form-password">
+                ${Resource.msg('label.input.login.password', 'login', null)}
+        </label>
+        <input type="password" id="login-form-password" required aria-required="true" class="form-control " aria-describedby="form-password-error" name="loginPassword">
+        <div class="invalid-feedback" id="form-password-error"></div>
+    </div>
+    <div>
+    <span id="sendCodeMessage" class="d-none sub-title-login float-right">${Resource.msg('label.input.login.texto.resend', 'login', null)}</span>
+    <br/>
+    <input type="hidden" id="sendCodeUrl" value="${pdict.sendCode}">
+        
+       
+    
+    </div>
+       <div class="clearfix">
+        <iscomment> <div class="form-group custom-control custom-checkbox  remember-me">
+            <input type="checkbox" class="custom-control-input" id="rememberMe" name="loginRememberMe" value="true"
+                <isif condition="${pdict.rememberMe}">checked</isif>>
+            <label class="custom-control-label sub-title-login" for="rememberMe">
+                ${Resource.msg('label.checkbox.login.rememberme', 'login', null)}
+            </label>
+        </div> </iscomment>
+
+        <div class="forgot-password minus-m-login sub-title-login  float-left ">
+        
+            <a
+                id="password-reset"
+                class=" aunderline"
+                title="${Resource.msg('link.login.forgotpassword', 'login', null)}"
+                data-toggle="modal"
+                href="${URLUtils.url('Account-PasswordResetDialogForm')}"
+                data-target="#requestPasswordResetModal">
+                ${Resource.msg('link.login.forgotpassword', 'login', null)}
+            </a>
+        </div>
+    </div>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+    
+ 
+ 
+
+      <p class="text-center">
+    
+            <button type="submit" class="p-2 m-2 btn btn-dark float-right row text-btn-login-form customButtons customButtonMobile">${Resource.msg('button.text.loginform', 'login', null)}</button>
+            
+            <div class="pt-3 sub-title-login text-center mt-5">
+
+               ${Resource.msg('txt.correo.rel','login',null)}<a class="aunderline" href="">${Resource.msg('txt.reingresar','login',null)}</a> 
+            </div>    
+           
+      </p>
+
+</form>
+<style>
+
+.login-custom-confirm {
+    margin-bottom: 0.938em;
+}
+
+</style>

@@ -1,0 +1,165 @@
+<div class="mp-flex ${customerCardsPresent ? 'checkout-hidden' : ''} js-mp-container" data-mp-container style="width: 0px;height: 0px;">
+    <iscomment> <div class="mp__payment-method">
+        <p class="mp-font-bold mp__payment-type-title">${Resource.msg('label.payment.method.cards','mercadoPago',null)}</p>
+        <isloop iterator="${pdict.mercadoPago.groupedPaymentMethods.cards}" alias="card" status="loopSate">
+            <div class="mp-flex mp-flex--column mp__payment-type">
+                <div class="mp__card-details mp-flex">
+                    <input
+                        type="radio"
+                        class="mp__card-input js-mp-card-type"
+                        name="${mercadoPagoFields.cardType.htmlName}"
+                        value="${card.id}"
+                        id="cardType-${card.id}"
+                        data-mp-payment-type-id="${card.payment_type_id}"
+                        <isif condition="${loopSate.first}">checked</isif>
+                        data-mp-card-type
+                        data-mp-issuer-required="${card.additional_info_needed.indexOf('issuer_id') > -1}"
+                    >
+                    <label class="mp__card-label" for="cardType-${card.id}">
+                        <span class="mp__card-label-name"><isprint value="${card.name}"/></span>
+                    </label>
+                    <isif condition="${card.secure_thumbnail !== null}">
+                        <span><img src="${card.secure_thumbnail}" alt="${card.name}" style="max-width:100px"></span>
+                    </isif>
+                 </div>
+            </div>
+        </isloop>
+    </div>
+
+    <isif condition="${pdict.mercadoPago.groupedPaymentMethods.other.length}">
+        <div class="mp__payment-method">
+            <p class="mp-font-bold mp__payment-type-title">${Resource.msg('label.payment.method.others','mercadoPago',null)}</p>
+            <isloop iterator="${pdict.mercadoPago.groupedPaymentMethods.other}" alias="other">
+                <div class="mp-flex mp-flex--column mp__payment-type">
+                    <div class="mp__card-details mp-flex">
+                        <input
+                            type="radio"
+                            class="mp__card-input js-mp-card-type"
+                            name="${mercadoPagoFields.cardType.htmlName}"
+                            value="${other.id}"
+                            id="cardType-${other.id}"
+                            data-mp-payment-type-id="${other.payment_type_id}"
+                            data-mp-card-type="other"
+                            data-mp-issuer-required="${other.additional_info_needed.indexOf('issuer_id') > -1}"
+                        >
+                        <label class="mp__card-label" for="cardType-${other.id}">
+                            <span class="mp__card-label-name"><isprint value="${other.name}"/></span>
+                        </label>
+                        <isif condition="${other.secure_thumbnail !== null}">
+                            <span><img src="${other.secure_thumbnail}" alt="${other.name}" style="max-width:100px"></span>
+                        </isif>
+                    </div>
+                </div>
+            </isloop>
+            
+            <input type="hidden" name="${mercadoPagoFields.paymentTypeId.htmlName}" value="" id="mpPaymentTypeId" />
+        </div>
+    </isif> </iscomment>
+
+ <div class="mp__payment-method d-none" id="MPCreditCardMethods">
+        <p class="mp-font-bold mp__payment-type-title">${Resource.msg('label.payment.method.cards','mercadoPago',null)}</p>
+        <isloop iterator="${pdict.mercadoPago.groupedPaymentMethods.creditCards}" alias="creditCards" status="loopSate">
+            <div class="mp-flex mp-flex--column mp__payment-type">
+                <div class="mp__card-details mp-flex">
+                    <input
+                        type="radio"
+                        class="mp__card-input js-mp-card-type"
+                        name="${mercadoPagoFields.cardType.htmlName}"
+                        value="${creditCards.id}"
+                        id="cardType-${creditCards.id}"
+                        data-mp-payment-type-id="${creditCards.payment_type_id}"
+                        <isif condition="${loopSate.first}">checked</isif>
+                        data-mp-card-type
+                        data-mp-issuer-required="${creditCards.additional_info_needed.indexOf('issuer_id') > -1}"
+                    >
+                    <label class="mp__card-label" for="cardType-${creditCards.id}">
+                        <span class="mp__card-label-name"><isprint value="${creditCards.name}"/></span>
+                    </label>
+                    <isif condition="${creditCards.secure_thumbnail !== null}">
+                        <span><img src="${creditCards.secure_thumbnail}" alt="${creditCards.name}" style="max-width:100px"></span>
+                    </isif>
+                 </div>
+            </div>
+        </isloop>
+    </div>
+        <div class="mp__payment-method d-none" id="MPDebitCardMethods">
+        <p class="mp-font-bold mp__payment-type-title">${Resource.msg('label.payment.method.cards', 'mercadoPago', null)}
+        </p>
+        <isloop iterator="${pdict.mercadoPago.groupedPaymentMethods.debitCards}" alias="debitCards" status="loopSate">
+            <div class="mp-flex mp-flex--column mp__payment-type">
+                <div class="mp__card-details mp-flex">
+                    <input type="radio" class="mp__card-input js-mp-card-type"
+                        name="${mercadoPagoFields.cardType.htmlName}" value="${debitCards.id}"
+                        id="cardType-${debitCards.id}" data-mp-payment-type-id="${debitCards.payment_type_id}" 
+                    data-mp-card-type
+                    data-mp-issuer-required="${debitCards.additional_info_needed.indexOf('issuer_id') > -1}">
+                    <label class="mp__card-label" for="cardType-${debitCards.id}">
+                        <span class="mp__card-label-name">
+                            <isprint value="${debitCards.name}" /></span>
+                    </label>
+                    <isif condition="${debitCards.secure_thumbnail !== null}">
+                        <span><img src="${debitCards.secure_thumbnail}" alt="${debitCards.name}"
+                                style="max-width:100px"></span>
+                    </isif>
+                </div>
+            </div>
+        </isloop>
+    </div>
+
+        <isif condition="${pdict.mercadoPago.groupedPaymentMethods.efecty.length}">
+        <div class="mp__payment-method d-none" id="MPEfectyMethods">
+            <p class="mp-font-bold mp__payment-type-title">${Resource.msg('label.payment.method.others','mercadoPago',null)}</p>
+            <isloop iterator="${pdict.mercadoPago.groupedPaymentMethods.efecty}" alias="efecty">
+                <div class="mp-flex mp-flex--column mp__payment-type">
+                    <div class="mp__card-details mp-flex">
+                        <input
+                            type="radio"
+                            class="mp__card-input js-mp-card-type"
+                            name="${mercadoPagoFields.cardType.htmlName}"
+                            value="${efecty.id}"
+                            id="cardType-${efecty.id}"
+                            data-mp-payment-type-id="${efecty.payment_type_id}"
+                            data-mp-card-type="other"
+                            data-mp-issuer-required="${efecty.additional_info_needed.indexOf('issuer_id') > -1}"
+                        >
+                        <label class="mp__card-label" for="cardType-${efecty.id}">
+                            <span class="mp__card-label-name"><isprint value="${efecty.name}"/></span>
+                        </label>
+                        <isif condition="${efecty.secure_thumbnail !== null}">
+                            <span><img src="${efecty.secure_thumbnail}" alt="${efecty.name}" style="max-width:100px"></span>
+                        </isif>
+                    </div>
+                </div>
+            </isloop>
+            <input type="hidden" name="${mercadoPagoFields.paymentTypeId.htmlName}" value="credit_card" id="mpPaymentTypeId" />
+        </div>
+    </isif>
+
+        <isif condition="${pdict.mercadoPago.groupedPaymentMethods.pse.length}">
+        <div class="mp__payment-method d-none" id="MPPseMethods">
+            <p class="mp-font-bold mp__payment-type-title">${Resource.msg('label.payment.method.others','mercadoPago',null)}</p>
+            <isloop iterator="${pdict.mercadoPago.groupedPaymentMethods.pse}" alias="pse">
+                <div class="mp-flex mp-flex--column mp__payment-type">
+                    <div class="mp__card-details mp-flex">
+                        <input
+                            type="radio"
+                            class="mp__card-input js-mp-card-type"
+                            name="${mercadoPagoFields.cardType.htmlName}"
+                            value="${pse.id}"
+                            id="cardType-${pse.id}"
+                            data-mp-payment-type-id="${pse.payment_type_id}"
+                            data-mp-card-type="other"
+                            data-mp-issuer-required="${pse.additional_info_needed.indexOf('issuer_id') > -1}"
+                        >
+                        <label class="mp__card-label" for="cardType-${pse.id}">
+                            <span class="mp__card-label-name"><isprint value="${pse.name}"/></span>
+                        </label>
+                        <isif condition="${pse.secure_thumbnail !== null}">
+                            <span><img src="${pse.secure_thumbnail}" alt="${pse.name}" style="max-width:100px"></span>
+                        </isif>
+                    </div>
+                </div>
+            </isloop>
+         </div>
+    </isif>
+</div>

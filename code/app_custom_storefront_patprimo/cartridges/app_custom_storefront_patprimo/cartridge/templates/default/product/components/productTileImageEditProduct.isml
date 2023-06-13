@@ -1,0 +1,36 @@
+<div id="pdpCarousel-${product.id}" class="carousel carouselCart slide " data-interval="0"
+    data-prev="${Resource.msg('button.previous', 'common', null)}"
+    data-next="${Resource.msg('button.next', 'common', null)}" data-touch="true" data-ride="carousel">
+
+
+    <isif condition="${dw.system.System.getInstanceType() != dw.system.System.PRODUCTION_SYSTEM}">
+        <title>${pdict.CurrentPageMetaData.title} | ${Resource.msg('global.site.name', 'version', null)} |
+            ${Resource.msg('global.version.number', 'version', null)}</title>
+    <iselse/>
+        <title>
+            <isprint value="${pdict.CurrentPageMetaData.title}" encoding="htmlcontent" />
+        </title>
+    </isif>
+
+
+    <div class="carousel-inner " role="listbox">
+
+        <isif condition="${product.images['medium'].length > 1}">
+            <isloop items="${product.images['medium']}" var="image" status="loopStatus">
+  <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                    <img src="${image.url}" class="img-grid-patprimo" alt="${image.alt} image number ${image.index}"
+                        itemprop="image" style="width: 161px; height:227px" />
+                </div>
+
+            </isloop>
+        <iselse/>
+
+            <isloop items="${product.images['medium']}" var="image" status="loopStatus">
+                <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                    <img src="${image.url}" class="img-grid-patprimo" alt="${image.alt} image number ${image.index}"
+                        itemprop="image" style="width: 161px; height:227px" />
+                </div>
+            </isloop>
+        </isif>
+    </div>
+</div>

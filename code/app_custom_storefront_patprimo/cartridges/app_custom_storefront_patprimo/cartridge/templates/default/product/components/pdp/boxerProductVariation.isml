@@ -1,0 +1,111 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/boxerProductVariation.js');
+</isscript>
+<div class="swatches-container">
+  <span id="idCustomPDP" class="d-none">${product.customPDP}</span>
+  <isif condition="${product.variationAttributes[0].id === 'color'}">
+      <div class="swatch-column boxer"> 
+          <div class="swatch-header">
+          <!-- <label class="color-lb">${product.variationAttributes[0].displayName}</label> -->
+          <label class="color-lb">Color</label>  
+          <label class="talla-lb">Talla</label>
+          <label class="cantidad-lb">Cantidad</label>
+          </div> 
+          <isloop items="${product.variationAttributes[0].values}" var="colorAttr" status="attributeStatus">
+              <isif condition="${!(isBundle && product.productType === 'variant' && !colorAttr.selected)}">
+                  <div class="color-swatches color-swatches-${colorAttr.id}">
+                  <button class="color-attribute swatch-filter-editProductCart-${colorAttr.displayValue.toLowerCase()} ${colorAttr.selectable ? 'selectable' : 'disabled'}" style="outline: none; box-shadow: none;"
+                      aria-label="${Resource.msg('label.select', 'common', null)} ${product.variationAttributes[0].displayName} ${colorAttr.displayValue}"
+                      aria-describedby="${colorAttr.id}" data-color="${colorAttr.id}" data-url="${colorAttr.url}" ${product.productType === "variant" && isBundle ? "disabled" : ""}>
+                      <div data-attr-value="${colorAttr.value}"
+                          class="d-inline-block align-middle swatchs-filter-editProductCart-${colorAttr.displayValue.toLowerCase()} mr-1                        
+                              ${attr.id}-value
+                              swatch-circle
+                              swatch-value
+                              color-btn"                           
+                      >
+                      </div>
+                      <span id="${colorAttr.id}" class="sr-only selected-assistive-text">
+                      ${colorAttr.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                      </span>
+                  </button> 
+                  <span class="product-id product-id-${attrValue.id} d-none">${product.id}</span>
+                  
+                  <div class="size-quantities">
+                      <div class="size-quantity">
+                          <select class="size-select select-pdp-custom form-control select${product.variationAttributes[1].id} p-0" data-select-color="${colorAttr.displayValue}" id="size-${colorAttr.displayValue}-${colorAttr.displayValue}" ${colorAttr.selected ? 'selected' : ''} ${colorAttr.selectable ? 'selectable' : 'disabled'}>
+                             <option value="false" data-attr-value="">Selecciona una talla</option>
+                              <isloop items="${product.variationAttributes[1].values}" var="sizeAttr" status="sizeAttributeStatus">
+                                  <isif condition="${sizeAttr.displayValue != 'Default'}">
+                                          <option  value="${sizeAttr.url}" data-attr-value="${sizeAttr.value}">${sizeAttr.displayValue}</option>
+                                  </isif>
+                              </isloop>
+                          </select>
+                           <span class="attrIdT d-none">${colorAttr.id}</span>
+                      </div>
+                  </div>
+                  
+                      <div class="quantity-input">
+                          <button class="quantity-btn minus-btn" type="button" ${colorAttr.selected ? 'selected' : ''} ${colorAttr.selectable ? 'selectable' : 'disabled'} disabled>-</button>
+                              <input class="quantity-field" type="" name="quantity_${colorAttr.id}" value="0" min="1" ${colorAttr.selected ? 'selected' : ''} ${colorAttr.selectable ? 'selectable' : 'disabled'}>
+                          <button class="quantity-btn plus-btn" type="button" ${colorAttr.selected ? 'selected' : ''} ${colorAttr.selectable ? 'selectable' : 'disabled'}>+</button>
+                      </div>
+                  
+                  </div>
+              </isif>
+          </isloop>
+      </div> 
+  </isif> 
+  <div class="boxer-section-price">
+      <label for="total-count"><span id="total-count">0</span> Productos</label>                                       
+  <div class="prices current-price">
+
+  <iscomment> <label for="total-price"><span id="total-price">Totals:</span></label>
+      <isset name="price" value="${product.price}" scope="page" />
+      <isinclude template="product/components/pricing/main" />
+  </div> </iscomment>
+
+<isset name="price" value="${product.price}" scope="page" />
+<isset name="quantity" value="1" scope="page" />
+
+<span class="sale-price" data-total="${price.sales.value}" id="salePrice">${price.sales.formatted}</span>
+<iscomment> <isif condition="${product.prices}">
+  <div class="prices current-price">
+    <isloop items="${product.prices}" var="price">
+      <isif condition="${price.listPrice}">
+        <span class="list-price">${price.listPrice.formatted}</span>
+      </isif>
+      <span class="sale-price" id="salePrice">${price.salePrice.formatted}</span>
+    </isloop>
+  </div>
+<iselse>
+  <div class="prices current-price">
+    <span class="list-price hidden"></span>
+    <span class="sale-price" id="salePrice">${price.formatted}</span>
+  </div>
+</isif> </iscomment>
+
+  </div>
+       
+</div>
+ <div class="boxer-add-to-card">
+      <div class="row cart-and-ipay">
+        <div class="col-sm-12">
+            <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+          
+          <button class="add-to-cart btn btn-dark"
+                    data-toggle="modal" data-target="#chooseBonusProductModal"
+                    data-pid="${product.id}"
+                    ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                  AGREGAR A MI BOLSA
+                <iscomment> ${Resource.msg('button.addtocart', 'common', null)} </iscomment>
+            </button> 
+
+            <isinclude template="product/components/addToCartButtonExtension"/>
+        </div>
+    </div>
+  </div>
+  <div class="text-center" style="color: red; font-size: 20px; font-weight: 700;">
+      <span id="error_global"></span>
+  </div>

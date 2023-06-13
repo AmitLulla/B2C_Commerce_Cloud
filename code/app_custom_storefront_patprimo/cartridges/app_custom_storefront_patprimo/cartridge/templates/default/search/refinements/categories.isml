@@ -1,0 +1,26 @@
+<ul class="categories-filter-list values content">
+    <isloop items="${categories}" var="category">
+        <li>
+            <button <isif condition="${category.url.indexOf('root') !== -1}">disabled</isif> data-href="${category.url}" data-value="${category.id}" data-type="${category.type}">
+                <!--- Radio button --->
+                <isif condition="${category.selected}">
+                    <i class="fa fa-check-square"></i>
+                    <iselse>
+                        <i class="fa fa-square-o"></i>
+                </isif>
+
+                <!--- Label --->
+                <span title="${category.title}" class="${category.selected ? 'selected' : ''}" aria-hidden="true">
+                    ${category.displayValue}
+                </span>
+                <span class="sr-only selected-assistive-text">
+                    ${category.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                    ${category.title}
+                </span>
+            </button>
+            <!--- Process subcategories --->
+            <isset name="categories" value="${category.subCategories}" scope="page" />
+            <isinclude template="search/refinements/categories" />
+        </li>
+    </isloop>
+</ul>

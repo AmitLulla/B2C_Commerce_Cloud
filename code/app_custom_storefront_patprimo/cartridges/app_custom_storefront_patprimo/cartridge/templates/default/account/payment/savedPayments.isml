@@ -1,0 +1,61 @@
+ <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/addressBook.js');
+        assets.addCss('/css/account/addressBook.css');
+        assets.addCss('/css/account/dashboard.css');
+        assets.addJs('/js/dashboard.js');
+		assets.addJs('/js/general.js');
+    </isscript>
+	<isset name="pageName" value=mis-tarjetas scope="page" />
+<div class="row">
+<div class="col-md-12 headerHide">
+                <!---Breadcrumbs--->
+                <isinclude template="components/breadcrumbs/pageBreadcrumbsLogin" />
+             </div>
+
+	<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 border-right menu-response">
+	
+		<div id="menu-cerrar">
+		 <div  class="txt-hide-menu-perfil pl-3 pt-1"> <p> Hola ${customer.profile.firstName} </p> </div>
+
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		
+		<!---Breadcrumbs--->
+		
+
+		<div id="menu-dashboard" data-page-id="${pageName}">
+			<isinclude url="${URLUtils.url('Page-Include', 'cid', 'menu-dashboard')}" />
+		</div>
+	</div>
+
+	<div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+		<div class="col-12">
+			<span class="icon-movil">
+				<i class="fa fa-angle-left pr-2"></i>
+			</span>              
+			<label class="title">${Resource.msg('page.heading.payments', 'payment', null)}</label>
+		</div>
+		<isif condition="${pdict.noSavedPayments}">
+            <div class="row justify-content-center h3 no-saved-payments">
+                <p class="font16-Semi azul-pat">${Resource.msg('msg.no.saved.payments','payment',null)}</p>
+            </div>
+        </isif>
+		
+		<!-- Rows for Credit Cards -->
+		<div class="mt-3">
+			<isif condition="${pdict.addPaymentUrl}">
+				<!--- Customer cards --->
+				<div class="paymentInstruments">
+					<!-- Rows for Credit Cards -->
+					<div class="row col-12">
+						<isinclude template="account/payment/mercadoPagoCustomerCards" />
+					</div>
+				</div>				
+			</isif>
+		</div>
+	</div>
+
+</div>

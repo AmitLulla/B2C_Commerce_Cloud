@@ -1,0 +1,32 @@
+<div class="site-search">
+    <form role="search" action="${URLUtils.url('Search-Show')}" method="get" name="simpleSearch">
+        <div class="content-input">
+            <input class="form-control search-field"
+               type="text"
+               name="q"
+               value=""
+               placeholder="${Resource.msg('label.header.searchwatermark', 'header', null)}"
+               role="combobox"
+               aria-describedby="search-assistive-text"
+               aria-haspopup="listbox"
+               aria-owns="search-results"
+               aria-expanded="false"
+               aria-autocomplete="list"
+               aria-activedescendant=""
+               aria-controls="search-results"
+               aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}"
+               autocomplete="off" />
+        </div>
+        <button type="reset" name="reset-button" class="fa fa-times reset-button d-none" aria-label="${Resource.msg('label.header.search.clear', 'header', null)}"></button>
+        <div class="button-search">
+            <button type="submit" name="search-button" class="icon-Search gray" aria-label="${Resource.msg('label.header.search.go', 'common', null)}"></button>
+            <span class="text-icon">${Resource.msg('label.header.icons.search', 'header', null)}</span>
+        </div>
+        <div class="suggestions-wrapper" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}"></div>
+        <input type="hidden" value="${pdict.locale}" name="lang">
+    </form>
+    <div class="search-icon">
+        <i class="icon-Search gray test"></i>
+        <span class="text-icon">${Resource.msg('label.header.icons.search', 'header', null)}</span>
+    </div>
+</div>

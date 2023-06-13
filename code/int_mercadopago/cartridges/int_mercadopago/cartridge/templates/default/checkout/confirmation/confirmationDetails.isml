@@ -1,0 +1,46 @@
+<div class="card confirm-details">
+    <div class="card-header background-beige">
+        <h2 class="font24 modMobTitle pt-2">${Resource.msg('label.compra.exitosa', 'orderConfirmation', null)}</h2>
+    </div>
+
+    <div class="card-body pl-4 pt-3 pl3Mob">
+        <div class="col-12 pl-0 mb-2">
+            <span class="font-14-title modMobTextSecond">${Resource.msg('label.detalles.orden', 'orderConfirmation', null)}</span>
+        </div>
+        <div class="col-12 pl-0 mb-3">
+            <span class="card-header-payment modMobTextSecond">${Resource.msg('label.order.id', 'orderConfirmation', null)}</span>
+            <span class="card-header-payment modMobTextSecond">${pdict.order.orderNumber}</span> &nbsp; &nbsp; &nbsp;
+            <span class="card-header-payment modMobTextSecond">${Resource.msg('labe.order.fecha', 'orderConfirmation', null)}</span>
+            <span class="card-header-payment modMobTextSecond">
+            <isprint value="${pdict.order.creationDate}" formatter="dd-MM-yyyy" timezone = "SITE" />
+            </span>          
+        </div>
+
+        <div class="col-12 pl-0">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <isinclude template="checkout/billing/billingSummary" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <isinclude template="checkout/shipping/shippingSummary" />                    
+                </div>
+            </div>
+        </div>       
+        
+        <isif condition="${(pdict.order.billing.payment.paymentStatus === pdict.order.billing.payment.paymentStatuses.PAYMENT_STATUS_NOTPAID)
+            && pdict.order.orderTransactionNote}">
+            <isinclude template="checkout/pendingPaymentLink" />
+        </isif>
+
+    </div>
+</div>
+<div  class="pl-4 pl3Mob">
+    <label class="font-14-title modMobTextSecond">${Resource.msg('label.productos.pedido', 'orderConfirmation', null)}</label>
+    <isinclude template="checkout/orderProductSummaryConfirmation" />
+</div>
+
+<div class="card checkout-order-total-summary">
+    <div class="card-body order-total-summary d-none">
+        <isinclude template="checkout/orderTotalSummary" />
+    </div>
+</div>

@@ -1,0 +1,3 @@
+<body>
+    <p>Usuario ahijado registrado: ${pdict.customerAhijado}</p>
+</body>

@@ -1,0 +1,39 @@
+<form action="${pdict.actionUrl}" class="login-custom" method="POST" name="login-form">
+    <div class="form-group ">
+         
+   
+        <p class="js-custom-sub-login">
+            <label class="form-control-label sub-title-login mt-2" for="trackorder-form-number">
+
+              ${Resource.msg('text.write.mail', 'login', null)}
+
+            </label>
+         </p> 
+        
+        
+
+        <div class="minus-m-login">
+          
+            <label class="form-control-label text-label-login" for="login-form-email">
+                <span>${Resource.msg('label.form.referidos.input.email','forms',null)}</span>
+            </label>
+        <input type="email" id="login-form-email" placeholder="correousuario@mail.com " required aria-required="true" class="input-style form-control required" aria-describedby="form-email-error" name="loginEmail" value="${pdict.userName}">
+        <div class="invalid-feedback" id="form-email-error"></div>
+            
+        </div>
+
+      
+    </div>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+ 
+  <p class="text-center">
+    
+            <button type="submit" class="p-2 m-2 btn btn-dark float-right row text-btn-login-form customButtons">${Resource.msg('text.login.continue', 'login', null)}</button>
+
+
+  </p>
+
+
+</form>

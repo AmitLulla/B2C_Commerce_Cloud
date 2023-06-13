@@ -1,0 +1,18 @@
+<body>
+
+    <h1>${Resource.msg('email.msg.new.registration.dear2', 'registration', null)},</h1>
+
+    <p>${Resource.msg('email.msg.new.registration.bodyFR1','registration',null)}</p>
+
+    <p><a href="${pdict.url}">${pdict.url}</a></p>
+
+    <p>${Resource.msg('email.msg.new.registration.bodyFR2','registration',null)}</p>
+    <isif condition="${pdict.passwordCode}">
+        <p>Contraseña: ${pdict.passwordCode}</p>
+        <p>${Resource.msg('email.msg.new.registration.pass','registration',null)}</p>
+    </isif>
+    <isif condition="${pdict.couponCode}">
+        <p>Coupon: ${pdict.couponCode}</p>
+    </isif>
+
+</body>

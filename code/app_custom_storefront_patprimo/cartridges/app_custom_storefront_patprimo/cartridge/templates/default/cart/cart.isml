@@ -1,0 +1,150 @@
+<isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}"  scope="page"/>
+<isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page"/>
+<isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page"/>
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/cart.css');
+        assets.addJs('/js/fastBuy.js');
+        assets.addCss('/css/search.css');
+    </isscript>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <div class="cart-error-messaging cart-error">
+        <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
+            <div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+                ${pdict.valid.message}
+            </div>
+        </isif>
+    </div>
+    <isif condition="${pdict.items.length === 0}">
+        <div class="container cart-empty">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>${Resource.msg('info.cart.empty.msg', 'cart', null)}</h1>
+                </div>
+            </div>
+        </div>
+    <iselse/>
+
+        <div class="container-fluid cart cart-page ">
+                    <div class="row d-xl-none mb-3 flex-middle "
+                        style="background-color: #1c1f2a; color: #fff; height:35px; font-weight: 500; position:sticky;z-index:1; top:75px">
+                        <div class="col-md-12 RedHatDisplayFontPP fontSize13 align-self-center cartHeaderAmountMobile">
+                            ${pdict.numItems.toFixed()}
+                            <isif condition="${pdict.numItems.toFixed() == 1}">
+                                artículo
+                            <iselse/>
+                                artículos
+                            </isif>
+                            | $${pdict.totalSinEnvio}
+
+                        </div>
+                    </div>
+            <div class="row">
+                <div class="col-lg-8 col-12  pr-lg-5 overflow-auto scrollbarPatprimo d-sm-none" style="max-height:550px; overflow-x:hidden !important;">
+                    <div class="container-fluid d-none d-md-block">
+                        <p class="PlayfairDisplay fontSize20 fontWeight400 textAzulPat cartHeaderAmount">
+                            ${Resource.msgf('title.cart.custom', 'cart', null, pdict.numItems.toFixed())}</p>
+                    </div>
+
+                    <div class="d-xl-none pt-1">
+                    </div>
+                    <isloop items="${pdict.items}" var="lineItem">
+                        <isif condition="${lineItem.productType === 'bundle'}">
+                            <isinclude template="cart/productCard/cartBundleCard" />
+                        <iselse/>
+                            <isif condition="${lineItem.noProduct === true}">
+                                <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                            <iselse/>
+                            
+                                <isinclude template="cart/productCard/cartProductCard" />
+                            
+                            </isif>
+                        </isif>
+                    </isloop>
+                    <isinclude template="cart/cartApproachingDiscount" />
+                </div>
+                <div class="col-lg-8 col-12  pr-lg-5 overflow-auto scrollbarPatprimo d-none d-lg-block" style="height:550px;">
+                    <div class="container-fluid d-none d-md-block">
+                        <p class="PlayfairDisplay fontSize20 fontWeight400 textAzulPat cartHeaderAmount">
+                            ${Resource.msgf('title.cart.custom', 'cart', null, pdict.numItems.toFixed())}</p>
+                    </div>
+                    
+                    <isif condition="${session.custom.productNotStock}">
+                        <isset name="productsNotStock" value="${JSON.parse(session.custom.productNotStock)}" scope="page" />
+                        <isloop items="${productsNotStock}" var="productsNS" status="loopstatus">
+                            <div class="alert alert-danger" role="alert">
+                                <p>${Resource.msgf('not.disponible.product', 'cart', null, productsNS.name)}</p>
+                            </div>
+                        </isloop>
+                    </isif>
+                    <div class="row d-xl-none mb-3 flex-middle"
+                        style="background-color: #1c1f2a; color: #fff; height:35px; font-weight: 500;">
+                        <div class="col-md-12 RedHatDisplayFontPP fontSize13 align-self-center cartHeaderAmountMobile">
+                            ${pdict.numItems.toFixed()}
+                            <isif condition="${pdict.numItems.toFixed() == 1}">
+                                artículo
+                            <iselse/>
+                                artículos
+                            </isif>
+                            | ${pdict.totals.grandTotal}
+
+                        </div>
+                    </div>
+                    <isloop items="${pdict.items}" var="lineItem">
+                        <isif condition="${lineItem.productType === 'bundle'}">
+                            <isinclude template="cart/productCard/cartBundleCard" />
+                        <iselse/>
+                            <isif condition="${lineItem.noProduct === true}">
+                                <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                            <iselse/>
+                                <div class="container p-0 pl-lg-3">
+                                    <isinclude template="cart/productCard/cartProductCard" />
+                                </div>
+                            </isif>
+                        </isif>
+                    </isloop>
+                    <isinclude template="cart/cartApproachingDiscount" />
+                </div>
+                <div class="col-12 d-lg-none">
+                    <isslot id="cart-recommendations-m-custom" description="twst" context="global" />
+                </div>
+
+
+                <div class="col-lg-4 col-12 totals RedHatDisplayFontPP pr-4">
+                    <isinclude template="cart/barraEnvioGratisCart" />
+                    <isinclude template="cart/cartPromoCode" />
+                    
+                    <div class="mt-2">
+                        
+                        <isinclude template="cart/cartRemoveCouponModal"/>
+                    </div>
+                    <div class="row d-none">
+                        <isinclude template="cart/cartShippingMethodSelection" />
+                    </div>
+                    <isinclude template="cart/cartTotals" />
+                    <div class="row">
+                        <div class="col-12 checkout-continue">
+                            <isinclude template="cart/checkoutButtonsCart" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          <isinclude template="cart/cartRemoveProductModal"/>
+          <isinclude template="cart/cartRemoveCouponModal"/>
+        </div>
+    </isif>
+
+                <div class="d-none d-lg-block">
+                    <isslot id="cart-recommendations-m-custom" description="twst" context="global" />
+                </div>
+<div class="add-to-wishlist-messages"></div>
+</isdecorate>

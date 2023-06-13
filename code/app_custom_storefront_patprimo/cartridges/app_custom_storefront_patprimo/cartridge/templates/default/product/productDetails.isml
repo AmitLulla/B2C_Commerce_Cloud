@@ -1,0 +1,828 @@
+<isdecorate template="common/layout/page">
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/productDetail.js');
+        assets.addCss('/css/product/detail.css');
+        assets.addCss('/css/product/pdp/detail.css');
+        assets.addCss('/css/product/pdp-reviews.css');
+        assets.addCss('/css/sideBarFilter.css');
+        assets.addJs('/js/containerGrid.js');
+        
+    </isscript>
+
+    <isset name="product" value="${pdict.product}" scope="page" />
+    <isset name="isQuickView" value="${false}" scope="page" />
+    <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+
+    <div style="display:none;" id="category-id" data-category-id="${pdict.prodObj.item_category}"></div>
+    <script>
+        dataLayer.push({
+            event: "view_item",
+            ecommerce: {
+                items: [{
+                    item_name: ${"'" + pdict.product.productName + "'"},
+                    item_id: ${"'" + pdict.product.id + "'"},
+                    item_ref_id: ${"'" + pdict.product.id + "'"},
+                    item_sku_id: ${"'" + pdict.product.id + "'"},
+                    final_price: ${pdict.prodObj.final_price != '' ? pdict.prodObj.final_price.toFixed() : "''"},
+                    original_price: ${pdict.prodObj.original_price != '' ? pdict.prodObj.original_price : "''"},
+                    item_category: ${"'" + pdict.prodObj.item_category + "'"},
+                    item_category2: ${"'" + pdict.prodObj.item_category2 + "'"},
+                    size: ${"'" + pdict.prodObj.item_size + "'"},
+                    available_size: ${"'" + pdict.prodObj.available_size + "'"},
+                    color: ${"'" + pdict.prodObj.item_color + "'"}
+                }]
+            }
+        });
+    </script>
+
+    <isobject object="${product.raw}" view="detail" />
+    <div class="caja" style="display:none;">
+        <div class="d-flex top-pd-flex">
+            <div class="top-pd-image">
+                <img src="${product.images['large'][0].url}" class="product-image"
+                    alt="${product.images['large'][0].alt}" id="productImage" />
+            </div>
+            <div class="acomodo top-pd-info">
+                <div class="product-flex">
+                    <div class="top-product-dt">
+                        <div class="product-title">${product.productName}</div>
+                        <div>
+                            <div class="d-flex justify-content-start mt-2">
+                                <div class="price">${product.price.sales.formatted}</div>
+                                <isif condition="${product.price.list != null}">
+                                    <isset name="priceL" value="${product.price.list}" scope="page" />
+                                    <isset name="priceS" value="${product.price.sales}" scope="page" />
+                                    <isset name="discount"
+                                        value="${'-' + Math.round(((priceL.decimalPrice - priceS.decimalPrice) / priceL.decimalPrice) * 100).toFixed() + '%'}"
+                                        scope="page" />
+
+                                    <div class="ml-2">${priceL.formatted}</div>
+                                    <div class="badge discount-badge ml-2" content="${discount}">
+                                        ${discount}
+                                    </div>
+                                <iselse/>
+                                    <div class="tachado">${priceL.formatted}</div>
+                                    <div class="discount-percent" content="${discount}">
+                                        ${discount}
+                                    </div>
+
+                                </isif>
+
+                                <div class="d-flex ml-3">
+                                    <span class="presale">Preventa</span>
+                                    <span class="presale-price">$83.943</span>
+                                </div>
+                            </div>
+
+                            <div class="swatches-section top-color-section">
+                                <isinclude template="product/components/mainAttributes" />
+                                <isset name="isBundle" value="${false}" scope="page" />
+                                <isset name="loopState" value="${{
+                                                               count: 1}}" scope="page" />
+                                <div class="top-product-color">
+                                    <isloop items="${product.variationAttributes[0].values}" var="colorAttr"
+                                        status="attributeStatus">
+                                        <isif condition="${colorAttr.selected}">
+                                            <isset name="selectedColor" value="${colorAttr.value.toLowerCase()}"
+                                                scope="page" />
+                                        </isif>
+                                    </isloop>
+                                    <span data-selected-color="color-container"
+                                        class="color-code swatch-filter-editProductCart-${selectedColor}"></span>
+                                    <select class="form-control select-${product.variationAttributes[0].id} p-0"
+                                        id="zIndexselectedColor" name="color">
+                                        <isloop items="${product.variationAttributes[0].values}" var="colorAttr"
+                                            status="attributeStatus">
+                                            <isif
+                                                condition="${!(isBundle && product.productType === 'variant' && !colorAttr.selected)}">
+                                                <option value="${colorAttr.url}" data-attr-value="${colorAttr.value}"
+                                                    ${colorAttr.selected ? 'selected' : ''} ${colorAttr.selectable ? 'selectable' : 'disabled'}>
+                                                    ${colorAttr.displayValue}
+                                                </option>
+                                            </isif>
+                                        </isloop>
+                                    </select>
+                                </div>
+                                <div class="size-quantities">
+                                    <div class="size-quantity">
+                                        <select
+                                            class="custom-select form-control select-${product.variationAttributes[1].id} p-0"
+                                            id="selectDesktopSize" ${product.productType === "variant" && isBundle ? "disabled" : ""}>
+                                            <isloop items="${product.variationAttributes[1].values}" var="sizeAttr"
+                                                status="sizeAttributeStatus">
+                                                <isif
+                                                    condition="${sizeAttr.displayValue != 'Default'}">
+                                                    <option value="${sizeAttr.url}" data-attr-value="${sizeAttr.value}"
+                                                        ${sizeAttr.selected ? 'selected' : ''} ${!sizeAttr.url ? 'disabled' : ''}
+                                                        class="RedHatDisplayFont ${!sizeAttr.url ? 'unavailable' : ''}mr-2" ${sizeAttr.selectable ? '' : 'disabled'}>
+                                                        ${sizeAttr.displayValue}</option>
+                                                </isif>
+                                            </isloop>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="agregar-section top-btn-gp">
+                        <label
+                            for="quantity-${loopState && loopState.count ? loopState.count : '1'}">${Resource.msg('label.quantity', 'common', null)}</label>
+                        <select class="quantity-select custom-select form-control select-talla"
+                            id="quantity-${loopState && loopState.count ? loopState.count : '1'}">
+                            <isloop items="${product.quantities}" var="quantity">
+                                <option value="${quantity.value}" <isif condition="${product.productType !== 'bundle'}">
+                                    data-url="${quantity.url}"</isif>
+                                    ${quantity.selected ? 'selected' : ''}
+                                    >
+                                    ${quantity.value}
+                                </option>
+                            </isloop>
+                        </select>
+                        <div class="row cart-and-ipay">
+                            <div class="">
+                                <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+                                <button class="add-to-cart btn agregar-pdp" data-toggle="modal" id="zIndex-Add-To-Cart"
+                                    data-target="#chooseBonusProductModal" data-pid="${product.id}"
+                                    ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+
+                                    ${Resource.msg('button.addtocart', 'common', null)}
+                                </button>
+                                <isinclude template="product/components/addToCartButtonExtension" />
+                            </div>
+                        </div>
+                        <button class="add-to-cart-comprar-pdp">COMPRAR AHORA</button>
+                        <a style="display:none;" class="normal" href="${URLUtils.https('Cart-Show')}" id="cartShowUrl">
+                        </a>
+                        <iscomment> <button class="comprar-pdp">COMPRAR AHORA</button> </iscomment>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container product-detail product-wrapper" data-pid="${product.id}" id="product-detail-container">
+        <div class="row">
+            <div class="col-12">
+                <!--Breadcrumbs-->
+
+                <!-- Product Name -->
+                <div class="row">
+                    <div class="d-md-none col-sm-12">
+                        <h1 class="product-name">${product.productName}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-secciones">
+            <svg onclick="window.history.back()" width=" 31px" height="12px" viewBox="0 0 31 12" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" class="back-pdp-mobile" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>8A31A419-30EC-4D95-9CE9-7CBFEEBB8578</title>
+                <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Int-prod-características" transform="translate(-861.000000, -28.000000)" fill="#000000">
+                        <g id="Group-3" transform="translate(861.000000, 23.000000)">
+                            <g id="Iconos/Flecha"
+                                transform="translate(15.060450, 10.512716) scale(-1, 1) translate(-15.060450, -10.512716) translate(-0.000000, 5.000000)">
+                                <g id="Group" transform="translate(0.000000, 0.000000)">
+                                    <polygon id="Fill-1"
+                                        points="0 6.10313337 26.239551 6.10313337 26.239551 4.92166832 0 4.92166832">
+                                    </polygon>
+                                    <polygon id="Fill-2"
+                                        points="25.7337265 0 25.7337265 5.51192826 25.7337265 11.0254318 27.9265256 8.27025532 30.1209 5.51192826 27.9265256 2.75675177">
+                                    </polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <div>
+                <button class="volver-pdp" onclick="window.history.back()">Volver</button>
+            </div>
+
+            <ol class="breadcrumb">
+                <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
+                    <li class="breadcrumb-item">
+                        <isif condition="${loopState.last}">
+                            <a href="${breadcrumbValue.url}" aria-current="page">
+                                ${breadcrumbValue.htmlValue}
+                            </a>
+                            <iselse>
+                                <a href="${breadcrumbValue.url}">
+                                    ${breadcrumbValue.htmlValue}
+                                </a>
+                        </isif>
+                    </li>
+                </isloop>
+            </ol>
+        </div>
+
+        <div class="main-pdp">
+            <!-- Product Images Carousel -->
+            <div class="galerry-pdp  justify-content-center">
+                <isinclude template="product/components/pdp/imageCarousel" />
+            </div>
+
+            <!-- desktop template  -->
+
+
+
+            <div class="select-pdp">
+                <div class="ref-section">
+                    <p class="ref-pdp"> REF
+                        <span class="product-id">
+                            <isprint value="${product.id}" />
+                        </span>
+                    </p>
+                    <img src="${URLUtils.staticURL('icons/share.svg')}" alt="icon envios">
+                    <img src="${URLUtils.staticURL('icons/fav.svg')}" alt="icon envios">
+                </div>
+
+                <div class="titulo-producto-section ">
+                    <h2 class="title-pdp">${product.productName}</h2>
+                </div>
+
+                <div class="review-producto-section">
+                    <isif condition="${!(product.productType === 'master' && product.customPDP === 'true')}">
+                        <!-- Product Rating -->
+                        <div class="ratings ">
+                            <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
+                            <isinclude template="product/components/productRating" />
+                        </div>
+                    </isif>
+                    <a class="review-pdp" id="productReview">34 Resenas</a>
+                </div>
+
+                <div class="precios-pdp">
+                    <!-- Prices -->
+                    <div class="prices current-price">
+                        <isset name="price" value="${product.price}" scope="page" />
+                        <isinclude template="product/components/pricing/main" />
+                    </div>
+                    <div class="main-price">
+                    </div>
+                    <span class="text-dv">|</span>
+                    <div class="d-flex ml-3">
+                        <span class="discount">Preventa</span>
+                        <span class="dis-price">$83.943</span>
+                    </div>
+                    <div>
+                        <iscomment> <i class="icon-information gray"></i> </iscomment>
+                        <span class="info-icon" title="This is some information">i</span>
+                        <iscomment> <span title="This is some information"><i class="fa fa-info-circle"></i></span>
+                        </iscomment>
+                    </div>
+                </div>
+
+                <div class="interses-cuotas-section">
+                    <p class="cuotas-meses "> <span> 0% de interés </span>en 3 cuotas de <span> $33.000/mes </span> </p>
+                    <iscomment>
+                        <isinclude template="product/components/promotions" />
+                    </iscomment>
+                    <div>
+                        <iscomment> <i class="icon-information gray"></i> </iscomment>
+                        <span class="info-icon" title="This is some information">i</span>
+                        <iscomment> <span title="This is some information"><i class="fa fa-info-circle"></i></span>
+                        </iscomment>
+                    </div>
+                </div>
+
+                <div class="swatches-section">
+                    <isinclude template="product/components/mainAttributes" />
+                    <isset name="isBundle" value="${false}" scope="page" />
+                    <isset name="loopState" value="${{
+                                                   count: 1}}" scope="page" />
+
+
+                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                        <div class="row" data-attr="${attr.id}">
+                            <div class="col-12">
+                                <isinclude template="product/components/pdp/variationAttribute" />
+                            </div>
+                        </div>
+                    </isloop>
+                </div>
+
+                <hr class="mb-2 mb-hide-line">
+
+                <div class="agregar-section dk-show">
+                    <label
+                        for="quantity-${loopState && loopState.count ? loopState.count : '1'}">${Resource.msg('label.quantity', 'common', null)}</label>
+                    <select class="quantity-select custom-select form-control select-talla"
+                        id="quantity-${loopState && loopState.count ? loopState.count : '1'}">
+                        <isloop items="${product.quantities}" var="quantity">
+                            <option value="${quantity.value}" <isif condition="${product.productType !== 'bundle'}">
+                                data-url="${quantity.url}"</isif>
+                                ${quantity.selected ? 'selected' : ''}
+                                >
+                                ${quantity.value}
+                            </option>
+                        </isloop>
+                    </select>
+                    <div class="row cart-and-ipay">
+                        <div class="col-sm-12">
+                            <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+                            <button class="add-to-cart btn agregar-pdp" data-toggle="modal"
+                                data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+
+                                ${Resource.msg('button.addtocart', 'common', null)}
+                            </button>
+                            <isinclude template="product/components/addToCartButtonExtension" />
+                        </div>
+                    </div>
+                    <button class="add-to-cart-comprar-pdp">COMPRAR AHORA</button>
+                    <a style="display:none;" class="normal" href="${URLUtils.https('Cart-Show')}" id="cartShowUrl">
+                    </a>
+                </div>
+
+                <div class="envio-devoluciones-section">
+                    <div class="envios-text-pdp"> <img src="${URLUtils.staticURL('icons/envios1.svg')}"
+                            alt="icon envios">
+                        <p> Envío gratuito. Compras superiores a $130.00. Aplican TyC</p>
+                    </div>
+                    <div class="envios-text-pdp"> <img src="${URLUtils.staticURL('icons/envios-Express.png')}" alt="">
+                        <p>Envío express. En Bogotá recibe tu pedido en 24H. Aplica TyC </p>
+                    </div>
+                    <div class="envios-text-pdp"> <img src="${URLUtils.staticURL('icons/compra-segura.svg')}" alt="">
+                        <p>Devoluciones gratuitas. Consulta los Términos y Condiciones</p>
+                    </div>
+                </div>
+
+                <div class="description-characteristics-section ">
+                    <div class="description-pdp">
+                        <isinclude template="components/pdp-modal/modalsPDP" />
+                    </div>
+                    <div class="characteristics-pdp">
+                        <isinclude template="components/pdp-modal/characteristicsPDP" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="agregar-section mb-show">
+                <label
+                    for="quantity-${loopState && loopState.count ? loopState.count : '1'}">${Resource.msg('label.quantity', 'common', null)}</label>
+                <select class="quantity-select custom-select form-control select-talla"
+                    id="quantity-${loopState && loopState.count ? loopState.count : '1'}">
+                    <isloop items="${product.quantities}" var="quantity">
+                        <option value="${quantity.value}" <isif condition="${product.productType !== 'bundle'}">
+                            data-url="${quantity.url}"</isif>
+                            ${quantity.selected ? 'selected' : ''}
+                            >
+                            ${quantity.value}
+                        </option>
+                    </isloop>
+                </select>
+                <div class="row cart-and-ipay">
+                    <div class="col-sm-12">
+                        <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+                        <button class="add-to-cart btn agregar-pdp" data-toggle="modal"
+                            data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+
+                            ${Resource.msg('button.addtocart', 'common', null)}
+                        </button>
+                        <isinclude template="product/components/addToCartButtonExtension" />
+                    </div>
+                </div>
+                <button class="comprar-pdp">COMPRAR AHORA</button>
+            </div>
+
+            <!-- Mobile templarte  -->
+            <div class="select-menu-mobile-pdp">
+
+                <div class="etiquetas-mobile">
+                    <img src="./images/tag1.png" alt="" class="tag1">
+                    <img src="./images/tag2.png" alt="" class="tag2">
+                </div>
+
+                <div class="titulo-producto-section-mobile ">
+                    <h2 class="title-pdp-mobile">${product.productName}</h2>
+                </div>
+
+                <div class="ref-section-mobile">
+                    <p class="ref-pdp-mobile"> REF
+                        <span class="product-id">
+                            <isprint value="${product.id}" />
+                        </span>
+                    </p>
+                </div>
+
+                <div class="precios-pdp-mobile">
+                    <isset name="price" value="${product.price}" scope="page" />
+                    <isinclude template="product/components/pricing/main" />
+                </div>
+
+                <div class="interses-cuotas-section-mobile">
+                    <p class="cuotas-meses-mobile "> <span> 0% de interés </span>en 3 cuotas de <span> $33.000/mes
+                        </span> </p>
+                </div>
+
+                <div class="description-characteristics-section-mobile">
+                    <div class="separator"></div>
+                    <div class="description-mobile-pdp">
+                        <isinclude template="components/pdp-modal-mobile/descriptionPDP-mobile" />
+                    </div>
+                    <div class="separator"></div>
+                    <div class="characteristics-mobile-pdp">
+                        <isinclude template="components/pdp-modal-mobile/characteristicsPDP-mobile" />
+                    </div>
+                    <div class="separator"></div>
+                </div>
+
+                <div class="envio-devoluciones-section-mobile">
+                    <div class="envios-text-pdp-mobile"> <img src="${URLUtils.staticURL('icons/envios1.svg')}"
+                            alt="icon envios">
+                        <p> Envío gratuito. Compras superiores a $130.00. Aplican TyC</p>
+                    </div>
+                    <div class="envios-text-pdp-mobile"> <img src="${URLUtils.staticURL('icons/envios-Express.png')}"
+                            alt="">
+                        <p>Envío express. En Bogotá recibe tu pedido en 24H. Aplica TyC </p>
+                    </div>
+                    <div class="envios-text-pdp-mobile"> <img src="${URLUtils.staticURL('icons/compra-segura.svg')}"
+                            alt="">
+                        <p>Devoluciones gratuitas. Consulta los Términos y Condiciones</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="product-image-view" style="display:none;">
+                <div class="img-view-box">
+                    <button class="popup-close-btn"><span>+</span></button>
+                    <div class="img-thumb">
+                        <a href="" class="thumb-image-box"><img
+                                src="https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/ZYDB_004/on/demandware.static/-/Sites-storefront_catalog_pat/default/dw293d91f0/images/hi-res//NOVIEMBRE/Nov11/14080125-79011_1.jpg?sw=680&amp;sh=680"
+                                alt=""></a>
+                        <a href="" class="thumb-image-box"><img
+                                src="https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/ZYDB_004/on/demandware.static/-/Sites-storefront_catalog_pat/default/dw293d91f0/images/hi-res//NOVIEMBRE/Nov11/14080125-79011_1.jpg?sw=680&amp;sh=680"
+                                alt=""></a>
+                        <a href="" class="thumb-image-box"><img
+                                src="https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/ZYDB_004/on/demandware.static/-/Sites-storefront_catalog_pat/default/dw293d91f0/images/hi-res//NOVIEMBRE/Nov11/14080125-79011_1.jpg?sw=680&amp;sh=680"
+                                alt=""></a>
+                        <a href="" class="thumb-image-box"><img
+                                src="https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/ZYDB_004/on/demandware.static/-/Sites-storefront_catalog_pat/default/dw293d91f0/images/hi-res//NOVIEMBRE/Nov11/14080125-79011_1.jpg?sw=680&amp;sh=680"
+                                alt=""></a>
+                        <a href="" class="thumb-image-box"><img
+                                src="https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/ZYDB_004/on/demandware.static/-/Sites-storefront_catalog_pat/default/dw293d91f0/images/hi-res//NOVIEMBRE/Nov11/14080125-79011_1.jpg?sw=680&amp;sh=680"
+                                alt=""></a>
+                    </div>
+                    <div class="img-popup-view"><img
+                            src="https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/ZYDB_004/on/demandware.static/-/Sites-storefront_catalog_pat/default/dw293d91f0/images/hi-res//NOVIEMBRE/Nov11/14080125-79011_1.jpg?sw=680&amp;sh=680"
+                            alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </isobject>
+
+
+    <isslot id="pdp-completa-tu-look" description="Product Details Page" context="global" />
+
+    <isslot id="pdp-esto-podria-interesarte" description="Product Details Page" context="global" />
+
+    <isslot id="visto-reciente" description="Product Details Page" context="global" />
+
+
+    <section class="Review-main-section" id="scrollBottom">
+        <div class="review-articulo-section">
+            <h3 id="reviewSection" class="titulo-review-articulo">Resenas del artículo</h3>
+
+
+            <div class="stars-articulo">
+                <isif condition="${!(product.productType === 'master' && product.customPDP === 'true')}">
+                    <!-- Product Rating -->
+                    <div class="ratings">
+                        <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
+                        <isinclude template="product/components/productRating" />
+                    </div>
+                </isif>
+            </div>
+
+            <div class="calificacion-review">
+                <p class="numero">3.5 / 5.0</p>
+                <p class="basado-opiniones "> Basado en 15 opioniones </p>
+            </div>
+            <div class="estrellas-review estrellas5">
+                <p class="num-de-estrella">5 estrellas</p>
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <p class="total-estrella">10</p>
+            </div>
+            <div class="estrellas-review estrellas4">
+                <p class="num-de-estrella">4 estrellas</p>
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraStar.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <p class="total-estrella">5</p>
+            </div>
+            <div class="estrellas-review estrellas3">
+                <p class="num-de-estrella">3 estrellas</p>
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <p class="total-estrella">0</p>
+            </div>
+            <div class="estrellas-review estrellas2">
+                <p class="num-de-estrella">2 estrellas</p>
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <p class="total-estrella">0</p>
+            </div>
+            <div class="estrellas-review estrellas1">
+                <p class="num-de-estrella">1 estrella</p>
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <img src="${URLUtils.staticURL('icons/barraEmpty.svg')}" alt="">
+                <p class="total-estrella">0</p>
+            </div>
+        </div>
+        <div class="review-comentarios-section">
+            <div class="comentario-review">
+                <div class="titulo-comentario">Me encantó! </div>
+                <div class="raiting-estrellas">
+                    <isif condition="${!(product.productType === 'master' && product.customPDP === 'true')}">
+                        <!-- Product Rating -->
+                        <div class="ratings">
+                            <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
+                            <isinclude template="product/components/productRating" />
+                        </div>
+                    </isif>
+                </div>
+                <div class="comentario-text"> Me encanta como luce, se puede combinar con un atuendo formal o casual. La
+                    tela es de excelente calidad, la he metido a la lavadora y no le ha pasado nada. Es para un clima
+                    templado, y muy práctica para cuando hace mucho viento o llueve. </div>
+                <div class="autor-comentario">
+                    <p class="name-autor">Juana de Arco </p>
+                    <p class="div-autor">|</p>
+                    <p class="fecha-comentario">04/06/2022 </p>
+                    <p class="div-autor">|</p>
+                    <p class="dias-comprado">Comprado hace 34 días </p>
+                </div>
+                <div class="feedback-review">
+                    <p class="fb-rv">¿Te resultó últi este comentario?</p>
+                    <svg width="14px" height="15px" viewBox="0 0 14 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>7C0A3130-E1E5-447D-9196-54DDE8BA6954</title>
+                        <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Int-prod" transform="translate(-668.000000, -3236.000000)" fill="#999999"
+                                fill-rule="nonzero">
+                                <g id="Group-19" transform="translate(34.000000, 3058.000000)">
+                                    <g id="Group-14" transform="translate(413.000000, 11.393803)">
+                                        <g id="Group-10" transform="translate(0.000000, 165.000000)">
+                                            <g id="Group" transform="translate(221.000000, 2.000000)">
+                                                <path
+                                                    d="M13.5804375,7.81164453 C13.8518789,7.45962109 14,7 14,6.43857813 C14,5.40842969 13.1230039,4.45421484 12.0113711,4.45421484 L10.093207,4.45421484 C10.3316445,3.97930859 10.6590859,3.39024219 10.6590859,2.54515625 C10.6591133,0.9480625 10.0219766,0 8.39207031,0 C7.57189453,0 7.26753125,1.03682031 7.11158984,1.83826563 C7.01842969,2.31708203 6.93041016,2.769375 6.65973438,3.04005078 C6.01524219,3.68457031 5.03125,5.25 4.44013281,5.56787109 C4.38027734,5.59308203 4.30379688,5.61293359 4.22050781,5.62865625 C4.06265234,5.39995313 3.79889453,5.25 3.5,5.25 L0.875,5.25 C0.391753906,5.25 0,5.64175391 0,6.125 L0,13.125 C0,13.6082461 0.391753906,14 0.875,14 L3.5,14 C3.98324609,14 4.375,13.6082461 4.375,13.125 L4.375,12.8860156 C5.26353516,12.8860156 7.12816016,14.0001914 9.22728516,13.9996172 C9.3778125,13.9996992 10.2567773,14.0004375 10.3487344,13.9996172 C11.9697266,14 12.871332,13.018332 12.818832,11.5443398 C13.2324609,11.0596172 13.4351328,10.3593438 13.3171719,9.7094375 C13.6577656,9.17552344 13.7307734,8.42236719 13.5804375,7.81164453 Z M0.875,13.125 L0.875,6.125 L3.5,6.125 L3.5,13.125 L0.875,13.125 Z M12.4692148,7.5565 C12.90625,7.875 12.90625,9.1875 12.3158984,9.48874609 C12.6856406,10.1110898 12.3528672,10.9438711 11.905332,11.1839492 C12.1320938,12.6205898 11.3868672,13.114582 10.3409414,13.1246445 C10.2503789,13.1254648 9.32246875,13.1246445 9.2273125,13.1246445 C7.23316016,13.1246445 5.54296094,12.0110156 4.37502734,12.0110156 L4.37502734,6.44287109 C5.40610547,6.44287109 6.35211719,4.58516406 7.27846875,3.65878516 C8.11368359,2.82357031 7.83526953,1.43152734 8.39209766,0.874726563 C9.78414063,0.874726563 9.78414063,1.84589453 9.78414063,2.54518359 C9.78414063,3.69878906 8.94892578,4.21561328 8.94892578,5.32924219 L12.0113984,5.32924219 C12.6329219,5.32924219 13.122293,5.88607031 13.1250519,6.44287109 C13.1277344,6.99967187 12.90625,7.4375 12.4692148,7.5565 Z M2.84375,11.8125 C2.84375,12.1749414 2.54994141,12.46875 2.1875,12.46875 C1.82505859,12.46875 1.53125,12.1749414 1.53125,11.8125 C1.53125,11.4500586 1.82505859,11.15625 2.1875,11.15625 C2.54994141,11.15625 2.84375,11.4500586 2.84375,11.8125 Z"
+                                                    id="Shape"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="count-review">(3)</span>
+                    <svg width="14px" height="15px" viewBox="0 0 14 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>5A3AA484-4E94-414A-9D26-DFE05D793F3F</title>
+                        <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Int-prod" transform="translate(-720.000000, -3236.000000)" fill="#999999"
+                                fill-rule="nonzero">
+                                <g id="Group-19" transform="translate(34.000000, 3058.000000)">
+                                    <g id="Group-14" transform="translate(413.000000, 11.393803)">
+                                        <g id="Group-10" transform="translate(0.000000, 165.000000)">
+                                            <g id="Group-Copy-3"
+                                                transform="translate(280.000000, 9.000000) scale(1, -1) translate(-280.000000, -9.000000) translate(273.000000, 2.000000)">
+                                                <path
+                                                    d="M13.5804375,7.81164453 C13.8518789,7.45962109 14,7 14,6.43857813 C14,5.40842969 13.1230039,4.45421484 12.0113711,4.45421484 L10.093207,4.45421484 C10.3316445,3.97930859 10.6590859,3.39024219 10.6590859,2.54515625 C10.6591133,0.9480625 10.0219766,0 8.39207031,0 C7.57189453,0 7.26753125,1.03682031 7.11158984,1.83826563 C7.01842969,2.31708203 6.93041016,2.769375 6.65973438,3.04005078 C6.01524219,3.68457031 5.03125,5.25 4.44013281,5.56787109 C4.38027734,5.59308203 4.30379688,5.61293359 4.22050781,5.62865625 C4.06265234,5.39995313 3.79889453,5.25 3.5,5.25 L0.875,5.25 C0.391753906,5.25 0,5.64175391 0,6.125 L0,13.125 C0,13.6082461 0.391753906,14 0.875,14 L3.5,14 C3.98324609,14 4.375,13.6082461 4.375,13.125 L4.375,12.8860156 C5.26353516,12.8860156 7.12816016,14.0001914 9.22728516,13.9996172 C9.3778125,13.9996992 10.2567773,14.0004375 10.3487344,13.9996172 C11.9697266,14 12.871332,13.018332 12.818832,11.5443398 C13.2324609,11.0596172 13.4351328,10.3593438 13.3171719,9.7094375 C13.6577656,9.17552344 13.7307734,8.42236719 13.5804375,7.81164453 Z M0.875,13.125 L0.875,6.125 L3.5,6.125 L3.5,13.125 L0.875,13.125 Z M12.4692148,7.5565 C12.90625,7.875 12.90625,9.1875 12.3158984,9.48874609 C12.6856406,10.1110898 12.3528672,10.9438711 11.905332,11.1839492 C12.1320938,12.6205898 11.3868672,13.114582 10.3409414,13.1246445 C10.2503789,13.1254648 9.32246875,13.1246445 9.2273125,13.1246445 C7.23316016,13.1246445 5.54296094,12.0110156 4.37502734,12.0110156 L4.37502734,6.44287109 C5.40610547,6.44287109 6.35211719,4.58516406 7.27846875,3.65878516 C8.11368359,2.82357031 7.83526953,1.43152734 8.39209766,0.874726563 C9.78414063,0.874726563 9.78414063,1.84589453 9.78414063,2.54518359 C9.78414063,3.69878906 8.94892578,4.21561328 8.94892578,5.32924219 L12.0113984,5.32924219 C12.6329219,5.32924219 13.122293,5.88607031 13.1250519,6.44287109 C13.1277344,6.99967187 12.90625,7.4375 12.4692148,7.5565 Z M2.84375,11.8125 C2.84375,12.1749414 2.54994141,12.46875 2.1875,12.46875 C1.82505859,12.46875 1.53125,12.1749414 1.53125,11.8125 C1.53125,11.4500586 1.82505859,11.15625 2.1875,11.15625 C2.54994141,11.15625 2.84375,11.4500586 2.84375,11.8125 Z"
+                                                    id="Shape"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="count-review">(0)</span>
+                </div>
+
+            </div>
+
+            <div class="comentario-review">
+                <div class="titulo-comentario">Buena relación calidad - precio </div>
+                <div class="raiting-estrellas">
+                    <isif condition="${!(product.productType === 'master' && product.customPDP === 'true')}">
+                        <!-- Product Rating -->
+                        <div class="ratings">
+                            <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
+                            <isinclude template="product/components/productRating" />
+                        </div>
+                    </isif>
+                </div>
+                <div class="comentario-text"> La prenda viene tal como se ve en la imagen, hace muy bonita silueta.
+                    Definitivamente no es para clima frío, mas bien templado. tiene uno bolsillos muy prácticos. </div>
+                <div class="autor-comentario">
+                    <p class="name-autor">Lorena López</p>
+                    <p class="div-autor">|</p>
+                    <p class="fecha-comentario">24/05/2022</p>
+                    <p class="div-autor">|</p>
+                    <p class="dias-comprado">Comprado hace 45 días </p>
+                </div>
+                <div class="feedback-review">
+                    <p>¿Te resultó últi este comentario?</p>
+                    <svg width="14px" height="15px" viewBox="0 0 14 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>7C0A3130-E1E5-447D-9196-54DDE8BA6954</title>
+                        <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Int-prod" transform="translate(-668.000000, -3236.000000)" fill="#999999"
+                                fill-rule="nonzero">
+                                <g id="Group-19" transform="translate(34.000000, 3058.000000)">
+                                    <g id="Group-14" transform="translate(413.000000, 11.393803)">
+                                        <g id="Group-10" transform="translate(0.000000, 165.000000)">
+                                            <g id="Group" transform="translate(221.000000, 2.000000)">
+                                                <path
+                                                    d="M13.5804375,7.81164453 C13.8518789,7.45962109 14,7 14,6.43857813 C14,5.40842969 13.1230039,4.45421484 12.0113711,4.45421484 L10.093207,4.45421484 C10.3316445,3.97930859 10.6590859,3.39024219 10.6590859,2.54515625 C10.6591133,0.9480625 10.0219766,0 8.39207031,0 C7.57189453,0 7.26753125,1.03682031 7.11158984,1.83826563 C7.01842969,2.31708203 6.93041016,2.769375 6.65973438,3.04005078 C6.01524219,3.68457031 5.03125,5.25 4.44013281,5.56787109 C4.38027734,5.59308203 4.30379688,5.61293359 4.22050781,5.62865625 C4.06265234,5.39995313 3.79889453,5.25 3.5,5.25 L0.875,5.25 C0.391753906,5.25 0,5.64175391 0,6.125 L0,13.125 C0,13.6082461 0.391753906,14 0.875,14 L3.5,14 C3.98324609,14 4.375,13.6082461 4.375,13.125 L4.375,12.8860156 C5.26353516,12.8860156 7.12816016,14.0001914 9.22728516,13.9996172 C9.3778125,13.9996992 10.2567773,14.0004375 10.3487344,13.9996172 C11.9697266,14 12.871332,13.018332 12.818832,11.5443398 C13.2324609,11.0596172 13.4351328,10.3593438 13.3171719,9.7094375 C13.6577656,9.17552344 13.7307734,8.42236719 13.5804375,7.81164453 Z M0.875,13.125 L0.875,6.125 L3.5,6.125 L3.5,13.125 L0.875,13.125 Z M12.4692148,7.5565 C12.90625,7.875 12.90625,9.1875 12.3158984,9.48874609 C12.6856406,10.1110898 12.3528672,10.9438711 11.905332,11.1839492 C12.1320938,12.6205898 11.3868672,13.114582 10.3409414,13.1246445 C10.2503789,13.1254648 9.32246875,13.1246445 9.2273125,13.1246445 C7.23316016,13.1246445 5.54296094,12.0110156 4.37502734,12.0110156 L4.37502734,6.44287109 C5.40610547,6.44287109 6.35211719,4.58516406 7.27846875,3.65878516 C8.11368359,2.82357031 7.83526953,1.43152734 8.39209766,0.874726563 C9.78414063,0.874726563 9.78414063,1.84589453 9.78414063,2.54518359 C9.78414063,3.69878906 8.94892578,4.21561328 8.94892578,5.32924219 L12.0113984,5.32924219 C12.6329219,5.32924219 13.122293,5.88607031 13.1250519,6.44287109 C13.1277344,6.99967187 12.90625,7.4375 12.4692148,7.5565 Z M2.84375,11.8125 C2.84375,12.1749414 2.54994141,12.46875 2.1875,12.46875 C1.82505859,12.46875 1.53125,12.1749414 1.53125,11.8125 C1.53125,11.4500586 1.82505859,11.15625 2.1875,11.15625 C2.54994141,11.15625 2.84375,11.4500586 2.84375,11.8125 Z"
+                                                    id="Shape"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="count-review">(3)</span>
+                    <svg width="14px" height="15px" viewBox="0 0 14 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>5A3AA484-4E94-414A-9D26-DFE05D793F3F</title>
+                        <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Int-prod" transform="translate(-720.000000, -3236.000000)" fill="#999999"
+                                fill-rule="nonzero">
+                                <g id="Group-19" transform="translate(34.000000, 3058.000000)">
+                                    <g id="Group-14" transform="translate(413.000000, 11.393803)">
+                                        <g id="Group-10" transform="translate(0.000000, 165.000000)">
+                                            <g id="Group-Copy-3"
+                                                transform="translate(280.000000, 9.000000) scale(1, -1) translate(-280.000000, -9.000000) translate(273.000000, 2.000000)">
+                                                <path
+                                                    d="M13.5804375,7.81164453 C13.8518789,7.45962109 14,7 14,6.43857813 C14,5.40842969 13.1230039,4.45421484 12.0113711,4.45421484 L10.093207,4.45421484 C10.3316445,3.97930859 10.6590859,3.39024219 10.6590859,2.54515625 C10.6591133,0.9480625 10.0219766,0 8.39207031,0 C7.57189453,0 7.26753125,1.03682031 7.11158984,1.83826563 C7.01842969,2.31708203 6.93041016,2.769375 6.65973438,3.04005078 C6.01524219,3.68457031 5.03125,5.25 4.44013281,5.56787109 C4.38027734,5.59308203 4.30379688,5.61293359 4.22050781,5.62865625 C4.06265234,5.39995313 3.79889453,5.25 3.5,5.25 L0.875,5.25 C0.391753906,5.25 0,5.64175391 0,6.125 L0,13.125 C0,13.6082461 0.391753906,14 0.875,14 L3.5,14 C3.98324609,14 4.375,13.6082461 4.375,13.125 L4.375,12.8860156 C5.26353516,12.8860156 7.12816016,14.0001914 9.22728516,13.9996172 C9.3778125,13.9996992 10.2567773,14.0004375 10.3487344,13.9996172 C11.9697266,14 12.871332,13.018332 12.818832,11.5443398 C13.2324609,11.0596172 13.4351328,10.3593438 13.3171719,9.7094375 C13.6577656,9.17552344 13.7307734,8.42236719 13.5804375,7.81164453 Z M0.875,13.125 L0.875,6.125 L3.5,6.125 L3.5,13.125 L0.875,13.125 Z M12.4692148,7.5565 C12.90625,7.875 12.90625,9.1875 12.3158984,9.48874609 C12.6856406,10.1110898 12.3528672,10.9438711 11.905332,11.1839492 C12.1320938,12.6205898 11.3868672,13.114582 10.3409414,13.1246445 C10.2503789,13.1254648 9.32246875,13.1246445 9.2273125,13.1246445 C7.23316016,13.1246445 5.54296094,12.0110156 4.37502734,12.0110156 L4.37502734,6.44287109 C5.40610547,6.44287109 6.35211719,4.58516406 7.27846875,3.65878516 C8.11368359,2.82357031 7.83526953,1.43152734 8.39209766,0.874726563 C9.78414063,0.874726563 9.78414063,1.84589453 9.78414063,2.54518359 C9.78414063,3.69878906 8.94892578,4.21561328 8.94892578,5.32924219 L12.0113984,5.32924219 C12.6329219,5.32924219 13.122293,5.88607031 13.1250519,6.44287109 C13.1277344,6.99967187 12.90625,7.4375 12.4692148,7.5565 Z M2.84375,11.8125 C2.84375,12.1749414 2.54994141,12.46875 2.1875,12.46875 C1.82505859,12.46875 1.53125,12.1749414 1.53125,11.8125 C1.53125,11.4500586 1.82505859,11.15625 2.1875,11.15625 C2.54994141,11.15625 2.84375,11.4500586 2.84375,11.8125 Z"
+                                                    id="Shape"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="count-review">(0)</span>
+                </div>
+
+            </div>
+            <div class="mas-review"> Ver más resenas</div>
+        </div>
+
+    </section>
+    <div class="mobile-section">
+        <div class="mb-product-title">
+            <div class="product-title">${product.productName}</div>
+            <div class="price">${product.price.sales.formatted}</div>
+        </div>
+        <div class="d-flex justify-content-between mb-product-info">
+                <div class="top-pd-color-list">
+                    <isloop items="${product.variationAttributes[0].values}" var="colorAttr" status="attributeStatus">
+                        <isif condition="${colorAttr.selected}">
+                            <isset name="mobileselectedColor" value="${colorAttr.value.toLowerCase()}" scope="page" />
+                        </isif>
+                    </isloop>
+
+                    <button id="mobileColorSelectEnable" class="color-view">
+                        <span class="selected-cl swatch-filter-editProductCart-${mobileselectedColor}" data-attr="mobile-selected-color" data-selected-color="color-container"></span>
+                    </button>
+                    <div class="color-listview">
+                        <ul class="mobile-color-attr-list">
+                            <isloop items="${product.variationAttributes[0].values}" var="colorAttr"
+                                status="attributeStatus">
+                                <li class="mobile-color-attr-item" data-url="${colorAttr.url}" ${colorAttr.selectable ? 'selectable' : 'disabled'}>
+                                    <span class="color-list-item selected-cl swatch-filter-editProductCart-${colorAttr.value.toLowerCase()}"></span>
+                                </li>
+                            </isloop>
+                        </ul>
+                    </div>
+                </div>                
+
+
+            <div class="size-quantities">
+                <div class="size-quantity">
+                    <select class="custom-select form-control select-${product.variationAttributes[1].id} p-0"
+                        id="selectMobileSize" ${product.productType === "variant" && isBundle ? "disabled" : ""}>
+                        <isloop items="${product.variationAttributes[1].values}" var="sizeAttr"
+                            status="sizeAttributeStatus">
+                            <isif condition="${sizeAttr.displayValue != 'Default'}">
+                                <option value="${sizeAttr.url}" data-attr-value="${sizeAttr.value}" ${sizeAttr.selected ? 'selected' : ''} ${!sizeAttr.url ? 'disabled' : ''}
+                                    class="RedHatDisplayFont ${!sizeAttr.url ? 'unavailable' : ''}mr-2" ${colorAttr.selectable ? 'selectable' : 'disabled'}>
+                                    ${sizeAttr.displayValue}</option>
+                            </isif>
+                        </isloop>
+                    </select>
+                </div>
+            </div>
+            <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+            <button class="add-to-cart btn agregar-pdp" data-toggle="modal" id="buy-now"
+                data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                ${Resource.msg('button.addtocart', 'common', null)}
+            </button>
+        </div>
+    </div>
+    <section>
+        <isslot id="other-categories" description="Product Details Page" context="global" />
+    </section>
+
+
+
+</isdecorate>
+
+
+
+<script>
+    const mobileDiv = document.querySelector(".select-menu-mobile-pdp");
+    const galleria = document.querySelector(".galerry-pdp");
+    const selectPdp = document.querySelector(".select-pdp");
+    let lastKnownScrollPosition = 0;
+    let active_slide = false;
+
+    document.addEventListener("scroll", function () {
+        lastKnownScrollPosition = window.scrollY;
+        var x = window.matchMedia("(max-width: 700px)");
+        if (x.matches) {
+            if (lastKnownScrollPosition > 100) {
+                active_slide = true;
+                mobileDiv.classList.add("main-mobile-active");
+                galleria.classList.add("main-mobile-active-gallery");
+                selectPdp.classList.add("main-mobile-active-select");
+            } else {
+                active_slide = false;
+                mobileDiv.classList.remove("main-mobile-active");
+                galleria.classList.remove("main-mobile-active-gallery");
+                selectPdp.classList.remove("main-mobile-active-select");
+            }
+        }
+
+        // if (active_slide = true){
+        //     mobileDiv.classList.add("main-mobile-active");
+        // }
+        // else{
+        //     mobileDiv.classList.remove("main-mobile-active");
+        // }
+
+    });
+
+    window.addEventListener('DOMContentLoaded', function () {
+        $('#productReview').click(function () {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#reviewSection").offset().top - 300
+            }, 0)
+        });
+
+    });
+
+    window.onscroll = function () {
+        var overviewDiv = document.querySelector('.caja');
+        if (window.pageYOffset > 600) { 
+            overviewDiv.style.position = "fixed";
+            overviewDiv.style.display = "block";
+        } else {
+            overviewDiv.style.position = "absolute";
+            overviewDiv.style.display = "none";
+        }
+    };
+
+    // const zSelectedColor = document.getElementById("zIndexselectedColor");
+    // zSelectedColor.addEventListener("change", function () {
+    //     const selectedOption = this.options[this.selectedIndex];
+    //     const selectedValue = selectedOption.value;
+    //     var myElement = document.getElementById("spanColor");
+
+
+    //     myElement.classList.value = "";
+    //     myElement.classList.add("color-code");
+    //     myElement.classList.add("swatch-filter-editProductCart-" + selectedValue.toLowerCase());
+    // });
+
+
+
+</script>

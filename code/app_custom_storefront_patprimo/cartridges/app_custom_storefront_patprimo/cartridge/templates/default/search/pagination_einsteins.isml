@@ -1,0 +1,12 @@
+
+
+    <div class="col-md-12 col-12 recommendations-wrapper">
+        <div class="row">
+            <div class="col-md-12 col-12   recommendations-wrapper">
+        <isslot id="plp-recommendations-m-custom" description="Recommended products" context="global" />
+    </div>
+    <div class="col-md-12 col-12 recommendations-wrapper space-wrapper-second">
+        <isslot id="plp-recommendations-m-custom-2" description="Recommended products" context="global" />
+    </div>
+        </div>
+    </div>

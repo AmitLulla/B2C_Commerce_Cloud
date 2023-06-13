@@ -1,0 +1,16 @@
+@import "base/checkout/checkout";
+
+.info-pago-contra-entrega {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background: inherit;
+}
+
+// remove arrows numbers input (bootstrap)
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }

@@ -1,0 +1,13 @@
+<div class="mb-sm-3 d-flex justify-content-center mt-0">
+    <a href="${URLUtils.https('Checkout-Begin')}"
+        class="btn btn-block checkout-btn checkout-btn-custom ${pdict.valid.error ? 'disabled' : ''}" role="button">
+        ${Resource.msg('button.checkout-custom', 'cart', null)}
+    </a>
+</div>
+<div class="mb-sm-3 d-flex justify-content-center">
+    <a href="${URLUtils.https('Cart-Show')}"
+        class="link-to-more-products">
+        ${Resource.msg('button.more.products', 'cart', null)}
+    </a>
+</div>
+

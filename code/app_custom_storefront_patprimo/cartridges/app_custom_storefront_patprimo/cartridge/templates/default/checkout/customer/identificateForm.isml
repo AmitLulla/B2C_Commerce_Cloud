@@ -1,0 +1,26 @@
+
+<form id="formIdentificate"  novalidate class="<isif condition="${session.custom.showFormNotRegister}">d-none</isif>" data-action="${URLUtils.url('Login-Identificate')}">
+    <h4>${Resource.msg('enter.email', 'form', null)}</h4>
+    <iscomment> <input class="w-100" type="email" name="email" value="" placeholder="test@test.com">  </iscomment>
+
+    <div class="form-group required" >
+        <input class="w-100 input-style" required type="email" name="${pdict.forms.identificateForm.email.htmlName}" placeholder="*Correo electrónico"
+            <isprint value="${pdict.forms.identificateForm.email.attributes}" encoding="off" />> 
+            <div style="display:block" class="invalid-feedback"></div>
+    </div>
+
+    <div class="container-term-and-conditions row">
+        <div class="col-md-1 col-sm-2 col-2" >
+            <input type="checkbox" class="mycheck" name="${pdict.forms.identificateForm.agree.htmlName}"
+            <isprint value="${pdict.forms.identificateForm.agree.attributes}" encoding="off" />>
+        </div>
+        <!--<label for="cb1"></label>-->
+        <label style="display:initial;" for="checkbox" class="col-md-11 col-sm-10 col-10">${Resource.msg('terms.and.conditions', 'form', null)}</label>
+    </div>
+
+    <div data-submit-customer="${pdict.forms.identificateForm.email.value}" class="d-flex submit-customer-div justify-content-end container-btn row container-btn-register">
+        <button tabindex="10" onclick="location.href='${URLUtils.url('Cart-Show')}'" class="p-3 d-flex align-items-center justify-content-center volver-carrito col-md-3 co-12  order-1 order-sm-2 " type="button">${Resource.msg('btn.volver.carrito', 'checkout', null)}</button>
+        <button aria-label="${Resource.msg('identificate.tooltip.msj.btn', 'checkout', null)}" data-microtip-position="top" class="w-25 submit-form-global col-md-3 col-12 order-sm-first order-md-2" type="submit">${Resource.msg('continue', 'checkout', null)}</button>
+    </div>
+</form>
+<isinclude template="checkout/components/isRegisterModal" />

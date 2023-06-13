@@ -1,0 +1,20 @@
+<div class="modal fade" id="deleteAddressModal" tabindex="-1" role="dialog" aria-labelledby="deleteAddressModalTitle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header card-title delete-confirmation-header no-borde">
+                <h2 class="title azul-pat ml-3 pl-1" id="deleteAddressModalTitle" aria-label="${Resource.msg('aria.delete.address.dialog.title','address',null)}">${Resource.msg('heading.delete.address.confirmation.modal','address',null)}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="${Resource.msg('label.close.dialog.button','common',null)}"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body delete-confirmation-body text-secondary">
+                ${Resource.msg('msg.delete.address.confirmation.modal','address',null)}
+                <p class="product-to-remove font16-Azul mt-3"></p>
+            </div>
+            <div class="modal-footer no-borde">
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">${Resource.msg('button.cancel','address',null)}</button>
+                <button type="button" class="btn btn-outline-dark delete-confirmation-btn"
+                        data-dismiss="modal"
+                >${Resource.msg('button.confirm','address',null)}</button>
+            </div>
+        </div>
+    </div>
+</div>

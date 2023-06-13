@@ -1,0 +1,169 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');        
+        assets.addJs('/js/login.js');
+        assets.addJs('/js/loginCustom.js');
+        assets.addJs('/js/referidosRegistro.js');
+    </isscript>
+
+<iscomment> tempbuttons </iscomment>
+     <div class="float-right mobile-temp-buttons">
+
+        <script>
+            
+            function hideLogin() {
+
+                 $('.hide-login').addClass('d-none');
+                 $('.hide-tracking').removeClass('d-none');
+
+            }
+            function hideTracking() {
+
+                $('.hide-tracking').addClass('d-none');
+                $('.hide-login').removeClass('d-none');
+                
+            }
+        </script>
+
+       <button onclick="hideLogin()" type="">Login</button>
+       <button onclick="hideTracking()" type="">Rastreo</button>
+
+
+        
+     </div>
+<iscomment> tempbuttons </iscomment>
+  
+    <div class="container login-page">
+   
+        <div class="row justify-content-center equal-height">
+
+            <div class="col-sm-8 col-md-6 hide-tracking ">
+                <div class="card rectangle-login-card card-login">
+                    <div id="show-msj-error-not-found"></div>
+                     <div class="change-login container">
+
+                        <isinclude template="account/components/trackOrderFormLogin" />
+                        
+                     </div>
+                    
+
+                      <hr class="bg-transparent">
+
+                    <div class="container-ayuda  ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="custom-tit-js float-left container ml-3 title-login-mod">
+                                    ${Resource.msg('title.track.ayuda', 'login', null)}
+                                </p> 
+                            </div>
+                        </div>
+                            <div class="clase-mod-js-deck ">
+                                <div class="row container clase-mod-js-card ml-2 pl-2 pb-2">
+                                    <div class="custom-icon col-sm-1  justify-content-end minus-m">
+                                    <img class="lgo " src="https://cdn-icons-png.flaticon.com/512/3059/3059502.png" alt=""/>
+                                    </div>
+                                    <div class="ls col-md-10 ">
+                                        <t class="title-card-mobile">
+                                        ${Resource.msg('title.track.llamada', 'login', null)}
+                                        </t>
+                                        <br/> 
+                                        <p class="sub-title-login text-mobile mt-3">
+                                        ${Resource.msg('title.track.llamada.texto', 'login', null)}
+                                        </p>                            
+                                    </div>
+                                </div>
+                            <div class="row container clase-mod-js-card ml-2 pl-2 pb-2" >
+                                <div class="custom-icon col-sm-1  justify-content-end minus-m">
+                                <img class="lgo" src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" alt=""/>
+                                </div>
+                                <div class="ls col-md-10 ">
+
+                                    <t class="title-card-mobile">
+
+                                    ${Resource.msg('title.track.whats', 'login', null)}
+
+                                    </t>
+
+                                    <br/> 
+                                
+                                    <p class="sub-title-login text-mobile mt-3">
+                                    ${Resource.msg('title.track.whats.texto', 'login', null)} 
+                                    </p>                            
+                                </div>
+                                
+                            </div>
+                            <div class="row container clase-mod-js-card ml-2 pl-2 pb-2">
+                                <div class="custom-icon col-sm-1  justify-content-end minus-m">
+                                <img class="lgo " src="https://cdn-icons-png.flaticon.com/512/3059/3059502.png" alt=""/>
+                                </div>
+                                <div class="ls col-md-10">
+
+                                    <t class="title-card-mobile">
+
+                                    ${Resource.msg('title.track.llamada2', 'login', null)}
+
+                                    </t>
+
+                                    <br/> 
+                                
+                                    <p class="sub-title-login text-mobile mt-3">
+                                    ${Resource.msg('title.track.llamada2.texto1', 'login', null)}
+                                    <br> 
+                                    ${Resource.msg('title.track.llamada2.texto2', 'login', null)} 
+                                    <br>
+                                    ${Resource.msg('title.track.llamada2.texto3', 'login', null)} 
+                                    </p>                            
+                                </div>
+                                
+                            </div>
+                                
+                            </div>
+                      
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-6 container hide-login">
+                <div class="card card-border change-side card-login">
+                    <div class="card-body">
+                        <div class="login-form-nav">
+                            <isinclude template="account/components/navTabs" />
+                            <div class="tab-content">
+                                <div class="tab-pane ${pdict.navTabValue === 'login' ? 'active' : ''}" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                    <isinclude template="account/components/loginForm" />
+                                    
+                                <p class="mt-5 pt-5 "> <hr/>
+                                <div class="js-center sub-title-login">
+                                    
+                                    ${Resource.msg('title.other.login', 'login', null)}
+                                      
+                                      <td></td>
+                                      
+                                    <div class="justify-content-center">
+                                    <isinclude  template="account/components/oauthLogin" />
+                                    </div>
+                                     
+                                </div> 
+                                </p>
+                                  
+                                </div>
+                                <div class="tab-pane ${pdict.navTabValue === "register" ? 'active' : ''}" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                    <isinclude template="account/components/registerFormCustom" />
+                                </div>
+                                    
+                                <div class="tab-pane ${pdict.navTabValue === 'loginConfirm' ? 'active' : ''}" id="loginconfirm" role="tabpanel" aria-labelledby="loginconfirm-tab">
+                                    
+                                    <isinclude template="account/components/confirmLogin" />                                 
+                                    <isinclude template="account/password/requestPasswordResetModalLogin"/>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</isdecorate>

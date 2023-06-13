@@ -1,0 +1,18 @@
+<div class="wrapper-menu d-none d-md-block">
+    <button class="navbar-toggler" type="button" aria-controls="sg-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    <ul class="categories-genders">
+        <li gender="Mujer">
+            <a href="${URLUtils.url('Search-Show', 'cgid', 'P1000000')}">MUJER</a>
+        </li>
+        <li gender="Hombre">
+            <a href="${URLUtils.url('Search-Show', 'cgid', 'P2000000')}">HOMBRE</a>
+        </li>
+        <li gender="Infantil">
+            <a href="${URLUtils.url('Search-Show', 'cgid', '30000')}">INFANTIL</a>
+        </li>
+        <li gender="Ofertas">
+            <a href="${URLUtils.url('Search-Show', 'cgid', '40000')}">OFERTAS</a>
+        </li>
+    </ul>
+</div>

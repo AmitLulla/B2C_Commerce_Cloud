@@ -1,0 +1,24 @@
+<isdecorate template="common/layout/checkout">
+
+    <!----------------------------------------------------------------------------------->
+    <!-- Load Static Assets -->
+    <!----------------------------------------------------------------------------------->
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/socialSelling.js');
+        assets.addCss('/css/checkout/checkout.css');
+    </isscript> 
+    <isinclude template="resources/appresources" />
+    <div class="container">
+        <h1>Checkout Social Selling</h1>
+    </div>
+    <div class="row">
+        <div class="col-5 w-50" style="margin:25px">
+            <isinclude template="social/checkout/shipping/formGuest" />
+        </div>
+        <div class="col-5 w-50" style="margin:25px">
+            <isinclude template="social/checkout/shipping/formShippingPatPrimo" />
+        </div>
+        <isinclude template="components/modalSocialSelling" />
+    </div>
+    </isdecorate>

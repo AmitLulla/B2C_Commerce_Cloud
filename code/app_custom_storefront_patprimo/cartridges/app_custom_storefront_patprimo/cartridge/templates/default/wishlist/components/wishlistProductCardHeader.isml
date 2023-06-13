@@ -1,0 +1,6 @@
+<div class="line-item-header">
+    <!--- product name--->
+    <div class="line-item-name font14-Semi azul-pat">
+    ${item.name}
+    </div>
+</div>

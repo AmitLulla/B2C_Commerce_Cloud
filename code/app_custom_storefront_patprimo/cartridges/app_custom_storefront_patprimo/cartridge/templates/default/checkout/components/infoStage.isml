@@ -1,0 +1,19 @@
+<div id="datosContacto" class="shipping-section">
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" /> 
+    <h3 class="txt-instruction">${Resource.msg('confirm.your.data', 'checkout', null)}</h3>
+
+    <h4 class="txt-information">${Resource.msg('first.name', 'checkout', null)} ${pdict.name} <isif condition="${!session.customer.isAuthenticated()}">${pdict.lastNameMask}</isif></h4>
+
+    <h4 class="txt-information">${Resource.msg('email.label', 'checkout', null)} ${pdict.emailMask}</h4>
+
+
+    <h4 class="txt-information margin-phone">${Resource.msg('tel.label', 'checkout', null)} ${pdict.telMask}</h4>
+
+    <div class="d-none info-hide" data-get-address="${URLUtils.url('GetInfo-GetAddress')}" data-email="${pdict.email}" data-url="${URLUtils.url('CheckoutServices-SubmitCustomer')}"></div>
+    <!--<p>${Resource.msg('there.any.error', 'checkout', null)}</p> //investigar porque en en el zeplin no está-->
+    <a id="updateInfoUser" class="txt-url">${Resource.msg('update.info.user', 'checkout', null)}</a>
+    <div class="d-flex content-buttons">
+        <button class ="btn-continuar-to-shipping" type="">${Resource.msgf('continue.as', 'checkout', null,pdict.name)} </button>
+    <a class="order-1 order-sm-2 regresar-btn" href="${URLUtils.url('Login-Logout','checkoutPage',true)}">${Resource.msg('out.account', 'checkout', null)}</a>
+    </div>
+</div>

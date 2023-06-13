@@ -1,0 +1,33 @@
+<isscript>
+	var preferences = require('*/cartridge/config/preferences');
+
+    function getTotals(input) {
+    var redond = Math.round(input);
+    var num = redond;
+    if (!isNaN(num)) {
+        num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
+        num = num.split('').reverse().join('').replace(/^[\.]/, '');
+        return num;
+    }
+}
+</isscript>
+<!--- applicable credit cards--->
+<div class="tab-pane contra-entrega-card-content" id="contra-entrega-card-content" role="tabpanel">
+    <div class="top-fixed-card d-flex">
+        <p>${Resource.msg('label.payment.contra.pago','checkout', null)}</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> X </button>
+    </div>
+    <fieldset class="payment-form-fields">
+
+        <!--- payment method is credit card --->
+        <input type="hidden" class="form-control"
+               name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+               value="PAGO_CONTRA_ENTREGA">
+    </fieldset>
+    <isset name="totalContraEntrega" value="${(pdict.order.totals.grandTotalValue - pdict.totalGift)}" scope="page" />
+
+    <h3 class="txt-instructions">${Resource.msg('label.payment.contra.pago','checkout', null)}</h3>
+    <p>${Resource.msgf('text.compra.minima','checkout', null,getTotals(preferences.compraMinima))}</p>
+    <p>${Resource.msg('text.instruccion.compra.vs.entrega','checkout', null)} </p>
+    <p id="totalEntregaReplace" class="totalEntregaReplace">${Resource.msgf('label.total.contra.pago','checkout', null,totalContraEntrega.toFixed())} </p>
+</div>

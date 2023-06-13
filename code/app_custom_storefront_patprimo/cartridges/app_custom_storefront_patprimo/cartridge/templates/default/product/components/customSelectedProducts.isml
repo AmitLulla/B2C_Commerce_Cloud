@@ -1,0 +1,10 @@
+<!-- Selected Products and Quantities -->
+<div class="custom-price-total text-center">
+    Tienes&nbsp;<span id="custom-price-total">0</span>&nbsp;producto(s) seleccionado(s) 
+    </br> 
+    Total:&nbsp;<span id="custom-numberPrice-total">$0</span>
+</div>
+
+<div class="text-center" style="color: red; font-size: 20px; font-weight: 700;">
+    <span id="error_global"></span>
+</div>

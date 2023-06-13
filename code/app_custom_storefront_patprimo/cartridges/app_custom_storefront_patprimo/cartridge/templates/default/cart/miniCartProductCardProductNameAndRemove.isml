@@ -1,0 +1,44 @@
+<div class="row mb-2">
+    <div class="col-10 RedHatDisplayFont mt-3 text-truncate pl-0 fontSize14">
+        <span >${lineItem.productName}</span>
+    </div>
+    <isif condition="${!lineItem.isBonusProductLineItem}" />
+    <div class="col-2 remove-line-item mt-1 pr-0">
+        <button type="button" class="remove-btn remove-product btn btn-light" data-toggle="modal"
+            data-target="#removeProductModal" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+            data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
+            aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
+            <span aria-hidden="true"><img class="icons17x17"
+                    src="${URLUtils.staticURL('icons/emptyBin.svg')}" alt="great_choice_icon"></span>
+        </button>
+    </div>
+    </isif>
+</div>
+
+
+<div class="row d-flex mt-0 py-0" data-product-line-item="${lineItem.UUID}">
+    <div class="col-12 RedHatDisplayFont my-0 py-0">
+        <span class="d-inline-block  py-0 my-0 mr-2 line-item-attributes RedHatDisplayFont greyPatFont78 fontSize13 mr-1" >${Resource.msg('label.cart.talla','cart',null)}</span>
+        <span class="d-inline-block  py-0 my-0 mr-2 line-item-attributes RedHatDisplayFont greyPatFont78 fontSize13" >${lineItem.variationAttributes[1].displayValue}</span>
+                          
+    </div>
+</div>
+
+<div class="row d-flex align-items-end mt-0 pr-0 pt-3" data-product-line-item="${lineItem.UUID}">
+    <div class="col-6 RedHatDisplayFont mt-4 pl-0">
+        <isif condition=${miniCart}>
+            <isinclude template="checkout/productCard/productCardQuantitySelector" />
+            <iselse>
+                <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+        </isif>
+    </div>
+
+
+        <div class="col RedHatDisplayFont mt-3 pr-0">
+            <isif condition="${lineItem.price}">
+                
+                    <isset name="price" value="${lineItem.price}" scope="page" />
+                    <div class="bottomCol pricing textAzulPat fontSize14 item-total-${lineItem.UUID} mt-0 fontWeightBolderI">${lineItem.priceTotal.price}</div>
+            </isif>
+        </div>
+</div>

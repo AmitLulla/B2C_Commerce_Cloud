@@ -1,0 +1,3 @@
+<div class="line-item-name">
+    <span class="font-size-13 font-family-bold font-W600 azul-pat">${lineItem.productName}</span>
+</div>

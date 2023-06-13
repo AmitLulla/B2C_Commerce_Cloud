@@ -1,0 +1,92 @@
+<iscomment>
+
+    Template Notes:
+
+    - This template is intended to be referenced from an <isinclude> tag within an <isloop> in another
+            source template. The <isloop> is expected to have a "status" attribute, named "attributeStatus".
+                - ${attributeStatus.last} is checked to see whether a particular attribute row should include the
+                Quantity drop-down menu
+
+</iscomment>
+<style>
+    .size-option {
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: 0;
+        padding: 10px 0;
+        position: absolute;
+        transition: all 0.5s;
+        transform: translate3d(0, 50%, 0);
+        width: 100%;
+    }
+</style>
+
+<div class="attribute mt-0" id="colores">
+    <isif condition="${attr.swatchable}">
+
+        <!-- Select <Attribute> Label -->
+        <isloop items="${attr.values}" var="attrValue">
+            <isif condition="${attrValue.selected}">
+        <p class="RedHatDisplayFont fontSize14 greyPatFont83 mb-2 colorText colorName">${attrValue.displayValue}</p>
+        </isif>
+        </isloop>
+
+        <!-- Circular Swatch Image Attribute Values -->
+        <isloop items="${attr.values}" var="attrValue">
+
+            <isif condition="${!(isBundle && product.productType === 'variant' && !attrValue.selected)}">
+                <button class="color-attribute" style="outline: none; box-shadow: none;" ${attrValue.selected ? 'selected' : ''} ${attrValue.selectable ? 'selectable' : 'disabled'}
+                    aria-label="${Resource.msg('label.select', 'common', null)} ${attr.displayName} ${attrValue.displayValue}"
+                    aria-describedby="${attrValue.id}" data-url="${attrValue.url}" ${product.productType === "variant" && isBundle ? "disabled" : ""}>
+
+                    <span data-attr-value="${attrValue.value}"
+                        class="d-inline-block align-middle swatch-filter-editProductCart-${attrValue.displayValue.toLowerCase()} mr-1
+                            ${attr.id}-value
+                            swatch-circle-edit-${attrValue.displayValue.toLowerCase()}
+                            
+                            swatch-value
+                            ${attrValue.selected ? 'selected' : ''}
+                            ${attrValue.selectable ? 'selectable' : 'disabled'}"
+
+                    >
+                    </span>
+                    <span id="${attrValue.id}" class="sr-only selected-assistive-text">
+                        ${attrValue.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                    </span>
+                </button>
+            </isif>
+        </isloop>
+    <iselse/>
+    <hr class="mb-2" style="height: 1px; color: #e9e9e9">
+        <div class="row">
+            <div class="col-sm-8">
+                <!-- Select <Attribute> Label -->
+                <isloop items="${attr.values}" var="attrValue">
+                    <isif condition="${attrValue.selected}">
+                        <p class="RedHatDisplayFont fontSize14 greyPatFont83 mb-2 colorText sizeName">${attrValue.displayValue}</p>
+                    </isif>
+                </isloop>
+                <!--Seccion Tallas Select Oculto-->
+                <select class="custom-select form-control select-${attr.id} p-0 editProductSizes" id="selectEditPat"
+                    ${product.productType === "variant" && isBundle ? "disabled" : ""} multiple>
+                    <isloop items="${attr.values}" var="attrValue">
+                        <option value="${attrValue.url}" data-attr-value="${attrValue.value}" 
+                            ${attrValue.selected ? 'selected' : ''} ${!attrValue.url ? 'disabled' : ''} 
+                            class="RedHatDisplayFont ${!attrValue.url ? 'unavailable' : ''} mr-2">
+                            ${attrValue.displayValue}
+                        </option>
+                    </isloop>
+                </select>
+            </div>
+            <div class="col-sm-4 RedHatDisplayFont greyPatFont78 fontSize14 text-decoration-underline d-none d-lg-block">
+                <div class="float-right">
+                     <u>${Resource.msg('button.guia.tallas', 'common', null)} </u>
+                </div>
+            </div>
+        </div>
+    </isif>
+</div>

@@ -1,0 +1,10 @@
+<div class="RedHatDisplay">
+    <span class="starting">
+        ${Resource.msg('pricing', 'label.starting_from', null)}
+        <isif condition="${product.price.min}">
+            ${product.price.min.sales.formatted}
+        <iselse>
+            ${product.price.sales.formatted}
+        </isif>
+    </span>
+</div>

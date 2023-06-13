@@ -1,0 +1,47 @@
+<isloop items="${pdict.mercadoPagoCustomerCards}" var="card" status="loopSate">
+   
+
+
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 pl-0 add-margin-cards" id="uuid-${card.id}">
+        <div class="col-sm-8 col-md-6 ">
+            <div class="card card-account backgroundGray">
+                <!--- Customer cards --->
+                <div class="card-header text-end">
+                    <div class="row ${loopSate.first ? 'selected-payment' : ''} js-mp-customer-card"
+                    data-mp-customer-card="${card.id}" data-mp-method-id="${card.payment_method.id}">
+                        <div class="form-group required saved-credit-card-image text-left col-6 col-md-3">
+                            <isif condition="${card.payment_method.id === 'visa'}">
+                                <img class="" alt="" src="${URLUtils.staticURL('/images/card/visa.jpg')}" />
+                            <iselseif condition="${card.payment_method.id === 'master'}">
+                                <img class="" alt="" src="${URLUtils.staticURL('/images/card/mastercard.jpg')}" />
+                            <iselse/>
+                                <img class="card-image" alt="${card.payment_method.name}" src="${card.payment_method.secure_thumbnail}">
+                            </isif>                        
+                        </div>
+                        <div class="saved-payment-information col-6 col-md-9">
+                            <div class="saved-credit-card-type">
+                                <a href="" class="font14 gris-texto1 text-underline no-borde backgroundGray remove-payment" data-toggle="modal"
+                                    data-target="#deletePaymentModal" data-id="${card.id}" data-card="${card.last_four_digits}"
+                                    data-url="${pdict.actionUrl}"
+                                    aria-label="${Resource.msg('label.payment.deletepayment', 'payment', null)}">${Resource.msg('olvidar.tarjeta', 'payment', null)}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body card-body-positioning">                    
+                    <div class="saved-credit-card-type text-left">
+                        <span class="font16-Azul">${card.cardholder.name}</span>
+                    </div>
+                    <div class="saved-credit-card-number font22 text-left">
+                        <span class="font22">**** **** **** ${card.last_four_digits}</span>
+                    </div>
+                    <div class="saved-credit-card-expiration-date text-left">
+                        <span class="font16-Azul">${card.expiration_month}/${card.expiration_year}</span>
+                    </div>                   								
+                </div>
+            </div>
+        </div>
+    </div>
+</isloop>

@@ -1,0 +1,29 @@
+<div id="contentAddress">
+    <label class="desc-form-checkout-shipping">${Resource.msg('label.sent.instruction.one', 'checkout', null)}</label>
+    <div class="form-check section-shipping-radio section-shipping-radio-address">
+        <input disabled type="radio" name="selectAddress" value="recogerTienda" id="flexCheckChecked" />
+        <label class="form-check-label" for="flexCheckDefault">${Resource.msg('store.shipping', 'checkout', null)}</label>
+        <div id="recogerTienda"></div>
+    </div>
+     
+    <!-- Checked checkbox -->
+            <div class="shipping-error-custom"></div>
+
+    <div class="form-check section-shipping-radio section-shipping-radio-address">
+        <input type="radio" name="selectAddress" class="domicilio-seleccion" value="enviarDomicilio" id="flexCheckChecked" />
+        <label class="form-check-label" for="flexCheckChecked">${Resource.msg('address.shipping', 'checkout', null)}</label>
+        <div class="enviarDomicilio d-none">
+            <h5>${Resource.msg('selected.address', 'checkout', null)}</h5>
+        </div>
+    </div>
+
+    <div class="alert alert-danger d-none container" id="error-select-dir" role="alert">
+        
+        ${Resource.msg('radio.select.error', 'checkout', null)}
+  
+    </div>
+    <form class="shipping-address-form w-100" data-select-shipping-address-url="${URLUtils.https('CheckoutShippingServices-SelectShippingMethodDepartamento')}">
+        <div id="enviarDomicilio" class="container-enviarDomicilio">
+        </div>
+    </form>
+</div>

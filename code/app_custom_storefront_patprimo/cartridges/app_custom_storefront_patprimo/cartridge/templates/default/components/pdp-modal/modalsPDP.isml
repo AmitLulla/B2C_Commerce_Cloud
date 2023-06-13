@@ -1,0 +1,108 @@
+<div id="modalsPDP" style="z-index:999999" class="sideDC modal-main-wraper">
+<div class="modal-bg-wraper">
+<div class="modal-inner-wraper">
+    <div class="row">
+        <div class="col-md-12 background-pdp">
+            <div class="row modal-title-header">
+                <div>
+                    <svg width="31px" height="12px" viewBox="0 0 31 12" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        class="back-pdp" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>8A31A419-30EC-4D95-9CE9-7CBFEEBB8578</title>
+                        <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Int-prod-características" transform="translate(-861.000000, -28.000000)"
+                                fill="#000000">
+                                <g id="Group-3" transform="translate(861.000000, 23.000000)">
+                                    <g id="Iconos/Flecha"
+                                        transform="translate(15.060450, 10.512716) scale(-1, 1) translate(-15.060450, -10.512716) translate(-0.000000, 5.000000)">
+                                        <g id="Group" transform="translate(0.000000, 0.000000)">
+                                            <polygon id="Fill-1"
+                                                points="0 6.10313337 26.239551 6.10313337 26.239551 4.92166832 0 4.92166832">
+                                            </polygon>
+                                            <polygon id="Fill-2"
+                                                points="25.7337265 0 25.7337265 5.51192826 25.7337265 11.0254318 27.9265256 8.27025532 30.1209 5.51192826 27.9265256 2.75675177">
+                                            </polygon>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="backArrow-pdp back-pdp">Volver</span>
+                </div>
+
+                <div>
+                    <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        class="back-pdp" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>423FD9A7-E49D-4EB2-9CB5-885771D6FD5D</title>
+                        <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Int-prod-características" transform="translate(-1232.000000, -25.000000)"
+                                fill="#000000" fill-rule="nonzero">
+                                <g id="Iconos/Close1" transform="translate(1232.000000, 24.999064)">
+                                    <path
+                                        d="M10.9094659,9.00028126 L16.6786462,3.23110097 L17.8683709,2.04137629 C18.0438764,1.86587081 18.0438764,1.5806744 17.8683709,1.40516891 L16.5953936,0.132191631 C16.4198881,-0.0433138536 16.1346917,-0.0433138536 15.9591862,0.132191631 L9.00028126,7.0910966 L2.04137629,0.131629113 C1.86587081,-0.0438763711 1.5806744,-0.0438763711 1.40516891,0.131629113 L0.131629113,1.40460639 C-0.0438763711,1.58011188 -0.0438763711,1.86530829 0.131629113,2.04081378 L7.0910966,9.00028126 L0.131629113,15.9591862 C-0.0438763711,16.1346917 -0.0438763711,16.4198881 0.131629113,16.5953936 L1.40460639,17.8683709 C1.58011188,18.0438764 1.86530829,18.0438764 2.04081378,17.8683709 L9.00028126,10.9094659 L14.7694615,16.6786462 L15.9591862,17.8683709 C16.1346917,18.0438764 16.4198881,18.0438764 16.5953936,17.8683709 L17.8683709,16.5953936 C18.0438764,16.4198881 18.0438764,16.1346917 17.8683709,15.9591862 L10.9094659,9.00028126 Z"
+                                        id="Path"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="tabs">
+                    <ul class="tabs-nav d-flex options-tabs">
+                        <li><a href="#des" class="tabDes">Descripción</a></li>
+                        <li><a href="#carac" class="tabCarac">Caracteristicas</a></li>
+                    </ul>
+
+                    <div class="tabs-stage row base-background">
+                        <div id="des" class="col-md-10 desText option">
+                            <span>${product.longDescription}</span>
+                        </div>
+                        <div id="carac" class="col-md-10 desText option">
+                            <span class="row">
+                                <isloop items="${pdict.customAttrs}" var="attr" status="loopstatus">
+                                    <span class="col-md-12 text-uppercase">${attr.label}</span>
+                                    <span class="col-md-12 caracStyle">${attr.value[0]}</span>
+                                </isloop>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+</div>
+<div class="d-flex">
+    <nav class="description">
+        <p id="tab-option">Descripción</p>
+    </nav>
+    <div class="mt-1 ml-2 description">
+        <p>
+            <svg width="31px" height="12px" viewBox="0 0 31 12" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>A9F081F1-3BDC-4FB2-A63D-80DEF4A09FE7</title>
+                <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Int-prod-simple" transform="translate(-940.000000, -518.000000)" fill="#000000">
+                        <g id="Group" transform="translate(940.000000, 518.000000)">
+                            <polygon id="Fill-1"
+                                points="0 6.10313337 26.239551 6.10313337 26.239551 4.92166832 0 4.92166832">
+                            </polygon>
+                            <polygon id="Fill-2"
+                                points="25.7337265 0 25.7337265 5.51192826 25.7337265 11.0254318 27.9265256 8.27025532 30.1209 5.51192826 27.9265256 2.75675177">
+                            </polygon>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<isscript>
+	var preferences = require('*/cartridge/config/preferences');
+</isscript>
+
+<div id="shippingFormPatPrimoBank" class="container shipping-section d-none">
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+    <div class="row">
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label class="form-label label-title">${Resource.msg('bank.entity', 'return', null)}</label>
+                <select name="bankEntity" tabindex="3" class="form-control text-secondary" id="bankEntity">
+                    <option selected value="">${Resource.msg('select.element', 'form', null)}</option>
+                    <isloop items="${JSON.parse(pdict.preferencesReturn.banks)}" var="banks">
+                        <option value="${banks.idBanco}">${banks.nombreBanco}</option>
+                    </isloop>
+                </select>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label class="form-label label-title">${Resource.msg('number.bank', 'return', null)}</label>
+                <input type="text" name="numberBank" tabindex="6" class="form-control text-secondary" id="numberBank" maxlength="20">
+            </div>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label class="form-label label-title">${Resource.msg('account.type', 'return', null)}</label>
+                <select name="accountType" tabindex="3" class="form-control text-secondary" id="accountType">
+                    <option selected value="">${Resource.msg('select.element', 'form', null)}</option>
+                    <isloop items="${JSON.parse(pdict.preferencesReturn.clientBankType)}" var="clientBankType">
+                    <option value="${clientBankType.BankType}">${clientBankType.TipodeCuenta}</option>
+                    </isloop>
+                </select>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label for="validationCustom03" class="form-label label-title">${Resource.msg('owners.name', 'return', null)}</label>
+                <input type="text" name="ownersName" tabindex="6" class="form-control text-secondary" id="ownersName" placeholder="" maxlength="50">
+            </div>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label for="validationCustom02" class="form-label label-title">${Resource.msg('type.doc', 'return', null)}</label>
+                <select class="form-control text-secondary" name="typeDocBank" tabindex="3" id="typeDocBank">
+                    <option value="">${Resource.msg('option.tipo.documento.identidad.tipo', 'forms', null)}</option>
+                    <option value="nit">${Resource.msg('option.tipo.documento.identidad.nit', 'forms', null)}</option>
+                    <option value="cedulaCiudadania">
+                        ${Resource.msg('option.tipo.documento.identidad.cedula.ciudadania', 'forms', null)}</option>
+                    <option value="cedulaExtranjeria">
+                        ${Resource.msg('option.tipo.documento.identidad.cedula.extranjeria', 'forms', null)}</option>
+                    <option value="pasaporte">${Resource.msg('option.tipo.documento.identidad.pasaporte', 'forms', null)}
+                    </option>
+                </select>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label class="form-label label-title">${Resource.msg('doc.number', 'return', null)}</label>
+                <input type="text" name="docNumberBank" tabindex="6" class="form-control text-secondary" id="docNumberBank" placeholder="" maxlength="20">
+            </div>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+    </div>
+</div>

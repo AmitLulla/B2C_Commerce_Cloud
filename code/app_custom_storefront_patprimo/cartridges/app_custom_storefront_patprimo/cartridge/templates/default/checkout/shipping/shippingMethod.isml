@@ -1,0 +1,39 @@
+<isset name="shippingModel" value="${pdict.order.shipping[0]}" scope="page" />
+<isset name="shippingAddress" value="${pdict.forms.shippingForm.shippingAddress}" scope="page" />
+<div class="d-flex leading-lines shipping-method-list row"
+    data-select-shipping-method-url="${URLUtils.https('CheckoutShippingServices-SelectShippingMethod')}"
+    data-action-url="${URLUtils.https('CheckoutShippingServices-UpdateShippingMethodsList')}">
+    <input name="shipmentUUID" type="hidden" value="${shippingModel.UUID}" />
+    <isloop items="${shippingModel.applicableShippingMethods}" var="shippingMethod">
+        <div class="border-complete col-5 content-method-shipping">
+            <label class="form-check-label shipping-method-option"
+                for="shippingMethod-${shippingMethod.ID}-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
+                <span class="display-name">${shippingMethod.displayName}</span>
+                $ <span class="shipping-cost">${shippingMethod.shippingCost}</span>
+                <isif condition="${shippingMethod.estimatedArrivalTime}">
+                    <span class="text-muted arrival-time">${shippingMethod.estimatedArrivalTime ? Resource.msg('label.envio.tiempo.entrega','checkout', null, shippingMethod.estimatedArrivalTime) : ''}</span>
+                </isif>
+            </label>
+            <isinclude template="checkout/shipping/selectedShippingMethod" />
+        </div>
+    </isloop>
+</div>
+
+<!---------------------------------------------------------------------------------->
+<!-- Template used by client to redraw shipping methods                           -->
+<!---------------------------------------------------------------------------------->
+
+<div id="shipping-method-template" style="display:none;">
+    <input name="shipmentUUID" type="hidden" value="${shippingModel.UUID}" />
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-inline-block content-method">
+        <label class="form-check-label shipping-method-option row"
+            for="shippingMethod-${shippingMethod.ID}-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
+            <isinclude template="checkout/shipping/selectedShippingMethod" />
+            <div class="container-flex-method">
+                <div><span class="display-name">${shippingMethod.displayName}</span></div>
+                <div>$<span class="shipping-cost"> ${shippingMethod.shippingCost}</span></div>
+            </div>
+            <span class="text-muted arrival-time"></span>
+        </label>
+    </div>
+</div>

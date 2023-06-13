@@ -1,0 +1,4 @@
+<isset name="giftCertificate" value="${pdict}" scope="page" />
+<isinclude template="checkout/billing/giftCertificateCard" sf-toolkit="on" />
+
+

@@ -1,0 +1,3 @@
+<p class="font16-Azul">${payment.creditCardHolder}</p>
+<p class="font22">${payment.maskedCreditCardNumberGr}</p>
+<p class="font16-Azul">${payment.creditCardExpirationMonth}/${payment.creditCardExpirationYear}</p>

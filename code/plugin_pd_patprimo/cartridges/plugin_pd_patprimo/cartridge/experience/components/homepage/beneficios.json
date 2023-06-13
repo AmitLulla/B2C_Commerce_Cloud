@@ -1,0 +1,147 @@
+{
+    "name": "Beneficios",
+    "description": "Image, text overlay that links user to a category using the markup editor",
+    "group": "patprimo_components_homepage",
+    "attribute_definition_groups": [
+      
+        {
+            "id": "title1",
+            "name": "Title1",
+            "description": "text for the Title.",
+            "attribute_definitions": [
+              {
+                "id": "title1",
+                "name": "Title1",
+                "type": "text",
+                "required": true
+              }
+            ]
+          },
+
+          {
+            "id": "title2",
+            "name": "Title2",
+            "description": "text for the Title.",
+            "attribute_definitions": [
+              {
+                "id": "title2",
+                "name": "Title2",
+                "type": "text",
+                "required": true
+              }
+            ]
+          },
+
+          {
+            "id": "title3",
+            "name": "Title3",
+            "description": "text for the Title.",
+            "attribute_definitions": [
+              {
+                "id": "title3",
+                "name": "Title3",
+                "type": "text",
+                "required": true
+              }
+            ]
+          },
+
+          {
+            "id": "title4",
+            "name": "Title4",
+            "description": "text for the Title.",
+            "attribute_definitions": [
+              {
+                "id": "title4",
+                "name": "Title4",
+                "type": "text",
+                "required": true
+              }
+            ]
+          },
+
+          {
+            "id": "title5",
+            "name": "Title5",
+            "description": "text for the Title.",
+            "attribute_definitions": [
+              {
+                "id": "title5",
+                "name": "Title5",
+                "type": "text",
+                "required": true
+              }
+            ]
+          },
+          {
+            "id": "bannerImage1",
+            "name": "Banner Image1",
+            "description": "The visual display of the banner image in the background.",
+            "attribute_definitions": [
+              {
+                "id": "image1",
+                "name": "Image1",
+                "type": "image",
+                "required": true
+              }
+            ]
+          },
+          {
+            "id": "bannerImage2",
+            "name": "Banner Image2",
+            "description": "The visual display of the banner image in the background.",
+            "attribute_definitions": [
+              {
+                "id": "image2",
+                "name": "Image2",
+                "type": "image",
+                "required": true
+              }
+            ]
+          },
+          {
+            "id": "bannerImage3",
+            "name": "Banner Image3",
+            "description": "The visual display of the banner image in the background.",
+            "attribute_definitions": [
+              {
+                "id": "image3",
+                "name": "Image3",
+                "type": "image",
+                "required": true
+              }
+            ]
+          },
+          {
+            "id": "bannerImage4",
+            "name": "Banner Image4",
+            "description": "The visual display of the banner image in the background.",
+            "attribute_definitions": [
+              {
+                "id": "image4",
+                "name": "Image4",
+                "type": "image",
+                "required": true
+              }
+            ]
+          },
+          {
+            "id": "bannerImage5",
+            "name": "Banner Image5",
+            "description": "The visual display of the banner image in the background.",
+            "attribute_definitions": [
+              {
+                "id": "image5",
+                "name": "Image5",
+                "type": "image",
+                "required": true
+              }
+            ]
+          }
+
+
+     
+    ],
+    "region_definitions": []
+  }
+  

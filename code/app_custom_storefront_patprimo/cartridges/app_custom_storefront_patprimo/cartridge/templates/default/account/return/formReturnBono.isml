@@ -1,0 +1,37 @@
+<isscript>
+	var preferences = require('*/cartridge/config/preferences');
+</isscript>
+
+<div id="shippingFormPatPrimoBono" class="container shipping-section d-none">
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+    <div class="row">
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label class="form-label label-title">${Resource.msg('type.doc', 'return', null)}</label>
+                <select class="form-control text-secondary" name="docType" tabindex="3" id="docType">
+                    <option value="">${Resource.msg('option.tipo.documento.identidad.tipo', 'forms', null)}</option>
+                    <option value="nit">${Resource.msg('option.tipo.documento.identidad.nit', 'forms', null)}</option>
+                    <option value="cedulaCiudadania">
+                        ${Resource.msg('option.tipo.documento.identidad.cedula.ciudadania', 'forms', null)}</option>
+                    <option value="cedulaExtranjeria">
+                        ${Resource.msg('option.tipo.documento.identidad.cedula.extranjeria', 'forms', null)}</option>
+                    <option value="pasaporte">${Resource.msg('option.tipo.documento.identidad.pasaporte', 'forms', null)}
+                    </option>
+                </select>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group">
+                <label for="validationCustom03" class="form-label label-title">${Resource.msg('doc.number', 'return', null)}</label>
+                <input type="text" name="docNumber" tabindex="6" class="form-control text-secondary" id="docNumber" maxlength="20">
+            </div>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+    </div>
+    <p class="font13 gris-texto1 font-W500">${Resource.msg('info.return.desc1', 'return', null)}</p>
+    <p class="font13 gris-texto1 font-W500">${Resource.msg('info.return.desc2', 'return', null)}</p>
+</div>

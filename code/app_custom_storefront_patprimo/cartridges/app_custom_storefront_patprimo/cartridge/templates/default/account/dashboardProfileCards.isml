@@ -1,0 +1,18 @@
+<div class="row justify-content-center">
+    <isset name="pageName" value=account-page scope="page" />
+    <div class="col-sm-5">
+        <div id="menu-dashboard" data-page-id="${pageName}">
+            <isinclude url="${URLUtils.url('Page-Include', 'cid', 'menu-dashboard')}" />
+        </div>
+    </div>
+    <div class="col-sm-7">
+        <!---Profile--->
+        <div id="profile-content" class="">
+            <isinclude template="account/profileCard" />
+        </div>
+        <isif condition="${!pdict.account.isExternallyAuthenticated}">
+            <!---Password--->
+            <isinclude template="account/passwordCard" />
+        </isif>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="card confirm-details test-track-login shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="">
+        <h4>${Resource.msg('title.receipt', 'login', null)} ${pdict.order.orderNumber}</h4>
+    </div>
+
+    <div class="card-body">
+        <p>
+            <iscomment> <span class="summary-section-label order-number-label">${Resource.msg('label.order.number', 'confirmation', null)}</span> </iscomment>
+            <span class="summary-section-label order-number-label sub-title-login ">${Resource.msg('title.receipt.status', 'login', null)}</span>
+             <br>
+
+            <isif condition="${pdict.status != null }">
+             <span>${pdict.status}</span>
+             <iselse>
+             ${Resource.msg('null.status', 'login', null)} 
+             </isif>
+            <br/>
+           <span class="summary-section-label order-number-label sub-title-login ">${Resource.msg('title.receipt.numberGuide', 'login', null)}</span>
+            <br>
+             <isif condition="${pdict.numberGuia != null }">
+             <span> ${pdict.numberGuia}</span>
+             <iselse>
+             ${Resource.msg('null.status.num', 'login', null)} 
+             </isif>
+            
+           
+
+            <br/>
+            <span class="summary-section-label order-date-label sub-title-login ">${Resource.msg('title.receipt.urlFollow', 'login', null)}</span>
+            <br/>
+            <isif condition="${pdict.TrackingGuia != null }">
+             <a class="aunderline2" href="${pdict.TrackingGuia}">${pdict.TrackingGuia}</a>
+             <iselse>
+             <a class="aunderline2" href="${Resource.msg('null.status.url', 'login', null)}"> ${Resource.msg('null.status.url', 'login', null)}</a>  
+             </isif>
+           
+            
+ 
+        </p>
+
+  
+
+    </div>
+</div>
+

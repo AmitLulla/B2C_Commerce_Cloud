@@ -1,0 +1,11 @@
+<div class="row">
+     <span class="breadcrumbs-locator">
+       <a href="${URLUtils.url('Home-Show')}">${Resource.msg('breadcrumbs.1','shoppingthestore',null)} </a> ${Resource.msg('breadcrumbs.2','shoppingthestore',null)}
+    </span>
+</div>
+<div class="row justify-content-center hidden-sm-down">
+    <span class="title-localize-store">
+        ${Resource.msg('title.localize.store', 'shoppingthestore', null)}
+    </span> 
+</div>
+<br>

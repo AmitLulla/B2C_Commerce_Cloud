@@ -1,0 +1,26 @@
+
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/filters-features.css');
+    assets.addCss('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
+    assets.addCss('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
+    assets.addJs('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/docs/assets/vendors/jquery.min.js');
+    assets.addJs('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js');
+    </isscript>
+<div>
+
+        <div class="refinements-not-render">
+            <isloop items="${pdict.productSearch.refinements}" var="refinement">
+                <isif condition="${refinement.displayName == pdict.productSearch.productSearch.category.custom.filter}">
+                    <isset name="refinementValues" value="${JSON.stringify(refinement.values)}" scope="page" />
+                    <isset name="displayName" value="${pdict.productSearch.productSearch.category.custom.filter}" scope="page" />
+                    <isset name="cards" value="${pdict.productSearch.productSearch.category.custom.cards}" scope="page" />
+                    <div class="size-container">
+                        <isinclude
+                            url="${URLUtils.url('SearchRefinementPLP-GetAttribute', 'refinementValues', refinementValues, 'displayName', displayName, 'cards', cards)}" />
+                    </div>
+                </isif>
+            </isloop>
+        </div>
+</div>
+

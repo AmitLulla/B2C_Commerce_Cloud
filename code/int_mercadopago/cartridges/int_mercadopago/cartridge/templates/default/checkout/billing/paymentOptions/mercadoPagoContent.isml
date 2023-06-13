@@ -1,0 +1,80 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    var Resource = require('dw/web/Resource');
+    assets.addCss('css/mercadoPago.css');
+</isscript>
+
+<isset name="mercadoPagoFields" value="${pdict.mercadoPago.form}" scope="page"/>
+<isset name="dataform" value="${pdict.dataformpayment}" scope="page"/>
+<isset name="customerCardsPresent" value="${pdict.mercadoPago.customerCards}" scope="page"/>
+
+<div
+    class="tab-pane mercadopago-content js-mercadopago-content"
+    id="mercadopago-content"
+    role="tabpanel"
+    data-mp-content
+    data-payment-option-content
+>
+    <fieldset class="payment-form-fields">
+        <!--- payment method is credit card --->
+        <input type="hidden" class="form-control"
+               name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+               value="MercadoPago"
+        />
+        <div class="top-fixed-card d-flex col-12 title-card title-credit-card">
+            <p>${Resource.msg('txt.tarjetas.credito','checkout', null)}</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> X </button>
+        </div>
+        <div class="top-fixed-card d-flex col-12 title-card title-debito-card">
+            <p>${Resource.msg('txt.tarjetas.debito','checkout', null)}</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> X </button>
+        </div>
+        <div class="top-fixed-card d-flex col-12 title-card title-pay-pse">
+            <p>${Resource.msg('txt.pago.pse','checkout', null)}</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> X </button>
+        </div>
+        <div class="top-fixed-card d-flex col-12 title-card title-efecty">
+            <p>${Resource.msg('txt.pago.efecty','checkout', null)}</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> X </button>
+        </div>
+        <!--- registered/authenticated user --->
+        <isif condition="${customerCardsPresent}">
+            <div class="d-none container ${customerCardsPresent ? '' : 'checkout-hidden'} js-mp-customer-cards" data-mp-customer-cards id="cardsMercadopago">
+                <!--- Customer cards --->
+                <isinclude template="checkout/billing/mercadoPagoCustomerCards" />
+            </div>
+        </isif>
+
+        <fieldset
+            class="js-mp-form js-mp-available-payment-methods"
+            data-mp-form
+            data-mp-preferences="${JSON.stringify(pdict.mercadoPago.preferences)}"
+            data-mp-error-messages="${JSON.stringify(pdict.mercadoPago.errorMessages)}"
+            data-mp-cart-total="${pdict.order.totals.grandTotalValue}"
+            data-mp-resource-messages="${JSON.stringify(pdict.mercadoPago.resourceMessages)}"
+            data-mp-configuration="${JSON.stringify(pdict.mercadoPago.configuration)}"
+            data-mp-initial="${customerCardsPresent ? 'stored' : 'new'}"
+            data-mp-available-payment-methods="${JSON.stringify(pdict.mercadoPago.availablePaymentMethods)}"
+        >
+            <!--- applicable payment methods --->
+            <isinclude template="checkout/billing/mercadoPagoPaymentMethods" />
+            <!--- form --->
+            <isinclude template="checkout/billing/mercadoPagoForm" />
+
+        </fieldset>
+
+        <isif condition="${customerCardsPresent}">
+        <br>
+            <button
+                class="btn-block js-toggle-payment-type btn-continuar-to-shipping d-none" id="buttonCardMp"
+                type="button"
+                data-toggle-payment-type="new"
+                data-new-payment-text="${Resource.msg('button.add.payment', 'checkout', null)}"
+                data-stored-payment-text="${Resource.msg('button.back.to.stored.payments', 'checkout', null)}"
+            >
+                ${Resource.msg(customerCardsPresent ? 'button.add.payment': 'button.back.to.stored.payments', 'checkout', null)}
+            </button>
+        </isif>
+    </fieldset>
+</div>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site xmlns="http://www.demandware.com/xml/impex/site/2007-04-30" site-id="PatPrimo">
+    <name>PatPrimo</name>
+    <currency>COP</currency>
+    <taxation>net</taxation>
+    <brand>PatPrimo</brand>
+    <custom-cartridges>int_social_selling:int_mercadopago:app_custom_storefront_patprimo:plugin_shopping_store:app_custom_storefront_jobs:int_pago_contra_entrega:int_gift_certificate:plugin_compra_rapida:plugin_dis:plugin_wishlists:plugin_pd_patprimo:app_storefront_base</custom-cartridges>
+    <storefront-status>online</storefront-status>
+</site>

@@ -1,0 +1,22 @@
+<div class="row bloque-registro">
+    <div class="description">
+        <div class="home-email-signup">
+            <div class="container">
+                <form role="form">
+                    <div class="col-sm-12 email-description">
+                        <span class="text-description-title">${Resource.msg('global.footer.suscripcion-title', 'footer', null)}</span>
+                        <span class="text-description">${Resource.msg('global.footer.suscripcion', 'footer', null)}</span>
+                    </div>
+                    <div class="col-sm-12 input-description">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="hpEmailSignUp" placeholder="${Resource.msg('input.footer.subscribe', 'footer', null)}" aria-label="${Resource.msg('input.footer.subscribe', 'footer', null)}" />
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-primary subscribe-email" data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.footer.subscribe', 'footer', null)} </button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

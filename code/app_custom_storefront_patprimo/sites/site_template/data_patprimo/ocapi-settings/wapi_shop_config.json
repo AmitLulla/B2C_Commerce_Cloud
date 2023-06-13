@@ -1,0 +1,27 @@
+{
+	"_v": "22.4",
+	"clients": [
+		{
+			"client_id":"ebb97990-be1f-403d-a63a-2e6a1d05906a",
+			"resources": [
+				{
+					"resource_id": "/orders/*",
+					"methods": [
+						"get",
+						"patch"
+					],
+					"read_attributes": "(**)",
+					"write_attributes": "(**)"
+				},
+				{
+					"resource_id": "/order_search",
+					"methods": [
+						"post"
+					],
+					"read_attributes": "(**)",
+					"write_attributes": "(**)"
+				}
+			]
+		}
+	]
+}

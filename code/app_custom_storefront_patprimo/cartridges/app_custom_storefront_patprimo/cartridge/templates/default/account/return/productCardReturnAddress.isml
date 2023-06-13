@@ -1,0 +1,16 @@
+<div class="product-line-item others-address d-none container col-12 row">
+    <isloop items="${pdict.addressBook}" var="addressBook">
+    <isif condition="${addressDefault != addressBook.address.ID}">
+            <div class="col-6 padd-pash">
+            <div class="card-pash-address">
+                <input type="radio"name="address" class="other-address" value="${addressBook.address.ID}-0">
+                <label for="casa">${Resource.msg('text.address3', 'return', null)} ${addressBook.address.ID}</label>
+                <div class="container">
+                    <span>${addressBook.address.city}</span>
+                    <p>${addressBook.address.address1} <isif condition="${addressBook.address.address2}"><span>${addressBook.address.address2}</span></isif></p>
+                </div>
+            </div>
+        </div>
+    </isif>
+    </isloop>
+</div>

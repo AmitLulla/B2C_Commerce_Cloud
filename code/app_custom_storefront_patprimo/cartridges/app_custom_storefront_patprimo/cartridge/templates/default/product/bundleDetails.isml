@@ -1,0 +1,310 @@
+<isdecorate template="common/layout/page">
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/productDetail.js');
+        assets.addCss('/css/product/detail.css');
+        assets.addCss('/css/product/pdp/detail.css'); 
+    </isscript>
+
+    <iscomment>
+        It is necessary to set both "bundle" and "product" to pdict.product here as the downstream,
+        reusable templates expect "product" for certain properties.  "product" can be the "bundle"
+        or a bundle product item.  We need to set "product" back to equal "bundle" in the
+        .bundle-footer section below.
+    </iscomment>
+    <isset name="bundle" value="${pdict.product}" scope="page" />
+    <isset name="product" value="${pdict.product}" scope="page" />
+    <isobject object="${product.raw}" view="detail" /> 
+    <div class="menu-secciones bundle-menu">  
+    <div class="vovel-view">
+             <svg onclick="window.history.back()" width=" 31px" height="12px" viewBox="0 0 31 12" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" class="back-pdp-mobile"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title></title>
+                            <g id="Desk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Int-prod-características" transform="translate(-861.000000, -28.000000)"
+                                    fill="#000000">
+                                    <g id="Group-3" transform="translate(861.000000, 23.000000)">
+                                        <g id="Iconos/Flecha"
+                                            transform="translate(15.060450, 10.512716) scale(-1, 1) translate(-15.060450, -10.512716) translate(-0.000000, 5.000000)">
+                                            <g id="Group" transform="translate(0.000000, 0.000000)">
+                                                <polygon id="Fill-1"
+                                                    points="0 6.10313337 26.239551 6.10313337 26.239551 4.92166832 0 4.92166832">
+                                                </polygon>
+                                                <polygon id="Fill-2"
+                                                    points="25.7337265 0 25.7337265 5.51192826 25.7337265 11.0254318 27.9265256 8.27025532 30.1209 5.51192826 27.9265256 2.75675177">
+                                                </polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>    
+                            </g>
+                        </svg>
+                        <div> 
+<button class="volver-pdp" onclick="window.history.back()">Volver</button>
+</div>
+ </div> 
+<div class="product-breadcrumb">
+                    <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+                </div>
+ 
+  </div>  
+
+    <div class="container product-detail bundle-products" data-pid="${product.id}">
+       
+        <div class="main-pdp">
+        <div class="galerry-pdp justify-content-center">
+        
+        <div class="row product-bundle">
+            <!-- Product Images Carousel -->
+            <isinclude template="product/components/pdp/imageCarousel" />
+          
+        </div>
+</div>
+        <iscomment><hr>
+
+         <isinclude template="product/components/bundleItems" />
+
+        <hr> </iscomment>
+
+        <iscomment> <div class="row">
+            <div class="col-12 col-sm-6 offset-sm-6 bundle-footer">
+                <!-- Quantity -->
+                <isset name="loopState" value="${{count: 1}}" scope="page" />
+                <isset name="product" value="${bundle}" scope="page" />
+                <isinclude template="product/components/quantity" />
+
+                <!-- Availability -->
+                <div class="availability clearfix global-availability" data-ready-to-order="${bundle.readyToOrder}">
+                    <isinclude template="product/components/availabilityBundleContainer" />
+                </div>
+
+                <div class="col-12 prices-add-to-cart-actions">
+                    <!-- Prices -->
+                    <div class="prices">
+                        <isset name="price" value="${product.price}" scope="page" />
+                        <isinclude template="product/components/pricing/main" />
+                    </div>
+
+                    <!-- Cart and [Optionally] Apple Pay -->
+                    <isinclude template="product/components/addToCartGlobal" />
+                </div>
+
+                <!-- Social Sharing Icons -->
+                <isinclude template="product/components/socialIcons" />
+            </div>
+        </div>
+
+        <isinclude template="product/components/descriptionAndDetails" /> </iscomment>
+    <div class="select-pdp bundle-mb">      
+                <div class="bundle-flex">
+                    <input id="checkbox1" type="checkbox" class="bunble-ceckbox" />
+                        <div class="bundle-img">
+                            <img src="${bundle.images['large'][0].url}" class="bundle-image" alt="${bundle.images['large'][0].alt}" />
+                        </div>
+                        <div class="acomodo">
+                            <div class="d-flex flex-column">
+                                <p class="ref-pdp"> REF 
+                                    <span class="product-id">
+                                        <isprint value="${product.id}" />
+                                    </span>
+                                </p>
+                                <div class="bundle-title">
+                                    ${bundle.productName}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-start mt-2">
+                                    <div class="price">$129.900</div>                          
+                                    <div class="d-flex ml-3">
+                                        <span class="presale">Preventa</span>
+                                        <span class="presale-price">$83.943</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <isprint value="${bundle.variationAttributes[0].values}" encoding="on" />
+                            <div class="swatches-section bundle-swatches">
+                                <iscomment> <isinclude template="product/components/mainAttributes" /> </iscomment>
+                                    <isset name="isBundle" value="${false}" scope="page" />
+                                    <isset name="loopState" value="${{count: 1}}" scope="page" />
+                                    <div class="pd-color bundle-color">
+                                        <isloop items="${bundle.variationAttributes[0].values}" var="colorAttr" status="attributeStatus">
+                                            <isif condition="${colorAttr.selected}">
+                                                <isset name="selectedColor" value="${colorAttr.value.toLowerCase()}" scope="page"/>
+                                            </isif>
+                                            </isloop>
+                                                <span id="spanColor" class="color-code swatch-filter-editProductCart-${selectedColor}" style="background: #e8dcc4;"></span>  
+                                            <select id="my-select" name="color">
+                                            <option>Azul</option> 
+                                                <iscomment> <isloop items="${bundle.variationAttributes[0].values}" var="colorAttr" status="attributeStatus">
+                                                    <isif condition="${!(isBundle && product.productType === 'variant' && !colorAttr.selected)}">
+                                                        <option value="${colorAttr.value}" ${colorAttr.selected ? 'selected' : ''} ${colorAttr.selectable ? '' : 'disabled'}> 
+                                                            ${colorAttr.displayValue}
+                                                        </option>
+                                                    </isif>
+                                            </isloop> </iscomment>
+                                        </select>
+                                </div>
+                                <div class="size-quantities">
+                                    <div class="size-quantity">
+                                        <select name="cars" id="cars">
+                                            <option value="Small">Pequeña</option>
+                                            <option value="Medium">Medio</option>
+                                            <option value="Large">Grande</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+
+                  <div class="bundle-flex"> 
+                    <input id="checkbox2" type="checkbox" class="bunble-ceckbox" />
+                        <div class="bundle-img">
+                            <iscomment> <img src="${bundle.images['large'][0].url}" class="bundle-image" alt="${bundle.images['large'][0].alt}" /> </iscomment>
+                            <img src="/on/demandware.static/-/Sites-storefront_catalog_pat/default/dwc4cf139d/images/hi-res//NOVIEMBRE/Nov11/14070624-51896_1.jpg" />
+                        </div>
+                        <div class="acomodo">
+                            <div class="d-flex flex-column">
+                                <p class="ref-pdp"> REF 
+                                    <span class="product-id">
+                                        <isprint value="${product.id}" />
+                                    </span>
+                                </p>
+                                <div class="bundle-title">
+                                    Pantalon Chino Estampado
+                                    <iscomment> ${bundle.productName} </iscomment>
+                                </div>
+                            </div>
+                            <div> 
+                                <div class="d-flex justify-content-start mt-2">
+                                    <div class="price">$23.69</div>                          
+                                    <div class="d-flex ml-3">
+                                        <span class="presale">Preventa</span>
+                                        <span class="presale-price">$3.943</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swatches-section bundle-swatches">
+                                <isinclude template="product/components/mainAttributes" />
+                                    <isset name="isBundle" value="${false}" scope="page" />
+                                    <isset name="loopState" value="${{count: 1}}" scope="page" />
+                                    <div class="pd-color bundle-color">
+                                    <span class="color-code swatch-filter-editProductCart-azul" style="background: #2467cb;"></span>
+                                    
+                                        <select id="color" name="color">
+                                        <option>Azul</option>
+                                            <iscomment> <isloop items="${product.variationAttributes[0].values}" var="colorAttr" status="attributeStatus">
+                                                <isif condition="${!(isBundle && product.productType === 'variant' && !colorAttr.selected)}">
+                                                    <option value="${colorAttr.value}" ${colorAttr.selected ? 'selected' : ''} ${colorAttr.selectable ? '' : 'disabled'}>
+                                                    ${colorAttr.displayValue} 
+                                                    </option>
+                                                </isif>
+                                            </isloop> </iscomment>
+                                        </select>
+                                    </div>
+                                <div class="size-quantities">
+                                    <div class="size-quantity">
+                                        <select name="cars" id="cars">
+                                            <option value="Small">Pequeña</option>
+                                            <option value="Medium">Medio</option>
+                                            <option value="Large">Grande</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+                
+                <div class="bundle-total-price"><div class="boxer-section-price">
+                    <label for="total-count"><span id="total-count">0</span> Productos</label>                                       
+                <div class="prices current-price">
+Total : $23.69
+</div>
+   
+</div>
+<div class="boxer-add-to-card">
+  <div class="row cart-and-ipay">
+	<div class="col-sm-12">
+		<input type="hidden" class="add-to-cart-url" value="/on/demandware.store/Sites-PatPrimo-Site/default/Cart-AddProduct">
+	  
+	  <button class="add-to-cart btn btn-dark" data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="7701134317066">
+			  AGREGAR A MI BOLSA
+			
+		</button> 
+
+		<!-- dwMarker="linclude" dwTemplateTitle="/default/product/components/addToCartButtonExtension.isml (app_storefront_base)" dwTemplateURL="http://localhost:60606/target=/app_storefront_base/cartridge/templates/default/product/components/addToCartButtonExtension.isml" -->
+
+	</div>
+</div>
+</div>
+</div>
+
+                 <div class="envio-devoluciones-section">
+                                        <div class="envios-text-pdp"> <img  src="${URLUtils.staticURL('icons/envios1.svg')}" alt="icon envios"><p> Envío gratuito. Compras superiores a $130.00. Aplican TyC</p>  </div>
+                                        <div class="envios-text-pdp"> <img  src="${URLUtils.staticURL('icons/envios-Express.png')}" alt=""><p>Envío express. En Bogotá recibe tu pedido en 24H. Aplica TyC </p> </div>
+                                        <div class="envios-text-pdp"> <img  src="${URLUtils.staticURL('icons/compra-segura.svg')}" alt=""><p>Devoluciones gratuitas. Consulta los Términos y Condiciones</p></div>
+                                    </div>
+
+                <iscomment> <div class="row">
+                    <div class="col-12">
+                        <isinclude template="product/components/pidRating" />
+                    </div>
+                </div> </iscomment>
+
+                <!-- Applicable Promotions -->
+                <div class="row promotions">
+                    <iscomment> <div class="col-12 align-self-center">
+                        <isinclude template="product/components/promotions" />
+                    </div> </iscomment>
+                </div>
+           
+        <div class="recommendations">
+            <isslot id="product-recommendations-m" description="Recommended products" context="global" />
+        </div>
+        </div>
+        </div>
+    </div>
+</isdecorate>
+
+<script>
+    const mySelect = document.getElementById("my-select");
+    console.log('mySelect==>',mySelect);
+    mySelect.addEventListener("change", function() {
+    const selectedOption = this.options[this.selectedIndex];
+    const selectedValue = selectedOption.value;
+    var myElement = document.getElementById("spanColor");
+
+
+    myElement.classList.value = "";
+    myElement.classList.add("color-code");
+    myElement.classList.add("swatch-filter-editProductCart-"+selectedValue.toLowerCase());
+  });
+
+    var product1Checkbox = document.getElementById('checkbox1');
+    var product2Checkbox = document.getElementById('checkbox2');
+    console.log("product1Checkbox==>",product1Checkbox);
+    console.log("product2Checkbox==>",product2Checkbox);
+    var selectedCount = document.getElementById('total-count');
+    var count = 0;
+    product1Checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        count++;
+    } else {
+        count--;
+    }
+    selectedCount.innerText = count;
+    });
+
+    product2Checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        count++;
+    } else {
+        count--;
+    }
+    selectedCount.innerText = count;
+    });
+</script>

@@ -1,0 +1,32 @@
+<script>
+    function getSelectChange(valor) {
+        var e = document.getElementById("${product.id}");
+        var idButton = 'PP' + valor;
+        document.getElementById(idButton).classList.remove('disabled');
+}
+</script>
+
+<div class="container-fluid d-flex justify-content-left selectCompraRapidaMobile col-sm-2 mt-auto ">
+    <iscomment>
+        <isprint value="${product.id}" />
+    </iscomment>
+    <select class="select-compra-rapida-mobile d-lg-none  rounded-0 " aria-label="PatPrimo size selection"
+        id="${product.id}" onchange="getSelectChange(${product.id})">
+        <isif condition="${product.variationAttributesCustom[0].values.length > 0}">
+            <option class="font-italic" selected disabled value="">Seleccione talla</option>
+            <isloop items="${product.defaultVariants[1].values.reverse()}" var="size" status="loopStatus">
+                <option class="<isif condition="${size.url == null}">nonAvailableSize</isif> textAzulPat" data-custom-url="${size.url}" style="color: ;" value="${size.value}"
+                    data-value="${size.value}">${size.displayValue}</option>
+            </isloop>
+
+        <iselseif condition="${product.isProductAccessoriesType}" />
+            <option selected disabled value="">Selecciona Cantidad</option>
+            <option data-custom-url="${product.id}" value="${size.value}" data-value="${size.value}"><span
+                    class="icon-buy-fast-img">1 </span></option>
+        </isif>
+    </select>
+
+    <button id="PP${product.id}" type="button"
+        class="btn btn-compra-rapida-mobile btn-block d-lg-none RedHatDisplayFont rounded-0 disabled"
+        data-custom-url="${size.urlCustom}">AGREGAR</button>
+</div>

@@ -1,0 +1,352 @@
+@import "~custom/variables";
+
+.seccion-descuentos-desktop {
+    .pleca-descuentos {
+        background-color: #fff;
+        position: fixed;
+        left: 0;
+        top: 50vh;
+        
+        z-index: 10;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        background-color: white;
+        width: 64vw;
+        overflow: hidden;
+        padding-top: 1rem;
+
+        .seccion-newsletter {
+            padding: 25px;
+            width: 63%;
+
+            .suscribirme-newsletter {
+                padding-left: 15px;
+
+                .input-newsletter {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .seccion-newsletter-active {
+
+            padding: 25px;
+            width: 50%;
+        }
+
+        .titulo-newsletter{
+            h4{
+            width: 100%;
+            text-align: left;
+            font-family: $font-RedHat-ExtraBold;
+            font-size: 1.125rem;
+            color: #292929;
+            }
+        }
+
+        .titulo-referidos{
+            width: max-content;
+            h4{
+                width: 100%;
+                text-align: left;
+                font-family: $font-RedHat-ExtraBold;
+                font-size: 1.125rem;
+                color: #292929; 
+                margin-bottom: 1rem;
+            }
+        }
+
+        .sub-titulo-newsletter{
+            h6{
+            font-family: $font-RedHat-Regular;
+            font-size: 1rem;
+            color: #999999;
+            font-weight: 200;
+            }
+        }
+
+        .sub-titulo-referidos{
+            h6{
+            font-family: $font-RedHat-Regular;
+            font-size: 1rem;
+            color: #999999;
+            font-weight: 200;
+            }
+        }
+
+        .seccion-referidos {
+            border-left: 3px solid rgb(188, 188, 188);
+            padding: 25px;
+            width: 32%;
+            
+        }
+
+        .suscribirme-newsletter{
+            margin: 2rem 0 0 0;
+            padding: 0 !important;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .suscribirme-newsletter{
+           input{
+            width: 22vw;
+            height: 40px;
+            color: #c0c0c0;
+            font-size: 1rem;
+            font-family: $font-RedHat-Italic;
+            margin-right: 1rem;
+           }
+
+           button{
+            width: 12vw;
+
+                height: 40px;
+             
+                background-color: #1c1f2a;     
+                  font-family: $font-RedHat-Semi;
+                  font-size: 0.75rem;
+                  letter-spacing: 1.5px;
+                  text-align: center;
+                  color: white
+           }
+        }
+
+        .section-only-button {
+            margin-top: 2rem;
+            button{
+                width: 12vw;
+
+                height: 40px;
+                
+                background-color: #1c1f2a;     
+                  font-family: $font-RedHat-Semi;
+                  font-size: 0.75rem;
+                  letter-spacing: 1.5px;
+                  text-align: center;
+                  color: white;
+                  
+            }
+        }
+
+        .pull-right{
+            height: fit-content;
+            background-color: white;
+            border: white;
+            margin-top: -2rem;
+
+            span{
+                font-size: 3rem;
+            }
+
+        }
+
+       
+    }
+
+    .pleca-descuentos-estado-inicial {
+        background-color: #000;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        width: 50px;
+        left: 0;
+        position: fixed;
+        z-index: 10;
+        height: 200px;
+        top: 50vh;
+        cursor: pointer;
+
+        .mensaje-descuento {
+            writing-mode: vertical-lr;
+            color: #fff;
+            padding: 5px;
+            padding-top: 25px;
+        }
+    }
+
+}
+
+.seccion-descuentos-mobile {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 50;
+    padding-right: 0;
+    padding-left: 0;
+    left: 0;
+
+    button{
+        display: none;
+    }
+    
+    .mobile-button{
+        display: flex;
+        width: 100vw;
+        cursor: pointer;
+    }
+
+    .mensaje-descuento {
+        background-color: #1c1f2a;
+        color: #eae4d8;
+        width: 100%;
+        display: flex;
+        height: 1.68rem;
+        align-items: center;
+
+
+
+
+        span{
+            display: flex;
+           width: 85%;
+           margin-left: 0.5rem;
+           font-size: 0.8rem;
+           font-family: $font-RedHat-Regular;
+        }
+    }
+}
+
+.pleca-descuentos-mobile{
+display: none;
+flex-direction: column;
+width: 100vw;
+height: 120vw;
+background-color: #fff;
+border-radius: 15px;
+box-shadow: 0 -1px 2px 0 rgba(188, 188, 188, 0.5);
+align-items: center;
+position: fixed;
+bottom: 0;
+z-index: 2;
+
+}
+.seccion-referidos-mobile {
+    margin-top: 0rem;
+}
+.titulo-newsletter-mobile h4, .titulo-referidos-mobile h4{
+    color: #262626;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $font-Fair-Medium;
+    letter-spacing: 0.33px; 
+    text-align: center;
+    margin-top: 3rem;
+}
+.suscribirme-newsletter-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sub-titulo-newsletter-mobile h6, .sub-titulo-referidos-mobile h6{
+    color: #787878;
+    font-size: 14px;
+    text-align: center;
+    font-family: $font-RedHat-Regular;
+}
+.suscribirme-newsletter-mobile input{
+background-color: white;
+font-size: 13px;
+font-style: italic;
+color:  #c0c0c0;
+margin-top: 1rem;
+width: 296px;
+height: 40px;
+border:  solid 1px #e9e9e9;
+
+}
+.suscribirme-newsletter-mobile button, .section-only-button-mobile button{
+    background-color: #1c1f2a;
+    width: 160px;
+    height: 35px;
+    font-size: 11px;
+    
+    font-family: $font-RedHat-Semi;
+    color:#eae4d8 ;
+    margin-top: 1rem;
+    letter-spacing: 1.38px;
+
+}
+.btn-close-mobile{
+    border: none;
+    background-color: white;
+    position: absolute;
+    align-self: flex-end;
+    margin-right: 1rem;
+    z-index: 3;
+    span{
+        font-size: 3rem;
+        
+    }
+}
+
+.input-referidos-boton{
+    display: flex;
+    
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    input{
+        width: 17.5vw;
+        height: 40px;
+        color: #c0c0c0;
+        font-size: 1rem;
+        font-family: $font-RedHat-Italic;
+        margin-right: 1rem;
+        
+        
+    }
+    button{
+        width: 9.7vw;
+        height: 40px;   
+        background-color: #1c1f2a;     
+          font-family: $font-RedHat-Semi;
+          font-size: 0.75rem;
+          letter-spacing: 1.5px;
+          text-align: center;
+          color: white
+    }
+}
+
+
+@media screen and (max-width: 842px){
+
+    .input-referidos-boton{
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0rem;
+        input{
+            background-color: white;
+            font-size: 13px;
+            font-style: italic;
+            color:  #c0c0c0;
+            margin-top: 1rem;
+            width: 296px;
+            height: 40px;
+            border:  solid 1px #e9e9e9;
+                }
+                input::placeholder{
+                    color:  #c0c0c0;
+                }
+
+        button{
+            background-color: #1c1f2a;
+            width: 160px;
+            height: 35px;
+            font-size: 11px;
+            font-family: $font-RedHat-Semi;
+            color:#eae4d8 ;
+            margin-top: 1rem;
+            letter-spacing: 1.38px;
+         
+        }
+
+    }
+
+    .line-mobile{
+        width: 100%;
+        height: 1px;  
+        margin-top: 3rem;
+        border: solid 1px #e9e9e9;
+        background-color: #e9e9e9;
+    }
+}
+

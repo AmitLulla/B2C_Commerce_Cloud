@@ -1,0 +1,17 @@
+<div class="card order-product-summary">
+    <div class="card-body">
+        <div class="product-summary-block">
+            <div>
+                <input type="radio" id="bono" name="returnType" value="bono">
+                <label for="bono" class="second-text font16">${Resource.msg('text.return.bono', 'return', null)}</label>
+                <isinclude template="account/return/formReturnBono" />
+            </div>
+            <br>
+            <div>
+                <input type="radio" name="returnType" value="bank" id="bank">
+                <label for="bank" class="second-text font16">${Resource.msg('text.return.bank', 'return', null)}</label>
+                <isinclude template="account/return/formReturnBank" />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/pdpCarrousel.js');
+</isscript>
+
+
+<isif condition="${slotcontent}">
+  <div style="position: relative;" class="recommendations-carousel cart-recommendations">
+  <div class="title-carrousel">
+    <h3 class="recommendations__title">
+      <isprint value="${slotcontent.calloutMsg}" encoding="on" />
+    </h3>
+    <h5><a class="slotCarousel" href="${URLUtils.url('Search-Show', 'cgid', 'P1010000')}"> Ver más </a></h5>
+    </div>
+     
+    <div class="grid-container pdp-carrousel">
+      <div class="einstein-carousel cart-einstein-carousel carrousel-slot">
+        <isloop iterator="${slotcontent.content}" alias="product">
+          <isinclude
+            url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'swatches', true, 'ratings', true, 'compare', false, 'slot',true )}" />
+        </isloop>
+      </div>
+    </div>
+  </div>
+</isif>
+
+  <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            $('.einstein-carousel').slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4.2,
+        slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3.1,
+        slidesToScroll: 3,
+        infinite: false,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2.1,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 3.7,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+
+});     
+          const categoryID = document.getElementById('category-id').getAttribute('data-category-id');
+          var slotCarousel = document.getElementsByClassName('slotCarousel');
+          Array.from(slotCarousel).forEach(element => {
+            var categoryURL=$(element).attr('href');
+            var urlArray = categoryURL.split('?');
+            if(urlArray && urlArray.length >0){
+              categoryURL = urlArray[0] + "?cgid=" + categoryID;
+              $(element).attr('href', categoryURL);
+            }
+          }); 
+        });
+  </script>

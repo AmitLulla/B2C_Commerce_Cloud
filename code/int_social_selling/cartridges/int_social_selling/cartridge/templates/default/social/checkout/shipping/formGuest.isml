@@ -1,0 +1,63 @@
+<div id="customerNotRegister">
+    <form id="customerNotRegisterForm" action="${URLUtils.url('SocialSelling-SubmitCustomer')}" method="POST">
+        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        <div class="row">
+            <span class="container">${Resource.msg('information.for.guest', 'form', null)}</span>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">${Resource.msg('email.label', 'form', null)}</label>
+                    <input type="email" required name="email" class="form-control" id="emailInput1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">${Resource.msg('last.name.label', 'form', null)}</label>
+                    <input type="text" required name="lastName" class="form-control" id="exampleFormControlInput1"
+                        placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">${Resource.msg('tel.label.required', 'form', null)}</label>
+                    <input type="number" maxlength="10" required name="phoneMobile" class="form-control" id="phone"
+                        placeholder="">
+                    <div class="msj-error">
+                        <p id="wrongMsjTel"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">${Resource.msg('first.name.label', 'form', null)}</label>
+                    <input type="text" required name="firstName" class="form-control" id="exampleFormControlInput1"
+                        placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">${Resource.msg('cedula.ciudadania.label', 'form', null)}</label>
+                    <input type="text" required name="cedula" class="form-control" id="exampleFormControlInput1"
+                        placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" id="submit-customer-not-register"
+                class="p-3 d-flex align-items-center justify-content-center w-25 btn-default-pat-primo">${Resource.msg('continue', 'checkout', null)}</button>
+        </div>
+        <iscomment> company information </iscomment>
+        <div class="company-information d-none w-50">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">${Resource.msg('razon.social', 'form', null)}</label>
+                <input type="text" name="razonSocial" class="form-control" id="razonSocialInput1">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">${Resource.msg('name.company', 'form', null)}</label>
+                <input type="text" name="nameCompany" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">${Resource.msg('nit', 'form', null)}</label>
+                <input type="text" name="nit" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">${Resource.msg('repeat.nit', 'form', null)}</label>
+                <input type="text" name="confirmNit" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <div class="msj-error" id="nitWrong"></div>
+            </div>
+        </div>
+    </form>
+</div>

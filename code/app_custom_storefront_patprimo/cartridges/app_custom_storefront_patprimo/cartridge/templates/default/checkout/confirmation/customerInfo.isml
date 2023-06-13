@@ -1,0 +1,18 @@
+<p class="summary-section-label shipping-customer-info-label">${Resource.msg('label.datos.comprador', 'orderConfirmation', null)}</p>
+<div class="summary-details customer">
+
+    <span class="customer-summary-name">
+        <isif condition="${(pdict.customer.profile && pdict.customer.profile.firstName) }">
+            <isprint value="${pdict.customer.profile.firstName}" encoding="on" />
+            <isprint value="${pdict.customer.profile.lastName}" encoding="on" />
+        <iselse/>
+            <iscomment> falta info del cliente </iscomment>
+        </isif>
+    <span class="customer-summary-email">
+        <isif condition="${pdict.customer.profile && pdict.customer.profile.email}">
+            <isprint value="${pdict.customer.profile.email}" encoding="on" />
+        <iselse/>
+            <isprint value="${pdict.order.orderEmail}" encoding="on" />
+        </isif>
+    </span>
+</div>

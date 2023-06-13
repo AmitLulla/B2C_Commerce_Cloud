@@ -1,0 +1,25 @@
+
+<isdecorate template="common/layout/page">
+  <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/returnScripts.js');
+        assets.addCss('/css/account/orderTrack.css');
+        assets.addCss('/css/account/profile.css');
+  </isscript>
+<div class="" style="text-align: center;">
+<h1 class="">Tu devolución ha sido procesada con éxito</h1>
+    <p>También recibirás una confirmación vía correo electrónico</p>
+    <a type="button" id="nextBtn" class="nextBtn btn btn-block btn-return return-step1" href="${URLUtils.url('Home-Show')}">Volver al inicio</a>
+</div>
+</isdecorate>
+
+<style>
+  .btn-return {
+    width: 250px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+      margin-left: 50%;
+  transform: translateX(-50%);
+  }
+</style>

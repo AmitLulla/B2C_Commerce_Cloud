@@ -1,0 +1,121 @@
+<isset name="miniCart" value="${true}" scope="page" />
+<div class="container cart miniCartPatPrimo ">
+
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+    <div>
+        <div class="row border-bottom border-secondary mt-2">
+            <div class="col-6">
+                <h1 class="RedHatDisplayFont text-uppercase fontSize24">
+                    ${Resource.msg('title.your.shopping.cart', 'cart', null)}</h1>
+            </div>
+            <div class="col-6 text-right">
+                <iscomment> <a class="normal" href="${URLUtils.https('Cart-Show')}"
+                        title="${Resource.msg('link.view.cart', 'cart', null)}">
+                        ${Resource.msg('link.view.cart', 'cart', null)}
+                    </a> </iscomment>
+                <button type="button" class="close-PatPrimo-minicart border-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">.</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="minicart-error cart-error">
+            <isif condition="${pdict.valid.error && pdict.numItems !== 0}">
+                <div class="alert alert-danger alert-dismissible valid-cart-error fade show pb-0 mb-1" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                    ${pdict.valid.message}
+                </div>
+            </isif>
+        </div>
+
+
+        <isif condition="${pdict.reportingURLs.length != null  && pdict.numItems.toFixed() > 0}">
+            <div class="product-summary scrollbarPatprimo">
+                <div class="col-12 pt-4 mb-2">
+                    <span class="RedHatDisplayFont fontSize14 fontWeight700"
+                        style="margin-botton: 0.5rem !important"><img class="icons20x20"
+                            src="${URLUtils.staticURL('icons/great_choice_icon.svg')}" alt="great_choice_icon">&nbsp;
+                        &nbsp; ¡${Resource.msg('title.great.choice', 'cart', null)}!</span>
+
+                </div>
+                <isloop items="${pdict.items}" var="lineItem">
+
+                    <div class="row border-topMinicart">
+                        <div class="col-12 px-0">
+                            <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+                                <div
+                                    class="card mb-0 miniCartPatPrimo ${miniCart ? 'bonus-product-line-item' : ''} uuid-${lineItem.UUID}">
+                                    <div class="card-body pb-0">
+                                    <isprint value="${pdict.numItems.toFixed()}"> 
+                                        <isinclude template="checkout/productCard/bonusProductCard" />
+                                    </div>
+                                </div>
+                            <iselse/>
+                                <div class="card mb-0 miniCartPatPrimo uuid-${lineItem.UUID}">
+                                    <div class="card-body">
+                                        <isif condition="${lineItem.noProduct === true}">
+                                            <isinclude template="checkout/productCard/uncategorizedProductCard" />
+                                        <iselse/>
+                                            <isinclude template="cart/miniCartProductCard" />
+                                            
+                                        </isif>
+                                    </div>
+                                </div>
+                            </isif>
+                        </div>
+                    </div>
+                </isloop>
+            </div>
+        <iselse/>
+            <div class="col-12 mt-4 text-center">
+                <p class="RedHatDisplayFont fontSize14 ">
+                    ${Resource.msg('info.cart.empty.msg', 'cart', null)}</p>
+            </div>
+            <img class="img-fluid d-block mx-auto img-25 mt-4"
+                src="https://zydb-005.dx.commercecloud.salesforce.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v2d060189ce3ff40876dfe32f09670d74dad97d86/carrito_patprimo.png">
+                </div>
+            </div>
+            <div class="text-center mt-4 mb-3 mx-5 fontSize16">
+                <a type="button" href="${URLUtils.https('Home-Show')}" class="btn btn-conocelonuevo btn-block">CONOCE LO <STRONG>NUEVO</STRONG> ></a>
+            </div>
+
+        </isif>
+
+
+</div>
+
+<isinclude template="cart/cartRemoveProductModal" />
+
+<div class="minicart-footer">
+    <isinclude template="cart/barraEnvioGratis" />
+
+    <div class="row">
+        <div class="col-6 pb-0 ">
+            <p class="text-left mb-0 fontSize12">${Resource.msg('label.number.items.in.cart.simple', 'cart', null)}</p>
+
+            <p class="text-left minicartquantity mb-0 fontSize20 fontWeight700">
+                <isprint value="${pdict.numItems.toFixed()}" formatter="##" />
+            </p>
+        </div>
+        <div class="col-6 ">
+            <p class="text-right mb-0 fontSize12">${Resource.msg('label.total.price', 'cart', null)}</p>
+
+            <isif condition="${pdict.numItems.toFixed() > 0}">
+                <p class="text-right mb-0 sub-total fontSize20">${pdict.totals.subTotal}</p>
+
+            <iselse/>
+                <p class="text-right mb-0 sub-total fontSize20">$0</p>
+            </isif>
+        </div>
+
+        <div class="col-12 checkout-continue m-0 p-0">
+            <isinclude template="cart/checkoutButtons" />
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment-settings xmlns="http://www.demandware.com/xml/impex/paymentsettings/2009-09-15">
+    <payment-method method-id="MercadoPago">
+        <name xml:lang="x-default">MercadoPago</name>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>MERCADOPAGO_PAYMENT</processor-id>
+    </payment-method>
+    <payment-method method-id="MPCreditCard">
+        <name xml:lang="x-default">Tarjetas de Credito</name>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>MERCADOPAGO_PAYMENT</processor-id>
+    </payment-method>
+    <payment-method method-id="MPDebitCard">
+        <name xml:lang="x-default">Tarjetas de Debito</name>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>MERCADOPAGO_PAYMENT</processor-id>
+    </payment-method>
+    <payment-method method-id="MPEfecty">
+        <name xml:lang="x-default">Efecty</name>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>MERCADOPAGO_PAYMENT</processor-id>
+    </payment-method>
+    <payment-method method-id="MPPse">
+        <name xml:lang="x-default">PSE</name>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>MERCADOPAGO_PAYMENT</processor-id>
+    </payment-method>
+</payment-settings>

@@ -1,0 +1,50 @@
+{
+  "name": "plugin_dis",
+  "description": "Shows use of Dynamic Imaging Service as a plugin cartridge for Salesforce B2C Commerce Storefront Reference Architecture.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SalesforceCommerceCloud/dis-product-image-wrapper"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^5.0.3",
+    "eslint-plugin-import": "^1.16.0",
+    "glob": "^7.1.2",
+    "mocha": "^5.2.0",
+    "nyc": "^11.6.0",
+    "proxyquire": "^1.8.0",
+    "sinon": "^1.17.7"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/nyc mocha test/**/*.js",
+    "lint": "./node_modules/.bin/eslint test/**/*.js; ./node_modules/.bin/eslint cartridges/**/*.js; ./node_modules/.bin/eslint scripts/**/*.js",
+    "lintFix": "./node_modules/.bin/eslint ---fix test/**/*.js; ./node_modules/.bin/eslint --fix cartridges/**/*.js; ./node_modules/.bin/eslint --fix scripts/**/*.js"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 95,
+    "statements": 95,
+    "functions": 100,
+    "branches": 92,
+    "include": [
+      "cartridges/plugin_dis/cartridge/scripts/helpers/**/*.js",
+      "scripts/**/*.js"
+    ],
+    "exclude": [
+      "test/**/*.spec.js"
+    ],
+    "reporter": [
+      "text-summary",
+      "lcov"
+    ],
+    "extension": [
+      ".jsx"
+    ],
+    "cache": true,
+    "all": true,
+    "report-dir": "./coverage"
+  }
+}

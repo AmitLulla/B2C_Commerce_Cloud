@@ -1,0 +1,13 @@
+<div class="col-sm-3 product-card-price">
+        <div class="row">
+            <!---item unit price --->
+            <div class="col-8">
+                <isset name="price" value="${item.priceObj}" scope="page"/>                             
+                <isinclude template="/product/components/pricing/main" />
+            </div>
+            <!--- quantity --->
+            <div class="col-4 line-item-quantity">
+                <isinclude template="wishlist/components/productCardQuantitySelector" />
+            </div>         
+        </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="main-store-locator">
+    <iscomment>
+        <div class="data-felt-store-locators">
+            <isinclude template="storeLocator/storeLocatorNoDecorator" />
+        </div>
+    </iscomment>
+    <div class="form-search-mobile">
+        <form action="${pdict.stores.actionUrl}" class="store-locator-mobile" method="get" name="storelocator">
+        <div class="form-group required">
+            <div class="d-flex input-wrapper">
+                <svg width="19" height="19" class="input-icon" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(1 1)" stroke="#D1D0D0" fill="none" fill-rule="evenodd">
+                        <circle cx="6.621" cy="6.653" r="6.621"/>
+                        <path d="m11.255 11.287 5.309 5.309"/>
+                    </g>
+                </svg>
+                <input autofocus type="text"
+                    placeholder="${Resource.msg('field.zip.postal.code', 'shoppingthestore', null)}" class="form-control"
+                    id="store-postal-code"
+                    data-msgnoresult="${Resource.msg('msg.NoSearchResults', 'shoppingthestore', null)}"
+                    name="postalCode" value="" autocomplete="nofill" />
+                <button type="buttons" class="btn-storelocator-search-current-position">
+                    <i class="store-locator-current-position detect-location"
+                        data-action="${pdict.stores.actionUrl}"></i>
+                </button>
+            </div>
+            <div class="invalid-feedback"></div>
+        </div>
+        <button class="d-none btn btn-block btn-outline-secondary btn-storelocator-search" type="submit"
+            aria-label="${Resource.msg('label.findStoresAria', 'shoppingthestore', null)}">
+            ${Resource.msg('button.find.stores', 'storeLocator', null)}
+        </button>
+    </form>
+    </div>
+    
+    <div class="map-right-store-locators">
+        <div id="mapdiv2" <isif condition="${pdict.showMap == 'false'}">data-hideafterinit="true"</isif>>
+            <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('api_google')}">
+                <div style="height: 25em" class="jumbotron map-canvas-mobile d-block"
+                    data-has-google-api="${pdict.stores.googleMapsApi ? true : false}"
+                    data-locations="${pdict.stores.locations}"></div>
+            <iselse/>
+                <p class="store-locator-no-apiKey alert alert-danger">
+                    ${Resource.msg('error.no.api.key', 'storeLocator', null)}</p>
+            </isif>
+        </div>
+        <div id="pickerdiv" class="d-none">
+            <isif condition="${pdict.showMap != 'true'}">
+                <isinclude template="storeLocator/slotPicker" />
+            </isif>
+        </div>
+    </div>
+    <div class="main-store-locator-mobil">
+        <div class="d-flex justify-content-center"> <div class="Line"></div> </div>
+        <isinclude template="storeLocator/storeLocatorNoDecorator" />
+        <isinclude template="storeLocator/storeSearchResults" />
+    </div>
+    
+</div>

@@ -1,0 +1,70 @@
+<isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
+<isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
+<isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
+
+<div class="card product-info ${bonusproductlineitem} uuid-${lineItem.UUID} mb-3 cartCard p-0 p-lg-3">
+    <!--- name and remove buttons --->
+
+    <div class="row ${bonuslineitemrow}">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="media">
+                        <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                            <img class="mr-3 imgCart" src="${lineItem.images.small[0].url}"
+                                alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}">
+                        </a>
+                        <div class="media-body">
+                            <div class="mb-0 mt-0">
+                                <p class="mb-0 RedHatDisplayFont textAzulPat fontSize14 truncateMiniCart" style="max-width: 75%">
+                                    ${lineItem.productName}</p>
+                            </div>
+                            <span
+                                class="d-inline-block align-middle swatch-filter-cartProductCart-${lineItem.variationAttributes[0].displayValue.toLowerCase()} mr-1"></span>
+                            <span
+                                class="d-inline-block  py-0 my-0 mr-1 line-item-attributes RedHatDisplayFont greyPatFont78 fontSize13 mr-1">${lineItem.variationAttributes[0].displayValue}</span>
+                            <span
+                                class="d-inline-block  py-0 my-0 mr-1 line-item-attributes RedHatDisplayFont greyPatFont78 fontSize13 mr-1">/</span>
+                            <span
+                                class="d-inline-block  py-0 my-0 mr-1 line-item-attributes RedHatDisplayFont greyPatFont78 fontSize13">${lineItem.variationAttributes[1].displayValue}</span>
+
+                            <isset name="price" value="${lineItem.price}" scope="page" />
+                            <p class="unit-price RedHatDisplayFont fontWeight400 mr-3 mt-2 fontSize14">
+                                ${lineItem.price.sales.formatted}
+                                <isif condition="${lineItem.price.list.formatted}">
+                                    <span
+                                        class="unit-price RedHatDisplayFont strike-through ml-1 mr-2 fontWeight400 fontSize14 ">
+                                        ${lineItem.price.list.formatted}
+                                    </span>
+
+                                    <isset name="discount"
+                                        value="${'-' + Math.round(((lineItem.price.list.value - lineItem.price.sales.value) / lineItem.price.list.value) * 100)
+                                            .toFixed() + '%'}"
+                                        scope="page" />
+                                    <span class="RedHatDisplayFont greyPatFont83 ml-0 fontSize14" content="${discount}">
+                                        ${discount}
+                                    </span>
+                                </isif>
+                            </p>
+
+                            <div class="d-none col d-lg-block media-bottom pt-2 remove-btn-custom pl-0" style="position: absolute; bottom:0">
+                                <isif condition="${!lineItem.isBonusProductLineItem}" />
+                                    <isinclude template="components/deleteButton" />
+                                </isif>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <isinclude template="cart/productCard/productCardQuantitySelectorCustomCart" />
+            </div>
+        </div>
+    </div>
+    <div class="col col-12 d-lg-none">
+        <hr class="line-item-divider">
+    </div>
+
+</div>
+
+    <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+        <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
+    </isif>

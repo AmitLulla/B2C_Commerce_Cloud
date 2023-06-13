@@ -1,0 +1,437 @@
+@import "~base/components/common";
+@import "../variables";
+header ~ #maincontent .container a:not(.btn-primary, .btn-outline-primary) {
+    color: $link-color-dash;
+}
+
+$icon-base:'icomoon';
+
+@font-face {
+    font-family: $icon-base;
+    src: url($fa-font-path + '/' + $icon-base + ".eot");
+    src:  url($fa-font-path + '/' + $icon-base + ".eot#iefix") format('embedded-opentype'),
+      url($fa-font-path + '/' + $icon-base + ".ttf") format('truetype'),
+      url($fa-font-path + '/' + $icon-base + "woff") format('woff'),
+      url($fa-font-path + '/' + $icon-base + ".svg") format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+li{
+    color: black;
+    &::marker{
+        display: none;
+        color: transparent;
+        visibility: hidden;
+    }
+}
+/**********ICONS WHITE************/
+.icon-cobrar:before {
+  content: "\e910";
+  color: #ffffff;
+}
+.icon-faq:before {
+  content: "\e911";
+  color: #ffffff;
+}
+.icon-garantia:before {
+  content: "\e912";
+  color: #ffffff;
+}
+.icon-group:before {
+  content: "\e913";
+  color: #ffffff;
+}
+.icon-map:before {
+  content: "\e914";
+  color: #ffffff;
+}
+.icon-Asistencia:before {
+  content: "\e900";
+  color: #ffffff;
+}
+.icon-Colombia:before {
+  content: "\e901";
+  color: #ffffff;
+}
+.icon-Contraentrega:before {
+  content: "\e902";
+  color: #ffffff;
+}
+.icon-Devoluciones:before {
+  content: "\e903";
+  color: #ffffff;
+}
+.icon-Enviar:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-Envios:before {
+  content: "\e905";
+  color: #ffffff;
+}
+.icon-Facebook:before {
+  content: "\e906";
+  font-size: 25px;
+}
+.icon-Instagram:before {
+  content: "\e907";
+  font-size: 25px;
+}
+.icon-Whatsapp:before {
+  content: "\e90e";
+  font-size: 25px;
+}
+.icon-Menu:before {
+  content: "\e908";
+  color: #ffffff;
+}
+.icon-MyAccount:before {
+  content: "\e909";
+  color: #fff;
+}
+.icon-Safety:before {
+  content: "\e90a";
+  color: #ffffff;
+}
+.icon-Search:before {
+  content: "\e90b";
+  color: #fff;
+}
+.icon-ShoopingBag:before {
+  content: "\e90c";
+  color: #ffffff;
+}
+.icon-Sucursales:before {
+  content: "\e90d";
+  color: #ffffff;
+}
+
+.icon-WhishList:before {
+  content: "\e90f";
+  color: #ffffff;
+}
+
+/**********ICONS WHITE************/
+
+
+/**********ICONS GRAY************/
+.icon-cobrar.gray:before {
+  content: "\e910";
+  color: #c0c0c0;
+}
+.icon-faq.gray:before {
+  content: "\e911";
+  color: #c0c0c0;
+}
+.icon-garantia.gray:before {
+  content: "\e912";
+  color: #c0c0c0;
+}
+.icon-group.gray:before {
+  content: "\e913";
+  color: #c0c0c0;
+}
+.icon-map.gray:before {
+  content: "\e914";
+  color: #c0c0c0;
+}
+.icon-Asistencia.gray:before {
+  content: "\e900";
+  color: #787878;
+}
+.icon-Colombia.gray:before {
+  content: "\e901";
+  color: #787878;
+}
+.icon-Contraentrega.gray:before {
+  content: "\e902";
+  color: #787878;
+}
+.icon-Devoluciones.gray:before {
+  content: "\e903";
+  color: #787878;
+}
+.icon-Enviar.gray:before {
+  content: "\e904";
+  color: #787878;
+}
+.icon-Envios.gray:before {
+  content: "\e905";
+  color: #787878;
+}
+.icon-Facebook.gray:before {
+  content: "\e906";
+}
+.icon-Instagram.gray:before {
+  content: "\e907";
+}
+.icon-Menu.gray:before {
+  content: "\e908";
+  color: #787878;
+}
+.icon-MyAccount.gray:before {
+  content: "\e909";
+  color: #787878;
+}
+.icon-Safety.gray:before {
+  content: "\e90a";
+  color: #787878;
+}
+.icon-Search.gray:before {
+  content: "\e90b";
+  color: #787878;
+}
+.icon-ShoopingBag.gray:before {
+  content: "\e90c";
+  color: #787878;
+}
+.icon-Sucursales.gray:before {
+  content: "\e90d";
+  color: #787878;
+}
+.icon-Whatsapp.gray:before {
+  content: "\e90e";
+}
+.icon-WhishList.gray:before {
+  content: "\e90f";
+  color: #787878;
+}
+
+/**********ICONS GRAY************/
+
+.lock-scroll{
+  overflow: hidden;
+}
+.enable-scroll{
+  overflow: scroll;
+}
+  
+body {
+  font-family:  'Red Hat Display';
+}
+
+h2, h3 {
+  font-family:  'Playfair Display';
+}
+
+.modal-background {
+    background-color: $black;
+    display: none;
+    height: 100%;
+    position: fixed;
+    opacity: 0.5;
+    width: 100%;
+    top: 0;
+    left: 0;
+    &.show{
+      display: block;
+    }
+}
+ul{
+  li{
+      &::marker{
+          display: none;
+          color: transparent;
+          visibility: hidden;
+      }
+  }
+}
+input[placeholder] {
+    text-overflow: ellipsis;
+}
+
+header ~ #maincontent .container a:not(.btn-primary, .btn-outline-primary) {
+    color: #{var(--skin-link-color-2)};
+}
+
+.hide-order-discount {
+    display: none;
+}
+
+.hide-shipping-discount {
+    display: none;
+}
+
+.order-discount {
+    color: #838383;
+}
+
+.shipping-discount {
+    color: $success;
+}
+
+.error-messaging {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.error-hero {
+    background-image: url('../images/storelocator.jpg');
+    margin-bottom: 0.625em;
+}
+
+.error-message {
+    margin-top: 3.125rem;
+    margin-bottom: 3.125rem;
+}
+
+.error.continue-shopping {
+    margin-bottom: 6.25em;
+}
+
+.error-unassigned-category {
+    color: $red;
+}
+
+.skip {
+    position: absolute;
+    left: 0;
+    top: -4.2em;
+    overflow: hidden;
+    padding: 1em 1.5em;
+    background: $white;
+    transition: all 0.2s ease-in-out;
+}
+
+a.skip:active,
+a.skip:focus,
+a.skip:hover {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    z-index: 10000000;
+    background: $white;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-header-custom {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.modal-background {
+  background-color: $black;
+  display: none;
+  height: 100%;
+  position: fixed;
+  opacity: 0.5;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+
+.nonAvailableSizeMobile {
+  color:#c8c8c8;  
+  background-color: #838383;
+  &:hover {
+    color: #c8c8c8;
+    background-color: #838383;
+  }
+}
+
+.miniCartPatPrimo {
+  @media (max-width: 768px) {
+  max-width: 95%;
+  }
+}
+.close-PatPrimo-minicart {
+  top: 0px;
+}
+
+.add-to-wishlist-messages {
+  transform: translate(-50%, -25%);
+  position: fixed;
+  top: 25%;
+  left: 50%;
+}
+
+.add-to-wishlist-alert {
+  animation: fade 5s linear forwards;
+  box-shadow: 1px 1px 5px grey;
+  padding: 1em;
+  position: fixed;
+  z-index: 1;
+  top: 140px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  @keyframes fade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+  }
+
+  &.show {
+      display: block;
+  }
+}
+.minicart {
+  .quantity {
+    min-width: auto !important;
+    -moz-appearance: textfield;    
+  }
+  .button-plus {
+    padding-top: 7px;
+  }
+}
+.fontWeightBolderI {
+  font-weight: bolder !important;
+}
+
+.btn:focus, .btn:hover, .btn:active, .custom-select:focus, .custom-selectn:hover, .custom-select:active {
+  
+  border-color: #1c1f2a;
+  box-shadow: none !important;
+  outline: none !important;
+}
+option:hover {
+  background-color: #1c1f2a !important;
+  color: #fff;
+}

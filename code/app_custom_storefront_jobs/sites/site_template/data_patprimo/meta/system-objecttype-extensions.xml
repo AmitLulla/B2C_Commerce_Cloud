@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+      <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="client_id">
+                <display-name xml:lang="x-default">client_id</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="client_secret">
+                <display-name xml:lang="x-default">client_secret</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="MID_or_account_id">
+                <display-name xml:lang="x-default">MID or account_id</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="external_key">
+                <display-name xml:lang="x-default">External Key</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="header_text_credicol">
+                <display-name xml:lang="x-default">Header Text Credicol</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="header_text_contra_entrega">
+                <display-name xml:lang="x-default">Header Text Contra Entrega</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="header_text_gift_card">
+                <display-name xml:lang="x-default">Header Text Gift Card</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="header_text_otro_medio_pago">
+                <display-name xml:lang="x-default">Header Text Otro Medio de Pago</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eventDefinitionKey">
+                <display-name xml:lang="x-default">eventDefinitionKey</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eventDefinitionKey_cart_abandoned">
+                <display-name xml:lang="x-default">eventDefinitionKey carrito abandonado</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="timerCartAbandoned">
+                <display-name xml:lang="x-default">tiempo para carrito abandonado</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="enable_cart_abandoned">
+                <display-name xml:lang="x-default">Activar o desactivar carrito abandonado</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="secondTimeEmail">
+                <display-name xml:lang="x-default">Second Time Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="thirdTimeEmail">
+                <display-name xml:lang="x-default">Third Time Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fourthTimeEmail">
+                <display-name xml:lang="x-default">Fourth Time Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="promoCodeMC">
+                <display-name xml:lang="x-default">Promocion para carrito abandonado</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="mktConfig">
+                <display-name xml:lang="x-default">Marketing Cloud Configuración</display-name>
+                <attribute attribute-id="client_id"/>
+                <attribute attribute-id="client_secret"/>
+                <attribute attribute-id="MID_or_account_id"/>
+                <attribute attribute-id="external_key"/>
+                <attribute attribute-id="header_text_credicol"/>
+                <attribute attribute-id="header_text_contra_entrega"/>
+                <attribute attribute-id="header_text_gift_card"/>
+                <attribute attribute-id="header_text_otro_medio_pago"/>
+                <attribute attribute-id="eventDefinitionKey"/>
+                <attribute attribute-id="timerCartAbandoned"/>
+                <attribute attribute-id="enable_cart_abandoned"/>
+                <attribute attribute-id="promoCodeMC"/>
+                <attribute attribute-id="secondTimeEmail"/>
+                <attribute attribute-id="thirdTimeEmail"/>
+                <attribute attribute-id="fourthTimeEmail"/>
+                <attribute attribute-id="eventDefinitionKey_cart_abandoned"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="ProductLineItem">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="cantidadDespachada">
+                <display-name xml:lang="x-default">Cantidad Despachada</display-name>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="productoIncompleto">
+                <display-name xml:lang="x-default">Producto Incompleto</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="devolucionLineItem">
+                <display-name xml:lang="x-default">Devolucion Line Item</display-name>
+                <attribute attribute-id="productoIncompleto"/>
+                <attribute attribute-id="cantidadDespachada"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Order">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="nuevoTotalOrden">
+                <display-name xml:lang="x-default">Nuevo Total Orden $</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="precioTotalProductosDevueltos">
+                <display-name xml:lang="x-default">Precio Total Productos Devueltos</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="enviadoMarketing">
+                <display-name xml:lang="x-default">Enviado a Marketing</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="incompleto">
+                <display-name xml:lang="x-default">Incompleto</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="devoluciones">
+                <display-name xml:lang="x-default">Devoluciones</display-name>
+                <attribute attribute-id="precioTotalProductosDevueltos"/>
+                <attribute attribute-id="enviadoMarketing"/>
+                <attribute attribute-id="incompleto"/>
+                <attribute attribute-id="nuevoTotalOrden"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Basket">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="businessType">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">B2C</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">B2B</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="channelType">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">Storefront</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Call Center</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Marketplace</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">DSS</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Store</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pinterest</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Twitter</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Facebook Ads</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Subscriptions</display>
+                        <value>9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Online Reservation</display>
+                        <value>10</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Customer Service Center</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Instagram Commerce</display>
+                        <value>12</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="currencyCode">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerEmail">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerName">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerNo">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+        </system-attribute-definitions>
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="isAbandoned">
+                <display-name xml:lang="x-default">Cart Abandoned</display-name>
+                <description xml:lang="x-default">El cart fue abandonado</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="sessionAddressBook">
+                <display-name xml:lang="x-default">Session Address Book</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Status">
+                <display-name xml:lang="x-default">Status</display-name>
+            </attribute-group>
+            <attribute-group group-id="cartAbandoned">
+                <display-name xml:lang="x-default">Cart Abandoned</display-name>
+                <attribute attribute-id="isAbandoned"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+</metadata>

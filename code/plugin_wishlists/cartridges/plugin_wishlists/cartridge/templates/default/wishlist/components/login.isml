@@ -1,0 +1,8 @@
+<div class="col-12 ml-4 mb-3 removeMargPad">
+    <label class="title">${Resource.msgf('title', 'wishlist', null)}</label>
+</div>
+<div class="row justify-content-center pr-4 col-pr0">    
+    <div class="col-12">
+        <isinclude template="wishlist/components/list">
+    </div>
+</div>

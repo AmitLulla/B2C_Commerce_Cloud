@@ -1,0 +1,69 @@
+<div class="coupons-and-promos">
+    <div class="pb-2">
+        <isloop items="${pdict.totals.discounts}" var="discount">
+            <isif condition="${discount.type === 'coupon'}">
+                <div class="coupon-price-adjustment RedHatDisplayFont fontSize14 greyPatFont83 coupon-uuid-${discount.UUID} mt-0 mb-2 rounded-0"
+                    data-uuid="${discount.UUID}">
+                    <div class="coupon-code RedHatDisplayFont fontSize14 greyPatFont83">Cupón redimido
+                        ${discount.couponCode}
+                        <button type="button" class="float-right remove-coupon pr-0" data-code="${discount.couponCode}"
+                            aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
+                            data-toggle="modal" data-target="#removeCouponModal" data-uuid="${discount.UUID}">
+                            <span aria-hidden="true" class="text-decoration-underline fontSize14 textRojoPat "><img
+                                    class="icons10x10 mr-1" src="${URLUtils.staticURL('icons/emptyBinRed.svg')}"
+                                    alt="removefromlist"
+                                    style="vertical-align: baseline !important; color: #bc3939;">${Resource.msg('link.remove.coupon.cart', 'cart', null)}</span>
+                        </button>
+                    </div>
+                    <ul class="coupon-promotion-relationship">
+                    </ul>
+                </div>
+            <iselse/>
+            </isif>
+        </isloop>
+    </div>
+
+
+    <div class="row RedHatDisplayFont fontSize14 greyPatFont83 cartTotalsMarginS mt-auto mb-0">
+        <div class="col-8  ">
+            <p>${Resource.msg('label.subtotal.cost.custom', 'cart', null)}</p>
+        </div>
+        <div class="col-4 subtotalsCart text-right sub-total subtotalsCart fontWeight400">
+            <p class="text-right sub-total subtotalsCart fontWeight400">${pdict.totals.subTotal}</p>
+        </div>
+    </div>
+
+    <isloop items="${pdict.totals.discounts}" var="discount">
+        <isif condition="${discount.type === 'coupon'}">
+            <div class="coupon-price-adjustment RedHatDisplayFont fontSize14 greyPatFont83  mt-0 mb-2 rounded-0"
+                data-uuid="${discount.UUID}">
+                <span class="promotion-name promotion-name-${discount.UUID}">${discount.couponCode}</span>
+                
+                    <isif condition="${discount.applied}">
+                        <isloop items="${discount.priceCustom}" var="valorDescuento">
+                            <span class="applied-promotion-discount-cart applied-promotion-discount-cart-${discount.UUID}">-$${(valorDescuento.totalCupon.toFixed().replace('-', '').replace('Col', '')).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</span>
+                        </isloop>
+                        <iselse/>
+                            <span class="applied-promotion-discount-cart applied-promotion-discount-cart-${discount.UUID}">${Resource.msg('msg.coupon.not.applied', 'cart', null)}</span>
+                    
+            
+        </isif>
+            </div>
+        <iselse/>
+        </isif>
+        <ul class="coupon-promotion-relationship">
+        </ul>
+    </isloop>
+
+    <isloop items="${pdict.totals.discounts}" var="discounta">
+        <isif condition="${discounta.lineItemText}">
+            <div class="promotion-information RedHatDisplayFont fontSize14 greyPatFont83 mb-1 mt-0">
+                <span class="promotion-name promotion-name-${discounta.UUID}">${discounta.lineItemText}</span>
+                <isset name="descuento" value="${discounta.price}" scope="page" />
+                <span
+                    class="applied-promotion-discount-cart applied-promotion-discount-cart-${discounta.UUID}">-$${descuento.replace('-', '').replace('$', '').replace('Col', '')} </span>
+            </div>
+        <iselse/>
+        </isif>
+    </isloop>
+</div>

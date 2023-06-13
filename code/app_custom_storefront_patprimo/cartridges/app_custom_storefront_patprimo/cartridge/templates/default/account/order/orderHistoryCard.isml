@@ -1,0 +1,212 @@
+<div class="card" id="${order.orderNumber}">
+    
+    <isscript>
+        var date = new Date(order.creationDate);
+        var format = date.getHours() >= 12 ? 'pm':'am';
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/myOrdersData.js');
+    </isscript>
+    <div class="metodDesk">
+        <div class="card-body card-info-group">
+            <div class="d-flex container-flex-order-history">
+                <div class="col-2">
+                    <span class="font13 azul-pat">${Resource.msgf('label.fecha.compra', 'account', null)}</span>
+                    <p class="textGray"><isprint value="${new Date(order.creationDate)}" formatter="dd-MM-yyyy" timezone = "SITE"/></p>
+                    <p class="textGray"><isprint value="${new Date(order.creationDate)}" formatter="hh:mm" timezone = "SITE"/>${format}</p>
+                    
+                </div>
+                <div class="col-2">
+                    <span class="font13 azul-pat">${Resource.msgf('label.no.pedido', 'account', null)}</span>
+                    <p class="textGray">${order.orderNumber}</p>                
+                </div>
+                <div class="col-2">
+                    <span class="font13 azul-pat">${Resource.msgf('label.total', 'account', null)}</span>
+                    <p class="textGray">${order.newTotal}</p>
+                
+                </div>
+                <isscript>
+                    var direccion = order.shippingAddress.custom.aliasDireccion +
+                    '. ' + order.shippingAddress.address1;
+                    var direccion2 = order.shippingAddress.address2;
+                </isscript>
+                <div class="col-4">
+                    <span class="font13 azul-pat">${Resource.msgf('label.direccion.entrega', 'account', null)}</span>
+                    <p class="textGray dir1">${direccion} </p>
+                    <p class="textGray dir2">${direccion2} </p>
+                
+                </div>
+                <div class="">
+                    <span class="font13 azul-pat">${Resource.msgf('label.metodo.pago', 'account', null)}</span>
+                    <isloop items="${order.paymentInstruments}" var="paymentInstrument" status="loopstatus">
+                        <p class="textGray payMet">${paymentInstrument.creditCardType ? paymentInstrument.creditCardType:null} </p>
+                    </isloop>
+                    
+                </div>
+            </div>
+            <div class="d-flex  container-flex-order-history mb-4">
+                <div class="col-4">
+                    <span class="font13 azul-pat">${Resource.msgf('label.estatus.envio', 'account', null)}</span>
+                    <isif condition="${order.estadoOrden}">
+                    <p id="orderStat" class="textGray">${order.estadoOrden}</p>
+                    </isif>
+                </div>
+                <div class="col-3">
+                    
+                    <isif condition="${order.NoGuia !== null}">
+                        
+                        <span class="font13 azul-pat">${Resource.msgf('label.numero.guia', 'account', null)}</span>
+                        <a href="${order.TrackingGuia}" target="_blank"><p class="font14 azul2 text-underline tracking">${order.NoGuia}</p></a>
+                                           
+                    
+                    </isif>
+                </div>
+            
+                <div class="col-3">
+                    <span class="font13 azul-pat">${Resource.msgf('label.productos.pedido', 'account', null)}</span>
+                    <p class="textGray">${order.newQuantity.toFixed()} ${order.newQuantity > 1 ? 'Productos' : 'Producto'}</p>
+                </div>
+                <div class="">
+                    <span class="font13 azul-pat">${Resource.msgf('label.detalle.pedido', 'account', null)}</span>
+                    <p class="pt-2"><a id="${order.orderNumber}s" class="btn btn-dark btn-beige gotodetails"  href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}" aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">${Resource.msgf('button.ver.detalle', 'account', null)} </a></p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="container text-left px-0 container-flex-order-history">
+                <isif condition="${order.estadoOrden === 'entregado'}">
+                <isif condition="${order.AvalibleReturns.retractos.length > 0}">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pl-0">
+                        <a class="font14 gris-texto1 text-underline"
+                            href="${URLUtils.url('Order-Return', 'orderID', order.orderNumber, 'returnType', 'retracto')}">
+                            <p>${Resource.msg('text.retracto', 'return', null)}</p>
+                        </a>
+                    </div>
+                </isif>
+                    <isif condition="${order.AvalibleReturns.devoluciones.length > 0}">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pl-0">
+                        <a class="font14 gris-texto1 text-underline"
+                            href="${URLUtils.url('Order-Return', 'orderID', order.orderNumber, 'returnType', 'devolucion')}">
+                            <p>${Resource.msg('text.devolucion', 'return', null)}</p>
+                        </a>
+                    </div>
+                    </isif>
+                    <isif condition="${order.AvalibleReturns.garantias.length > 0}">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 pl-0">
+                        <a class="font14 gris-texto1 text-underline"
+                            href="${URLUtils.url('Order-Return', 'orderID', order.orderNumber, 'returnType', 'garantia')}">
+                            <p>${Resource.msg('text.garantia', 'return', null)}</p>
+                        </a>
+                    </div>
+                    </isif>
+                <iselse/>
+                    <p class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 pl-0 font14 gris-texto3 styleItalic mb-0">
+                        ${Resource.msgf('msg.footer.pedido', 'account', null)}</p>
+                </isif>                
+            </div>
+        </div>
+    </div>
+    <div class="metodMob">
+        <div class="col-12 p-0">
+            <div class="col-12">
+                <span class="font11 azul-pat">${Resource.msgf('label.fecha.compra', 'account', null)}</span>
+                <div  class="row pl-3">
+                    <p class="label-title"><isprint value="${new Date(order.creationDate)}" formatter="dd-MM-yyyy" timezone = "SITE"/></p> &nbsp;
+                    <p class="label-title"><isprint value="${new Date(order.creationDate)}" formatter="hh:mm" timezone = "SITE"/>${format}</p>
+                </div>
+            </div>
+            <div  class="row pl-3">
+                <div class="col-4 form-group">
+                    <span class="font11 azul-pat">${Resource.msgf('label.no.pedido', 'account', null)}</span>
+                    <p class="label-title mb-0">${order.orderNumber}</p>
+                </div>
+                <div class="col-4 form-group">
+                    <span class="font11 azul-pat">${Resource.msgf('label.total', 'account', null)}</span>
+                    <p class="label-title mb-0">${order.priceTotal}</p> 
+                </div>
+                <div class="col-4 form-group">
+                    <span class="font11 azul-pat">${Resource.msgf('label.productos', 'account', null)}</span>
+                    <p class="label-title mb-0">${order.productQuantityTotal.toFixed()} ${order.productQuantityTotal > 1 ? 'Productos' : 'Producto'}</p>
+                </div>
+            </div>
+            <div class="col-12">
+                <span class="font11 azul-pat">${Resource.msgf('label.estatus.envio', 'account', null)}</span>
+                
+                
+                <isif condition="${order.estadoOrden}">
+
+                <p class="label-title">${order.estadoOrden}</p>
+                    
+                <iselse/>
+                <iscomment> Temporal Ver si necesita Validaciones Extra </iscomment>
+                <p class="label-title">Sin Status</p>
+                    
+                </isif>
+                    
+                <iscomment> <p class="label-title">${order.shippingStatus.toString() !== 'NOTSHIPPED' ? 'Enviado': 'No enviado'}</p> </iscomment>
+            </div>
+            <div class="col-12 mb-4">
+                    <p class="pt-2"><a id="${order.orderNumber}s" class="btn btn-dark btn-beige gotodetails"  href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}" aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">${Resource.msgf('button.ver.detalle', 'account', null)} </a></p>
+            </div>            
+        </div>
+        <div class="card-footer">
+        <!--
+            <div class="container text-left px-0 container-flex-order-history">
+                <isif condition="${pdict.estadoOrden === 'entregado'}">
+                    <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 pl-0">
+                        <a class="text-underline alignFooter textGray" href="#">
+                            <p class="textGray">
+                                ${Resource.msgf('msg.solicitar.factura', 'account', null)}
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 pl-0">
+                        <a class="font14 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'garantia')}">
+                            <p>${Resource.msg('text.garantia', 'return', null)}</p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 pl-0">
+                        <a class="font14 gris-texto1 text-underline" href="${URLUtils.url('Order-Return', 'orderID', pdict.order.orderNumber, 'returnType', 'devolucion')}">
+                            <p>${Resource.msg('text.devolucion', 'return', null)}</p>
+                        </a>
+                    </div>
+                <iselse/>
+                    <p class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 pl-0 font14 gris-texto3 styleItalic mb-0">${Resource.msgf('msg.footer.pedido', 'account', null)}</p>
+                     <iscomment> <a class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 text-underline alignFooter textGray" href="#"><p class="textGray mb-0">${Resource.msgf('msg.solicitar.factura', 'account', null)}</p></a> </iscomment>
+                </isif>               
+            </div>
+        -->
+
+         <div class="container text-left px-0 container-flex-order-history">
+                <isif condition="${order.estadoOrden === 'entregado'}">
+                <isif condition="${order.AvalibleReturns.retractos.length > 0}">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pl-0">
+                        <a class="font14 gris-texto1 text-underline"
+                            href="${URLUtils.url('Order-Return', 'orderID', order.orderNumber, 'returnType', 'retracto')}">
+                            <p>${Resource.msg('text.retracto', 'return', null)}</p>
+                        </a>
+                    </div>
+                </isif>
+                    <isif condition="${order.AvalibleReturns.devoluciones.length > 0}">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pl-0">
+                        <a class="font14 gris-texto1 text-underline"
+                            href="${URLUtils.url('Order-Return', 'orderID', order.orderNumber, 'returnType', 'devolucion')}">
+                            <p>${Resource.msg('text.devolucion', 'return', null)}</p>
+                        </a>
+                    </div>
+                    </isif>
+                    <isif condition="${order.AvalibleReturns.garantias.length > 0}">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 pl-0">
+                        <a class="font14 gris-texto1 text-underline"
+                            href="${URLUtils.url('Order-Return', 'orderID', order.orderNumber, 'returnType', 'garantia')}">
+                            <p>${Resource.msg('text.garantia', 'return', null)}</p>
+                        </a>
+                    </div>
+                    </isif>
+                <iselse/>
+                    <p class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 pl-0 font14 gris-texto3 styleItalic mb-0">
+                        ${Resource.msgf('msg.footer.pedido', 'account', null)}</p>
+                </isif>                
+            </div>
+        </div>
+    </div>
+</div>

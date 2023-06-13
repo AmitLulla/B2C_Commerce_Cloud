@@ -1,0 +1,5 @@
+<iscomment>Show payment link for Other payment methods (bank or cash payment)</iscomment>
+<div>
+    <a class="text-underline linkTarjetas linkTarjetasMob" style="font-size: 14px; font-weight: bold" href="${pdict.order.orderTransactionNote}" target="_blank">${Resource.msg('link.print.ticket', 'mercadoPago', null)}</a>
+    <iscontentasset aid="mercadopago-other-payment-warning"/>
+</div>

@@ -1,0 +1,44 @@
+<isset name="miniCart" value="${false}" scope="page" />
+<div class="card order-product-summary no-borde">
+    <div class="card-body">
+        <div class="col mb-3 metodDesk">
+            <div class="row backgroundGray">
+                <div class="col-md-6">
+                    <h2 class="font13 azul-pat">${Resource.msg('label.producto', 'wishlist', null)}</h2>
+                </div>
+                <div class="col-md-2">
+                    <h2 class="font13 azul-pat">${Resource.msg('label.precio', 'wishlist', null)}</h2>
+                </div>
+                <div class="col-md-2">
+                    <h2 class="font13 azul-pat">${Resource.msg('label.cantidad', 'wishlist', null)}</h2>
+                </div>
+                <div class="col-md-2">
+                    <h2 class="font13 azul-pat">${Resource.msg('label.total', 'wishlist', null)}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="product-summary-block">            
+            <isloop items="${pdict.order.shipping}" var="shippingModel">
+                <isif condition="${pdict.order.shipping.length > 1}">
+                    <div class="shipment-block">
+                </isif>
+                <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
+                   <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+                        <div class="card ${miniCart ? 'bonus-product-line-item' : ''} uuid-${lineItem.UUID}">
+                            <div class="card-body">
+                                <isinclude template="checkout/productCard/bonusProductCard" />
+                            </div>
+                        </div>
+                    <iselse/> 
+                        <isinclude template="account/return/productCard" />
+                    </isif>
+                </isloop>
+
+                <isif condition="${pdict.order.shipping.length > 1}">
+                    <isinclude template="checkout/shipping/shippingCard" />
+                    </div>
+                </isif>
+            </isloop>
+        </div>
+    </div>
+</div>

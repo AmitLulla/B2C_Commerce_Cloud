@@ -1,0 +1,24 @@
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption">
+    <isif condition="${paymentOption.ID === 'CREDIT_CARD'}">
+        <isinclude template="checkout/billing/paymentOptions/creditCardTab" />
+    </isif>
+    <isif condition="${paymentOption.ID === 'PAGO_CONTRA_ENTREGA'}">
+        <isscript>
+            var preferences = require('*/cartridge/config/preferences');
+        </isscript>
+        <p id="decision" data-decision="${pdict.viewPayment}"></p>
+        <li id="li-payment-method-contra-entrega" class="nav-item" data-method-id="${paymentOption.ID}">
+            <a class="info-pago-contra-entrega <isif condition=" ${preferences.compraMinima > pdict.order.totals.subTotalValue}">disabled </isif> nav-link credit-card-tab" data-toggle="tab"
+                href="#contra-entrega-card-content" role="tab">
+                <img class="credit-card-option" src="${URLUtils.staticURL('/images/bitmap.png')}"
+                    srcset="${URLUtils.staticURL('/images/bitmap@2x.png 2x,images/bitmap@3x.png 3x')}" height="32"
+                    alt="${paymentOption.name}" title="">
+                <span class="tooltip d-none">
+                    ${Resource.msgf('text.compra.minima', 'checkout', null, preferences.compraMinima)}
+                </span>
+            </a>
+
+        </li>
+
+    </isif>
+</isloop>

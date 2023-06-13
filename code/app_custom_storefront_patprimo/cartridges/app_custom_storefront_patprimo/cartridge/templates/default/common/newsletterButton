@@ -1,0 +1,56 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+
+
+<!DOCTYPE html>
+<html lang="${require('dw/util/Locale').getLocale(request.getLocale()).getLanguage()}">
+
+
+
+    <button type="button" id="buttonNewsLetter" data-toggle="modal" data-target="#modalNewsletter"
+    class="btn btn-sm btn-dark RedHatDisplayFontWhite rounded-top">Gana hasta 30% off</button>
+
+    
+        
+    <!-- Modal -->
+    <div class="modal modal-left xs fade " id="modalNewsletter" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content h-auto rounded-right">
+                <div class="modal-header border-0">
+
+                    <button type="button" class="close-patprimo border-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body"  >
+                    <div class="row" >
+                    
+                        <div class="col-8 " >
+                            <h5 class="font-weight-bold RedHatDisplayFont">Recibe un 10% Dcto.</h5>
+                            <p class="text-muted RedHatDisplayFont">Al suscribirte a nuestro newsletter</p>
+                            <br>
+                            <form class="form-row">
+                            <div class="form-group col-md-8">
+                                <input type="email" class="form-control rounded-0" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="*Correo electrónico">
+                            </div>
+                            <div class="form-group col-md-4">
+                                    <button type="submit" style="font-weight: 500;" class="btn btn-primary custom-btn RedHatDisplayFontWhite rounded-0">SUSCRIBIRME</button>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="col-4">
+                            <h5 class="font-weight-bold RedHatDisplayFont">Recibe un 20% Dcto.</h5>
+                            <p class="text-muted RedHatDisplayFont">Al Referir a tus amigos</p>
+                            <br>
+                            <form class="form-row">
+                            
+                                    
+                                    <a data-dismiss="modal"   data-toggle="modal" href="#modalDescuento" style="font-weight: 500;" class="btn btn-primary custom-btn RedHatDisplayFontWhite rounded-0">REFERIR AHORA</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>

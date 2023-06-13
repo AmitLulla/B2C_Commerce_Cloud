@@ -1,0 +1,942 @@
+@import "../variables";
+
+.minus-margin-profile-form{
+
+    margin-right: -23px ;
+
+}
+
+.mycheck {
+    cursor: pointer;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    width: 12px;
+    height: 12px;
+    appearance: none;
+    border: 1px solid $azul-pat;
+    border-radius: 3px;
+    
+}
+.mycheck:checked {
+    background-color: $azul-pat !important;
+}
+
+.mycheck-radio {
+    cursor: pointer;
+    background-color: #fff;
+    width: 12px;
+    height: 12px;
+    appearance: none;
+    border: 1px solid $azul-pat;
+    border-radius: 50%;
+    
+}
+.mycheck-radio:checked {
+    background-color: $azul-pat !important;
+    border: 2px solid rgb(173, 170, 170);
+}
+
+
+
+
+@media (min-width: 1200px){
+    .container {
+        max-width: 1285px;
+    }
+}
+.modal-header{
+    padding: 15px 14px 0px 0px;
+    border-bottom: 0px;
+}
+
+.title {   
+    font-family: $font-RedHat-Regular;
+    font-size: 18px;
+    font-weight: bold ;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $link-color-dash-select !important;
+  }
+
+a.prodLink {
+    color: $link-color-tile-product !important;
+}
+.wishlist-m {
+    margin-left: 36px;
+}
+
+.label-title, .breadcrumb-item > a {
+    font-family: $font-RedHat-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto-2 !important;
+}
+
+.text-secondary{
+    font-family: $font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1 !important;
+}
+
+.breadcrumb{
+    border-bottom: none !important;
+}
+
+.font12{
+    font-size: 12px;
+    font-family: $font-RedHat-Regular !important;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+
+.font12-Semi{
+    font-size: 12px;
+    font-family: $font-RedHat-Semi;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font12-Medium{
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font-size-14{
+    font-size: 14px;
+}
+
+.font15-Semi{
+    color: $azul-pat !important;
+    font-size: 15px !important;
+    font-family: $font-RedHat-Semi !important;
+    font-weight: 600;
+}
+
+.font16-Azul{
+    font-family: $font-RedHat-Regular !important;
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat !important;
+}
+
+.font16-Medium{
+    font-family: $font-Fair-Medium;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.33px;
+    text-align: center;
+    color: $negro-pat;
+}
+
+.font-size-16{
+    font-size: 16px;
+}
+
+.font22{
+    font-family: $font-RedHat-Bold;
+    font-size: 22px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 4px;
+    color: $azul-pat !important;
+}
+
+.second-text{
+    color: $second-text-log !important;
+}
+
+.text-bold{
+    font-family : $font-RedHat-Bold;
+}
+
+.border-right{
+    border-right: solid 1px $grey0;
+}
+
+.menu-label {
+    width: 325px;
+    height: 45px;
+    margin: 25px 0 0;
+    padding: 12px 122px 12px 23.1px;
+}
+
+.border-bottom{
+    border-bottom: solid 1px $grey0;
+}
+
+.txt-hide-menu-perfil{
+
+    font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.33px;
+  display: none;
+  
+  
+  color: $negro-pat;
+  font-family: $font-Fair-Medium;
+}
+
+#menu-dashboard li {
+    width: 100% !important;
+    padding: 12px 23px 12px 23.1px !important;
+    list-style: none !important;
+    height: 45px !important;
+    margin: 0 0 0 !important;
+    color: $gris-texto1 !important;
+}
+
+.btnSave{
+    font-size: 14px;
+    font-family: $font-RedHat-Regular;
+    height: 35px;
+    margin: 9.5px 12.5px 109px;
+}
+
+.btnGeneral{
+    font-size: 12px;
+    font-family: $font-RedHat-Regular;
+    height: 35px;
+    width: 150px;
+}
+
+.btnLinkReferidos{
+    width: 100% !important;
+    height: 50px;
+    border: solid 1px #dfdfdf;
+}
+
+.textGray{    
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $second-text-log !important;
+}
+.font-size-13{
+    font-size: 13px;
+}
+.font13{
+    font-family: $font-RedHat-Regular;
+    font-size: 13px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font13Reg{
+    font-family: $font-RedHat-Regular;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font13-Medium{
+    font-family: $font-RedHat-Medium;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font14{
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font14-Semi{
+    font-family: $font-RedHat-Semi;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font16-Semi{
+    font-family:$font-RedHat-Semi;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font16{
+    font-family:$font-RedHat-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font20{    
+    font-family: $font-PlayfairDisplay;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.styleItalic{
+    font-style: italic;
+}
+
+.gris-texto1{
+    color: $gris-texto1 !important;
+}
+
+.azul-pat{
+    color: $azul-pat !important;
+}
+
+.gris-texto3{
+    color: $gris-texto3 !important;
+}
+
+.negro-pat{
+    color: $negro-pat !important;
+}
+
+table{
+    border-collapse: unset !important;
+    border-spacing: 0px 5px !important;
+}
+
+th{
+    font-family: $font-RedHat-Regular;
+    font-size: 13px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $azul-pat; 
+}
+
+.table th {
+    border-top: 0px !important;
+}
+
+.table td {
+    background-color: $gris-back !important;
+    border-top: 0px !important;
+}
+
+.container-flex-order-history {
+    justify-content: unset !important;
+}
+.container-flex-order-history {
+    display: flex;
+}
+
+.paymentInstruments .card {
+    border-radius: 20px;
+    width: 351px;
+    height: 179px;
+}
+
+.card-header {
+    border-bottom: none !important;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.125);   
+}
+.card-body {
+    flex: 1 1 auto !important;
+    padding: 0 1.25rem !important;
+}
+
+.text-underline{
+    text-decoration: underline !important;
+}
+
+.text-end{
+    text-align: end;
+}
+
+.text-initial{
+    text-align: initial;
+}
+
+.no-borde{
+    border: none;
+}
+
+.backgroundGray{
+    background-color: $gris-back !important;
+}
+
+.custom-select{
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+button > a{
+    color: $beige-pat !important;
+    font-family: $font-RedHat-Semi;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.btn-beige{
+    color: $beige-pat !important;
+    font-family: $font-RedHat-Semi;
+    font-size: 11px;
+    font-weight: 600;
+    height: 35px;
+    width: 150px;
+}
+
+.beige-pat{
+    color: $beige-pat !important;
+}
+
+.btn-remove{
+    color: #c0c0c0;
+    background-color: #fff;
+    border: none;
+    margin-right: -30px;
+}
+
+.icons18x18 {
+    height: 17px;
+    max-height: 17px;
+}
+
+
+
+.filter-gray{
+    filter: grayscale(267%) brightness(208%);
+}
+
+input[type="radio"]::before {
+    background-color: $gris-texto1 !important;
+}
+
+.content-asset > ul[role=menu] > li[role=menuitem]:not(.selected-option-dash) > span > a, 
+.content-asset > ul[role=menu] > li[role=menuitem]:not(.selected-option-dash) > a{
+    margin: 0 0 0 5px;
+    font-family: $font-RedHat-Regular;
+    font-size: 16px !important;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto1 !important;
+}
+
+.content-asset > ul[role=menu] > .selected-option-dash > span > a, 
+.content-asset > ul[role=menu] > .selected-option-dash > a{
+    color: #1c1f2a !important;
+    font-weight: 500 !important;
+}
+
+.width-height{
+    width: 455px;
+    height: 42px;
+  }
+
+.form-group.required .form-control-label::before {
+    content: "*";
+    color: $gris-texto1 !important;
+}
+
+.font-W500{
+    font-weight: 500 !important;
+}
+
+.h87{
+    height: 87%;
+}
+
+.mb-60{
+    margin-bottom: 60px;
+}
+
+#menu-cerrar{
+    display: none;
+    margin-bottom: 35px;
+}
+
+.icon-movil, .iconCollapse, .metodMob, .btnMob{
+    display: none !important;
+}
+
+.icon-desktop, .metodDesk{
+    display: inline !important;
+}
+
+.title-collapse.collapsed > .iconCollapse > img {
+    content: url(../../images/icon-summary.svg);
+}
+
+.title-collapse > .iconCollapse > img {
+    content: url(../../images/icon-rest.svg);
+}
+
+.font11{
+    font-family: $font-RedHat-Semi !important;
+    font-size: 11px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.alig-DeskMob{
+    text-align: start;
+}
+
+.background-refer{
+    background-image : url(../../images/polos-para-hombre-referidos.webp);
+}
+
+.imgReferidosMob{
+    display: none;
+}
+
+.form-referido {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.alignFooter{
+    text-align: end;
+}
+.img-referidos-mob{
+    display:none;
+}
+.tab button.active {
+    background-color: #eae4d8 !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    color: $azul-pat !important;
+    font-family: $font-RedHat-Bold !important;
+}
+.tab button {
+    background-color: $gris-back;
+    font-size: 14px;
+    color: $gris-texto3;
+    font-family: $font-RedHat-Regular !important;
+}
+.font-W600{
+    font-weight: 600;
+}
+.font-family-semi{
+    font-family:$font-RedHat-Semi;
+}
+.borderGray{
+    border: 1px solid $second-text-log !important;
+}
+.azul2{
+    color:$azul2 !important;
+}
+.product-line-item:before {
+    content: "" !important;
+    display: block !important;
+    border-bottom: 0.063em dashed $input !important;
+    margin: 0.625em -0.625em;
+}
+.product-line-item-details {
+    overflow-y: unset !important;
+}
+
+
+#circulo-perfil {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: $azul-pat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   }
+    #circulo-perfil > p {
+        font-family: $font-PlayfairDisplay;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+@media screen and (max-width:800px) {
+    .wishlist-m {
+        margin-left: -15px;
+    }
+}
+
+@media only screen and (max-width:991px){
+    
+    .minus-margin-profile-form{
+
+        margin-right: -0px !important;
+    
+    }
+
+    .form-referido {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        border-radius: 0px!important;
+        width: 100%!important;
+        background-color: #ffffff !important;
+    }
+    .btn-remove{
+       
+        margin-right: 0px;
+    }
+    .img-referidos-mob{
+        display: inline;
+        width: 100%;
+     }
+     .contenedor-ref-mob{
+        padding-right: 0 !important;
+        padding-left: 15 !important;
+    }
+    .heder-ref-mob{
+        margin-top: 0px !important;
+    }
+}
+
+@media only screen and (max-width:768px){
+    
+    #circulo-perfil {
+        display: none;
+    }
+    .txt-hide-menu-perfil{
+
+        display: block !important;
+    
+    }
+    
+    .menu-response{
+        background: white;
+        position: fixed !important;
+        transition: all 0.3s !important;
+        overflow-y: auto !important;
+        left: -770px !important;
+        z-index: 999;
+        height: 100%;
+    }
+
+    #menu-cerrar, .btnMob, .container-flex-order-history{
+        display: block !important;
+    }
+
+    .icon-desktop, .metodDesk{
+        display: none !important;
+    }
+
+    .icon-movil, .iconCollapse, .metodMob{
+        display: inline !important;
+    }
+    [role=main]#maincontent{
+        background: $white !important;
+        margin-top: 1rem !important;
+    }
+    .infoMob{
+        display: inline;
+        font-family: $font-RedHat-Bold;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $azul-pat !important;
+    }
+    .headerHide , .caretCollapse{
+        display: none !important;
+    }
+    .titleMob{
+        color: $azul-pat !important;
+        font-size: 15px !important;
+        font-family: $font-RedHat-Semi !important;
+        font-weight: 600;
+    }
+    .textMob{
+        color: $negro-pat !important;
+        font-size: 13px !important;
+        font-family: $font-RedHat-Regular !important;
+        font-weight: normal;
+        margin-left: 25px;
+    }
+    .alig-DeskMob{
+        text-align: end;
+    }
+    .modal-postion-bottom{
+        position: absolute !important;
+        bottom: 0px !important;
+    }
+    .alignFooter{
+        text-align:initial;
+    }
+    .form-referido {
+        margin-top: 0px!important;
+        margin-bottom: 0px !important;
+        border-radius: 0px!important;
+        width: 100%!important;
+        background-color: #ffffff !important;
+    }
+    .img-referidos-mob{
+        display: inline;
+        width: 100%;
+     }
+     .contenedor-ref-mob{
+        padding-right: 0 !important;
+        padding-left: 15 !important;
+    }
+    .heder-ref-mob{
+        margin-top: 0px !important;
+    }
+    .mt-35{
+        margin-top: -35px !important;
+    }
+    .mt-30{
+        margin-top: -30px !important;
+    }
+    .mt-68{
+        margin-top: -68px !important;  
+    }
+    .styleMob{
+        font-family: $font-RedHat-Semi !important;
+        font-size: 11px !important;
+        font-weight: 500  !important;
+        font-stretch: normal !important;
+        font-style: normal !important;
+        line-height: normal !important;
+        letter-spacing: normal !important;
+    }
+    .font12-Semi{
+        font-size: 12px !important;
+        font-family: $font-RedHat-Semi !important;
+        font-stretch: normal !important;
+        font-style: normal !important;
+        line-height: normal !important;
+        letter-spacing: normal !important;
+    }
+    .width-heightMob{
+        width: 233px !important; 
+        height: 25px !important;
+    }
+    .removeMargPad{
+        margin-left: 0px !important;
+        padding-left: 0px !important;
+    }
+    .col-pr0{
+        padding-right: 0px !important;
+    }
+}
+
+.st-m{
+    flex-wrap:nowrap !important;
+   
+}
+
+
+
+@media only screen and (max-width:545px){
+    .menu-response{
+        left: -548px !important;
+    }
+
+  
+            
+        
+
+    
+    #menu-cerrar, .btnMob, .container-flex-order-history{
+        display: block !important;
+    }
+    .icon-desktop, .caretCollapse, .metodDesk{
+        display: none !important;
+    }
+    .icon-movil, .iconCollapse, .metodMob{
+        display: inline !important;
+    }
+    #maincontent{
+        margin-top: 1rem !important;
+        background-color: $white;
+    }
+    .headerHide{
+        display: none !important;
+    }
+    .titleMob{
+        color: $azul-pat !important;
+        font-size: 15px !important;
+        font-family: $font-RedHat-Semi !important;
+        font-weight: 600;
+    }
+    .textMob{
+        color: $negro-pat !important;
+        font-size: 13px !important;
+        font-family: $font-RedHat-Regular !important;
+        font-weight: normal;
+    }
+    .alig-DeskMob{
+        text-align: end;
+    }
+    .modal-postion-bottom{
+        position: absolute !important;
+        bottom: 0px !important;
+        margin: 0px !important;
+        height: 50vh !important;
+    }
+    .alignFooter{
+        text-align:initial;
+    }
+    .mt-35{
+        margin-top: -35px !important;
+    }
+    .mt-30{
+        margin-top: -30px !important;
+    }
+    .mt-68{
+        margin-top: -68px !important;  
+    }
+    .styleMob{
+        font-family: $font-RedHat-Semi !important;
+        font-size: 11px !important;
+        font-weight: 500  !important;
+        font-stretch: normal !important;
+        font-style: normal !important;
+        line-height: normal !important;
+        letter-spacing: normal !important;
+    }
+    .font12-Semi{
+        font-size: 12px !important;
+        font-family: $font-RedHat-Semi !important;
+        font-stretch: normal !important;
+        font-style: normal !important;
+        line-height: normal !important;
+        letter-spacing: normal !important;
+    }
+    .width-heightMob{
+        width: 233px !important; 
+        height: 25px !important;
+    }
+}
+
+.menu-activo{
+    left: 0px !important;
+}
+
+
+@media only screen and (min-width:769px) and (max-width:992px){
+    .content-asset > ul[role=menu] {
+        padding-left: inherit;
+    }
+    #menu-dashboard li {
+        padding-bottom: 48px !important;
+    }
+}
+
+@media only screen and (min-width:992px) and (max-width:1200px){
+    .content-asset > ul[role=menu] {
+        padding-left: inherit;
+    }
+}
+
+@media only screen and (min-width: 1396px){
+    .col-d-none {
+      display: none !important; }
+    .col-pr-0 {
+      padding-right: 0px !important; } 
+}
+@media (max-width: 1250px){
+    .col-xxl-6 {
+        flex: 0 0 50% !important;
+        max-width: 50%  !important;
+    }
+    .col-xxl-5{
+        flex: 0 0 41.66667% !important;
+        max-width: 41.66667% !important;
+    }
+    .col-xxl-12 {
+        padding-top:35px !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+input[type='radio'] {
+    width: 16px !important;
+    height: 16px !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    padding: 3px !important;
+    background-clip: content-box;
+    border: 2px solid $gris-texto-2;
+    background-color: $white;
+    border-radius: 50%;
+}
+input[type='radio']:checked {
+    border: 1px solid #1c1f2a;
+    background-color: #1c1f2a;
+}
+.div-radio-femenino label {
+    padding-left: 10px;
+    padding-top: 13px;
+}
+.div-radio-masculino label {
+    padding-left: 10px;
+    padding-top: 13px !important;
+}
+@media (max-width: 890px){
+    .mt-Desk{
+      margin-top: -54px;
+    }
+}

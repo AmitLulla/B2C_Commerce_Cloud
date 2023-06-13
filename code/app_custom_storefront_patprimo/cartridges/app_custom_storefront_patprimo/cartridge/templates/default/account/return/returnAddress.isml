@@ -1,0 +1,30 @@
+<div class="card order-product-summary">
+    <div class="card-body">
+        <div class="product-summary-block">
+            <isloop items="${pdict.order.shipping}" var="shippingModel">
+                <isset name="addressDefault" value="${shippingModel.matchingAddressId}" scope="page" />
+                <input class="mycheck-radio" type="radio" id="default" name="address" value="${shippingModel.matchingAddressId}-1" checked>
+                <label for="default" class="font16-Azul">${Resource.msg('text.address1', 'return', null)}
+                    ${shippingModel.matchingAddressId}</label>
+                <div class="container textGray">
+                    <span>${shippingModel.shippingAddress.city}</span>
+                    <p>${shippingModel.shippingAddress.address1}<isif
+                            condition="${shippingModel.shippingAddress.address2}">
+                            <span>${shippingModel.shippingAddress.address2}</span></isif>
+                    </p>
+                </div>
+            </isloop>
+            <div>
+                <isif condition="${(pdict.addressBook).length > 1}">
+                    <div>
+                        <input type="radio" class="mycheck-radio" name="address" value="other" id="other">
+                        <label for="other">${Resource.msg('text.address2', 'return', null)}</label><br>
+                    </div>
+                </isif>
+                <isinclude template="account/return/productCardReturnAddress" />
+                <p><a class="button-pash font14 gris-texto1"><ins>${Resource.msg('text.nueva.direccion', 'return', null)}</ins></a></p>
+                <isinclude template="account/return/formReturn" />
+            </div>
+        </div>
+    </div>
+</div>

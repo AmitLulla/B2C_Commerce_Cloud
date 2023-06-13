@@ -1,0 +1,58 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/modalDescuento.css');
+</isscript>
+
+<div class="modal fade" id="modalSocialSelling" tabindex="-1" role="dialog" aria-labelledby="modalSocialSelling"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 style="text-align:center;" class="modal-title col-10">
+                    ${Resource.msg('modal.title.social', 'cart', null)}</h5>
+                    <br>
+                <div class="seccion-botones container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-10 ">
+                            <a class="w-100 btn btn-outline-dark justify-content-left url-cocial-copy"
+                                data-toggle="tooltip" href="">
+                                <span class="float-left pl-2">
+                                    <i class="fa fa-copy mr-2"></i>
+                                    ${Resource.msg('modal.copy.url', 'modalDescuento', null)}
+                                </span>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10 mt-3">
+                            <a class="w-100 btn btn-outline-dark justify-content-left url-social-wa" target="blank"
+                                href="">
+                                <span class="float-left pl-2">
+                                    <i class="fa fa-whatsapp mr-2"></i>
+                                    ${Resource.msg('modal.share.whatsapp', 'modalDescuento', null)}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10 mt-3">
+                            <a class="w-100 btn btn-outline-dark justify-content-left url-social-fb" target="blank"
+                                href="">
+                                <span class="float-left pl-2">
+                                    <i class="fa fa-facebook-f mr-2"></i>
+                                    ${Resource.msg('modal.share.facebook', 'modalDescuento', null)}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

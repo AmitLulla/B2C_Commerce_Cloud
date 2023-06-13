@@ -1,0 +1,112 @@
+@import "base/experience/components/commerceAssets/imageAndTextCommon";
+@import "~custom/variables";
+
+.beneficios{
+    width: 96vw;
+    margin:auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.beneficio {
+    width: 19vw;
+    height: 60px;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content:center;
+    margin-right: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.5rem;
+
+    
+
+}
+
+.beneficio img{
+   
+    align-self: center;
+    padding-left: 1rem;
+
+
+}
+.contraentrega{
+    height: 1.5rem;
+}
+.beneficio p{
+    font-family: "Red Hat Display";
+    align-self: center;
+    justify-self: end;
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #1c1f2a;
+    margin:auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    
+}
+
+
+@media screen and (max-width: 842px){
+
+    .beneficios{
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 80vw;
+        margin: auto;
+    }
+    .beneficio {
+        width: inherit;
+        height: 60px;
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: flex-start;
+        margin-right: 0.1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-top: 0.5rem;
+     
+    
+    }
+    
+    .beneficio img{
+    
+    height: 1.5rem;
+    align-self: center;
+    padding-left: 1rem;
+    
+    
+    
+    }
+    .beneficio p{
+        text-align: left;
+      font-family: "Red Hat Display";
+      font-size: 0.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.45;
+      letter-spacing: normal;
+      color: #1c1f2a;
+      margin-left:2.5rem ;
+      margin-right: 2.5rem;
+    }
+    
+    .beneficios-envios p {
+    padding-left: unset;
+    text-align: left;
+   
+    
+    }
+}
+
+

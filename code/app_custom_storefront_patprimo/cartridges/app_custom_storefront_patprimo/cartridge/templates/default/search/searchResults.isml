@@ -1,0 +1,63 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/search.js');
+        assets.addCss('/css/search.css');
+    </isscript>
+    <isif condition="${pdict.busqueda}">
+        <script>
+            dataLayer.push({
+            event: "search_completed",
+            keyword_query: ${"'"+pdict.busqueda+"'"}, //Palabra clave buscada
+            number_results: ${pdict.resultados} //Número de resultados
+            });
+        </script>
+    </isif>
+
+    <isif condition="${pdict.resultados == 0}">
+       <div class="container space-word">
+        <div class="d-flex  justify-content-center">
+            <div>
+                <p class="searchWord">No se encontraron productos con la siguiente busqueda</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+        
+            <div>
+            <p class="word-written">${pdict.busqueda}</p>
+            </div>
+            
+        </div>
+        
+       </div>
+        
+    
+        
+    </isif>
+    <isif condition="${pdict.productSearch.isCategorySearch}">
+        <script>
+            dataLayer.push({
+                event: "category_viewed",
+                ordered_by:  ${"'"+pdict.sortinRule+"'"}, //Tipo organización productos
+                product_category: ${"'"+pdict.categoriInfo.categoriaPadre+"'"}, //Categoría principal
+                product_subcategory: ${"'"+pdict.categoriInfo.categoriaActual+"'"}, //Categoría secundaria
+                number_results: ${pdict.resultados}, //Cantidad de resultados
+                located_page: ${"'1-"+pdict.page+"'"} //Rango de ubicación de página
+            });
+        </script>
+    </isif>
+    <script>
+        dataLayer.push({ ecommerce: null });
+        dataLayer.push({
+            event: "view_promotion",
+            ecommerce: {
+            items: [{
+            component_id:  ${"'banner_principal_categoria_"+pdict.categoriInfo.categoriaActual+"'"}, //ID interno del banner
+            category_url:  ${"'"+pdict.categoryURL+"'"},
+            banner_image_url: ${"'"+pdict.imageURL+"'"}
+            }]
+            }
+        });
+    </script>
+    <isinclude template="search/searchResultsNoDecorator" />
+</isdecorate>

@@ -1,0 +1,76 @@
+<isscript>
+    function maskString(data, name) {
+        
+        var partsEmail = data[name].split('@');
+        var partsName = data[name].split("");
+        var pName = partsName[0] + partsName[1] + partsName[2] + partsName[3];
+        var mask = '', limite;
+        var sName =  partsName[partsName.length - 1];
+        if (name === 'lastName' || name === 'firstName') {
+            limite = (partsName.length -2)
+            for (var i = 0; i < limite; i++) {
+                mask+= '*';
+            }
+            return pName + mask + sName;
+        }
+        if (name === 'address1') {
+            for (var i = 0; i < (partsName.length -5); i++) {
+                mask += '*';
+            }
+           return addres1Mask = data[name].substring((0), (5)) + mask + data[name].substring((data[name].length), (data[name].length -4));
+        }
+        if (name === 'tel') {
+            limite = (partsName.length -4)
+            var tel = data.tel;
+            for (var i = 0; i < limite; i++) {
+                mask+= '*';
+            }
+            return tel.substring(0,4) + mask + tel.substring((tel.length -3),(tel.length));
+        }
+    }
+</isscript>
+<div class="address-summary">
+    <isif condition="${typeSend != 'datosEnvio'}">
+        <div>
+            <span class="firstName">
+            <isif condition="${session.customer.isAuthenticated()}">
+                    ${address && address.firstName}
+                <iselse/>
+                    <isif condition="${address && address.firstName}">${maskString(address,'firstName')}</isif>    
+                </isif>
+                
+            </span>
+            <span class="lastName">
+                <isif condition="${session.customer.isAuthenticated()}">
+                    <isif condition="${address && address.lastName}">${address.lastName}</isif>
+                <iselse/>
+                    <isif condition="${address && address.lastName}">${maskString(address, 'lastName')}</isif>
+                </isif>
+            </span>
+        </div>
+    </isif>
+    <isif condition="${typeSend != 'datosComprador'}">
+        <div class="address1">
+            <isif condition="${session.customer.isAuthenticated()}">
+                ${address.address1}
+            <iselse/>
+                <isif condition="${address && address.address1}">${maskString(address,'address1')}</isif>
+            </isif>
+            
+        </div>
+
+        <div class="address2">
+            <isif condition="${address && address.address2}">${address.address2}</isif>
+        </div>
+
+        <span class="city">
+            <isif condition="${address && address.city}">${address.city},</isif>
+        </span>
+        <span class="stateCode">
+        <isif condition="${address && address.stateCode}">${address.stateCode}</isif>
+        </span>
+        <span class="postalCode">
+        <isif condition="${address && address.postalCode}">${address.postalCode}</isif>
+        </span>
+    </isif>
+</div>

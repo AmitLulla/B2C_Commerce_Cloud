@@ -1,0 +1,48 @@
+<iscontent type="text/javascript" charset="UTF-8" compact="true"/>
+
+<isscript>
+	importPackage( dw.system );
+	importPackage( dw.catalog );
+	importPackage( dw.util );
+	importPackage( dw.value );
+	importPackage( dw.web );
+
+	
+	// application constants
+	var constants = {
+		
+	};
+
+	// application resources
+	var resources =  {
+
+		test : Resource.msgf('giftcert.button.removeGiftCertificate','checkout',null),
+		nitWrong : Resource.msgf('nit.wrong.msj','form',null),
+		telWrong :Resource.msgf('tel.wrong.msj','form',null),
+		codeWrong :Resource.msgf('code.wrong.msj','form',null),
+		contraEntregaReplace :Resource.msgf('label.total.contra.pago.replace','checkout',null),
+		envioTiempoEntrega: Resource.msgf('label.envio.tiempo.entrega.replace','checkout',null),
+		notFounfOrderMsj:  Resource.msgf('not.found.order','login',null)
+	};
+
+	// application urls
+	var urls =  {
+		editAddress				: URLUtils.url('Address-EditAddress').toString(),
+		urlWats					: 'https://api.whatsapp.com/send?text=',
+		urlFaceBook				: 'https://www.facebook.com/sharer/sharer.php?u=',
+		wishlist				: URLUtils.url('Wishlist-AddProduct').toString(),
+		urlAddToCartCustom      : URLUtils.abs('Cart-AddProductCustom').toString(),
+		createCartAbandoned     : URLUtils.url('Cart-Abandoned').toString(),
+		getUrlFilters           : URLUtils.url('Search-GetUrlFilters').toString() + '?',
+		cartShow                : URLUtils.url('Cart-Show').toString(),
+		iconEdit 				: URLUtils.staticURL('/images/iconos-editar.svg').toString()
+	};
+
+</isscript> 
+<script>
+    (function(app){
+        app.resources = <isprint value="${JSON.stringify(resources)}" encoding="off"/>;
+		app.urls = <isprint value="${JSON.stringify(urls)}" encoding="off"/>;
+    }(window.app = window.app || {}));
+</script>
+

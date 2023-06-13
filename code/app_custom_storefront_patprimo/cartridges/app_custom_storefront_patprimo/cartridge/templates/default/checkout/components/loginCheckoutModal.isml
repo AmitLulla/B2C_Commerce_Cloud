@@ -1,0 +1,66 @@
+<!-- Modal -->
+<div class="modal fade" id="LoginCheckoutModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="Ingresa-el-cdigo-de DeskModalH2-Titulo">
+                    ${Resource.msg('ingresa.codigo', 'checkout', null)}
+                </span>
+                <button type="button" data-dismiss="modal" class="close"  aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="Enviamos-un-correo-a Deskcuerpo-texto">
+                    ${Resource.msg('send.mail', 'checkout', null)} <span class="emailUser"></span>
+                </p>
+                <p class="Enviamos-un-correo-a Deskcuerpo-texto">
+                    ${Resource.msg('not.receive', 'checkout', null)} <a id="re-send-code" data-href="${URLUtils.url('Account-SendCode')}">${Resource.msg('re.send', 'checkout', null)}</a>
+                </p>
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+                
+                <form data-action="${URLUtils.url('Account-Confirm')}" class="login-custom-checkout" method="POST" name="login-form">
+                    <div class="row">
+                        <input type="text" placeholder="Ingresa tu código de acceso" name="code" class="input-style col-12" value="">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </form>
+                
+                <div class="row container msj-error" id="errorLoginCheckout"></div>
+                <br>
+                <div class="row">
+                    <p class="txt-add-pass col-md-7 col-12">${Resource.msg('login.with.pass.1', 'checkout', null)} <a href="${URLUtils.url('Login-Show')}">${Resource.msg('login.with.pass', 'checkout', null)}</a></p>
+                    <div class="col-md-5 col-12 ">
+                        <button type="button" class="submit-login-checkout btn-continuar-to-shipping">${Resource.msg('log.account', 'checkout', null)}</button>    
+                    </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <span>${Resource.msg('email.incorrect', 'checkout', null)} <a href="${URLUtils.url('Login-Logout','checkoutPage',true)}">${Resource.msg('other.email', 'checkout', null)}</a> </span>
+            </div>
+        </div>
+    </div>
+</div>
+<iscomment> otro modal </iscomment>
+
+<!-- Modal -->
+<div class="modal fade" data-backdrop="static" id="LoginCheckoutModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="Ingresa-el-cdigo-de DeskModalH2-Titulo">
+                    ${Resource.msg('update.info.user', 'checkout', null)}
+                </span>
+                <button type="button" class="close" <isif condition="${pdict.openModalUpdate}"> onclick="location.href='${URLUtils.url('Cart-Show')}'"</isif>  <isif condition="${!pdict.openModalUpdate}">data-dismiss="modal"</isif> aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body-for-filed"></div>
+            </div>
+        </div>
+    </div>
+</div>

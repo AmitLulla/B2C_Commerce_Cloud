@@ -1,0 +1,32 @@
+<isinclude template="cart/cartCouponDisplay" />
+
+<!-- Sales Tax -->
+<div class="row d-none cartTotalsMarginS mb-0 mt-0">
+    <div class="col-8">
+        <p>${Resource.msg('label.sales.tax','cart',null)}</p>
+    </div>
+    <div class="col-4">
+        <p class="text-right tax-total">${pdict.totals.totalTax}</p>
+    </div>
+</div>
+
+<!-- aún no se calcula -->
+<div class="row RedHatDisplayFont fontSize14 greyPatFont83 cartTotalsMarginS mt-auto mb-0">
+    <div class="col-6">
+        <p>${Resource.msg('label.shipping.cost.custom','cart',null)}</p>
+    </div>
+    <div class="col-6 pl-0 text-right">
+        <p>${Resource.msg('label.no.se.calcula','cart',null)}</p>
+    </div>
+</div>
+
+
+<div class="row RedHatDisplayFont fontSize16 fontWeight800 cartTotalsMarginT mb-0 mt-2git add">
+    <div class="col-8">
+        <strong>${Resource.msg('label.estimatedtotal.custom','cart',null)}</strong>
+    </div>
+    <div class="col-4">
+        <p class="text-right grand-totalCart ">$${pdict.totalSinEnvio}</p>
+        
+    </div>
+</div>

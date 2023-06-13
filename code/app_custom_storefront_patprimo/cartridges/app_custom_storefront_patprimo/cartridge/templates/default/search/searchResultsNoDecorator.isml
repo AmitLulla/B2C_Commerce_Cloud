@@ -1,0 +1,367 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/containerGrid.js');
+    assets.addJs('/js/otherCategories-plp.js');
+    assets.addCss('/css/sideBarFilter.css');
+    assets.addCss('/css/components/otherCategoriesCarrousel-plp.css');
+    assets.addCss('/css/otrasCategorias.css');
+    assets.addCss('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
+    assets.addCss('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
+    assets.addJs('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/docs/assets/vendors/jquery.min.js');
+    assets.addJs('/code/app_custom_storefront_patprimo/node_modules/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js');
+</isscript>
+
+<isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+
+</isif>
+
+<div id="msjWish" class="d-flex justify-content-center"></div>
+
+<!--- Search Results Banner --->
+<isif condition="${pdict.productSearch.isCategorySearch}">
+
+    <div class="hero ${pdict.productSearch.bannerImageUrl == null ? 'no-banner' : ''}" <!--- If no image, default is specified in search.scss> .search-banner
+        --->
+        <isif condition="${pdict.productSearch.bannerImageUrl}">
+            style="background-image:
+            url(${pdict.productSearch.bannerImageUrl})"
+        </isif>
+        >
+
+        <div class="d-flex justify-content-start">
+            <ol class="breadcrumb">
+                <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopstatus">
+                    <li class="breadcrumb-item breadcrumb-plp">
+                        <a href="${breadcrumbValue.url}" class="color-breadcrumb-plp" aria-current="page">
+                                ${breadcrumbValue.htmlValue}
+                        </a>
+                    </li>
+                </isloop>
+            </ol>
+        
+        </div>
+
+        <isif condition="${pdict.productSearch.category.name == Resource.msg('label.woman', 'search', null)}">
+            <div class="d-flex justify-content-center align-items-center">
+                <h1 class="title-jeans text-center">
+                    ${Resource.msg('label.jeans', 'search', null)}
+                </h1>
+            </div>
+        </isif>
+    
+        <isif condition="${pdict.productSearch.category.name ==  Resource.msg('label.jeansCategory', 'search', null)}">
+            <div class="d-flex justify-content-center align-items-center">
+                <h1 class="title-jeans text-center">
+                    ${Resource.msg('label.jeans', 'search', null)}
+                </h1>
+            </div>
+        </isif>
+    </div>
+<iselse />
+        <isslot id="search-result-banner-m" description="Banner for search results" context="global" />
+</isif>
+
+
+<isset name="filterValue" value="${pdict.productSearch.productSearch.category.custom.filter}" scope="page" />
+
+
+
+
+<div class="container-fluid search-results ${pdict.productSearch.isCategorySearch == false ? 'search-word' : ''} ${pdict.productSearch.bannerImageUrl == null ? 'noBanner' : ''}">
+    <div class="row justify-content-center">
+        <isif condition="${pdict.productSearch.productIds.length > 0}">
+            <!--- Refinement bar --->
+            <isif condition="${pdict.productSearch.bannerImageUrl != null}">
+            <div class="refinement-bar col-md-12 col-12 ${filterValue == 'filtroFit' ? 'pants' : ''}">
+                    <isinclude url="${pdict.refineurl}" />
+            </div>
+            </isif>
+
+<div
+    class="col-md-12  ${filterValue == 'Price' ? 'price-cards' : ''}">
+                    <div class="d-flex justify-content-between">
+                        <div class="show-side-bar">
+                            <isinclude template="components/filters/sideBarFilter" />
+                        </div>
+                    
+                    <div class="d-flex mr-3">
+                        <div class="mt-md-3 line-order order-mobile">
+                            <isif condition="${pdict.productSearch.productIds.length > 0}">
+                            <div class="row justify-content-center">
+                                    <div class="title-options mt-1 mobile-order"> ${Resource.msg('label.ordenar', 'search', null)}</div>
+                                    <div class="marginSort">
+                                        <isinclude template="search/sortOrderMenu" />
+                                    </div>
+                                    
+                            </div>
+                            </isif>
+                        </div>
+
+                        <div class="line-grids">
+                            <div class="d-flex justify-content-end">
+                                <div class="vl mt-2 position-2"></div>
+                                <div>
+                                    <img class="gridFour" src="${URLUtils.staticURL('/images/gridFour.png')}"
+                                        alt="icon">
+                                </div>
+
+                                <div class="ml-2">
+                                <img class="gridTwo gridIconOpacity" src="${URLUtils.staticURL('/images/gridTwo.png')}"
+                                        alt="icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 content-plp">
+                    
+                    <!--- Product Grid --->
+                    
+                    
+                    <div class="row product-grid" itemtype="http://schema.org/SomeProducts" itemid="#product">
+                        <isinclude template="search/productGrid" />
+                    </div>
+
+                    <div class="row" itemtype="http://schema.org/SomeProducts" itemid="#product">
+                        <isinclude template="search/pagination_einsteins" />
+                    </div>  
+                    
+            </div>
+            
+            <div class="col-md-12 text-center other-categories-plp">
+            <script>
+                     dataLayer.push({ ecommerce: null });
+                    dataLayer.push({
+                        event: "view_promotion",
+                        ecommerce: {
+                        items: [{
+                        component_id:  "otras_categrias",
+                        category_url_1: "${URLUtils.https('Search-Show', 'cgid', 'P1010000')}",
+                        banner_image_url_1: "${URLUtils.httpsStatic('images/otrasCat/ropa.PNG')}",
+                        category_url_2: "${URLUtils.https('Search-Show', 'cgid', 'P1020000')}",
+                        banner_image_url_2: "${URLUtils.httpsStatic('images/otrasCat/sports.PNG')}",
+                        category_url_3: "${URLUtils.https('Search-Show', 'cgid', 'P1030000')}",
+                        banner_image_url_3: "${URLUtils.httpsStatic('images/otrasCat/descanso.PNG')}",
+                        category_url_4: "${URLUtils.https('Search-Show', 'cgid', 'P1050000')}",
+                        banner_image_url_4: "${URLUtils.httpsStatic('images/otrasCat/accesorios.PNG')}",
+                        category_url_5: "${URLUtils.https('Search-Show', 'cgid', 'P1040000')}",
+                        banner_image_url_5: "${URLUtils.httpsStatic('images/otrasCat/zapatos.PNG')}",
+                        category_url_6: "${URLUtils.https('Search-Show', 'cgid', 'P1070000')}",
+                        banner_image_url_6: "${URLUtils.httpsStatic('images/otrasCat/zapatos.PNG')}",
+                        category_url_7: "${URLUtils.https('Search-Show', 'cgid', 'P4000000')}",
+                        banner_image_url_7: "${URLUtils.httpsStatic('images/otrasCat/talla.PNG')}",
+                        }]
+                        }
+                    });
+                    function category1() {
+                        dataLayer.push({ ecommerce: null });
+                        dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                            items: [{
+                            component_id:  "otras_categrias",
+                            category_url: "${URLUtils.https('Search-Show', 'cgid', 'P1010000')}",
+                            banner_image_url: "${URLUtils.httpsStatic('images/otrasCat/ropa.PNG')}",
+                            }]
+                            }
+                        });
+                    }
+                    function category2() {
+                        dataLayer.push({ ecommerce: null });
+                        dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                            items: [{
+                            component_id:  "otras_categrias",
+                            category_url: "${URLUtils.https('Search-Show', 'cgid', 'P1020000')}",
+                            banner_image_url: "${URLUtils.httpsStatic('images/otrasCat/sports.PNG')}",
+                            }]
+                            }
+                        });
+                    }
+                     function category3() {
+                        dataLayer.push({ ecommerce: null });
+                        dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                            items: [{
+                            component_id:  "otras_categrias",
+                            category_url: "${URLUtils.https('Search-Show', 'cgid', 'P1030000')}",
+                            banner_image_url: "${URLUtils.httpsStatic('images/otrasCat/descanso.PNG')}",
+                            }]
+                            }
+                        });
+                    }
+                    function category4() {
+                        dataLayer.push({ ecommerce: null });
+                        dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                            items: [{
+                            component_id:  "otras_categrias",
+                            category_url: "${URLUtils.https('Search-Show', 'cgid', 'P1050000')}",
+                            banner_image_url: "${URLUtils.httpsStatic('images/otrasCat/accesorios.PNG')}",
+                            }]
+                            }
+                        });
+                    }
+                    function category5() {
+                        dataLayer.push({ ecommerce: null });
+                        dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                            items: [{
+                            component_id:  "otras_categrias",
+                            category_url: "${URLUtils.https('Search-Show', 'cgid', 'P1040000')}",
+                            banner_image_url: "${URLUtils.httpsStatic('images/otrasCat/zapatos.PNG')}",
+                            }]
+                            }
+                        });
+                    }
+                    function category6() {
+                        dataLayer.push({ ecommerce: null });
+                        dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                            items: [{
+                            component_id:  "otras_categrias",
+                            category_url: "${URLUtils.https('Search-Show', 'cgid', 'P1070000')}",
+                            banner_image_url: "${URLUtils.httpsStatic('images/otrasCat/talla.PNG')}",
+                            }]
+                            }
+                        });
+                    }
+                     function category7() {
+                        dataLayer.push({ ecommerce: null });
+                        dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                            items: [{
+                            component_id:  "otras_categrias",
+                            category_url: "${URLUtils.https('Search-Show', 'cgid', 'P4000000')}",
+                            banner_image_url: "${URLUtils.httpsStatic('images/otrasCat/sale.PNG')}",
+                            }]
+                            }
+                        });
+                    }
+            </script>
+                            <div class="title-others-categories  mb-4">
+                                Otras Categorías
+                            </div>
+                            <div class="d-flex justify-content-center carrousel-categories">
+                                <div style="cursor: pointer;">
+                                    <a onclick="category1()" href="${URLUtils.url('Search-Show', 'cgid', 'P1010000')}">
+                                        <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/ropa.PNG')}" alt="icon envios" />
+                                        <h5 class="category-name mt-2 text-center"> ROPA </h5>
+                                    </a>
+                                </div>
+                        
+                                <div class="ml-2" style="cursor: pointer;">
+                                    <a onclick="category2()" href="${URLUtils.url('Search-Show', 'cgid', 'P1020000')}">
+                                        <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/sports.PNG')}" alt="icon envios" />
+                                        <h5 class="category-name mt-2 text-center"> SPORT </h5>
+                                    </a>
+                                </div>
+                                <div class="ml-2" style="cursor: pointer;">
+                                    <a onclick="category3()" href="${URLUtils.url('Search-Show', 'cgid', 'P1030000')}">
+                                        <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/descanso.PNG')}" alt="icon envios" />
+                                        <h5 class="category-name mt-2 text-center"> DESCANSO </h5>
+                                    </a>
+                                </div>
+
+                    <div class="ml-2" style="cursor: pointer;">
+                        <a onclick="category4()" href="${URLUtils.url('Search-Show', 'cgid', 'P1050000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/accesorios.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> ACCESORIOS </h5>
+                        </a>
+                    </div>
+                    <div class="ml-2" style="cursor: pointer;">
+                        <a onclick="category5()"  href="${URLUtils.url('Search-Show', 'cgid', 'P1040000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/zapatos.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> ZAPATOS </h5>
+                        </a>
+                    </div>
+                    <div class="ml-2" style="cursor: pointer;">
+                        <a onclick="category6()" href="${URLUtils.url('Search-Show', 'cgid', 'P1070000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/talla.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> TALLAS 14-22 </h5>
+                        </a>
+                    </div>
+                    <div class="ml-2" style="cursor: pointer;">
+                        <a onclick="category7()" href="${URLUtils.url('Search-Show', 'cgid', 'P4000000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/sale.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> SALE </h5>
+                        </a>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="col-md-12 carrousel-other-categories">
+                <div class="title-others-categories  text-center mb-3">
+                    Otras Categorías
+                </div>
+                
+                <div class="owl-container">
+                    <div class="owl-carousel owl-theme">
+
+                    <div class="item">
+                        <a onclick="category1()" href="${URLUtils.url('Search-Show', 'cgid', 'P1010000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/ropa.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> ROPA </h5>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a onclick="category2()" href="${URLUtils.url('Search-Show', 'cgid', 'P1020000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/sports.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> SPORT </h5>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a  onclick="category3()" href="${URLUtils.url('Search-Show', 'cgid', 'P1030000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/descanso.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> DESCANSO </h5>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a onclick="category4())" href="${URLUtils.url('Search-Show', 'cgid', 'P1050000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/accesorios.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> ACCESORIOS </h5>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a onclick="category5()" href="${URLUtils.url('Search-Show', 'cgid', 'P1040000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/zapatos.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> ZAPATOS </h5>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a onclick="category6()" href="${URLUtils.url('Search-Show', 'cgid', 'P1070000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/talla.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> TALLAS 14-22 </h5>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a onclick="category7()" href="${URLUtils.url('Search-Show', 'cgid', 'P4000000')}">
+                            <img class="size-category" src="${URLUtils.staticURL('images/otrasCat/sale.PNG')}" alt="icon envios" />
+                            <h5 class="category-name mt-2 text-center"> SALE5 </h5>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            </isif>
+            </div>
+</div>
+
+    <!-- Content Grid -->
+    <div class="tab-pane container" id="content-search-results-pane" role="tabpanel" aria-labelledby="articles-tab">
+        <div id="content-search-results" class="content-grid-header"></div>
+    </div>
+
+    
+

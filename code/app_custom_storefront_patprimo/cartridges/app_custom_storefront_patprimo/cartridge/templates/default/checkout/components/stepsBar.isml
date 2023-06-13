@@ -1,0 +1,31 @@
+<div class="row steps-bar-background container">
+    <div class="col-12 col-sm-5 col-md-5 content-img-patprimo-sm">
+        <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${ Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg('global.home', 'common', null)) }">
+            <img class="" alt="" src="${URLUtils.staticURL('/images/footer/patprimo.svg')}" />
+        </a>
+    </div>
+    <div id="step-customer-bar" data-already-registered="${session.custom.showFormNotRegister}" class="col-md-4 col-sm-9 col-9 text-center border-right background-select">
+        <h4 class="txt-step">${Resource.msg('step.bar.identificate', 'checkout', null)}</h4>
+        <h4  class="txt-step-sm ">${Resource.msg('step.bar.identificate.sm', 'checkout', null)}</h4>
+       
+    </div>
+    <div id="step-ship-bar" class="col-md-4 col-sm-9 col-9 text-center border-right">
+        <h4 class="txt-step">${Resource.msg('step.bar.envio', 'checkout', null)}</h4>
+        <h4 onclick="history.go(-1)" class="txt-step-sm ">${Resource.msg('step.bar.envio.sm', 'checkout', null)}</h4>
+
+    </div>
+    <div id="step-pay-bar" class="col-md-4 col-sm-9 col-9 text-center">
+        <h4 class="txt-step">${Resource.msg('step.bar.pago', 'checkout', null)}</h4>
+        <h4 onclick="history.go(-1);" class="txt-step-sm upd-costo ">${Resource.msg('step.bar.pago.sm', 'checkout', null)}</h4>
+    </div>
+   
+    <div id="step-1-3" class="col-sm-3 col-3 text-center">
+        <h4>1/3</h4>
+    </div>
+    <div id="step-2-3" class="col-sm-3 col-3 text-center">
+        <h4>2/3</h4>
+    </div>
+    <div id="step-3-3" class="col-sm-3 col-3 text-center">
+        <h4>3/3</h4>
+    </div>
+</div>

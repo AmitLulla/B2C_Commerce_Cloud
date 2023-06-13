@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="Order">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="isContraEntrega">
+                <display-name xml:lang="x-default">Es Compra Contra Entrega?</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isDelivered">
+                <display-name xml:lang="x-default">Fue entregada la orden?</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="pagoContraEntregaOrden">
+                <display-name xml:lang="x-default">Pago Contra Entrega</display-name>
+                <attribute attribute-id="isContraEntrega"/>
+                <attribute attribute-id="isDelivered"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+     <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+           <attribute-definition attribute-id="compraMinima">
+                <display-name xml:lang="x-default">Compra Minima</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shippingMethodNotApply">
+                <display-name xml:lang="x-default">shipping Method Not Apply</display-name>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="pagoContraEntrega">
+                <display-name xml:lang="x-default">Pago Contra Entrega Configuraciones</display-name>
+                <attribute attribute-id="compraMinima"/>
+                <attribute attribute-id="shippingMethodNotApply"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+       
+</metadata>

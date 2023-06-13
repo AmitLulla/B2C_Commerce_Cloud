@@ -1,0 +1,31 @@
+<div data-store-id="${store.ID}">
+    <div class="main-details-map">
+        <div class="main-data-details" style="width:100%">
+            <isinclude template="storeLocator/decorators/storeAddress-map"/>
+        </div>
+       
+       
+            
+            
+                <isif condition="${'distance' in store && store.distance}">
+                    
+                    
+                       <span class="distance-map"> ${store.distance} <span>
+                    
+                    
+                </isif>
+           
+           
+   
+   
+        <div class="col-12 infobox mt-2">
+            <button aria-label="${Resource.msg('label.rescheduleAria', 'shoppingthestore', null)}" class="list-mystore d-none btn btn-block btn-secondary text-center"
+                    data-storeid="${store.ID}"
+                    onclick="location.href='${URLUtils.https('Stores-Find', 'showMap', false, 'storeId', store.ID)}'">
+                ${Resource.msg('label.reschedule', 'shoppingthestore', null)}
+            </button>
+        </div>
+    </div>
+</div>
+
+

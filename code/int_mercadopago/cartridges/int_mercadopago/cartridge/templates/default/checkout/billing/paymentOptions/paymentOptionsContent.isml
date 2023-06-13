@@ -1,0 +1,35 @@
+<iscomment>
+    <isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption" status="loopSate">
+        <isif condition="${paymentOption.ID === 'CREDIT_CARD'}">
+            <isinclude template="checkout/billing/paymentOptions/creditCardContent" />
+        </isif>
+        <isif
+            condition="${pdict.mercadoPago && pdict.mercadoPago.enable && paymentOption.ID === Resource.msg('payment.method.id',
+                       'mercadoPagoPreferences', null)}">
+            <isinclude template="checkout/billing/paymentOptions/mercadoPagoContent" />
+        </isif>
+    </isloop>
+</iscomment>
+
+
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption">
+    <isif condition="${paymentOption.ID === 'CREDIT_CARD' && !session.custom.giftComplete}">
+        <isinclude template="checkout/billing/paymentOptions/creditCardContent" />
+    </isif>
+    <isif
+        condition="${pdict.mercadoPago && !session.custom.giftComplete && pdict.mercadoPago.enable && paymentOption.ID === Resource.msg('payment.method.id',
+                   'mercadoPagoPreferences', null)}">
+        <isinclude template="checkout/billing/paymentOptions/mercadoPagoContent" />
+    </isif>
+    <isif condition="${paymentOption.ID === 'GIFT_CERTIFICATE' && !session.custom.giftComplete}">
+        <div id="giftCertificate" class="d-none">
+            <!--<h4>GIFT_CERTIFICATE</h4> -->
+            <isinclude template="checkout/billing/paymentOptions/giftCardContent" />
+        </div>
+    </isif>
+    <isif condition="${paymentOption.ID === 'PAGO_CONTRA_ENTREGA'}">
+        <div id="pagoContraEntrega" class="d-none">
+            <isinclude template="checkout/billing/paymentOptions/paymentContraEntregaContent" />
+        </div>
+    </isif>
+</isloop>

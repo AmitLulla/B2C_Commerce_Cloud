@@ -1,0 +1,15 @@
+<div class="gift-certificate-card d-none">
+    <div class="col-md-8  col-sm-12 col-12">
+        <ul class="list-group">
+            <li style="display:flex; justify-content: space-between">
+                <p class="card-text masked-code"><strong>${giftCertificate.maskedGiftCertificateCode}</strong></p>
+                <p class="card-text masked-code code-amount-p"><strong id="giftCode" class="gift-${giftCertificate.giftCertificateCode}">${giftCertificate.formattedAmount}</strong></p>
+                <a class="remove-gift-certificate"
+                    href="${URLUtils.url('CheckoutServices-RemoveGiftCertificate', 'uuid', giftCertificate.UUID)}">
+                    ${Resource.msg('giftcert.button.removeGiftCertificate', 'checkout', null)}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <span id="saldoPending"></span>
+</div>

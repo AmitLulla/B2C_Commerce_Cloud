@@ -1,0 +1,43 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/imageAndTextCommon_A.css');
+</isscript>
+<style>
+
+.titulo-seccion h4{
+  width: 80vw;
+    align-self: center;
+    font-family: "FairMedium";
+    text-align: left;
+    color:#262626;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    margin: auto;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    margin-left:3rem;
+}
+
+</style>
+
+<div class="title-Section" >
+
+    
+                         
+
+                             <div class="titulo-seccion" >
+                           <h4 >${pdict.title ? pdict.title: null}</h4>
+                            </div>
+
+                    
+                       
+                    </div>
+                 
+              
+       
+
+

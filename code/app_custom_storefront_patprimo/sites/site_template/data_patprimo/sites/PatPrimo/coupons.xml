@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coupons xmlns="http://www.demandware.com/xml/impex/coupon/2008-06-17">
+    <coupon coupon-id="referidos">
+        <enabled-flag>true</enabled-flag>
+        <case-insensitive>false</case-insensitive>
+        <redemption-limits>
+            <allow-multiple-codes-per-order>false</allow-multiple-codes-per-order>
+        </redemption-limits>
+        <single-code>PD20PAT</single-code>
+    </coupon>
+
+    <coupon coupon-id="referiosAhijados">
+        <enabled-flag>true</enabled-flag>
+        <case-insensitive>false</case-insensitive>
+        <redemption-limits>
+            <allow-multiple-codes-per-order>false</allow-multiple-codes-per-order>
+        </redemption-limits>
+        <single-code>AHPAT20</single-code>
+    </coupon>
+</coupons>

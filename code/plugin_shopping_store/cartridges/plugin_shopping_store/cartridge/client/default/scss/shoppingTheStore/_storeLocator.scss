@@ -1,0 +1,439 @@
+/* storeLocator.isml */
+ @import "~custom/variables";
+@import "storeLocatorMap";
+@import "bootstrap/scss/mixins/breakpoints";
+
+@font-face {
+    font-family: "RedHatRegular";
+    src: url("../../fonts/RedHatDisplay-Regular.ttf");
+}
+@font-face {
+    font-family: "RedHatDisplaySemiBold";
+    src: url("../../fonts/RedHatDisplay-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "RedHatDisplayExtraBold";
+    src: url("../../fonts/RedHatDisplay-ExtraBold.ttf");
+}
+
+.storeimage {
+    background-image: url("https://ssl.c.photoshelter.com/img-get2/I0000akhmVBCvL0U/sec=wdfsdfoeflwefms1440ed20200602DiaPzwjJcwd7PQ4/fit=2040x2040");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.map-canvas {
+    height: 100vh;
+}
+
+/* storeLocatorFields.isml */
+.map-canvas .store-details {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+li.nostyle {
+    list-style-type: none;
+}
+
+/* storeDetails.isml */
+.right-bottom {
+    right: 0;
+    bottom: 0;
+}
+
+tr.store-address {
+    vertical-align: baseline;
+}
+
+.store-locator-current-position:after {
+    content: url("../../images/iconos-location2.svg");
+    object-fit: contain;
+    color: $white;
+    position: relative;
+    top: 2px
+}
+
+.selected {
+    border: solid 1px $second-text-log!important;
+}
+
+.sucursales-cercanas,.todas-las-sucursales {
+    height: 21px;
+    // margin: 30px 48px 5px 5px;
+    font-family: 'RedHatRegular';
+
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color:$gris-texto1;
+    font-weight: normal;
+}
+
+.sucursales-select {
+    font-family: 'RedHatDisplaySemiBold'!important;
+    font-weight: bold!important;
+    color:$azul-pat!important;
+}
+
+.Line-13 {
+    width: 187px;
+    height: 2px;
+    margin: 5px 46px 19px 0px;
+    border: solid 2px $azul-pat;
+}
+
+.search-by-departamento {
+    select {
+        width: 89%;
+        padding: 5px;
+        margin: 0px 0px 16px 0px;
+        border: 1px solid $gris-texto-4;
+        color: $gris-texto-2;
+        height: 43px;
+        background-color: white;
+    }
+    p {
+        width: 378px;
+        height: 4px;
+        font-family: 'RedHatRegular';
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $gris-texto-2;  
+    }
+}
+
+.margin-custom {
+    margin-left: 15px;
+}
+
+.title-localize-store {   
+
+    font-family: $font-Fair-Medium;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin-bottom: 1rem;
+    width: fit-content;
+    color: $negro-pat;
+}
+
+.span-results {
+    width: 201px;
+    height: 18px;
+    font-family: 'RedHatRegular';
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $second-text-log;
+    padding: 1px;
+}
+
+.container-results-count {
+    margin-bottom: 12px;
+    @include media-breakpoint-down(xs) {
+        margin-bottom: 17px;
+        margin-top: 8px;
+        position: relative;
+        top: -23px;
+        z-index: -12;
+     }
+}
+
+.container-results {
+    width: 95%;
+    // margin-left: 25px;
+}
+
+.title-u,.km-distances {
+    font-size: 14px;
+    font-family: 'RedHatDisplaySemiBold';
+    text-decoration: none;
+    color: #1c1f2a;
+    font-weight: 600;
+    
+}
+.km-distances {
+    margin-right: 5px;
+}
+.pl-1,.storelocator-phone{
+    font-family: $font-RedHat-Regular;
+    color:#838383 !important;
+    font-size: 14px;
+}
+
+.main-store-locator{
+    display: flex;
+    @include media-breakpoint-down(xs) {
+        display: block;
+     }
+}
+.data-left-store-locator{
+    width: 34vw;
+}
+.map-right-store-locator{
+    width: 60.5vw;
+}
+
+.horario-left-map,.mobile-left-map{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.title-and-km{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 28vw; 
+    button{
+        width: 70%;
+    }   
+    .ditance-km-left-map{
+        width: 22%;
+        
+    }
+
+}
+.ditance-km-left-map{
+    margin-left: 2rem;
+}
+.card-body-inf {
+    border: solid 1px $grey0;
+    margin-bottom: 18px;
+}
+.card-body{
+    padding-left: 1rem;
+}
+
+
+.body-card-font {
+    width: 353px;
+    line-height: 1.5 !important;
+    height: 110px;
+    margin: 15px 0 0;
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $second-text-log;
+}
+
+.label-Km {
+    width: 64px;
+    height: 18px;
+    margin: 12px 20px 15px 149px;
+    font-family: $font-RedHat-Regular;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--azul-pat);
+}
+
+.scroll-invisible {
+    overflow: auto; /*Graceful degradation para Firefox*/
+    overflow: overlay;
+}
+
+/*Webkit(Chrome, Android browser, Safari, Edge...)*/
+.scroll-invisible::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-invisible::-webkit-scrollbar-thumb {
+    background-color: $white;
+}
+
+.storelocator-phone {
+    color: $second-text-log!important;
+    &:hover{
+        text-decoration:underline !important;
+    }
+}
+#space {
+    margin-bottom: 7px
+}
+
+.btn-storelocator-search-current-position {
+    background: white;
+    border: 1px solid #ced4da;
+    width: 10%;
+    @include media-breakpoint-down(xs) {
+        width: 13%;
+     }
+}
+
+.view-mobile {
+    display: none;
+    @include media-breakpoint-down(xs) {
+        display: block;
+     }
+}
+
+.view-desktop {
+    display: block;
+    @include media-breakpoint-down(xs) {
+        display: none;
+     }
+}
+
+@media screen and (max-width: 842px){
+    .main-store-locator-mobil{
+        border-radius: 20px;
+        box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.18);
+    }
+    .Line-13{
+        width: 64%;
+        margin: 5px 46px 19px -8px;
+    }  
+    .todas-las-sucursales , .sucursales-cercanas{
+        font-size:13px;
+    }
+    .search-by-departamento{
+        display: none;
+        select, .-Nmero-de-la-tarje {
+            display: none;
+        }
+        
+    }
+    .movil-result {
+        width: 100%;
+    }
+
+    .title-and-km{
+        width: 95%;
+    }
+  .ditance-km-left-map{
+    width: 30% !important;
+    margin-left: 0 !important;
+  }
+    .title-u, .km-distances{
+        font-size: 13px;
+       
+    }
+    .title-u{
+        margin-left: 12px;
+    }
+    .adrress-left-map ,.mobile-left-map , .horario-left-map{
+        font-size:12px ;
+        margin-left: 12px;
+        margin-top: 4px;
+    }
+    .horario-left-map,.adrress-left-map{
+        width: 90%;
+    }
+ 
+    .movil-form-control , .movil-button-storelocator{
+        display: none;
+    }
+    .card{
+        margin-top: -2rem;
+    } 
+
+}
+
+.gmnoprint {
+    @include media-breakpoint-down(xs) {
+        display: none;
+     }
+}
+
+.form-search-mobile {
+    position: absolute;
+    z-index: 2;
+    left: 59px;
+    top: 141px;
+}
+
+.Line {
+    width: 30px;
+    height: 1px;
+    margin: 13px;
+    border: solid 2px $grey10;
+}
+
+.gm-style-mtc {
+    button {
+        font-family: 'RedHatDisplayExtraBold' !important;
+        color: $negro-pat!important;
+        font-size: 14px!important;
+    }
+}
+
+.breadcrumbs-locator {
+    width: 174px;
+    height: 16px;
+    margin: 15px 5px 0px 45px;
+    font-family: 'RedHatRegular';
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $gris-texto-2;
+    a {
+        color: $gris-texto-2;
+        &:hover {
+            text-decoration: underline!important;
+        }
+    }
+    @include media-breakpoint-down(xs) {
+        display: none;
+    }
+}
+
+.input-icon {
+    color: #191919;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #store-postal-code {
+    box-sizing: border-box;
+    color: #191919;
+    padding: 15px 15px 15px 35px;
+    width: 100%;
+    border: 1px solid $gris-texto-4;
+    
+}
+
+#store-postal-code::placeholder {
+    @include media-breakpoint-down(xs) {
+        font-size: 13px;
+    }
+}
+
+  .input-wrapper {
+    position: relative;
+    width: 100%; 
+ }

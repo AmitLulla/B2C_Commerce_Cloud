@@ -1,0 +1,78 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/homeExploraLoNuevo_H.css');
+</isscript>
+
+<div class="explora-lo-nuevo">
+    <div class="titulo-seccion">
+        <h3>${pdict.title ? pdict.title:null} </h3>
+    </div>
+    <div class="categorias-lo-nuevo">
+        <div class="btn-ella textbox-categorias" onclick="location.href='${pdict.categoryLink1 ? pdict.categoryLink1:null}';" style="cursor: pointer;">
+            <h5>${pdict.cta1 ? pdict.cta1: null}</h5> 
+        </div>   
+
+        <div class="btn-el textbox-categorias" onclick="location.href='${pdict.categoryLink2 ? pdict.categoryLink2:null}';" style="cursor: pointer;" >
+            <h5>${pdict.cta2 ? pdict.cta2: null} </h5>
+        </div>
+
+        <div class="btn-infantiles textbox-categorias" onclick="location.href='${pdict.categoryLink3 ? pdict.categoryLink3:null}';" style="cursor: pointer;" >
+            <h5>${pdict.cta3 ? pdict.cta3: null} </h5> 
+        </div>    
+    </div>
+</div>
+      
+
+
+
+<isif condition="${slotcontent}">
+    <div style="position: relative;" class="recommendations-carousel cart-recommendations">
+        <h3 class="container recommendations__title">
+            <isprint value="${slotcontent.calloutMsg}" encoding="on" />
+        </h3>
+        <div class="grid-container" style="background-color:white">
+            <div class="container einstein-carousel cart-einstein-carousel">
+                <isloop iterator="${slotcontent.content}" alias="product">
+                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'swatches', true, 'ratings', true, 'compare', false)}" />
+                </isloop>
+            </div>
+        </div>
+    </div>
+  
+  <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            $('.cart-einstein-carousel').slick({
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});      
+        });
+    </script>
+</isif>

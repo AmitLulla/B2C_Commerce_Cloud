@@ -1,0 +1,2 @@
+<h1>Su código es: ${pdict.code}. Ingrese con él </h1>
+<img class="w-25" src="${URLUtils.staticURL('/images/emoji_1.png')}" alt="">

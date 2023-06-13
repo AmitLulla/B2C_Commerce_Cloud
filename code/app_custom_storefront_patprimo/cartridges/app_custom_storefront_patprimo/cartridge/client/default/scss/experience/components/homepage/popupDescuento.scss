@@ -1,0 +1,88 @@
+.seccion-descuentos-desktop {
+    .pleca-descuentos {
+        background-color: #fff;
+        position: fixed;
+        left: 0;
+        top: 300px;
+        z-index: 10;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .seccion-newsletter {
+            padding: 25px;
+            margin-left: 30px;
+            margin-right: 30px;
+
+            .suscribirme-newsletter {
+                padding-left: 15px;
+
+                .input-newsletter {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .seccion-referidos {
+            border-left: 1px solid rgb(188, 188, 188);
+            padding: 25px;
+            padding-right: 35px;
+        }
+
+        button.btn-close {
+            margin: 0;
+            position: absolute;
+            opacity: 1;
+            z-index: 10;
+            cursor: pointer;
+            right: 0;
+            background-color: transparent;
+            border: 0;
+            appearance: none;
+            top: -8px;
+            font-size: 27px;
+            margin-left: 5px;
+            margin-right: 5px;
+
+        }
+    }
+
+    .pleca-descuentos-estado-inicial {
+        background-color: #000;
+        border-top-right-radius: 10%;
+        border-bottom-right-radius: 10%;
+        width: 50px;
+        left: 0;
+        position: fixed;
+        z-index: 10;
+        height: 225px;
+        top: 300px;
+
+        .mensaje-descuento {
+            writing-mode: vertical-lr;
+            color: #fff;
+            padding: 5px;
+            padding-top: 25px;
+        }
+    }
+
+}
+
+.seccion-descuentos-mobile {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 50;
+    padding-right: 0;
+    padding-left: 0;
+    left: 0;
+
+    .mensaje-descuento {
+        background-color: #000;
+        color: #fff;
+
+        span i {
+            float: right;
+            padding: 5px;
+        }
+    }
+}

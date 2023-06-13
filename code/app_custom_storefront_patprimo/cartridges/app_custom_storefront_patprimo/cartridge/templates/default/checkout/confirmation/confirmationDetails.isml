@@ -1,0 +1,39 @@
+<div class="card confirm-details">
+    <div class="card-header">
+        <h2 class="card-header-custom">${Resource.msg('label.compra.exitosa', 'orderConfirmation', null)}</h2>
+    </div>
+
+    <div class="card-body">
+        <p>${Resource.msg('label.detalles.orden', 'orderConfirmation', null)}</p>
+        <p>
+            <span class="summary-section-label order-number-label">${Resource.msg('label.order.id', 'orderConfirmation', null)}</span>
+            <span class="summary-details order-number">${pdict.order.orderNumber}</span>
+            <span class="summary-section-label order-date-label">${Resource.msg('labe.order.fecha', 'orderConfirmation', null)}</span>
+            <span class="summary-details order-date">
+                <isprint value="${pdict.order.creationDate}" style="DATE_SHORT" /></span>
+        </p>
+        <isif condition="${pdict.action === 'Order-Track'}">
+            <p></p><span class="summary-section-label">${Resource.msg('label.order.status', 'login', null)}</span></p>
+            <p>${pdict.status}</p>
+            <p><span class="summary-section-label">${Resource.msg('label.order.guia.number', 'login', null)}</span></p>
+            <p>${pdict.numberGuia}</p>
+            <p><span class="summary-section-label">${Resource.msg('label.order.url.seguimiento', 'login', null)}</span></p>
+            <p><a target="_blank" href="${pdict.TrackingGuia}">${pdict.TrackingGuia}</a></p>
+        </isif>
+        <div class="row">
+            <div class="col-6">
+                <div class="datos-comprador">
+                    <isinclude template="checkout/confirmation/customerInfo" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="summary-details shipping">
+                    <isinclude template="checkout/confirmation/shippingSummary" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<isinclude template="checkout/confirmation/orderProductSummary" />

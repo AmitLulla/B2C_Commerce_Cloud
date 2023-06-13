@@ -1,0 +1,49 @@
+{
+    "name": "suscripcion Newsletter",
+    "description": "Image, text overlay that links user to a category using the markup editor",
+    "group": "patprimo_components_homepage",
+    "attribute_definition_groups": [
+    
+      {
+        "id": "title1",
+        "name": "title1",
+        "description": "text for the button 1.",
+        "attribute_definitions": [
+          {
+            "id": "title1",
+            "name": "title1",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },  {
+        "id": "title2",
+        "name": "title2",
+        "description": "text for the button 1.",
+        "attribute_definitions": [
+          {
+            "id": "title2",
+            "name": "title2",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "btn",
+        "name": "btn",
+        "description": "text for the button 1.",
+        "attribute_definitions": [
+          {
+            "id": "btn",
+            "name": "btn",
+            "type": "text",
+            "required": true
+          }
+        ]
+      }
+     
+    ],
+    "region_definitions": []
+  }
+  

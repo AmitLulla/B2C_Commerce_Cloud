@@ -1,0 +1,54 @@
+<!--- Edit product and MoveToWishList  DESKTOP--->
+
+<div class="col align-self-center pr-lg-0 pl-lg-0  d-none d-md-block ">
+    <a href="${URLUtils.url('Wishlist-AddProduct')}" class="move "
+        data-pid="${lineItem.id}"
+        data-name="${lineItem.productName}"
+        data-action="${URLUtils.url('Cart-RemoveProductLineItem')}"
+        data-uuid="${lineItem.UUID}"
+        title="${Resource.msg('link.move.to.wishlist', 'cart', null)}" >
+            <span class="RedHatDisplayFont fontSize14 greyPatFont78 text-decoration-underline pl-2">
+            <img class="icons12x12 mr-1" src="${URLUtils.staticURL('icons/iconos-favorito-outline.svg')}" alt="removefromlist" style="vertical-align: baseline !important;">
+                ${Resource.msg('link.move.to.wishlist', 'cart', null)}
+            </span>
+    </a>
+</div>
+<div class="align-self-center pr-lg-0  mr-3  d-none d-md-block ">
+    <a href="${URLUtils.url('Cart-GetProduct', 'uuid', lineItem.UUID)}" class="edit mr-0  greyPatFont78 text-decoration-underline" 
+        data-toggle="modal" data-target="#editProductModal"
+        aria-label="${Resource.msgf('text.edit.line.item','cart', null, lineItem.productName)}"
+        title="${Resource.msg('link.edit.item', 'cart', null)}">
+            <span aria-hidden="true" class="RedHatDisplayFont  fontSize14 greyPatFont78 text-decoration-underline">
+                <img class="icons12x12 mr-1" src="${URLUtils.staticURL('icons/edit.svg')}" alt="removefromlist" style="vertical-align: baseline !important;">
+                    ${Resource.msg('link.edit.item', 'cart', null)}
+            </span>
+    </a>
+</div>
+
+<!--- Edit product and MoveToWishList   MOBILE --->
+<div class="col d-lg-block d-xl-none mt-lg-3 mt-1"></div>
+<div class="col-auto d-lg-block d-xl-none mt-lg-3 mt-1">
+    <a type="button" class="reemove-btn-lg remove-product d-md-none" data-toggle="modal"
+            data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
+            data-name="${lineItem.productName}"
+            data-action="${pdict.actionUrls.removeProductLineItemUrl}"
+            data-uuid="${lineItem.UUID}"
+            aria-label="${Resource.msgf('text.remove.line.item','cart', null, lineItem.productName)}">
+        <span class="text-decoration-underline text-responsive" aria-hidden="true" style="color: #bc3939;" ><img class="icons15x15 mr-3" src="${URLUtils.staticURL('icons/emptyBinRed.svg')}" alt="removefromlist" style="vertical-align: baseline !important; color: #bc3939;"></span>
+    </a>
+    <a href="${URLUtils.url('Wishlist-AddProduct')}" class="move greyPatFont78 d-md-none"
+        data-pid="${lineItem.id}"
+        data-name="${lineItem.productName}"
+        data-action="${URLUtils.url('Cart-RemoveProductLineItem')}"
+        data-uuid="${lineItem.UUID}"
+        title="${Resource.msg('link.move.to.wishlist', 'cart', null)}" >
+        <span aria-hidden="true" style="color: #bc3939;" class="text-decoration-underline text-responsive"><img class="icons15x15 mr-3" src="${URLUtils.staticURL('icons/moveToWhishlist.svg')}" alt="removefromlist" style="vertical-align: baseline !important; color: #bc3939;"></span>
+    </a>
+    
+    <a href="${URLUtils.url('Cart-GetProduct', 'uuid', lineItem.UUID)}" class="edit mr-0 greyPatFont78 d-md-none"
+       data-toggle="modal" data-target="#editProductModal"
+       aria-label="${Resource.msgf('text.edit.line.item','cart', null, lineItem.productName)}"
+       title="${Resource.msg('link.edit.item', 'cart', null)}">
+       <span aria-hidden="true" style="color: #bc3939;" class="text-decoration-underline text-responsive"><img class="icons15x15" src="${URLUtils.staticURL('icons/edit.svg')}" alt="removefromlist" style="vertical-align: baseline !important; color: #bc3939;"></span>
+    </a>
+</div>

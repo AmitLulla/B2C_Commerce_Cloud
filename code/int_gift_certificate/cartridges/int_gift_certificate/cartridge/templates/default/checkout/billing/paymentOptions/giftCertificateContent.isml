@@ -1,0 +1,24 @@
+<div class="gift-cert-tab" id="gift-cert-tab">
+    <fieldset class="payment-form-fields">
+        <fieldset class="gift-cert-form"> 
+            <div class="col-lg-12 col-sm-12 gift-cert-fields">
+                <div class="form-group">
+                    <label class="form-control-label"
+                        for="giftCert">${Resource.msg('billing.giftcertlabel', 'checkout', null)}</label>
+                    <div class="gift-cert-wrapper"
+                        data-missing-error="${Resource.msg('giftcert.missing.error', 'checkout', null)}">
+                        <input type="text" class="form-control giftCertCode" id="giftCert"
+                            placeholder="${Resource.msg('billing.giftcertlabelSmall', 'checkout', null)}" />
+                        <div class="balance"></div>
+                        <div class="invalid-feedback" id="giftCertInvalidMessage"></div>
+                    </div>
+                </div>
+                <div class="gift-cert-buttons">
+                    <button class="submit-giftCert btn-continuar-to-shipping" data-dismiss="modal" type="button">
+                        <isprint value="${Resource.msg('giftcert.button.add', 'checkout', null)}" />
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </fieldset>
+</div>

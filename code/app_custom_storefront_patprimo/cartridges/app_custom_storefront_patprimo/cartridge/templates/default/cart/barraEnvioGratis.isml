@@ -1,0 +1,22 @@
+<div class="d-flex align-items-center mt-3 px-4">
+  <span class="stars">
+    <span class="fontWeight600">$0</span>
+  </span>
+  <div class="col">
+    <div class="progress barraProgresoEnvio" >
+      <div class="progress-bar progressBarAzulPat progresoEnvio" role="progressbar" style="width: ${pdict.totals.subTotalValue*100/pdict.cantidadEnvioGratis}%; " aria-valuemin="0"
+        ></div>
+    </div>
+  </div>
+    <span class="fontWeight600">$${pdict.cantidadEnvioGratisCOP}
+    </span>
+</div>
+<div class="barra-envio-gratis">
+    <div class="barra-envio-gratis-mensaje m-3 text-center">    
+        <isif condition="${pdict.hayDiferencia} ">        
+            <span style="font-weight: 600"> ${Resource.msgf('label.barra.envio.faltan', 'cart', null, pdict.diferenciaTotal)}</span><span> ${Resource.msg('label.para.tu', 'cart', null)}</span><span style="font-weight: 600; text-transform: uppercase;" >&nbsp; ${Resource.msg('label.envio.gratis', 'cart', null)}</span>
+        <iselse/>
+            <STRONG>${Resource.msg('label.barra.envio.gratis.felicidades', 'cart', null)} </STRONG> ${Resource.msg('label.barra.envio.gratis.ya.tienes', 'cart', null)} <STRONG>${Resource.msg('label.barra.envio.gratis.envio.gratis', 'cart', null)}</STRONG>
+        </isif>
+    </div>
+</div>

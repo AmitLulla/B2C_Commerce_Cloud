@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center p-0 m-0">
+
+    <a href="<isif condition="${pdict.action === 'Cart-Show'}">${URLUtils.https('Checkout-Begin')}<iselse/>${URLUtils.https('Cart-Show')}</isif>"
+        class="btn btn-finalizarcompra btn-block RedHatDisplayFontWhite checkout-btn checkout-btn-custom text-uppercase rounded-0 fontWeight500  role="button" style="padding-top: 1.05em; margin-top: 2px; margin-bottom: 0 !important;">
+        ${Resource.msg('button.checkout-custom', 'cart', null)}
+    </a>
+</div>
+
+<isif condition="${pdict.isAdminSocialSelling}">
+    <div class="d-flex justify-content-center">
+        <a href="${URLUtils.https('SocialSelling-Show')}"
+            class="btn btn-block checkout-btn checkout-btn-custom  ${pdict.valid.error ? 'disabled' : ''}" role="button">
+            ${Resource.msg('button.checkout.social.selling', 'cart', null)}
+        </a>
+    </div>
+</isif>

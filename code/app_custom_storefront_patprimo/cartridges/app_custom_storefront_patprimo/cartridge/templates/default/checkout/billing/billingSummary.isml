@@ -1,0 +1,45 @@
+<isscript>
+    function maskString(data) {
+        var tel = data;
+        var mask = "";
+        for (var i = 0; i < tel.length; i++) {
+            mask+= '*';
+        }
+        session.custom.billingPhone = tel.substring(0,4) + mask + tel.substring((tel.length -3),(tel.length));
+        return tel.substring(0,4) + mask + tel.substring((tel.length -3),(tel.length));
+        
+    }
+</isscript>
+<isset name="typeSend" value="datosComprador" scope="page" />
+<div class="d-none">
+    ${maskString(pdict.order.billing.billingAddress.address.phone)}
+</div>
+
+<span class="font-14-title modMobTextSecond">${Resource.msg('label.datos.comprador', 'orderConfirmation', null)}</span><br/>
+<isif condition="${pdict.order.billing.billingAddress.address !== null}">
+    <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page"/>
+    <iselse>
+    <isset name="address" value="{}" scope="page"/>
+</isif>
+
+<div class="summary-details billing card-header-payment modMobTextSecond mt-2">
+        <isinclude template="checkout/addressSummary" />
+        <span class="order-summary-email">${pdict.order.orderEmail}</span>
+    <br/>
+    <isif condition="${pdict.order.billing.billingAddress.address !== null}">
+        <isif condition="${session.customer.isAuthenticated()}">
+            ${pdict.order.billing.billingAddress.address.phone}
+        <iselse/>
+            <span class="order-summary-phone"> ${session.custom.billingPhone ? session.custom.billingPhone: pdict.order.billing.billingAddress.address.phone}</span>    
+        </isif>
+        
+        <iselse>
+        <span class="order-summary-phone"></span>
+    </isif>
+</div>
+
+<!--- Payment information --->
+<div class="summary-details">
+    <span class="font-14-title modMobTextSecond">${Resource.msg('label.order.payment.info', 'orderConfirmation', null)}</span><br/>
+    <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" />
+</div>

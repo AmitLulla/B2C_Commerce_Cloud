@@ -1,0 +1,62 @@
+@import "base/experience/components/commerceAssets/imageAndTextCommon";
+
+
+
+.navbar.bg-inverse {
+    background-color: transparent !important;
+    padding: 0; }
+    @media (min-width: 769px) {
+      .navbar.bg-inverse .navbar-nav .nav-item + .nav-item {
+        margin-left: 0; }
+      .navbar.bg-inverse .navbar-nav .nav-link {
+        padding: 1rem;
+        white-space: nowrap; } }
+
+.mainbanner-image {
+    height: 500px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    @include media-breakpoint-down(xs) {
+        height: 350px;
+        background-size: cover;
+    }
+}
+
+.container-buttons {
+    width: 14%;
+    margin:19px;
+    @include media-breakpoint-down(xs) {
+        width: 21%;
+        margin: 8px;
+    }
+    a {
+        width: 100%;
+        border: 0px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 45px;
+        font-family: "FairExtra";
+        background-color: $black;
+        color: $white;
+        @include media-breakpoint-down(xs) {
+            height: 25px;
+        }
+    }
+}
+
+.text-cta-banner-custom {
+      font-family: "FairExtra";
+      color:violet;
+}
+
+.titles-banner{
+    p{
+    font-family: "FairExtra";
+    color: violet;
+}
+}
+
+
+

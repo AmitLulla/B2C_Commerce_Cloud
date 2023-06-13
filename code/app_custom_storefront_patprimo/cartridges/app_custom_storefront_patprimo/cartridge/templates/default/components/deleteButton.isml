@@ -1,0 +1,9 @@
+
+<a type="button" class="reemove-btn-lg remove-product d-none d-lg-block " data-toggle="modal"
+        data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
+        data-name="${lineItem.productName}"
+        data-action="${pdict.actionUrls.removeProductLineItemUrl}"
+        data-uuid="${lineItem.UUID}"
+        aria-label="${Resource.msgf('text.remove.line.item','cart', null, lineItem.productName)}">
+    <span aria-hidden="true" class="text-decoration-underline fontSize12 textRojoPat "><img class="icons10x10 mr-1" src="${URLUtils.staticURL('icons/emptyBinRed.svg')}" alt="removefromlist" style="vertical-align: baseline !important; color: #bc3939;">${Resource.msg('link.remove.item','cart', null)}</span>
+</a>

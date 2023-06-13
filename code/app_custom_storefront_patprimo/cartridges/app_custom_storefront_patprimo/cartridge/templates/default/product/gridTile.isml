@@ -1,0 +1,11 @@
+<isset name="showQuickView" value="${true}" scope="page" />
+<isset name="product" value="${pdict.product}" scope="page" />
+<isset name="productObj" value="${pdict.productObj}" scope="page" />
+
+<div class="product" data-pid="${product.id}">
+<isif condition="${pdict.carousel}">
+<input class="prod-tile-slot" type="hidden" id="${product.id}-slot" value="${pdict.slotID}">
+
+</isif>
+    <isinclude template="product/productTile" />
+</div>

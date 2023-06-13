@@ -1,0 +1,44 @@
+<form  action="${URLUtils.url('Order-Track')}" class="trackorder rectangle-login-card container" method="POST" name="trackorder-form">
+    <h2 class="track-order-header title-login-mod">${Resource.msg('header.form.trackorder', 'login', null)}</h2>
+    
+    <div class="card-body">
+        <isif condition="${pdict.orderTrackFormError}">
+            <div class="form-group">
+                <div class="alert alert-danger " role="alert">
+                    <strong class="">${Resource.msg('error.message.trackorder.form', 'login', null)}</strong>
+                </div>
+            </div>
+        </isif>
+
+        <div class="form-group">
+        <p class="js-custom-sub-login">
+            <label class="form-control-label sub-title-login mt-2" for="trackorder-form-number">
+
+               <span class="txt1">${Resource.msg('header.form.sub', 'login', null)}</span> 
+               <span class="txt2 d-none">${Resource.msg('formulario.texto.desc', 'login', null)}</span> 
+
+            </label>
+         </p>   
+            <input type="text" required class="form-control input-style" aria-describedby="form-number-error"
+                id="trackorder-form-number" name="trackOrderNumber" placeholder="${Resource.msg('header.form.plholder', 'login', null)}">
+            <div class="invalid-feedback" id="form-number-error"></div>
+        </div>
+
+        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        
+        
+        <p class="text-center">
+            <button class="btn float-right btn-dis btn-dark text-btn-login-form customButtons " type="submit" name="submit" value="submit">
+                ${Resource.msg('button.text.trackorderform', 'login', null)}
+            </button>
+        </p>
+        <p class="text-center">
+            <a href="" class="custom-a-js float-left aunderline2" type="submit" name="submit" value="submit">
+                ${Resource.msg('donde.form.track.text', 'login', null)}
+            </a>
+        </p>
+        
+           
+       
+    </div>
+</form>

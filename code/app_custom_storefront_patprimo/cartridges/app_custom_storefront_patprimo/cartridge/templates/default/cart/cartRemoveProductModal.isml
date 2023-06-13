@@ -1,0 +1,21 @@
+<div class="removeProductModal modal fade removeProductModal "  id="removeProductModal" tabindex="-1" role="dialog" aria-labelledby="removeProductLineItemModal" >
+    <div class="modal-dialog" role="document" >
+        <div class="modal-content">
+            <div class="modal-header delete-confirmation-header border-0">
+                <p class="modal-title PlayfairDisplayItalic textAzulPat fontSize20" id="removeProductLineItemModal">${Resource.msg('heading.remove.product.confirmation.modal','cart',null)}</p>
+                
+            </div>
+            <div class="modal-body delete-confirmation-body RedHatDisplayFont ">
+                <p class="fontSize14 greyPatFont78">${Resource.msg('msg.remove.product.confirmation.modal','cart',null)}</p>
+                <p class="product-to-remove fontSize15 greyPatFont18 fontWeight600"></p>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-outline-primary btn-conocelonuevo rounded-0" data-dismiss="modal">${Resource.msg('button.cancel','cart',null)}</button>
+                <button type="button" class="btn btn-primary cart-delete-confirmation-btn btn-conocelonuevo rounded-0"
+                        data-dismiss="modal">
+                    ${Resource.msg('button.confirm','cart',null)}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

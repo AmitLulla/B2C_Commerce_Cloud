@@ -1,0 +1,3 @@
+<h2 id="" class="title-login-mod track-order-header txt1 ">${Resource.msg('text.sesion.option', 'login', null)}</h2>
+<h2 id="" class="title-login-mod track-order-header txt2 d-none">${Resource.msg('text.sesion.option2', 'login', null)}</h2>
+<h2 id="" class="title-login-mod track-order-header txt3 d-none">${Resource.msg('text.sesion.option3', 'login', null)}</h2>

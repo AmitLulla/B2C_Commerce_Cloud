@@ -1,0 +1,63 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/modalDescuento.css');
+    assets.addJs('/js/modalDescuento.js');
+</isscript>
+
+<div class="modal rounded" id="modalDescuento" tabindex="-1" role="dialog" aria-labelledby="modalDescuentoT"
+    aria-hidden="true">
+    <div class="modal-dialog modal-postion-bottom">
+        <div class="modal-content">
+            <div class="modal-header" style="cursor: move;">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+            <div class="modal-body pt-0">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="text-left mt-2">
+                            <h2 class="font20 azul-pat">${Resource.msg('modal.message','modalDescuento',null)}</h2>
+                            <iscomment> <button type="button" class="close" data-dismiss="modal" aria-label="${Resource.msg('label.close.dialog.button','common',null)}"><span aria-hidden="true">&times;</span></button> </iscomment>
+                            <br>
+                            <label class="text-secondary">${Resource.msg('modal.sub.menssage','modalDescuento',null)}</label>
+                            <br>
+                            <div class="seccion-botones pl-0 mt-3">                                
+                                <div class="col-12 pl-0">
+                                    <a class="btn btnLinkReferidos justify-content-left url-referidos text-secondary"
+                                    data-toggle="tooltip" href="${pdict.urlReferido}">
+                                        <span class="float-left pl-2">
+                                            <img class="mt-1" alt="copy" src="${URLUtils.staticURL('images/iconos-copy.svg')}"/>
+                                        </span>
+                                        <span class="ml-3 float-left mt-2">${Resource.msg('modal.copy.url','modalDescuento',null)}</span>
+                                    </a>
+                                </div>
+
+                                <div class="col-12 pl-0 mt-3">                                    
+                                    <a class="btn btnLinkReferidos justify-content-left url-referido-wa text-secondary" target="blank"
+                                        href="https://api.whatsapp.com/send?text=Regístrate y Gana un 20% Dcto, en tu primera compra en Pat primo ${pdict.urlReferido}">
+                                        <span class="float-left pl-2">
+                                            <img class="mt-1 mr-2" alt="copy" src="${URLUtils.staticURL('images/iconos-whatsapp.svg')}"/>                                            
+                                        </span>
+                                        <span class="ml-2 float-left mt-2">${Resource.msg('modal.share.whatsapp','modalDescuento',null)}</span>
+                                    </a>
+                                </div>
+
+                                <div class="col-12 pl-0 mt-3">
+                                    <a class="btn btnLinkReferidos justify-content-left url-referido-fb text-secondary"  target="blank"
+                                        data-href="<isprint value="${pdict.urlReferido}" encoding="uricomponent" />">
+                                        <span class="float-left pl-2">
+                                            <img class="mt-1 mr-2" alt="copy" src="${URLUtils.staticURL('images/iconos-fb.svg')}"/>                                            
+                                        </span>
+                                        <span class="ml-3 float-left mt-2">${Resource.msg('modal.share.facebook','modalDescuento',null)}</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

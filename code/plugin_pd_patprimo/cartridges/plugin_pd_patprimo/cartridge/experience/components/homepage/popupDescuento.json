@@ -1,0 +1,74 @@
+{
+    "name": "Popup Descuento - Homepage",
+    "description": "Patprimo - Componente que muestra un popup de descuentos",
+    "group": "patprimo_components_homepage",
+    "attribute_definition_groups": [
+        {
+            "id": "seccion_descuentos_estado_inicial",
+            "name": "Sección Descuento",
+            "attribute_definitions": [
+                {
+                    "id": "mensaje_descuento",
+                    "name": "Mensaje Estado Inicial - Descuento",
+                    "type": "text",
+                    "required": true
+                }
+            ]
+          },
+      {
+        "id": "seccion_newsletter",
+        "name": "Sección Newsletter",
+        "attribute_definitions": [
+            {
+                "id": "titulo_newsletter",
+                "name": "Título Newsletter",
+                "type": "text",
+                "required": true
+            },
+            {
+                "id": "subtitulo_newsletter",
+                "name": "Subtítulo Newsletter",
+                "type": "text",
+                "required": false
+            },
+            {
+                "id": "placeholder_input",
+                "name": "Placeholder Input",
+                "type": "text",
+                "required": false
+            },
+            {
+                "id": "texto_boton_newsletter",
+                "name": "Texto del Botón",
+                "type": "text",
+                "required": true
+            }
+        ]
+      },
+      {
+        "id": "seccion_referidos",
+        "name": "Sección Referidos",
+        "attribute_definitions": [
+            {
+                "id": "titulo_referidos",
+                "name": "Título Referidos",
+                "type": "text",
+                "required": true
+            },
+            {
+                "id": "subtitulo_referidos",
+                "name": "Subtítulo Referidos",
+                "type": "text",
+                "required": false
+            },
+            {
+                "id": "texto_boton_referidos",
+                "name": "Texto del Botón",
+                "type": "text",
+                "required": true
+            }
+        ]
+      }
+    ],
+    "region_definitions": []
+}

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="mercadoPagoEnableDocTypeNumber">
+                <display-name xml:lang="x-default">Habilitar tipo y número de documento</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoEnableInstallments">
+                <display-name xml:lang="x-default">Habilitar Cuotas</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoEnableMercadoPago">
+                <display-name xml:lang="x-default">Habilitar MercadoPago</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoEnableSendTaxes">
+                <display-name xml:lang="x-default">Enviar Información de Impuestos (Colombia)</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoPublicKey">
+                <display-name xml:lang="x-default">Public Key</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoPublicKeyMultilocale">
+                <display-name xml:lang="x-default">Public Key Multi-locale</display-name>
+                <description xml:lang="x-default">Este campo debe ser formato JSON:&#13;
+{&#13;
+    "es_CL": "TEST-456456456",&#13;
+    "es_CO": "TEST-789789789"&#13;
+}&#13;
+&#13;
+También deberá crear varias Credenciales de servicio con el siguiente formato:&#13;
+mercadopago.payment.service.&lt;site_id&gt;.&lt;site_locale&gt; (todo en minúsculas)&#13;
+&#13;
+Ejemplo:&#13;
+mercadopago.payment.service.refarch.es_cl&#13;
+mercadopago.payment.service.refarch.es_co</description>
+                <type>text</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoEnableLocaleSupport">
+                <display-name xml:lang="x-default">Habilitar compatibilidad con configuración regional</display-name>
+                <description xml:lang="x-default">Habilitar esta preferencia hará posible tener credenciales por configuración regional por sitio.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoSDK">
+                <display-name xml:lang="x-default">Mercado Pago SDK</display-name>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <default-value>https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoOtherPaymentMode">
+                <display-name xml:lang="x-default">Otro modo de pago</display-name>
+                <description xml:lang="x-default">Link - se realizará el pedido y se mostrará el enlace de pago en la página de confirmación del pedido. En este caso, el estado del pago permanecerá NOT_PAID hasta que MercadoPago actualice la información a través de Webhooks.&#13;
+Redirect - el pedido se creará pero no se realizará hasta que MercadoPago confirme el pago a través de Webhooks. Será posible hacer clic en el enlace en la página de confirmación del pedido si el estado aún está pendiente o el Webhook aún no actualizó el estado. Es importante verificar la preferencia de pedido "Auto-Fail Orders" y configurarlo correctamente.</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Enlace en la página de confirmación del pedido</display>
+                        <value>Link</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Redirigir durante el pago</display>
+                        <value>Redirect</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MercadoPago">
+                <display-name xml:lang="x-default">Mercado Pago</display-name>
+                <attribute attribute-id="mercadoPagoEnableMercadoPago"/>
+                <attribute attribute-id="mercadoPagoPublicKey"/>
+                <attribute attribute-id="mercadoPagoEnableLocaleSupport"/>
+                <attribute attribute-id="mercadoPagoPublicKeyMultilocale"/>
+                <attribute attribute-id="mercadoPagoOtherPaymentMode"/>
+                <attribute attribute-id="mercadoPagoEnableInstallments"/>
+                <attribute attribute-id="mercadoPagoEnableDocTypeNumber"/>
+                <attribute attribute-id="mercadoPagoEnableSendTaxes"/>
+                <attribute attribute-id="mercadoPagoSDK"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Order">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="transactionNote">
+                <display-name xml:lang="x-default">Nota de transacción</display-name>
+                <description xml:lang="x-default">Este es el atributo en el que podemos guardar toda la información de transacción del pedido actual, &#13;
+                    este atributo se utiliza actualmente en alipay, unionpay, tenpay los pagos deben generar el pedido antes de que se autorice el pago.&#13;
+                    Usamos este atributo para:&#13;
+                    1, podemos usar este atributo para rastrear la información de la solicitud de pago y la información de devolución de llamada que podemos necesitar en el sitio&#13;
+                    2, guardamos este atributo para cambio de pago.&#13;
+                    Este atributo está en formato JSON.&#13;
+                    Ejemplo:&#13;
+[&#13;
+    {&#13;
+    "RequestId":"", //request ID for this transaction&#13;
+    "PaymentGateway":"",// payment method we use in this transaction&#13;
+    "DeviceType":"", //Device type used for current transaction&#13;
+    "Amount":"",//amount paid in this transaction&#13;
+    "PaymentStatus":"",//Payment status for this transaction CREATE|SUCCESS|FAIL&#13;
+    "CreationDate":"",//request date for this transaction&#13;
+    "TransactionID":"",//transaction ID for tracking this transaction&#13;
+    "CallbackInfo":"",//callback info for query payment status&#13;
+    "LastModified":"",//laste modified time for this transaction &#13;
+    "CallBackType":"",//Callback for this transaction return|notify|job&#13;
+    "RequestInfo":""//request info&#13;
+    }&#13;
+]</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="transactionReport">
+                <display-name xml:lang="x-default">Reporte de transacción</display-name>
+                <description xml:lang="x-default">Un mensaje que contiene más información sobre el estado actual de la transacción si es necesario.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="transactionStatus">
+                <display-name xml:lang="x-default">Estado de la transacción</display-name>
+                <description xml:lang="x-default">Mostrar la última situación de estado notificada desde Mercado Pago.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MercadoPagoPayments">
+                <display-name xml:lang="x-default">MercadoPago Pagos</display-name>
+                <attribute attribute-id="transactionStatus"/>
+                <attribute attribute-id="transactionReport"/>
+                <attribute attribute-id="transactionNote"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="OrderPaymentInstrument">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="customerDocNumber">
+                <display-name xml:lang="x-default">Número de documento del cliente</display-name>
+                <description xml:lang="x-default">Número de documento del cliente (CPF, CNPJ)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerDocType">
+                <display-name xml:lang="x-default">Tipo de documento del cliente</display-name>
+                <description xml:lang="x-default">Tipo de documento del cliente (CPF, CNPJ)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoPaymentTypeId">
+                <display-name xml:lang="x-default">Id del tipo de pago</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="mercadoPagoFinancialInstitution">
+                <display-name xml:lang="x-default">Institución financiera</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MercadoPagoAdditionalInfo">
+                <display-name xml:lang="x-default">Mercado Pago Informacion adicional</display-name>
+                <attribute attribute-id="customerDocNumber"/>
+                <attribute attribute-id="customerDocType"/>
+                <attribute attribute-id="mercadoPagoPaymentTypeId"/>
+                <attribute attribute-id="mercadoPagoFinancialInstitution"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="PaymentTransaction">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="cardType">
+                <display-name xml:lang="x-default">Card Type</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+    <type-extension type-id="ServiceCredential">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="jsonData">
+                <display-name xml:lang="x-default">JSON Data</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="custom">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="jsonData"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>

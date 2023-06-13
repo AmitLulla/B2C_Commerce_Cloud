@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="MarketingCloudAccessToken">
+        <display-name xml:lang="x-default">MarketingCloudAccess Token</display-name>
+        <description xml:lang="x-default">MarketingCloudAccess Token</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="accessToken">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="accessTokenString">
+                <display-name xml:lang="x-default">Access Token String</display-name>
+                <description xml:lang="x-default">Access Token String</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="updatedTime">
+                <display-name xml:lang="x-default">Last Updated Time</display-name>
+                <description xml:lang="x-default">Last Updated Time</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MarketingCloudAccessToken">
+                <display-name xml:lang="x-default">AccessToken Attributes</display-name>
+                <attribute attribute-id="accessToken"/>
+                <attribute attribute-id="accessTokenString"/>
+                <attribute attribute-id="updatedTime"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+    <custom-type type-id="cartAbandoned">
+        <description xml:lang="x-default">Carrito Abandonado</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="UUID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="infoCart">
+                <display-name xml:lang="x-default">informacion del cart</display-name>
+                <description xml:lang="x-default">informacion del cart</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="recibeName">
+                <display-name xml:lang="x-default">Nombre del usuario</display-name>
+                <description xml:lang="x-default">Nombre del usuario</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="brand">
+                <display-name xml:lang="x-default">Marca</display-name>
+                <description xml:lang="x-default">Marca</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendToMarketing">
+                <display-name xml:lang="x-default">Enviado a Marketing?</display-name>
+                <description xml:lang="x-default">Enviado a Marketing?</description>
+                <type>boolean</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="logError">
+                <display-name xml:lang="x-default">Log Error</display-name>
+                <description xml:lang="x-default">Log Error</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="linkBackToCart">
+                <display-name xml:lang="x-default">Link back to cart</display-name>
+                <description xml:lang="x-default">Link back to cart</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">email</display-name>
+                <description xml:lang="x-default">email</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="items">
+                <display-name xml:lang="x-default">items</display-name>
+                <description xml:lang="x-default">informacion productos del carro</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="firstSend">
+                <display-name xml:lang="x-default">First Send</display-name>
+                <description xml:lang="x-default">First Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="secondSend">
+                <display-name xml:lang="x-default">Second Send</display-name>
+                <description xml:lang="x-default">Second Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="thirdSend">
+                <display-name xml:lang="x-default">Third Send</display-name>
+                <description xml:lang="x-default">Third Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fourthSend">
+                <display-name xml:lang="x-default">Fourth Send</display-name>
+                <description xml:lang="x-default">Fourth Send</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="default">
+                <display-name xml:lang="x-default">default</display-name>
+                <attribute attribute-id="infoCart"/>
+                <attribute attribute-id="items"/>
+                <attribute attribute-id="recibeName"/>
+                <attribute attribute-id="brand"/>
+                <attribute attribute-id="linkBackToCart"/>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="sendToMarketing"/>
+                <attribute attribute-id="logError"/>
+                <attribute attribute-id="firstSend"/>
+                <attribute attribute-id="secondSend"/>
+                <attribute attribute-id="thirdSend"/>
+                <attribute attribute-id="fourthSend"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+</metadata>

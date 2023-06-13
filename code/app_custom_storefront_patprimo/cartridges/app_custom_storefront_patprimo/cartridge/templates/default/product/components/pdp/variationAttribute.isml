@@ -1,0 +1,109 @@
+<iscomment>
+
+    Template Notes:
+
+    - This template is intended to be referenced from an <isinclude> tag within an <isloop> in another
+            source template. The <isloop> is expected to have a "status" attribute, named "attributeStatus".
+                - ${attributeStatus.last} is checked to see whether a particular attribute row should include the
+                Quantity drop-down menu
+
+</iscomment>
+<style>
+    .size-option {
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: 0;
+        padding: 10px 0;
+        position: absolute;
+        transition: all 0.5s;
+        transform: translate3d(0, 50%, 0);
+        width: 100%;
+    }
+</style> 
+
+<isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/standardVariationAttribute.js');
+</isscript>
+
+<div class="attribute mt-0">
+    <isif condition="${attr.swatchable}">
+        <!-- Circular Swatch Image Attribute Values -->
+        <div class="selected-color">
+            <span class="color-name"></span>
+        </div>
+        <iscomment> <!-- Select <Attribute> Label -->
+<isloop items="${attr.values}" var="attrValue">
+            <div>
+                <isif condition="${attrValue.selected}">
+                    <label>${attrValue.value}</label>
+                </isif>
+            </div>
+        </isloop> </iscomment>
+        <!-- Circular Swatch Image Attribute Values -->
+        <isloop items="${attr.values}" var="attrValue">
+        
+            <isif condition="${!(isBundle && product.productType === 'variant' && !attrValue.selected)}">
+            
+                <iscomment> <button class="color-attribute" style="outline: none; box-shadow: none;" ${attrValue.selected ? 'selected' : ''} ${attrValue.selectable ? 'selectable' : 'disabled'}
+                    aria-label="${Resource.msg('label.select', 'common', null)} ${attr.displayName} ${attrValue.displayValue}"
+                    aria-describedby="${attrValue.id}" data-url="${attrValue.url}" ${product.productType === "variant" && isBundle ? "disabled" : ""}> </iscomment>
+                <button class="color-attribute swatch-filter-editProductCart-${attrValue.displayValue.toLowerCase()} ${attrValue.selectable ? 'selectable' : 'disabled'}" style="outline: none; box-shadow: none;" ${attrValue.selected ? 'selected' : ''} ${attrValue.selectable ? 'selectable' : 'disabled'}
+                    aria-label="${Resource.msg('label.select', 'common', null)} ${attr.displayName} ${attrValue.displayValue}"
+                    aria-describedby="${attrValue.id}" data-url="${attrValue.url}" ${product.productType === "variant" && isBundle ? "disabled" : ""}>
+                    <iscomment> <span data-attr-value="${attrValue.value}"
+                        class="d-inline-block align-middle swatch-filter-editProductCart-${attrValue.displayValue.toLowerCase()} mr-1                        
+                            ${attr.id}-value
+                            swatch-circle
+                            swatch-value
+                            ${attrValue.selected ? 'selected' : ''}
+                            ${attrValue.selectable ? 'selectable' : 'disabled'}"
+                        style="background-image: url(${attrValue.images['swatch'].length > 0 ? attrValue.images['swatch'][0].url : ''})"
+                    >
+                    </span> </iscomment>
+                    <div data-attr-value="${attrValue.value}"
+                        class="d-inline-block align-middle swatch-filter-editProductCart-${attrValue.displayValue.toLowerCase()} mr-1                        
+                            ${attr.id}-value
+                            swatch-circle
+                            swatch-value
+                            ${attrValue.selected ? 'selected' : ''}
+                            ${attrValue.selectable ? 'selectable' : 'disabled'}"
+                    >
+                    </div>
+                    <span id="${attrValue.id}" class="sr-only selected-assistive-text">
+                        ${attrValue.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                    </span>
+                </button>
+            </isif>
+        </isloop>
+    <iselse/>
+    <hr class="mb-2" style="height: 1px; color: #e9e9e9">
+            <div class="">
+                <div class="select-size-section">
+                <!-- Select <Attribute> Label -->
+                    <label class="${attr.id}" for="${attr.id}-${loopState && loopState.count ? loopState.count : '1'}">
+                        ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+                    </label>
+                <div class="RedHatDisplayFont greyPatFont78 fontSize14 text-decoration-underline">
+                    <div class="float-right">
+                        <a class="sizeChart" href="${URLUtils.url('Home-Show')}">Guía de tallas</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Button Layout for Mobile Devices -->
+            <div class="d-block">
+                <div class="btn-group btn-group-toggle" id="" data-toggle="buttons">
+                    <isloop items="${attr.values}" var="attrValue">
+                        <label class="product-size-btn ${attrValue.selectable ? 'selectable' : 'disabled'} ${attrValue.selected ? 'selected' : ''}" value="${attrValue.url}" data-attr-value="${attrValue.value}">
+                            <input type="radio" name="${attr.id}" id="${attr.id}-${loopState && loopState.count ? loopState.count : '1'}-${attrValue.value}" value="${attrValue.url}" ${attrValue.selected ? 'selected' : ''} ${!attrValue.url ? 'disabled' : ''}> ${attrValue.displayValue}
+                        </label>
+                    </isloop>
+                </div>
+            </div>
+        </div>
+    </isif>
+</div>

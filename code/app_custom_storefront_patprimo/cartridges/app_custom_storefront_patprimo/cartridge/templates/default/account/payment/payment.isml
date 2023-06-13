@@ -1,0 +1,14 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/paymentInstruments.js');
+        assets.addCss('/css/account/payment.css');
+        assets.addCss('/css/account/profile.css');
+    </isscript>
+    <div class="m-3 p-1">
+        <isinclude template="account/payment/deletePaymentModal"/>
+        <!---Breadcrumbs--->
+              
+        <isinclude template="account/payment/savedPayments"/>        
+    </div>
+</isdecorate>

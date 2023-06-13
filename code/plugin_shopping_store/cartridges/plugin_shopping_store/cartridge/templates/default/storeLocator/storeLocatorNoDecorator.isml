@@ -1,0 +1,78 @@
+<isscript>
+    var preferences = require('*/cartridge/config/preferencesLocator');    
+</isscript>
+
+<div class="container store-locator-container">
+    <div class="d-flex selector-views justify-content-center margin-custom">
+        <div class="col-6 px-0">
+            <span class="todas-las-sucursales Deskcuerpo-texto view-desktop sucursales-select">${Resource.msg('todas.sucursales', 'shoppingthestore', null)}</span>
+            <span class="todas-las-sucursales Deskcuerpo-texto view-mobile sucursales-select">${Resource.msg('todas.sucursales.mobile', 'shoppingthestore', null)}</span>
+           <div class="allSuc">
+                <p class="Line-13" style=""></p>
+           </div> 
+        </div>
+        <div class="col-6 px-0">
+            <span class="sucursales-cercanas Deskcuerpo-texto view-desktop">
+                ${Resource.msg('sucursales.cercanas', 'shoppingthestore', null)}
+            </span>
+            <span class="sucursales-cercanas Deskcuerpo-texto view-mobile">
+                ${Resource.msg('sucursales.cercanas.mobile', 'shoppingthestore', null)}
+            </span>
+            <div class="suc" style="display:none">
+                <p class="Line-13"></p>    
+            </div>
+        </div>
+    </div>
+    <div class="row py-2" id="closecard" style="display:none">
+
+        <div class="col-12 d-none closebuttons" id="buttonshowMap">
+            <div class="pull-left">
+                <button id="closeSearchResultsShowMap" class="slideUpSearchForm btn btn-link"
+                    aria-label="${Resource.msg('label.returntolist', 'shoppingthestore', null)}">
+                    <span aria-hidden="true">
+                        <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                    </span>
+                    ${Resource.msg('label.returntolist', 'shoppingthestore', null)}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card" id="searchform" style="display:none;">
+        <div class="row">
+            <div class="col-sm-12">
+                <isinclude template="storeLocator/storeLocatorFields" />
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center search-by-departamento margin-custom" style="display:none">
+        <div class="col-6 px-0">
+            <p class="-Nmero-de-la-tarje DeskBreadcrumb">
+                ${Resource.msg('pais', 'shoppingthestore', null)}
+            </p>
+            <select class="select-country-locator">
+                <isloop items="${pdict.country}" var="country" status="loopstatus">
+                    <option value="${country.split('-')[1]}">${country.split('-')[0].toUpperCase()}</option>
+                </isloop>
+            </select>
+        </div>
+        <div class="col-6 px-0">
+            <p class="-Nmero-de-la-tarje DeskBreadcrumb">
+                ${Resource.msg('city', 'shoppingthestore', null)}
+            </p>
+            
+            <select class="city-store-locator-select">
+                <iscomment> <option class="city-store-locator-select-option-default" value="" select>${Resource.msg('city', 'shoppingthestore', null)}</option> </iscomment>
+            </select>
+        </div>
+    </div>  
+    
+    <div class="d-flex container-results hidden-sm-down storelist-desktop">
+        <isinclude template="storeLocator/storeSearchResults" />
+    </div>
+    <div class="store-info-flush pr-0 pl-0">
+        <isif condition="${pdict.showMap == 'false' && pdict.store}">
+            <isinclude url="${URLUtils.url('Stores-StoreAddress', 'storeId', pdict.preferredStoreId)}" />
+            <isinclude template="storeLocator/storeSearchResults" />
+        </isif>
+    </div>
+</div>

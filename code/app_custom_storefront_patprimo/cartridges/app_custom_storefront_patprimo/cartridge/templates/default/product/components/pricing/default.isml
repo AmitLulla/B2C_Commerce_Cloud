@@ -1,0 +1,35 @@
+<span class="">
+    <isset name="finalOrigPrice" value="${price}" scope="page" />
+    <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
+    <span class="sales d-flex">
+        <isif condition="${isLowPrice == 'range-low'}">
+            <span class="value" content="${price.decimalPrice}">
+        </isif>
+        <isif condition="${isLowPrice == 'range-high'}">
+            <span class="value" content="${price.decimalPrice}">
+        </isif>
+        <isif condition="${isLowPrice == null}">
+
+            <span class="value"  content="${price.decimalPrice}">
+
+        </isif>
+        <isinclude template="/product/components/pricing/formatted" />
+    </span>
+    <isif condition="${finalOrigPrice.list !== null}">
+        <isset name="price" value="${finalOrigPrice.list}" scope="page" />
+        &nbsp; &nbsp; &nbsp; 
+        <span>
+            <span class="strike-through">
+                <span class="value" content="${price.decimalPrice}">
+                    <span class="sr-only ">
+                        ${Resource.msg('label.price.reduced.from', 'pricing', null)}
+                    </span>
+                    <isinclude template="/product/components/pricing/formatted" />
+                    <span class="sr-only ">
+                        ${Resource.msg('label.price.to', 'pricing', null)}
+                    </span>
+                </span>
+            </span>
+        </span>
+    </isif>
+</span>

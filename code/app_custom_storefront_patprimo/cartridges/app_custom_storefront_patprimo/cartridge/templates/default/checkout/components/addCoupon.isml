@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center">
+    <form style="width:85%;" action="${URLUtils.url('Cart-AddCoupon').toString()}" class="add-coupon " data-action-remove-coupon="${URLUtils.url('Cart-RemoveCouponLineItem')}">
+        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+        <div class="row">
+            <input id="addCoupon" class="coupon-code-field" type="" name="couponCode" placeholder="${Resource.msg('place.order.codigo.descuento','checkout',null)}" value="">
+            <button id="redimirCuponCheckout" type="submit" style="display:none" class="submit-form-global w-25">Redimir</button>    
+        </div>
+        
+        <div class="coupon-error">
+            <span class="coupon-missing-error" id="missingCouponCode" role="alert">${Resource.msg('error.missing.coupon.code', 'cart', null)}</span>
+            <span class="coupon-error-message" id="invalidCouponCode" role="alert"></span>
+        </div>
+    </form>
+</div>
+<div class="coupons-and-promos">
+    <isinclude template="cart/cartCouponDisplay" />
+</div>
+<isinclude template="cart/cartRemoveCouponModal"/>

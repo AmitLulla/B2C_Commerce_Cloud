@@ -1,0 +1,155 @@
+<footer id="footercontent" <isif condition="${pdict.action === 'Cart-Show'}">class="d-none d-sm-block"</isif>>
+    <div class="content-foot">
+
+        <iscomment> <isinclude template="/components/footer/newsletter-foot"/> </iscomment>
+        
+        <isinclude template="/components/footer/content-date-foot"/>
+
+        <div class="row bloque-suscribete">
+            <div class="bloque-logo">
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/patprimo.svg')}" />
+            </div>
+            <div class="description mobile">
+                <isinclude template="/components/footer/newsletter-foot"/>
+            </div>
+        </div>
+
+        <div class="row bloque-links">
+            <div class="footer-item col-sm-2 collapsible-xs">
+                <div class="content-asset">
+                    <div>
+                        <button class="title btn text-left btn-block d-sm-none" aria-expanded="false" aria-controls="collapsible-about">${Resource.msg('global.footer.wrap.compañia', 'footer', null)}</button>
+                        <h2 class="title d-none d-sm-block">${Resource.msg('global.footer.wrap.compañia', 'footer', null)}</h2>
+                    </div>
+                    <ul id="collapsible-about" class="menu-footer content">
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.compañia.trabaja_con_nosotros', 'footer', null)}" > ${Resource.msg('global.footer.wrap.compañia.trabaja_con_nosotros', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.compañia.mision_vision', 'footer', null)}" >${Resource.msg('global.footer.wrap.compañia.mision_vision', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.compañia.nuestras_historia', 'footer', null)}" >${Resource.msg('global.footer.wrap.compañia.nuestras_historia', 'footer', null)}</a></li>                        
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.compañia.tiendas', 'footer', null)}" >${Resource.msg('global.footer.wrap.compañia.tiendas', 'footer', null)}</a></li>                        
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.compañia.distribuidores', 'footer', null)}" >${Resource.msg('global.footer.wrap.compañia.distribuidores', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.compañia.campaña', 'footer', null)}" >${Resource.msg('global.footer.wrap.compañia.campaña', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.compañia.mapa_sitio', 'footer', null)}" >${Resource.msg('global.footer.wrap.compañia.mapa_sitio', 'footer', null)}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="hidden-xs-down" />
+            
+            <div class="footer-item col-sm-2 collapsible-xs">
+                <div class="content-asset">
+                    <div>
+                        <button class="title btn text-left btn-block d-sm-none" aria-expanded="false" aria-controls="collapsible-about">${Resource.msg('global.footer.wrap.atencion_cliente', 'footer', null)}</button>
+                        <h2 class="title d-none d-sm-block">${Resource.msg('global.footer.wrap.atencion_cliente', 'footer', null)}</h2>
+                    </div>
+                    <ul id="collapsible-about" class="menu-footer content">
+                        <li><a href="${URLUtils.url('Ayuda-Landing')}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.atencion_cliente.ayuda', 'footer', null)}" > ${Resource.msg('global.footer.wrap.atencion_cliente.ayuda', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.atencion_cliente.pregunas_frecuentes', 'footer', null)}" >${Resource.msg('global.footer.wrap.atencion_cliente.pregunas_frecuentes', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.atencion_cliente.contacto', 'footer', null)}" >${Resource.msg('global.footer.wrap.atencion_cliente.contacto', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.atencion_cliente.formulario_retracto', 'footer', null)}" >${Resource.msg('global.footer.wrap.atencion_cliente.formulario_retracto', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.atencion_cliente.formulario_PQR', 'footer', null)}" >${Resource.msg('global.footer.wrap.atencion_cliente.formulario_PQR', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.atencion_cliente.como_Pagar_CreditoPatprimo', 'footer', null)}" >${Resource.msg('global.footer.wrap.atencion_cliente.como_Pagar_CreditoPatprimo', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.atencion_cliente.pash_cash', 'footer', null)}" >${Resource.msg('global.footer.wrap.atencion_cliente.pash_cash', 'footer', null)}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="hidden-xs-down" />
+            
+            <div class="footer-item col-sm-2 collapsible-xs">
+                <div class="content-asset">
+                    <div>
+                        <button class="title btn text-left btn-block d-sm-none" aria-expanded="false" aria-controls="collapsible-about">${Resource.msg('global.footer.wrap.politicas', 'footer', null)}</button>
+                        <h2 class="title d-none d-sm-block">${Resource.msg('global.footer.wrap.politicas', 'footer', null)}</h2>
+                    </div>
+                    <ul id="collapsible-about" class="menu-footer content">
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.politicas.terminos_condiciones', 'footer', null)}" >${Resource.msg('global.footer.wrap.politicas.terminos_condiciones', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.politicas.garantia', 'footer', null)}" >${Resource.msg('global.footer.wrap.politicas.garantia', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.politicas.tratamiento_datos', null)}" >${Resource.msg('global.footer.wrap.politicas.tratamiento_datos', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.politicas.cambios_devoluciones', 'footer', null)}" >${Resource.msg('global.footer.wrap.politicas.cambios_devoluciones', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.politicas.envios', 'footer', null)}" >${Resource.msg('global.footer.wrap.politicas.envios', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.politicas.promociones', 'footer', null)}" >${Resource.msg('global.footer.wrap.politicas.promociones', 'footer', null)}</a></li>
+                        <li><a href="${'#'}" rel="nofollow" data-footer="Footer - ${Resource.msg('global.footer.wrap.politicas.dia_sin_iva', 'footer', null)}" >${Resource.msg('global.footer.wrap.politicas.dia_sin_iva', 'footer', null)}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="hidden-xs-down" />
+
+            <div class="footer-item col-sm-2 collapsible-xs">
+                <div class="content-asset">
+                    <div>
+                        <button class="title btn text-left btn-block d-sm-none icon-none" aria-expanded="false" aria-controls="collapsible-about">${Resource.msg('global.footer.wrap.siguenos', 'footer', null)}</button>
+                        <h2 class="title d-none d-sm-block">${Resource.msg('global.footer.wrap.siguenos', 'footer', null)}</h2>
+                    </div>
+                    <ul id="collapsible-about" class="menu-footer flex-icons content">
+                        <div class="content-siguenos">
+                            <div class="redes">
+                                <a href="" target="_blank" rel="nofollow" data-footer="Footer - " >
+                                    <i class="icon-Facebook image-foot" ></i>
+                                </a>
+                                <a href="" target="_blank" rel="nofollow" data-footer="Footer - " >
+                                    <i class="icon-Instagram image-foot" ></i>
+                                </a>
+                                <a href="" target="_blank" rel="nofollow" data-footer="Footer - " >
+                                    <i class="icon-Whatsapp image-foot" ></i>
+                                </a>
+                            </div>
+                        </div>
+                        <span class="title-foot">${Resource.msg('global.footer.wrap.nuestraApp', 'footer', null)}</span>
+                        <div class="content-download">
+                            <div class="col-md-6 app-qr">
+                            
+                                <a href="${#}" target="_blank" rel="nofollow" data-footer="Footer - " >
+                                    <img class="" alt="" src="${URLUtils.staticURL('/images/footer/banner-tag-qr.jpg')}" />
+                                </a>
+                            </div>
+                            <div class="col-md-6 store">
+                                <a href="http://app.app4less.es/app/facolco?campaign=footerwebIOS" target="_blank" rel="nofollow" data-footer="Footer - " >
+                                    <img class="" alt="" src="${URLUtils.staticURL('/images/footer/Appstore.jpg')}" />
+                                </a>
+                                <a href="http://app.app4less.es/app/facolco?campaign=footerwebANDROID" target="_blank" rel="nofollow" data-footer="Footer - " >
+                                    <img class="" alt="" src="${URLUtils.staticURL('/images/footer/Playstore.jpg')}" />
+                                </a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="hidden-xs-down" />
+
+            <div class="footer-item col-sm-2 collapsible-xs">
+                <div class="content-asset">
+                    <div>
+                        <button class="title btn text-left btn-block d-sm-none icon-none" aria-expanded="false" aria-controls="collapsible-about">${Resource.msg('global.footer.wrap.contacto', 'footer', null)}</button>
+                        <h2 class="title d-none d-sm-block">${Resource.msg('global.footer.wrap.contacto', 'footer', null)}</h2>
+                    </div>
+                    <ul id="collapsible-about" class="menu-footer grid-text content">
+                        <span class="title-foot tel">${Resource.msg('global.footer.contacto.linea_nacional', 'footer', null)}</span>
+                        <span class="title-foot hour">${Resource.msg('global.footer.contacto.ciudad', 'footer', null)}</span>
+                        <span class="title-foot city">${Resource.msg('global.footer.contacto.horario', 'footer', null)}</span>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row bloque-icons">
+            <div class="medios-icons">
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/visa.jpg')}" />
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/masterCard.jpg')}" />
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/american.jpg')}" />
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/diners-club.jpg')}" />
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/pse.jpg')}" />
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/contraentrega.jpg')}" />
+                <img class="" alt="" src="${URLUtils.staticURL('/images/footer/mercadoPago.jpg')}" />
+                <a href="https://www.sic.gov.co/" target="_blank" rel="nofollow" data-footer="Footer - " >
+                    <img class="" alt="" src="${URLUtils.staticURL('/images/footer/sic.jpg')}" />
+                </a>
+            </div>
+        </div>
+        <div class="row bloque-copy">
+            <p>${Resource.msg('global.footer.razon_social', 'footer', null)}</p>
+        </div>
+    </div>
+</footer>

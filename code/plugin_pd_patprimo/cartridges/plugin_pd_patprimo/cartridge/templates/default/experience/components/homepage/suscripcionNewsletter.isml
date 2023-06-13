@@ -1,0 +1,26 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/homeNeswletter_F.css');
+</isscript>
+
+
+   <div class="newsletter">
+        <img class="talk-icon talk-desktop" src="${URLUtils.staticURL('icons/talk.svg')}" alt="icon talk" >
+        <img class="talk-icon talk-mobile" src="${URLUtils.staticURL('icons/talk-mobile.svg')}" alt="icon talk" >
+        <div class="titulo-newsletter"> ${pdict.title1 ? pdict.title1:null} </div>
+        <div class="titulo-newsletter2" >  ${pdict.title2 ? pdict.title2:null}  </div>
+        <div class="email-text">*Email</div>
+        <div class="input-newsletter"> 
+        <input type="text" placeholder="correodeusuario@g"> 
+        <button >  ${pdict.btn ? pdict.btn:null} </button>
+        </div>
+        <div class="checkbox-newsletter">
+        <input type="checkbox" id="checkDisclaimer">
+        <label for="checkDisclaimer" > Autorizo el <span>Tratamiento de mis Datos Personales </span> teniendo en cuenta la <span>Política de Tratamiento de Datos</span> de Pash S.A.S. Aplican <span>T&C</span></label>
+        </div> 
+    </div>
+
+
+    
+         
+      

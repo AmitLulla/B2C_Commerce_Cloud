@@ -1,0 +1,32 @@
+<div class="col-sm-2 btn-group px-0">
+
+  
+  <button id="minusButton-${lineItem.id}" 
+    type="button" 
+    class="<isif condition="${lineItem.quantity >= 2}">button-minus<iselse/>remove-product</isif> quantity btn pl-0 button-minus_inactive" <isif condition="${lineItem.quantity < 2}">data-toggle="modal"</isif>
+    data-pid="${lineItem.id}" 
+    data-field="quantity" 
+    data-uuid="${lineItem.UUID}" 
+    pre-select-qty="${lineItem.quantity}" 
+    data-num=${lineItem.UUID} 
+    data-pid="${lineItem.id}" 
+    value="${lineItem.quantity.toFixed()}"
+    data-target="#removeProductModal"
+    data-name="${lineItem.productName}"
+    data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
+  >-</button>
+    <input type="number" readonly step="1" max="${lineItem.quantityOptions.maxOrderQuantity}"  min="${lineItem.quantityOptions.minOrderQuantity}" name="quantity" 
+      value="${lineItem.quantity.toFixed()}"
+      class="quantity-field d-inline-block fontSize16 minicartAmount border-0 px-0 quantity"
+      data-uuid="${lineItem.UUID}"
+      data-pid="${lineItem.id}"
+      data-action="${pdict.actionUrls.updateQuantityUrl}"
+      data-pre-select-qty="${lineItem.quantity}"
+      id="quantity-${lineItem.UUID}"
+      name="quantity-${lineItem.UUID}"            
+      aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}"
+    >    
+    <button id="plusButton-${lineItem.id}" type="button" class="button-plus quantity btn pl-md-0" data-pid="${lineItem.id}"  data-field="quantity" data-uuid="${lineItem.UUID}" pre-select-qty="${lineItem.quantity}" data-num=${lineItem.UUID} data-pid="${lineItem.id}" value="${lineItem.quantity.toFixed()}">+</button>
+
+</div>
+

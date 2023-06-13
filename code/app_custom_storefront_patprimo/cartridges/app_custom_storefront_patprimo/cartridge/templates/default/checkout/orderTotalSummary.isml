@@ -1,0 +1,73 @@
+<div class="row leading-lines total-title collapse collapse-sm padR14Mob" data-toggle="collapse" data-target="#collapseTotalSummary">
+    <span>${Resource.msg('total.pay', 'checkout', null)} ${pdict.order.totals.grandTotal}</span>
+    <span class="show-collapse">${Resource.msg('mostrar.desglose', 'checkout', null)} </span>
+</div>
+
+<div id="collapseTotalSummary" class="collapse">
+    <isif condition="${pdict.currentStage === 'customer' || pdict.currentStage === 'shipping' ||
+        pdict.currentStage === 'payment'}">
+        <!--- Cupon code --->    
+        <isinclude template="checkout/components/addCoupon"/>
+    </isif>
+    <!--- Subtotal --->
+    <div class="row leading-lines subtotal-item">
+        <div class="col-6 ">
+            <p class="order-receipt-label RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond"><span>${Resource.msg('label.order.subtotal','confirmation', null)}</span></p>
+        </div>
+        <div class="col-6 ">
+            <p class="text-right"><span class="RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond">${pdict.order.totals.subTotal}</span></p>
+        </div>
+    </div>
+
+    <!--- Order Discount --->
+    <div class="row leading-lines order-discount <isif condition="${pdict.order.totals.orderLevelDiscountTotal.value === 0}">hide-order-discount</isif>">
+        <div class="col-6 ">
+            <p class="order-receipt-label RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond"><span>${Resource.msg('label.order.discount', 'orderConfirmation', null)}</span></p>
+        </div>
+        <div class="col-6 ">
+            <p class="text-right RedHatDisplayFont fontSize14"><span class="order-discount-total">- ${pdict.order.totals.orderLevelDiscountTotal.formatted}</span></p>
+        </div>
+    </div>
+
+    <!--- Shipping Cost --->
+    <div class="row leading-lines shipping-item">
+        <div class="col-6 ">
+            <p class="order-receipt-label RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond"><span>${Resource.msg('label.order.shipping.cost','confirmation', null)}</span></p>
+        </div>
+        <div class="col-6 ">
+            <p class="shipping-total-cost text-right"><span class="shipping-total-cost RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond">${pdict.order.totals.totalShippingCost}</span></p>
+        </div>
+    </div>
+
+    <!--- Shipping Discount --->
+    <div class="row leading-lines shipping-discount <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">hide-shipping-discount</isif>">
+        <div class="col-6 ">
+            <p class="order-receipt-label RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond"><span>${Resource.msg('label.shipping.discount', 'orderConfirmation', null)}</span></p>
+        </div>
+        <div class="col-6 ">
+            <p class="text-right cont-shipping-discount-total RedHatDisplayFont fontSize14 greyPatFont83 modMobTextSecond"><span class="shipping-discount-total">- ${pdict.order.totals.shippingLevelDiscountTotal.formatted}</span></p>
+        </div>
+    </div>
+
+    <!--- Sales Tax --->
+    <iscomment> <div class="row leading-lines sales-tax-item">
+        <div class="col-6 ">
+            <p class="order-receipt-label"><span>${Resource.msg('label.order.sales.tax','confirmation', null)}</span></p>
+        </div>
+        <div class="col-6 ">
+            <p class="text-right"><span class="tax-total">${pdict.order.totals.totalTax}</span></p>
+        </div>
+    </div> </iscomment>
+
+    <!--- Grand Total --->
+    <div class="row grand-total leading-lines">
+        <div class="col-6 ">
+            <p class="order-receipt-label font16-bold font14Extra"><span>${Resource.msg('label.order.grand.total','confirmation', null)}</span></p>
+        </div>
+        <div class="col-6 ">
+            <p class="text-right"><span class="grand-total-sum font16-bold font14Extra">${pdict.order.totals.grandTotal}</span></p>
+            <input type="hidden" class="grand-total-value" value="<isif condition="${pdict.newtotalGift > 0}">${pdict.newtotalGift}<iselse/>${pdict.order.totals.grandTotalValue}</isif>">
+        </div>
+    </div>
+
+</div>
